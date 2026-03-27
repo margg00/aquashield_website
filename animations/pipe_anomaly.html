@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaShield Building Monitor</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100vh; cursor: grab; }
+canvas:active { cursor: grabbing; }
+</style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+
+// --- Scene ---
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a0a0a, 0.006);
+
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 600);
+camera.position.set(55, 35, 60);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0x0a0a0a, 1);
+document.body.appendChild(renderer.domElement);
+
+// --- Controls ---
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.5;
+controls.target.set(0, 8, 0);
+controls.minDistance = 30;
+controls.maxDistance = 100;
+controls.maxPolarAngle = Math.PI * 0.7;
+controls.minPolarAngle = Math.PI * 0.1;
+controls.enablePan = false;
+controls.update();
+
+// --- Lighting ---
+scene.add(new THREE.AmbientLight(0x8899aa, 0.5));
+
+const keyLight = new THREE.DirectionalLight(0xaaccdd, 0.6);
+keyLight.position.set(20, 50, 25);
+scene.add(keyLight);
+
+const fillLight = new THREE.DirectionalLight(0x4488aa, 0.2);
+fillLight.position.set(-25, 15, -15);
+scene.add(fillLight);
+
+// Anomaly glow
+const anomalyLight = new THREE.PointLight(0xff6b4a, 0, 12);
+scene.add(anomalyLight);
+
+// Sensor ambient glow
+const sensorGlow = new THREE.PointLight(0x48b7e8, 0.3, 30);
+sensorGlow.position.set(0, 10, 0);
+scene.add(sensorGlow);
+
+// --- Ground grid ---
+const gridHelper = new THREE.GridHelper(100, 50, 0x0d1a22, 0x0a1118);
+gridHelper.position.y = -1;
+scene.add(gridHelper);
+
+// --- Materials ---
+const buildingEdgeMat = new THREE.LineBasicMaterial({ 
+    color: 0xc8dbe5, 
+    transparent: true, 
+    opacity: 0.82 
+});
+
+const buildingFillMat = new THREE.MeshPhysicalMaterial({
+    color: 0x0a1520,
+    transparent: true,
+    opacity: 0.06,
+    side: THREE.DoubleSide,
+    depthWrite: false
+});
+
+const floorMat = new THREE.MeshBasicMaterial({
+    color: 0xb8d1de,
+    transparent: true,
+    opacity: 0.16,
+    side: THREE.DoubleSide
+});
+
+const pipeMat = new THREE.MeshPhysicalMaterial({
+    color: 0x2a3a4a,
+    metalness: 0.9,
+    roughness: 0.3,
+    clearcoat: 0.4
+});
+
+const pipeActiveMat = new THREE.MeshPhysicalMaterial({
+    color: 0x1a6a8a,
+    metalness: 0.85,
+    roughness: 0.25,
+    clearcoat: 0.5,
+    emissive: 0x48b7e8,
+    emissiveIntensity: 0.15
+});
+
+const anomalyPipeMat = new THREE.MeshPhysicalMaterial({
+    color: 0x883322,
+    metalness: 0.5,
+    roughness: 0.3,
+    emissive: 0xff6b4a,
+    emissiveIntensity: 0.4
+});
+
+const sensorMat = new THREE.MeshPhysicalMaterial({
+    color: 0x2288aa,
+    metalness: 0.7,
+    roughness: 0.2,
+    emissive: 0x48b7e8,
+    emissiveIntensity: 0.3
+});
+
+const packetMat = new THREE.MeshBasicMaterial({ color: 0x48b7e8 });
+const packetGlowMat = new THREE.MeshBasicMaterial({
+    color: 0x48b7e8, transparent: true, opacity: 0.15
+});
+
+const anomalyPacketMat = new THREE.MeshBasicMaterial({ color: 0xff6b4a });
+const anomalyPacketGlowMat = new THREE.MeshBasicMaterial({
+    color: 0xff6b4a, transparent: true, opacity: 0.15
+});
+
+// --- Building geometry ---
+const bW = 22; // width (x)
+const bD = 16; // depth (z)
+const floorH = 5;
+const floors = 5;
+const bH = floors * floorH;
+const baseY = 0;
+
+// Building wireframe shell
+function addBuildingEdge(x1, y1, z1, x2, y2, z2) {
+    const geo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(x1, y1, z1),
+        new THREE.Vector3(x2, y2, z2)
+    ]);
+    scene.add(new THREE.Line(geo, buildingEdgeMat));
+}
+
+// Vertical edges
+const hx = bW / 2, hz = bD / 2;
+[[-hx, -hz], [hx, -hz], [hx, hz], [-hx, hz]].forEach(([x, z]) => {
+    addBuildingEdge(x, baseY, z, x, baseY + bH, z);
+});
+
+// Horizontal edges per floor
+for (let f = 0; f <= floors; f++) {
+    const y = baseY + f * floorH;
+    addBuildingEdge(-hx, y, -hz, hx, y, -hz);
+    addBuildingEdge(hx, y, -hz, hx, y, hz);
+    addBuildingEdge(hx, y, hz, -hx, y, hz);
+    addBuildingEdge(-hx, y, hz, -hx, y, -hz);
+}
+
+// Semi-transparent floor planes
+for (let f = 0; f <= floors; f++) {
+    const y = baseY + f * floorH;
+    const planeGeo = new THREE.PlaneGeometry(bW, bD);
+    const plane = new THREE.Mesh(planeGeo, floorMat);
+    plane.rotation.x = -Math.PI / 2;
+    plane.position.set(0, y, 0);
+    scene.add(plane);
+}
+
+// Semi-transparent walls (front and side only for visibility)
+const frontWallGeo = new THREE.PlaneGeometry(bW, bH);
+const frontWall = new THREE.Mesh(frontWallGeo, buildingFillMat);
+frontWall.position.set(0, baseY + bH / 2, hz);
+scene.add(frontWall);
+
+const sideWallGeo = new THREE.PlaneGeometry(bD, bH);
+const sideWall = new THREE.Mesh(sideWallGeo, buildingFillMat);
+sideWall.rotation.y = Math.PI / 2;
+sideWall.position.set(hx, baseY + bH / 2, 0);
+scene.add(sideWall);
+
+// --- Window outlines on front wall ---
+const windowMat = new THREE.LineBasicMaterial({ color: 0xd7e9f2, transparent: true, opacity: 0.88 });
+for (let f = 0; f < floors; f++) {
+    const wy = baseY + f * floorH + 1.5;
+    for (let w = 0; w < 4; w++) {
+        const wx = -hx + 3 + w * 5;
+        const pts = [
+            new THREE.Vector3(wx, wy, hz + 0.05),
+            new THREE.Vector3(wx + 3, wy, hz + 0.05),
+            new THREE.Vector3(wx + 3, wy + 2.8, hz + 0.05),
+            new THREE.Vector3(wx, wy + 2.8, hz + 0.05),
+            new THREE.Vector3(wx, wy, hz + 0.05),
+        ];
+        const winGeo = new THREE.BufferGeometry().setFromPoints(pts);
+        scene.add(new THREE.Line(winGeo, windowMat));
+    }
+}
+
+// --- Window outlines on side wall ---
+for (let f = 0; f < floors; f++) {
+    const wy = baseY + f * floorH + 1.5;
+    for (let w = 0; w < 3; w++) {
+        const wz = -hz + 2 + w * 5;
+        const pts = [
+            new THREE.Vector3(hx + 0.05, wy, wz),
+            new THREE.Vector3(hx + 0.05, wy, wz + 3),
+            new THREE.Vector3(hx + 0.05, wy + 2.8, wz + 3),
+            new THREE.Vector3(hx + 0.05, wy + 2.8, wz),
+            new THREE.Vector3(hx + 0.05, wy, wz),
+        ];
+        const winGeo = new THREE.BufferGeometry().setFromPoints(pts);
+        scene.add(new THREE.Line(winGeo, windowMat));
+    }
+}
+
+// --- Foundation pillars ---
+const pillarMat = new THREE.LineBasicMaterial({ color: 0xbdd6e3, transparent: true, opacity: 0.9 });
+for (let px = -hx + 3; px <= hx - 3; px += 5.5) {
+    for (let pz = -hz + 3; pz <= hz - 3; pz += 5) {
+        const pts = [
+            new THREE.Vector3(px, -1, pz),
+            new THREE.Vector3(px, baseY, pz)
+        ];
+        // Actually extend downward
+        pts[0].y = -3;
+        const geo = new THREE.BufferGeometry().setFromPoints(pts);
+        scene.add(new THREE.Line(geo, pillarMat));
+    }
+}
+
+// --- Pipe network inside building ---
+const pipeR = 0.35;
+const jointR = 0.5;
+const joints = new Set();
+
+function makePipe(p1, p2, mat) {
+    const d = p1.distanceTo(p2);
+    const geo = new THREE.CylinderGeometry(pipeR, pipeR, d, 10);
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.addVectors(p1, p2).multiplyScalar(0.5);
+    mesh.quaternion.setFromUnitVectors(
+        new THREE.Vector3(0, 1, 0),
+        p2.clone().sub(p1).normalize()
+    );
+    scene.add(mesh);
+}
+
+function makeJoint(pos, mat) {
+    const k = `${pos.x.toFixed(1)},${pos.y.toFixed(1)},${pos.z.toFixed(1)}`;
+    if (joints.has(k)) return;
+    joints.add(k);
+    const m = new THREE.Mesh(new THREE.SphereGeometry(jointR, 12, 12), mat);
+    m.position.copy(pos);
+    scene.add(m);
+}
+
+function connect(p1, p2, mat) {
+    makePipe(p1, p2, mat);
+    makeJoint(p1, mat);
+    makeJoint(p2, mat);
+}
+
+// Main riser — vertical pipe running through the building center-left
+const riserX = -3;
+const riserZ = -2;
+
+const riserNodes = [];
+for (let f = 0; f <= floors; f++) {
+    riserNodes.push(new THREE.Vector3(riserX, baseY + f * floorH + 0.5, riserZ));
+}
+// Below building — supply entry
+const supplyEntry = new THREE.Vector3(riserX, -3, riserZ);
+const supplyGround = new THREE.Vector3(riserX - 12, -3, riserZ);
+
+connect(supplyGround, supplyEntry, pipeActiveMat);
+connect(supplyEntry, riserNodes[0], pipeActiveMat);
+
+for (let i = 0; i < riserNodes.length - 1; i++) {
+    connect(riserNodes[i], riserNodes[i + 1], pipeActiveMat);
+}
+
+// Floor branches — horizontal pipes on each floor
+const anomalyFloor = 3; // Floor 4 (0-indexed = 3)
+const anomalyNode = new THREE.Vector3(riserX + 14, baseY + anomalyFloor * floorH + 0.5, riserZ + 6);
+
+const sensorDots = [];
+
+for (let f = 0; f < floors; f++) {
+    const y = baseY + f * floorH + 0.5;
+    const rNode = riserNodes[f];
+    const isAnomaly = (f === anomalyFloor);
+
+    // Right branch
+    const rightEnd = new THREE.Vector3(riserX + 14, y, riserZ);
+    connect(rNode, rightEnd, isAnomaly ? anomalyPipeMat : pipeMat);
+
+    // Right branch forward jog
+    const rightFwd = new THREE.Vector3(riserX + 14, y, riserZ + 6);
+    connect(rightEnd, rightFwd, isAnomaly ? anomalyPipeMat : pipeMat);
+
+    // Left branch
+    const leftEnd = new THREE.Vector3(riserX - 7, y, riserZ);
+    connect(rNode, leftEnd, pipeMat);
+
+    // Backward branch on some floors
+    if (f % 2 === 0) {
+        const backEnd = new THREE.Vector3(riserX, y, riserZ - 6);
+        connect(rNode, backEnd, pipeMat);
+    }
+
+    // Sensors on each floor
+    const sensorPos = new THREE.Vector3(riserX + 5, y, riserZ);
+    const torusGeo = new THREE.TorusGeometry(pipeR + 0.2, 0.12, 8, 14);
+    const torus = new THREE.Mesh(torusGeo, sensorMat);
+    torus.position.copy(sensorPos);
+    torus.rotation.z = Math.PI / 2;
+    scene.add(torus);
+
+    const dotGeo = new THREE.SphereGeometry(0.1, 8, 8);
+    const dotMat = new THREE.MeshBasicMaterial({ color: 0x48b7e8, transparent: true });
+    const dot = new THREE.Mesh(dotGeo, dotMat);
+    dot.position.set(sensorPos.x, sensorPos.y + pipeR + 0.25, sensorPos.z);
+    scene.add(dot);
+    sensorDots.push(dot);
+}
+
+// Anomaly light position
+anomalyLight.position.copy(anomalyNode);
+
+// Anomaly glow rings
+const anomalyRingGeo = new THREE.TorusGeometry(1.8, 0.06, 8, 32);
+const anomalyRingMat = new THREE.MeshBasicMaterial({
+    color: 0xff6b4a, transparent: true, opacity: 0.4
+});
+const anomalyRing = new THREE.Mesh(anomalyRingGeo, anomalyRingMat);
+anomalyRing.position.copy(anomalyNode);
+anomalyRing.rotation.x = Math.PI / 2;
+scene.add(anomalyRing);
+
+const anomalyRing2 = new THREE.Mesh(
+    new THREE.TorusGeometry(2.8, 0.04, 8, 32),
+    new THREE.MeshBasicMaterial({ color: 0xff6b4a, transparent: true, opacity: 0.2 })
+);
+anomalyRing2.position.copy(anomalyNode);
+anomalyRing2.rotation.x = Math.PI / 2;
+scene.add(anomalyRing2);
+
+// --- Flow packets ---
+const packets = [];
+const packetGeo = new THREE.SphereGeometry(0.25, 8, 8);
+const packetGlowGeo = new THREE.SphereGeometry(0.5, 6, 6);
+
+function spawnPacket(path, speed, isAnomaly) {
+    const mat = isAnomaly ? anomalyPacketMat : packetMat;
+    const glowMtl = isAnomaly ? anomalyPacketGlowMat : packetGlowMat;
+    const mesh = new THREE.Mesh(packetGeo, mat);
+    const glow = new THREE.Mesh(packetGlowGeo, glowMtl);
+    scene.add(mesh);
+    scene.add(glow);
+    packets.push({ mesh, glow, path, speed, seg: 0, t: Math.random() });
+}
+
+// Normal flow paths
+for (let f = 0; f < floors; f++) {
+    if (f === anomalyFloor) continue;
+    const y = baseY + f * floorH + 0.5;
+    const rNode = riserNodes[f];
+    const rightEnd = new THREE.Vector3(riserX + 14, y, riserZ);
+    const leftEnd = new THREE.Vector3(riserX - 7, y, riserZ);
+    
+    spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, f + 1), rightEnd], 0.003 + Math.random() * 0.001, false);
+    spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, f + 1), leftEnd], 0.0025 + Math.random() * 0.001, false);
+}
+
+// Anomaly floor — faster, orange packets
+const anomalyY = baseY + anomalyFloor * floorH + 0.5;
+const anomalyRightEnd = new THREE.Vector3(riserX + 14, anomalyY, riserZ);
+const anomalyFwdEnd = new THREE.Vector3(riserX + 14, anomalyY, riserZ + 6);
+
+spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, anomalyFloor + 1), anomalyRightEnd, anomalyFwdEnd], 0.006, true);
+spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, anomalyFloor + 1), anomalyRightEnd, anomalyFwdEnd], 0.007, true);
+spawnPacket([riserNodes[anomalyFloor], anomalyRightEnd, anomalyFwdEnd], 0.005, true);
+
+// Supply entry packet
+spawnPacket([supplyGround, supplyEntry, riserNodes[0], riserNodes[1], riserNodes[2]], 0.002, false);
+
+// --- Signal rings emanating from building (subtle) ---
+const signalRings = [];
+const signalRingMat = new THREE.MeshBasicMaterial({
+    color: 0x48b7e8, transparent: true, opacity: 0, side: THREE.DoubleSide
+});
+
+for (let i = 0; i < 3; i++) {
+    const ringGeo = new THREE.RingGeometry(12, 12.3, 32);
+    const ring = new THREE.Mesh(ringGeo, signalRingMat.clone());
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.set(0, baseY + bH + 2, 0);
+    ring.userData.phase = i * 2.1;
+    scene.add(ring);
+    signalRings.push(ring);
+}
+
+// --- Animation ---
+const clock = new THREE.Clock();
+
+function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    controls.update();
+
+    // Anomaly pulse
+    const pulse = (Math.sin(t * 2.5) + 1) / 2;
+    anomalyPipeMat.emissiveIntensity = 0.2 + pulse * 0.4;
+    anomalyLight.intensity = 0.3 + pulse * 1.2;
+    anomalyRing.scale.setScalar(1 + pulse * 0.5);
+    anomalyRingMat.opacity = 0.1 + pulse * 0.3;
+    anomalyRing2.scale.setScalar(1 + pulse * 0.3);
+    anomalyRing2.material.opacity = 0.05 + pulse * 0.15;
+
+    // Sensor blinks
+    sensorDots.forEach((dot, i) => {
+        const blink = (Math.sin(t * 1.6 + i * 1.4) + 1) / 2;
+        dot.material.opacity = 0.3 + blink * 0.7;
+        dot.scale.setScalar(0.7 + blink * 0.5);
+    });
+
+    // Active pipe glow
+    pipeActiveMat.emissiveIntensity = 0.1 + (Math.sin(t * 1.2) + 1) / 2 * 0.1;
+
+    // Packets
+    packets.forEach(p => {
+        p.t += p.speed;
+        if (p.t >= 1) {
+            p.t = 0;
+            p.seg++;
+            if (p.seg >= p.path.length - 1) p.seg = 0;
+        }
+        const a = p.path[p.seg];
+        const b = p.path[p.seg + 1];
+        if (a && b) {
+            p.mesh.position.lerpVectors(a, b, p.t);
+            p.glow.position.copy(p.mesh.position);
+        }
+    });
+
+    // Signal rings expanding outward from building
+    signalRings.forEach(ring => {
+        const phase = ((t + ring.userData.phase) % 4) / 4;
+        const scale = 1 + phase * 2;
+        ring.scale.setScalar(scale);
+        ring.material.opacity = Math.max(0, 0.12 * (1 - phase));
+    });
+
+    renderer.render(scene, camera);
+}
+
+addEventListener('resize', () => {
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+});
+
+animate();
+</script>
+</body>
+</html>

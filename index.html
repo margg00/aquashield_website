@@ -1,224 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AquaShield – AI Water Leak Detection</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AI-powered water leak detection and localization for large buildings." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="AquaShield helps large multifamily operators detect leaks early with water intelligence."
+  >
+  <title>AquaShield | Make Hidden Water Networks Visible</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="bg">
-    <div class="bg__grid"></div>
-    <div class="bg__glow bg__glow--a"></div>
-    <div class="bg__glow bg__glow--b"></div>
-  </div>
-
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#top" aria-label="AquaShield home">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__name">AquaShield</span>
-      </a>
-
-      <nav class="nav">
-        <a href="#problem">Problem</a>
-        <a href="#solution">Solution</a>
-        <a href="#for">Who it’s for</a>
-        <a href="#validation">Validation</a>
-      </nav>
-
-      <a class="btn btn--primary" href="mailto:contact@aquashieldai.com">Request a pilot</a>
+  <!-- Header / top navigation -->
+  <header class="site-header" data-header>
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="AquaShield home"></a>
+      <a class="nav-cta" href="#contact">Get in touch</a>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <p class="kicker">AI protection against water leaks</p>
-          <h1>Making hidden water networks visible.</h1>
-          <p class="lead">
-            Portfolio-wide monitoring with minimal hardware. Detect anomalies early, reduce damage, and act fast.
+    <!-- Hero -->
+    <section class="hero" data-reveal-section>
+      <div class="hero-grid"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy" data-reveal data-reveal-delay="0">
+          <p class="eyebrow">Water leak detection for real estate</p>
+          <h1>Make hidden water networks <span>visible</span></h1>
+          <p class="hero-tagline">The smoke detector for your building's water system.</p>
+          <p class="hero-subtitle">
+            The water intelligence platform for large real estate portfolios.
+            Detect leaks before they become disasters.
           </p>
-
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="mailto:contact@aquashieldai.com">Request a pilot</a>
-            <a class="btn btn--ghost" href="#solution">See how it works</a>
+          <div class="hero-actions">
+            <a class="primary-cta" href="#contact">Start a pilot rollout</a>
           </div>
-
-          <div class="stats" aria-label="Key numbers">
-            <div class="stat">
-              <div class="stat__num">$13B</div>
-              <div class="stat__label">annual claims (US)</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num">1 in 2</div>
-              <div class="stat__label">claims (Germany)</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num">24/7</div>
-              <div class="stat__label">monitoring</div>
-            </div>
+          <div class="hero-trust">
+            <img src="logos/Y_Combinator_logo.svg" alt="Y Combinator logo">
+            <span>Backed by Y Combinator</span>
           </div>
         </div>
 
-        <div class="hero__panel" aria-hidden="true">
-          <div class="panel">
-            <div class="panel__header">
-              <span class="dot dot--ok"></span>
-              <span class="dot dot--warn"></span>
-              <span class="dot dot--bad"></span>
-              <span class="panel__title">Flow Network Status</span>
-            </div>
-            <div class="panel__body">
-              <div class="panel__row">
-                <span class="mono">STATUS</span>
-                <span class="pill pill--ok">Monitoring</span>
-              </div>
-              <div class="panel__row">
-                <span class="mono">SIGNAL</span>
-                <span class="pill">Stable</span>
-              </div>
-              <div class="panel__row">
-                <span class="mono">ANOMALY</span>
-                <span class="pill pill--warn">Low probability</span>
-              </div>
-              <div class="panel__line"></div>
-              <p class="panel__hint mono">Non-invasive • Meter + clamp-on • Building-scale</p>
-            </div>
+        <div class="hero-visual" aria-label="AquaShield water network animation" data-reveal data-reveal-delay="1">
+          <div class="blob-shell">
+            <iframe
+              class="blob-frame"
+              src="animations/house_anomaly.html?hero=1"
+              title="AquaShield building animation"
+              loading="eager"
+              tabindex="-1"
+            ></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="problem" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2>The problem</h2>
-          <p class="muted">
-            Hidden leaks silently trigger a chain of costs: repairs, tenant disruption, insurance friction, and wasted water.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Late detection</h3>
-            <p>Small leaks become large events before anyone notices—especially across multi-building portfolios.</p>
-          </article>
-          <article class="card">
-            <h3>Costly response</h3>
-            <p>Repairs scale quickly with time: materials, labor, downtime, and secondary damage.</p>
-          </article>
-          <article class="card">
-            <h3>Limited visibility</h3>
-            <p>Most buildings lack granular insight into internal water networks.</p>
-          </article>
-        </div>
+    <!-- Social proof logo band -->
+    <section class="proof-strip" aria-label="Social proof" data-reveal-section>
+      <div class="container proof-layout">
+        <p data-reveal data-reveal-delay="0">Protecting <span>residential portfolios</span> worldwide.</p>
+        <ul class="proof-logos" aria-label="Affiliations">
+          <li class="proof-logo-mit" data-reveal data-reveal-delay="1">
+            <img src="logos/MIT_logo.svg" alt="MIT logo">
+          </li>
+          <li data-reveal data-reveal-delay="2">
+            <img src="logos/EPGL_logo.svg" alt="EPFL logo">
+          </li>
+          <li class="proof-logo-yc" data-reveal data-reveal-delay="3">
+            <img src="logos/Y_Combinator_logo_cutout.svg" alt="Y Combinator logo">
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section id="solution" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2>Our solution</h2>
-          <p class="muted">
-            AI-driven detection and localization using existing meters and clamp-on sensors—no pipe cutting, no disruption.
-          </p>
-        </div>
+    <!-- Solution section: pipes row + dashboard row -->
+    <section class="solution-section" id="solution">
+      <div class="container solution-stack">
+        <div class="solution-top" data-reveal-section>
+          <aside class="solution-panel solution-panel-embed" aria-label="Water network solution preview" data-reveal data-reveal-delay="0">
+            <iframe
+              class="pipe-network-frame"
+              src="animations/pipe_network.html"
+              title="AquaShield pipe network animation"
+              loading="eager"
+              tabindex="-1"
+            ></iframe>
+          </aside>
 
-        <div class="split">
-          <article class="card card--feature">
-            <div class="badge">AquaShield Detect</div>
-            <h3>Portfolio-scale early warning</h3>
-            <p>Meter-level monitoring to detect anomalies fast and prioritize response.</p>
-            <ul class="list">
-              <li>Non-invasive install</li>
-              <li>Low friction rollout</li>
-              <li>Actionable alerts</li>
-            </ul>
-          </article>
-
-          <article class="card card--feature">
-            <div class="badge badge--alt">AquaShield Localize</div>
-            <h3>Pinpoint the leak zone</h3>
-            <p>Distributed clamp-on sensing to localize issues within the building network.</p>
-            <ul class="list">
-              <li>Segment-level insight</li>
-              <li>Faster diagnostics</li>
-              <li>Reduced repair scope</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="for" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2>Who it’s for</h2>
-          <p class="muted">Built for teams responsible for uptime, cost, and risk across buildings.</p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Real-estate portfolios</h3>
-            <p>Standardize monitoring across assets and benchmark risk.</p>
-          </article>
-          <article class="card">
-            <h3>Facilities & maintenance</h3>
-            <p>Get early signals and focus field time where it matters.</p>
-          </article>
-          <article class="card">
-            <h3>Insurers & risk</h3>
-            <p>Reduce severity, improve documentation, and accelerate resolution.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="validation" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2>Pilots & validation</h2>
-          <p class="muted">
-            Pilot deployments with academic and institutional partners, with commercial rollouts starting in large residential portfolios.
-          </p>
-        </div>
-
-        <div class="callout">
-          <div>
-            <p class="callout__title">Interested in a pilot?</p>
-            <p class="callout__text muted">We’ll assess fit quickly and propose a low-friction deployment plan.</p>
+          <div class="solution-copy" data-reveal data-reveal-delay="1">
+            <div class="section-heading">
+              <span class="section-kicker">How it works</span>
+              <h2>Full visibility. Zero disruption.</h2>
+              <p>
+                Non-invasive sensors clamp onto existing pipes in minutes. Alerts go live within 24 hours.
+                No construction, no downtime, no disruption to residents.
+              </p>
+            </div>
           </div>
-          <a class="btn btn--primary" href="mailto:contact@aquashieldai.com">Contact</a>
+        </div>
+
+        <div class="solution-bottom" data-reveal-section>
+          <div class="solution-steps" data-reveal data-reveal-delay="2">
+            <div class="section-heading">
+              <span class="section-kicker">Real-time monitoring</span>
+              <h2>Catch leaks before they turn catastrophic</h2>
+              <p>
+                AquaShield learns your building's normal flow patterns and flags anomalies the moment they happen.
+                Prioritize where your team goes first.
+              </p>
+            </div>
+          </div>
+
+          <aside class="dashboard-panel" aria-label="AquaShield dashboard preview" data-reveal data-reveal-delay="3">
+            <iframe
+              class="dashboard-frame"
+              src="animations/house_anomaly.html"
+              title="AquaShield dashboard preview"
+              loading="eager"
+              scrolling="no"
+              tabindex="-1"
+            ></iframe>
+          </aside>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer__inner">
-        <div class="footer__left">
-          <span class="brand__name">AquaShield</span>
-          <span class="muted">© <span id="year"></span></span>
+    <!-- Pilot/contact section -->
+    <section class="contact-section" id="contact" data-reveal-section>
+      <div class="container contact-layout">
+        <div class="contact-copy" data-reveal data-reveal-delay="0">
+          <div class="section-heading">
+            <span class="section-kicker">Pilot program</span>
+            <h2>Never miss a leak again</h2>
+          </div>
+
+          <p class="contact-blurb">No pipe cutting — sensors clamp onto existing pipes and we handle the rest, from network mapping to sensor placement.</p>
         </div>
-        <div class="footer__right">
-          <a href="mailto:contact@aquashieldai.com">contact@aquashieldai.com</a>
+
+        <div class="contact-card" data-reveal data-reveal-delay="1">
+          <form
+            class="contact-form"
+            data-contact-form
+            action="https://formspree.io/f/mqeyjeqn"
+            method="POST"
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="AquaShield pilot program inquiry">
+            <div class="field-grid">
+              <label>
+                <span>Full name</span>
+                <input type="text" name="fullName" autocomplete="name" required>
+              </label>
+
+              <label>
+                <span>Work email</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+
+              <label>
+                <span>Company</span>
+                <input type="text" name="company" autocomplete="organization" required>
+              </label>
+
+              <label>
+                <span>Portfolio size</span>
+                <select name="portfolioSize" required>
+                  <option value="">Select portfolio size</option>
+                  <option>Under 1,000 units</option>
+                  <option>1,000–10,000 units</option>
+                  <option>10,000–50,000 units</option>
+                  <option>50,000+ units</option>
+                </select>
+              </label>
+
+              <label class="field-span-full">
+                <span>Message (optional)</span>
+                <textarea name="message" rows="4" placeholder="Tell us about your portfolio, pilot goals, or timeline."></textarea>
+              </label>
+            </div>
+
+            <button type="submit" class="primary-cta primary-cta-wide">Request a pilot</button>
+            <p class="form-note" data-form-note aria-live="polite"></p>
+          </form>
         </div>
       </div>
-    </footer>
+    </section>
   </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>AquaShield &copy; 2026</p>
+      <div class="footer-social">
+        <a href="mailto:founders@aquashieldai.com" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!--
+  <aside class="theme-debug" aria-label="Debug theme controls" data-theme-debug>
+    <div class="theme-debug__header">
+      <div>
+        <p class="theme-debug__eyebrow">Debug</p>
+        <h3>Accent color picker</h3>
+      </div>
+      <button type="button" class="theme-debug__toggle" data-theme-toggle aria-expanded="true">Hide</button>
+    </div>
+
+    <div class="theme-debug__body" data-theme-body>
+      <p>Adjust the main brand accent live. Buttons, highlighted titles, and section labels update together.</p>
+
+      <div class="theme-debug__fields">
+        <label class="theme-debug__field">
+          <span>
+            Primary accent
+            <code data-theme-value="accent">#38b6ff</code>
+          </span>
+          <input type="color" value="#38b6ff" data-theme-input="accent">
+        </label>
+      </div>
+
+      <div class="theme-debug__actions">
+        <button type="button" class="theme-debug__button" data-theme-reset>Reset</button>
+      </div>
+    </div>
+  </aside>
+  -->
+
+  <script src="script.js"></script>
 </body>
 </html>
-

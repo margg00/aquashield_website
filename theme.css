@@ -1,0 +1,125 @@
+/* =========================================
+   AquaShield Theme Tokens
+   Brand colors, spacing, shadows, radii
+   ========================================= */
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #131313;
+  --bg-card: #181818;
+  --bg-card-strong: #1d1d1d;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.66);
+  --text-muted: rgba(255, 255, 255, 0.44);
+  --text-dark: #0f1417;
+  --accent: #38b6ff;
+  --accent-rgb: 56 182 255;
+  --accent-bright: #00f0ff;
+  --accent-bright-rgb: 0 240 255;
+  --accent-light: #b6deef;
+  --accent-light-rgb: 182 222 239;
+  --accent-ink: #041017;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgb(var(--accent-rgb) / 0.24);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
+  --container: min(1140px, calc(100vw - 40px));
+}
+
+/* =========================================
+   Base Reset
+   Element-level normalization only
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+img,
+svg,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================
+   Shared Typography
+   One type family across brand, headings, body
+   ========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+input,
+select,
+button {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* =========================================
+   Accessibility / Motion
+   Focus states and reduced motion handling
+   ========================================= */
+
+:focus-visible {
+  outline: 2px solid rgb(var(--accent-rgb) / 0.8);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

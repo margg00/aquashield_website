@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaShield 3D Droplet</title>
+    <style>
+        /* Keeps the canvas perfectly fitted to its container and sets the dark background */
+        body { margin: 0; background-color: #0b0b0f; overflow: hidden; }
+        canvas { display: block; width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script>
+        // Hero-only blob animation used in the first section of the page.
+        // 1. Setup Scene, Camera, and Renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // 2. Create the Sphere Geometry
+        // 64, 64 dictates the density of the wireframe grid
+        const geometry = new THREE.SphereGeometry(2, 64, 64);
+
+        // Store original positions so we have a baseline to animate from
+        const positions = geometry.attributes.position;
+        const originalPositions = positions.clone();
+        const colors = new Float32Array(positions.count * 3);
+        const colorAttribute = new THREE.BufferAttribute(colors, 3);
+        const gradientColor = new THREE.Color();
+        const horizontalColor = new THREE.Color();
+        const finalColor = new THREE.Color();
+        const toneA = new THREE.Color();
+        const toneB = new THREE.Color();
+        const toneC = new THREE.Color();
+        const toneD = new THREE.Color();
+        const toneE = new THREE.Color();
+
+        function normalizeHexColor(value) {
+            const color = String(value || "").trim();
+            return /^#[0-9a-f]{6}$/i.test(color) ? color.toLowerCase() : "#48b7e8";
+        }
+
+        function mixHex(hex, targetHex, amount) {
+            const source = new THREE.Color(normalizeHexColor(hex));
+            const target = new THREE.Color(normalizeHexColor(targetHex));
+            source.lerp(target, amount);
+            return source;
+        }
+
+        function applyBlobPalette(accentHex) {
+            const accent = normalizeHexColor(accentHex);
+
+            toneA.copy(mixHex(accent, "#000000", 0.9));
+            toneB.copy(mixHex(accent, "#000000", 0.76));
+            toneC.copy(mixHex(accent, "#000000", 0.58));
+            toneD.copy(mixHex(accent, "#000000", 0.34));
+            toneE.set(accent);
+
+            for (let i = 0; i < positions.count; i++) {
+                const vx = originalPositions.getX(i);
+                const vy = originalPositions.getY(i);
+                const vz = originalPositions.getZ(i);
+                const verticalMix = THREE.MathUtils.clamp((vy + 2) / 4, 0, 1);
+                const horizontalMix = THREE.MathUtils.clamp((vx - vz + 4) / 8, 0, 1);
+                const depthMix = THREE.MathUtils.clamp((vz + 2) / 4, 0, 1);
+
+                if (verticalMix < 0.33) {
+                    gradientColor.lerpColors(toneA, toneB, verticalMix / 0.33);
+                } else if (verticalMix < 0.66) {
+                    gradientColor.lerpColors(toneB, toneC, (verticalMix - 0.33) / 0.33);
+                } else {
+                    gradientColor.lerpColors(toneC, toneD, (verticalMix - 0.66) / 0.34);
+                }
+
+                horizontalColor.lerpColors(toneB, toneE, horizontalMix);
+                finalColor.lerpColors(gradientColor, horizontalColor, 0.42 + depthMix * 0.16);
+
+                colorAttribute.setXYZ(i, finalColor.r, finalColor.g, finalColor.b);
+            }
+
+            colorAttribute.needsUpdate = true;
+        }
+
+        geometry.setAttribute("color", colorAttribute);
+        applyBlobPalette("#48b7e8");
+
+        // 3. Single gradient wireframe material
+        const material = new THREE.MeshBasicMaterial({
+            vertexColors: true,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.82
+        });
+
+        // 4. Combine into a single Mesh and add to Scene
+        const blob = new THREE.Mesh(geometry, material);
+        blob.scale.setScalar(1.12);
+        scene.add(blob);
+        camera.position.z = 5;
+
+        // 5. Animation Loop (Rotation and Pulsating)
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const time = clock.getElapsedTime();
+
+            // Rotate the entire mesh slowly
+            blob.rotation.x += 0.002;
+            blob.rotation.y += 0.003;
+
+            // Wobble effect: manipulate individual vertices mathematically
+            for (let i = 0; i < positions.count; i++) {
+                const vx = originalPositions.getX(i);
+                const vy = originalPositions.getY(i);
+                const vz = originalPositions.getZ(i);
+
+                // Create interacting sine waves for an organic liquid/data feel
+                const wave1 = Math.sin(vx * 2 + time * 1.5) * 0.1;
+                const wave2 = Math.cos(vy * 2 + time * 1.5) * 0.1;
+                const wave3 = Math.sin(vz * 2 + time * 1.5) * 0.1;
+
+                // Push the vertex outward/inward along its normal
+                const length = Math.sqrt(vx*vx + vy*vy + vz*vz);
+                const nx = vx / length;
+                const ny = vy / length;
+                const nz = vz / length;
+
+                const displacement = wave1 + wave2 + wave3;
+
+                positions.setXYZ(
+                    i,
+                    vx + nx * displacement,
+                    vy + ny * displacement,
+                    vz + nz * displacement
+                );
+            }
+            
+            // Tell Three.js the geometry has changed so it re-renders the shape
+            positions.needsUpdate = true;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        try {
+            const storedAccent = window.localStorage.getItem("aquashield-theme-debug");
+            if (storedAccent) {
+                applyBlobPalette(storedAccent);
+            }
+        } catch (error) {
+            // Ignore storage access issues and keep the default palette.
+        }
+
+        window.addEventListener("message", (event) => {
+            if (event.data?.type !== "aquashield-accent" || !event.data.accent) {
+                return;
+            }
+
+            applyBlobPalette(event.data.accent);
+        });
+
+        // 6. Make it responsive to screen resizing
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

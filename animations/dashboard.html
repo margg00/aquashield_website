@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaShield Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow: hidden; }
+body { background: #0a0a0a; font-family: 'Inter', system-ui, sans-serif; color: #fff; }
+
+.dashboard {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+}
+
+.panel {
+    background: linear-gradient(180deg, rgba(20, 22, 28, 0.98), rgba(14, 15, 19, 0.98));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+
+/* --- Header bar --- */
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.8);
+}
+
+.panel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #48b7e8;
+    box-shadow: 0 0 6px rgba(72,183,232,0.5);
+    animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.panel-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.badge-live {
+    background: rgba(72,183,232,0.12);
+    color: #48b7e8;
+    border: 1px solid rgba(72,183,232,0.2);
+}
+
+.badge-live::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #48b7e8;
+    animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+/* --- Building selector tabs --- */
+.building-tabs {
+    display: flex;
+    gap: 2px;
+    padding: 12px 20px 0;
+}
+
+.building-tab {
+    padding: 7px 14px;
+    border-radius: 8px 8px 0 0;
+    border: none;
+    background: rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.35);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.building-tab:hover {
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+}
+
+.building-tab.is-active {
+    color: #48b7e8;
+    background: rgba(72,183,232,0.08);
+    border-bottom: 2px solid #48b7e8;
+}
+
+/* --- Chart area --- */
+.chart-area {
+    padding: 16px 20px 12px;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+}
+
+.legend-dot {
+    width: 8px;
+    height: 3px;
+    border-radius: 2px;
+}
+
+.legend-expected { background: rgba(72,183,232,0.5); }
+.legend-actual { background: #48b7e8; }
+.legend-anomaly { background: #ff6b4a; }
+
+.chart-wrap {
+    position: relative;
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 14px;
+    padding: 14px 14px 8px;
+}
+
+.chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tooltip */
+.chart-tip {
+    position: absolute;
+    padding: 8px 12px;
+    background: rgba(7,10,14,0.95);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 120ms ease;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    z-index: 5;
+}
+
+.chart-tip.is-visible { opacity: 1; }
+
+.tip-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tip-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tip-expected { color: rgba(72,183,232,0.7); }
+.tip-actual { color: #48b7e8; }
+.tip-anomaly { color: #ff6b4a; }
+
+/* Anomaly alert banner */
+.alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 20px;
+    padding: 10px 14px;
+    background: rgba(255,107,74,0.06);
+    border: 1px solid rgba(255,107,74,0.15);
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: alert-in 500ms ease forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes alert-in {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-icon {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(255,107,74,0.12);
+    color: #ff6b4a;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.alert-text {
+    flex: 1;
+}
+
+.alert-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ff6b4a;
+}
+
+.alert-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 1px;
+}
+
+.alert-time {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.06em;
+}
+
+/* --- Stats row --- */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 14px 20px 18px;
+}
+
+.stat-card {
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px;
+}
+
+.stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-top: 4px;
+}
+
+.stat-accent { color: #48b7e8; }
+.stat-warn { color: #ff6b4a; }
+.stat-ok { color: #48b7e8; }
+
+.stat-delta {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 2px;
+    color: rgba(255,255,255,0.25);
+}
+
+/* Chart line draw animation */
+.line-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-line 2s ease forwards;
+}
+
+.line-draw-delayed {
+    animation-delay: 0.3s;
+}
+
+@keyframes draw-line {
+    to { stroke-dashoffset: 0; }
+}
+
+.area-fade {
+    opacity: 0;
+    animation: fade-in 800ms ease forwards;
+    animation-delay: 1.8s;
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
+
+/* Anomaly zone highlight */
+.anomaly-zone {
+    opacity: 0;
+    animation: fade-in 600ms ease forwards;
+    animation-delay: 2s;
+}
+
+/* Interactive hover zones */
+.hover-zone {
+    cursor: crosshair;
+    fill: transparent;
+}
+
+.scan-line {
+    opacity: 0;
+    transition: opacity 100ms ease;
+}
+
+.chart-wrap:hover .scan-line {
+    opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="dashboard">
+<div class="panel">
+
+    <div class="panel-header">
+        <div class="panel-title">
+            <span class="panel-dot"></span>
+            AquaShield v2.1 — Portfolio view
+        </div>
+        <span class="panel-badge badge-live">Monitoring</span>
+    </div>
+
+    <div class="building-tabs">
+        <button class="building-tab is-active" data-building="a12">Bldg A-12</button>
+        <button class="building-tab" data-building="a13">Bldg A-13</button>
+        <button class="building-tab" data-building="b07">Bldg B-07</button>
+        <button class="building-tab" data-building="all">All units</button>
+    </div>
+
+    <div class="chart-area">
+        <div class="chart-legend">
+            <span class="legend-item"><span class="legend-dot legend-expected"></span>Expected flow</span>
+            <span class="legend-item"><span class="legend-dot legend-actual"></span>Actual flow</span>
+            <span class="legend-item"><span class="legend-dot legend-anomaly"></span>Anomaly</span>
+        </div>
+
+        <div class="chart-wrap" id="chartWrap">
+            <svg class="chart-svg" viewBox="0 0 440 200" id="chartSvg">
+                <defs>
+                    <linearGradient id="expectedFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#48b7e8" stop-opacity="0.06"/>
+                        <stop offset="100%" stop-color="#48b7e8" stop-opacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="anomalyFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#ff6b4a" stop-opacity="0.1"/>
+                        <stop offset="100%" stop-color="#ff6b4a" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- Grid lines -->
+                <line x1="30" y1="30" x2="420" y2="30" stroke="rgba(255,255,255,0.03)" stroke-dasharray="3 6"/>
+                <line x1="30" y1="70" x2="420" y2="70" stroke="rgba(255,255,255,0.03)" stroke-dasharray="3 6"/>
+                <line x1="30" y1="110" x2="420" y2="110" stroke="rgba(255,255,255,0.03)" stroke-dasharray="3 6"/>
+                <line x1="30" y1="150" x2="420" y2="150" stroke="rgba(255,255,255,0.03)" stroke-dasharray="3 6"/>
+
+                <!-- Y-axis labels -->
+                <text x="22" y="33" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="end" font-family="Inter">800</text>
+                <text x="22" y="73" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="end" font-family="Inter">600</text>
+                <text x="22" y="113" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="end" font-family="Inter">400</text>
+                <text x="22" y="153" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="end" font-family="Inter">200</text>
+
+                <!-- X-axis labels -->
+                <text x="40" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter">00:00</text>
+                <text x="118" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter">04:00</text>
+                <text x="196" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter">08:00</text>
+                <text x="274" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter">12:00</text>
+                <text x="352" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter">16:00</text>
+                <text x="420" y="185" fill="rgba(255,255,255,0.15)" font-size="9" text-anchor="middle" font-family="Inter">20:00</text>
+
+                <!-- Expected flow area fill -->
+                <path id="expectedArea" class="area-fade" d="M40 130 C70 128, 90 120, 118 108 C146 96, 170 80, 196 72 C222 64, 248 68, 274 76 C300 84, 320 96, 352 104 C370 108, 400 118, 420 124 L420 170 L40 170 Z" fill="url(#expectedFill)"/>
+
+                <!-- Expected flow line (baseline pattern) -->
+                <path id="expectedLine" class="line-draw" d="M40 130 C70 128, 90 120, 118 108 C146 96, 170 80, 196 72 C222 64, 248 68, 274 76 C300 84, 320 96, 352 104 C370 108, 400 118, 420 124" fill="none" stroke="rgba(72,183,232,0.3)" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- Anomaly divergence zone background -->
+                <path id="anomalyFillPath" class="anomaly-zone" d="M310 90 C330 72, 350 52, 370 38 C385 28, 400 22, 420 30 L420 124 C400 118, 370 108, 352 104 C320 96, 310 90, 310 90 Z" fill="url(#anomalyFill)"/>
+
+                <!-- Actual flow line — diverges after 14:00 -->
+                <path id="actualLine" class="line-draw line-draw-delayed" d="M40 128 C70 126, 90 118, 118 106 C146 94, 170 78, 196 70 C222 62, 248 66, 274 74 C295 80, 310 78, 330 60 C350 42, 370 30, 390 24 C405 20, 414 22, 420 28" fill="none" stroke="#48b7e8" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- Anomaly marker -->
+                <g id="anomalyMarker" class="anomaly-zone">
+                    <circle id="anomalyOuter" cx="390" cy="24" r="14" fill="rgba(255,107,74,0.08)" stroke="rgba(255,107,74,0.2)" stroke-width="1"/>
+                    <circle id="anomalyInner" cx="390" cy="24" r="8" fill="rgba(255,107,74,0.12)" stroke="rgba(255,107,74,0.3)" stroke-width="1">
+                        <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle id="anomalyCore" cx="390" cy="24" r="3" fill="#ff6b4a"/>
+                    <!-- Exclamation mark -->
+                    <text id="anomalyMarkText" x="390" y="22" fill="#ff6b4a" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central" font-family="Inter">!</text>
+                </g>
+
+                <!-- Interactive hover columns -->
+                <g id="hoverZones"></g>
+
+                <!-- Scan line (follows mouse) -->
+                <line class="scan-line" id="scanLine" x1="0" y1="20" x2="0" y2="170" stroke="rgba(72,183,232,0.2)" stroke-width="1" stroke-dasharray="2 3"/>
+            </svg>
+
+            <div class="chart-tip" id="chartTip">
+                <div class="tip-label" id="tipLabel"></div>
+                <div class="tip-row">
+                    <span class="tip-expected" id="tipExpected"></span>
+                    <span style="color:rgba(255,255,255,0.15)">|</span>
+                    <span class="tip-actual" id="tipActual"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert banner -->
+    <div class="alert-banner">
+        <div class="alert-icon">⚠</div>
+        <div class="alert-text">
+            <div class="alert-title">Flow anomaly — Riser B, Floor 4</div>
+            <div class="alert-desc">Actual flow exceeds baseline by 340%. Possible leak event.</div>
+        </div>
+        <div class="alert-time">2m ago</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-label">Sensors</div>
+            <div class="stat-value stat-accent">186</div>
+            <div class="stat-delta">All reporting</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Anomalies</div>
+            <div class="stat-value stat-warn">1</div>
+            <div class="stat-delta">Last 24h</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Status</div>
+            <div class="stat-value stat-ok">Secure</div>
+            <div class="stat-delta">98.7% uptime</div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+// --- Interactive chart hover ---
+const chartWrap = document.getElementById('chartWrap');
+const chartSvg = document.getElementById('chartSvg');
+const scanLine = document.getElementById('scanLine');
+const chartTip = document.getElementById('chartTip');
+const tipLabel = document.getElementById('tipLabel');
+const tipExpected = document.getElementById('tipExpected');
+const tipActual = document.getElementById('tipActual');
+const expectedArea = document.getElementById('expectedArea');
+const expectedLine = document.getElementById('expectedLine');
+const actualLine = document.getElementById('actualLine');
+const anomalyFillPath = document.getElementById('anomalyFillPath');
+const anomalyOuter = document.getElementById('anomalyOuter');
+const anomalyInner = document.getElementById('anomalyInner');
+const anomalyCore = document.getElementById('anomalyCore');
+const anomalyMarkText = document.getElementById('anomalyMarkText');
+
+const buildingSeries = {
+    a12: {
+        expectedArea: "M40 130 C70 128, 90 120, 118 108 C146 96, 170 80, 196 72 C222 64, 248 68, 274 76 C300 84, 320 96, 352 104 C370 108, 400 118, 420 124 L420 170 L40 170 Z",
+        expectedLine: "M40 130 C70 128, 90 120, 118 108 C146 96, 170 80, 196 72 C222 64, 248 68, 274 76 C300 84, 320 96, 352 104 C370 108, 400 118, 420 124",
+        actualLine: "M40 128 C70 126, 90 118, 118 106 C146 94, 170 78, 196 70 C222 62, 248 66, 274 74 C295 80, 310 78, 330 60 C350 42, 370 30, 390 24 C405 20, 414 22, 420 28",
+        anomalyFill: "M310 90 C330 72, 350 52, 370 38 C385 28, 400 22, 420 30 L420 124 C400 118, 370 108, 352 104 C320 96, 310 90, 310 90 Z",
+        marker: { x: 390, y: 24, textY: 22 },
+        anomalyVisible: true,
+        anomalyScale: 1,
+        dataPoints: [
+            { x: 40,  time: '00:00', expected: 220, actual: 225 },
+            { x: 118, time: '04:00', expected: 310, actual: 315 },
+            { x: 196, time: '08:00', expected: 480, actual: 490 },
+            { x: 274, time: '12:00', expected: 420, actual: 430 },
+            { x: 352, time: '16:00', expected: 340, actual: 520 },
+            { x: 390, time: '18:00', expected: 300, actual: 680 },
+            { x: 420, time: '20:00', expected: 280, actual: 740 }
+        ]
+    },
+    a13: {
+        expectedArea: "M40 134 C72 132, 94 124, 118 112 C148 96, 172 86, 196 80 C224 72, 250 74, 274 82 C300 90, 326 100, 352 108 C374 114, 398 120, 420 126 L420 170 L40 170 Z",
+        expectedLine: "M40 134 C72 132, 94 124, 118 112 C148 96, 172 86, 196 80 C224 72, 250 74, 274 82 C300 90, 326 100, 352 108 C374 114, 398 120, 420 126",
+        actualLine: "M40 135 C72 133, 94 125, 118 113 C148 97, 172 87, 196 81 C224 73, 250 75, 274 83 C300 91, 326 101, 352 109 C374 115, 398 121, 420 125",
+        anomalyFill: "M0 170 L0 170 Z",
+        marker: { x: 404, y: 128, textY: 126 },
+        anomalyVisible: false,
+        anomalyScale: 1,
+        dataPoints: [
+            { x: 40,  time: '00:00', expected: 210, actual: 212 },
+            { x: 118, time: '04:00', expected: 295, actual: 297 },
+            { x: 196, time: '08:00', expected: 430, actual: 433 },
+            { x: 274, time: '12:00', expected: 390, actual: 394 },
+            { x: 352, time: '16:00', expected: 320, actual: 324 },
+            { x: 404, time: '18:00', expected: 290, actual: 293 },
+            { x: 420, time: '20:00', expected: 275, actual: 278 }
+        ]
+    },
+    b07: {
+        expectedArea: "M40 136 C68 132, 92 122, 118 116 C142 110, 166 108, 196 102 C224 96, 248 88, 274 78 C300 68, 324 64, 352 70 C376 76, 398 88, 420 100 L420 170 L40 170 Z",
+        expectedLine: "M40 136 C68 132, 92 122, 118 116 C142 110, 166 108, 196 102 C224 96, 248 88, 274 78 C300 68, 324 64, 352 70 C376 76, 398 88, 420 100",
+        actualLine: "M40 137 C68 133, 92 123, 118 117 C142 111, 166 109, 196 103 C224 97, 248 89, 274 79 C300 69, 324 65, 352 71 C376 77, 398 89, 420 101",
+        anomalyFill: "M0 170 L0 170 Z",
+        marker: { x: 408, y: 140, textY: 138 },
+        anomalyVisible: false,
+        anomalyScale: 1,
+        dataPoints: [
+            { x: 40,  time: '00:00', expected: 205, actual: 208 },
+            { x: 118, time: '04:00', expected: 280, actual: 282 },
+            { x: 196, time: '08:00', expected: 360, actual: 364 },
+            { x: 274, time: '12:00', expected: 455, actual: 458 },
+            { x: 352, time: '16:00', expected: 520, actual: 517 },
+            { x: 408, time: '18:00', expected: 470, actual: 474 },
+            { x: 420, time: '20:00', expected: 430, actual: 434 }
+        ]
+    },
+    all: {
+        expectedArea: "M40 132 C72 130, 98 122, 118 112 C144 100, 170 90, 196 82 C222 74, 248 74, 274 80 C300 86, 326 92, 352 98 C378 104, 400 112, 420 118 L420 170 L40 170 Z",
+        expectedLine: "M40 132 C72 130, 98 122, 118 112 C144 100, 170 90, 196 82 C222 74, 248 74, 274 80 C300 86, 326 92, 352 98 C378 104, 400 112, 420 118",
+        actualLine: "M40 131 C72 129, 98 121, 118 111 C144 100, 170 91, 196 83 C222 75, 248 75, 274 81 C300 88, 326 95, 352 100 C378 106, 398 112, 414 110 C418 109, 420 110, 420 112",
+        anomalyFill: "M372 104 C388 104, 402 106, 414 110 C418 111, 420 112, 420 116 L420 124 C400 116, 382 109, 372 104 Z",
+        marker: { x: 414, y: 110, textY: 108 },
+        anomalyVisible: true,
+        anomalyScale: 1,
+        dataPoints: [
+            { x: 40,  time: '00:00', expected: 215, actual: 218 },
+            { x: 118, time: '04:00', expected: 305, actual: 308 },
+            { x: 196, time: '08:00', expected: 430, actual: 438 },
+            { x: 274, time: '12:00', expected: 405, actual: 410 },
+            { x: 352, time: '16:00', expected: 350, actual: 366 },
+            { x: 390, time: '18:00', expected: 320, actual: 346 },
+            { x: 420, time: '20:00', expected: 295, actual: 318 }
+        ]
+    }
+};
+
+let activeDataPoints = buildingSeries.a12.dataPoints;
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function getDataAtX(svgX) {
+    for (let i = 0; i < activeDataPoints.length - 1; i++) {
+        const a = activeDataPoints[i];
+        const b = activeDataPoints[i + 1];
+        if (svgX >= a.x && svgX <= b.x) {
+            const t = (svgX - a.x) / (b.x - a.x);
+            const hour = lerp(parseInt(a.time), parseInt(b.time), t);
+            const hh = Math.floor(hour).toString().padStart(2, '0');
+            const mm = Math.floor((hour % 1) * 60).toString().padStart(2, '0');
+            return {
+                time: `${hh}:${mm}`,
+                expected: Math.round(lerp(a.expected, b.expected, t)),
+                actual: Math.round(lerp(a.actual, b.actual, t)),
+            };
+        }
+    }
+    return null;
+}
+
+function applyBuildingSeries(key) {
+    const series = buildingSeries[key];
+    if (!series) return;
+
+    activeDataPoints = series.dataPoints;
+    expectedArea.setAttribute('d', series.expectedArea);
+    expectedLine.setAttribute('d', series.expectedLine);
+    actualLine.setAttribute('d', series.actualLine);
+    anomalyFillPath.setAttribute('d', series.anomalyFill);
+    anomalyOuter.setAttribute('cx', series.marker.x);
+    anomalyOuter.setAttribute('cy', series.marker.y);
+    anomalyInner.setAttribute('cx', series.marker.x);
+    anomalyInner.setAttribute('cy', series.marker.y);
+    anomalyCore.setAttribute('cx', series.marker.x);
+    anomalyCore.setAttribute('cy', series.marker.y);
+    anomalyMarkText.setAttribute('x', series.marker.x);
+    anomalyMarkText.setAttribute('y', series.marker.textY);
+    anomalyOuter.style.display = series.anomalyVisible ? '' : 'none';
+    anomalyInner.style.display = series.anomalyVisible ? '' : 'none';
+    anomalyCore.style.display = series.anomalyVisible ? '' : 'none';
+    anomalyMarkText.style.display = series.anomalyVisible ? '' : 'none';
+    anomalyOuter.setAttribute('r', (14 * series.anomalyScale).toFixed(2));
+    anomalyInner.setAttribute('r', (8 * series.anomalyScale).toFixed(2));
+    anomalyCore.setAttribute('r', (3 * series.anomalyScale).toFixed(2));
+}
+
+chartWrap.addEventListener('mousemove', (e) => {
+    const rect = chartSvg.getBoundingClientRect();
+    const scaleX = 440 / rect.width;
+    const svgX = (e.clientX - rect.left) * scaleX;
+
+    if (svgX < 36 || svgX > 424) {
+        chartTip.classList.remove('is-visible');
+        return;
+    }
+
+    scanLine.setAttribute('x1', svgX);
+    scanLine.setAttribute('x2', svgX);
+
+    const data = getDataAtX(svgX);
+    if (!data) return;
+
+    const isAnomaly = data.actual > data.expected * 1.2;
+
+    tipLabel.textContent = data.time;
+    tipExpected.textContent = `Expected: ${data.expected} gal/h`;
+    tipActual.textContent = `Actual: ${data.actual} gal/h`;
+    tipActual.className = isAnomaly ? 'tip-anomaly' : 'tip-actual';
+
+    const wrapRect = chartWrap.getBoundingClientRect();
+    const tipX = e.clientX - wrapRect.left;
+    const tipY = e.clientY - wrapRect.top;
+
+    chartTip.style.left = `${tipX + 14}px`;
+    chartTip.style.top = `${tipY - 10}px`;
+
+    // Keep tooltip in bounds
+    const tipRect = chartTip.getBoundingClientRect();
+    if (tipRect.right > wrapRect.right) {
+        chartTip.style.left = `${tipX - tipRect.width - 14}px`;
+    }
+
+    chartTip.classList.add('is-visible');
+});
+
+chartWrap.addEventListener('mouseleave', () => {
+    chartTip.classList.remove('is-visible');
+});
+
+// --- Tab interaction (cosmetic) ---
+document.querySelectorAll('.building-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.building-tab').forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        applyBuildingSeries(tab.dataset.building);
+    });
+});
+
+applyBuildingSeries('a12');
+</script>
+</body>
+</html>

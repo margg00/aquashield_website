@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaShield Building Monitor</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+let W, H, dpr;
+
+function resize() {
+    dpr = Math.min(devicePixelRatio, 2);
+    W = innerWidth;
+    H = innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+resize();
+addEventListener('resize', resize);
+
+// --- Colors ---
+const COL_WIRE = 'rgba(180, 200, 220, 0.18)';
+const COL_WIRE_BRIGHT = 'rgba(180, 200, 220, 0.35)';
+const COL_WINDOW = 'rgba(140, 170, 200, 0.1)';
+const COL_TEAL = '#48b7e8';
+const COL_TEAL_DIM = 'rgba(72, 183, 232, 0.4)';
+const COL_TEAL_GLOW = 'rgba(72, 183, 232, 0.08)';
+const COL_RED = '#ff6b4a';
+const COL_RED_DIM = 'rgba(255, 107, 74, 0.4)';
+const COL_RED_GLOW = 'rgba(255, 107, 74, 0.12)';
+const COL_EXPECTED = 'rgba(72, 183, 232, 0.45)';
+const COL_ACTUAL = '#ff6b4a';
+const COL_TEXT = 'rgba(255, 255, 255, 0.3)';
+const COL_TEXT_DIM = 'rgba(255, 255, 255, 0.15)';
+
+// --- Building dimensions (relative to center-left of screen) ---
+function getLayout() {
+    const scale = Math.min(W / 1200, H / 700, 1);
+    const bW = 240 * scale;
+    const bH = 340 * scale;
+    const floorH = bH / 6;
+    const floors = 6;
+    const bX = W * 0.28 - bW / 2;
+    const bY = H * 0.52 - bH / 2;
+    const pillarH = 30 * scale;
+    const roofH = 22 * scale;
+
+    // Chart area
+    const chartX = bX + bW + 60 * scale;
+    const chartY = bY + bH * 0.25;
+    const chartW = Math.min(320 * scale, W - chartX - 40);
+    const chartH = bH * 0.55;
+
+    return { scale, bW, bH, floorH, floors, bX, bY, pillarH, roofH, chartX, chartY, chartW, chartH };
+}
+
+// --- Draw building ---
+function drawBuilding(t, L) {
+    const { scale, bW, bH, floorH, floors, bX, bY, pillarH, roofH } = L;
+
+    // Foundation pillars
+    ctx.strokeStyle = COL_WIRE;
+    ctx.lineWidth = 1.2 * scale;
+    const pillarCount = 7;
+    for (let i = 0; i < pillarCount; i++) {
+        const px = bX + (bW / (pillarCount - 1)) * i;
+        ctx.beginPath();
+        ctx.moveTo(px, bY + bH);
+        ctx.lineTo(px, bY + bH + pillarH);
+        ctx.stroke();
+    }
+
+    // Foundation base line
+    ctx.strokeStyle = COL_WIRE_BRIGHT;
+    ctx.lineWidth = 1.5 * scale;
+    ctx.beginPath();
+    ctx.moveTo(bX - 15 * scale, bY + bH + pillarH);
+    ctx.lineTo(bX + bW + 15 * scale, bY + bH + pillarH);
+    ctx.stroke();
+
+    // Floor lines
+    ctx.lineWidth = 1 * scale;
+    for (let f = 0; f <= floors; f++) {
+        const fy = bY + f * floorH;
+        ctx.strokeStyle = f === 0 || f === floors ? COL_WIRE_BRIGHT : COL_WIRE;
+        ctx.beginPath();
+        ctx.moveTo(bX, fy);
+        ctx.lineTo(bX + bW, fy);
+        ctx.stroke();
+    }
+
+    // Vertical edges
+    ctx.strokeStyle = COL_WIRE_BRIGHT;
+    ctx.lineWidth = 1.5 * scale;
+    ctx.beginPath();
+    ctx.moveTo(bX, bY);
+    ctx.lineTo(bX, bY + bH);
+    ctx.moveTo(bX + bW, bY);
+    ctx.lineTo(bX + bW, bY + bH);
+    ctx.stroke();
+
+    // Roof
+    const roofPeakX = bX + bW / 2;
+    const roofPeakY = bY - roofH;
+    ctx.strokeStyle = COL_WIRE_BRIGHT;
+    ctx.lineWidth = 1.5 * scale;
+    ctx.beginPath();
+    ctx.moveTo(bX - 5 * scale, bY);
+    ctx.lineTo(roofPeakX, roofPeakY);
+    ctx.lineTo(bX + bW + 5 * scale, bY);
+    ctx.stroke();
+
+    // Roof horizontal lines
+    ctx.strokeStyle = COL_WIRE;
+    ctx.lineWidth = 0.8 * scale;
+    for (let r = 1; r <= 2; r++) {
+        const ry = bY - roofH * (r / 3);
+        const spread = (bW / 2 + 5 * scale) * (1 - r / 3);
+        ctx.beginPath();
+        ctx.moveTo(roofPeakX - spread, ry);
+        ctx.lineTo(roofPeakX + spread, ry);
+        ctx.stroke();
+    }
+
+    // Windows
+    const winW = bW * 0.1;
+    const winH = floorH * 0.5;
+    const winCols = 5;
+    const winMarginX = bW * 0.08;
+    const winGapX = (bW - 2 * winMarginX - winCols * winW) / (winCols - 1);
+
+    for (let f = 0; f < floors; f++) {
+        const fy = bY + f * floorH + floorH * 0.22;
+        for (let w = 0; w < winCols; w++) {
+            const wx = bX + winMarginX + w * (winW + winGapX);
+
+            // Window fill
+            ctx.fillStyle = COL_WINDOW;
+            ctx.fillRect(wx, fy, winW, winH);
+
+            // Window outline
+            ctx.strokeStyle = COL_WIRE;
+            ctx.lineWidth = 0.8 * scale;
+            ctx.strokeRect(wx, fy, winW, winH);
+
+            // Window cross
+            ctx.beginPath();
+            ctx.moveTo(wx + winW / 2, fy);
+            ctx.lineTo(wx + winW / 2, fy + winH);
+            ctx.moveTo(wx, fy + winH * 0.55);
+            ctx.lineTo(wx + winW, fy + winH * 0.55);
+            ctx.stroke();
+        }
+    }
+
+    // Balcony ledges on right side
+    ctx.strokeStyle = COL_WIRE;
+    ctx.lineWidth = 1 * scale;
+    for (let f = 1; f < floors - 1; f++) {
+        const fy = bY + f * floorH + floorH;
+        ctx.beginPath();
+        ctx.moveTo(bX + bW, fy);
+        ctx.lineTo(bX + bW + 12 * scale, fy);
+        ctx.lineTo(bX + bW + 12 * scale, fy - floorH * 0.7);
+        ctx.stroke();
+    }
+}
+
+// --- Draw riser pipe ---
+function drawRiser(t, L) {
+    const { scale, bW, bH, floorH, floors, bX, bY, pillarH } = L;
+    const riserX = bX + bW * 0.48;
+
+    // Riser glow background
+    const glowW = 16 * scale;
+    const grad = ctx.createLinearGradient(riserX - glowW, 0, riserX + glowW, 0);
+    grad.addColorStop(0, 'transparent');
+    grad.addColorStop(0.5, COL_TEAL_GLOW);
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.fillRect(riserX - glowW, bY, glowW * 2, bH + pillarH);
+
+    // Main riser line — teal
+    ctx.strokeStyle = COL_TEAL;
+    ctx.lineWidth = 3.5 * scale;
+    ctx.shadowColor = COL_TEAL;
+    ctx.shadowBlur = 8 * scale;
+    ctx.beginPath();
+    ctx.moveTo(riserX, bY + 2);
+    ctx.lineTo(riserX, bY + bH + pillarH);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Horizontal supply line at bottom
+    ctx.strokeStyle = COL_TEAL;
+    ctx.lineWidth = 3 * scale;
+    ctx.shadowColor = COL_TEAL;
+    ctx.shadowBlur = 6 * scale;
+    ctx.beginPath();
+    ctx.moveTo(bX - 30 * scale, bY + bH + pillarH);
+    ctx.lineTo(riserX, bY + bH + pillarH);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Second riser (hot water return) — dimmer
+    const riser2X = riserX + 8 * scale;
+    ctx.strokeStyle = COL_RED_DIM;
+    ctx.lineWidth = 2.5 * scale;
+    ctx.shadowColor = COL_RED;
+    ctx.shadowBlur = 6 * scale;
+    ctx.beginPath();
+    ctx.moveTo(riser2X, bY + 2);
+    ctx.lineTo(riser2X, bY + bH + pillarH);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Horizontal branches per floor
+    for (let f = 0; f < floors; f++) {
+        const fy = bY + f * floorH + floorH * 0.5;
+
+        // Teal branch right
+        ctx.strokeStyle = COL_TEAL_DIM;
+        ctx.lineWidth = 1.5 * scale;
+        ctx.beginPath();
+        ctx.moveTo(riserX, fy);
+        ctx.lineTo(bX + bW - 10 * scale, fy);
+        ctx.stroke();
+
+        // Teal branch left
+        ctx.beginPath();
+        ctx.moveTo(riserX, fy);
+        ctx.lineTo(bX + 10 * scale, fy);
+        ctx.stroke();
+    }
+
+    // Anomaly highlight on floor 4 (index 3)
+    const anomalyF = 3;
+    const anomalyY = bY + anomalyF * floorH;
+    const pulse = (Math.sin(t * 3) + 1) / 2;
+
+    // Anomaly floor glow
+    ctx.fillStyle = `rgba(255, 107, 74, ${0.03 + pulse * 0.04})`;
+    ctx.fillRect(bX + 1, anomalyY + 1, bW - 2, floorH - 2);
+
+    // Anomaly indicator dot
+    const anomalyDotX = bX + bW - 18 * scale;
+    const anomalyDotY = anomalyY + floorH * 0.5;
+
+    ctx.beginPath();
+    ctx.arc(anomalyDotX, anomalyDotY, (6 + pulse * 4) * scale, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 107, 74, ${0.06 + pulse * 0.08})`;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(anomalyDotX, anomalyDotY, 3.5 * scale, 0, Math.PI * 2);
+    ctx.fillStyle = COL_RED;
+    ctx.shadowColor = COL_RED;
+    ctx.shadowBlur = 10 * scale;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Sensor dots on riser
+    for (let f = 0; f < floors; f++) {
+        const sy = bY + f * floorH + floorH * 0.5;
+        const blink = (Math.sin(t * 1.8 + f * 1.3) + 1) / 2;
+        const r = (2 + blink * 1.5) * scale;
+
+        ctx.beginPath();
+        ctx.arc(riserX - 6 * scale, sy, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(72, 183, 232, ${0.4 + blink * 0.6})`;
+        ctx.fill();
+    }
+
+    // Flow packets moving up the riser
+    const packetCount = 5;
+    for (let i = 0; i < packetCount; i++) {
+        const phase = ((t * 0.3 + i / packetCount) % 1);
+        const py = bY + bH + pillarH - phase * (bH + pillarH);
+        const pr = (1.5 + Math.sin(t * 3 + i) * 0.5) * scale;
+
+        ctx.beginPath();
+        ctx.arc(riserX, py, pr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(72, 183, 232, ${0.5 + Math.sin(t * 2 + i) * 0.3})`;
+        ctx.shadowColor = COL_TEAL;
+        ctx.shadowBlur = 6 * scale;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    }
+
+    // Red packets on the anomaly floor branch
+    for (let i = 0; i < 3; i++) {
+        const phase = ((t * 0.5 + i / 3) % 1);
+        const fy = bY + anomalyF * floorH + floorH * 0.5;
+        const px = riserX + phase * (bW * 0.45);
+
+        ctx.beginPath();
+        ctx.arc(px, fy, 1.8 * scale, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 107, 74, ${0.5 + Math.sin(t * 3 + i) * 0.3})`;
+        ctx.shadowColor = COL_RED;
+        ctx.shadowBlur = 5 * scale;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    }
+}
+
+// --- Draw flow chart ---
+function drawChart(t, L) {
+    const { scale, chartX, chartY, chartW, chartH } = L;
+    const animProgress = Math.min(1, t / 3); // Chart draws over 3 seconds
+
+    // Chart background subtle box
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.01)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.lineWidth = 1;
+    roundRect(ctx, chartX - 16 * scale, chartY - 30 * scale, chartW + 32 * scale, chartH + 60 * scale, 12 * scale);
+    ctx.fill();
+    ctx.stroke();
+
+    // Legend
+    ctx.font = `${10 * scale}px Inter, system-ui, sans-serif`;
+
+    // Expected flow legend
+    ctx.beginPath();
+    ctx.arc(chartX + 4 * scale, chartY - 14 * scale, 3.5 * scale, 0, Math.PI * 2);
+    ctx.fillStyle = COL_EXPECTED;
+    ctx.fill();
+    ctx.fillStyle = COL_TEXT;
+    ctx.fillText('Expected Flow', chartX + 12 * scale, chartY - 10 * scale);
+
+    // Current flow legend
+    const legendOffset = 100 * scale;
+    ctx.beginPath();
+    ctx.arc(chartX + legendOffset + 4 * scale, chartY - 14 * scale, 3.5 * scale, 0, Math.PI * 2);
+    ctx.fillStyle = COL_RED;
+    ctx.fill();
+    ctx.fillStyle = COL_TEXT;
+    ctx.fillText('Current Flow', chartX + legendOffset + 12 * scale, chartY - 10 * scale);
+
+    // Grid lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.lineWidth = 0.8;
+    ctx.setLineDash([3, 6]);
+    for (let i = 0; i < 5; i++) {
+        const gy = chartY + (chartH / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(chartX, gy);
+        ctx.lineTo(chartX + chartW, gy);
+        ctx.stroke();
+    }
+    ctx.setLineDash([]);
+
+    // X axis labels
+    ctx.font = `${9 * scale}px Inter, system-ui, sans-serif`;
+    ctx.fillStyle = COL_TEXT_DIM;
+    const xLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    xLabels.forEach((label, i) => {
+        const lx = chartX + (chartW / (xLabels.length - 1)) * i;
+        ctx.fillText(label, lx - 8 * scale, chartY + chartH + 16 * scale);
+    });
+
+    // Expected flow data (normalized 0-1)
+    const expectedData = [0.5, 0.55, 0.48, 0.52, 0.58, 0.45, 0.5];
+    // Actual flow data — diverges after Thursday
+    const actualData = [0.48, 0.53, 0.46, 0.5, 0.42, 0.3, 0.18];
+
+    function dataToPoint(data, index) {
+        const x = chartX + (chartW / (data.length - 1)) * index;
+        const y = chartY + chartH - data[index] * chartH;
+        return { x, y };
+    }
+
+    function drawLine(data, color, width, glow) {
+        const pointsToDraw = Math.floor(animProgress * (data.length - 1));
+        const partialProgress = (animProgress * (data.length - 1)) - pointsToDraw;
+
+        if (pointsToDraw < 1) return;
+
+        if (glow) {
+            ctx.shadowColor = color;
+            ctx.shadowBlur = 8 * scale;
+        }
+
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width * scale;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+
+        const p0 = dataToPoint(data, 0);
+        ctx.moveTo(p0.x, p0.y);
+
+        for (let i = 1; i <= pointsToDraw; i++) {
+            const p = dataToPoint(data, i);
+            const prev = dataToPoint(data, i - 1);
+            const cpx = (prev.x + p.x) / 2;
+            ctx.bezierCurveTo(cpx, prev.y, cpx, p.y, p.x, p.y);
+        }
+
+        // Partial segment
+        if (pointsToDraw < data.length - 1) {
+            const pCurr = dataToPoint(data, pointsToDraw);
+            const pNext = dataToPoint(data, pointsToDraw + 1);
+            const tx = pCurr.x + (pNext.x - pCurr.x) * partialProgress;
+            const ty = pCurr.y + (pNext.y - pCurr.y) * partialProgress;
+            const cpx = (pCurr.x + tx) / 2;
+            ctx.bezierCurveTo(cpx, pCurr.y, cpx, ty, tx, ty);
+        }
+
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+    }
+
+    // Fill area between lines where they diverge (anomaly zone)
+    if (animProgress > 0.55) {
+        const divergeStart = 3; // Thursday
+        ctx.fillStyle = COL_RED_GLOW;
+        ctx.beginPath();
+
+        // Top line (expected)
+        for (let i = divergeStart; i < expectedData.length; i++) {
+            const p = dataToPoint(expectedData, i);
+            if (i === divergeStart) ctx.moveTo(p.x, p.y);
+            else {
+                const prev = dataToPoint(expectedData, i - 1);
+                const cpx = (prev.x + p.x) / 2;
+                ctx.bezierCurveTo(cpx, prev.y, cpx, p.y, p.x, p.y);
+            }
+        }
+
+        // Bottom line back (actual, reversed)
+        for (let i = actualData.length - 1; i >= divergeStart; i--) {
+            const p = dataToPoint(actualData, i);
+            if (i === actualData.length - 1) ctx.lineTo(p.x, p.y);
+            else {
+                const next = dataToPoint(actualData, i + 1);
+                const cpx = (next.x + p.x) / 2;
+                ctx.bezierCurveTo(cpx, next.y, cpx, p.y, p.x, p.y);
+            }
+        }
+
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    // Draw lines
+    drawLine(expectedData, COL_EXPECTED, 2, false);
+    drawLine(actualData, COL_RED, 2.5, true);
+
+    // Data points
+    if (animProgress > 0.9) {
+        const dotPulse = (Math.sin(t * 2.5) + 1) / 2;
+
+        expectedData.forEach((_, i) => {
+            const p = dataToPoint(expectedData, i);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2.5 * scale, 0, Math.PI * 2);
+            ctx.fillStyle = COL_EXPECTED;
+            ctx.fill();
+        });
+
+        actualData.forEach((_, i) => {
+            const p = dataToPoint(actualData, i);
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2.5 * scale, 0, Math.PI * 2);
+            ctx.fillStyle = COL_RED;
+            ctx.fill();
+        });
+
+        // Anomaly marker at last point
+        const lastP = dataToPoint(actualData, actualData.length - 1);
+        ctx.beginPath();
+        ctx.arc(lastP.x, lastP.y, (8 + dotPulse * 5) * scale, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 107, 74, ${0.06 + dotPulse * 0.08})`;
+        ctx.fill();
+
+        // Alert triangle
+        const triSize = 10 * scale;
+        const triX = lastP.x + 14 * scale;
+        const triY = lastP.y;
+        ctx.beginPath();
+        ctx.moveTo(triX, triY - triSize);
+        ctx.lineTo(triX + triSize * 0.85, triY + triSize * 0.6);
+        ctx.lineTo(triX - triSize * 0.85, triY + triSize * 0.6);
+        ctx.closePath();
+        ctx.strokeStyle = COL_RED;
+        ctx.lineWidth = 1.5 * scale;
+        ctx.shadowColor = COL_RED;
+        ctx.shadowBlur = 6 * scale;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Exclamation mark
+        ctx.fillStyle = COL_RED;
+        ctx.font = `bold ${9 * scale}px Inter, system-ui, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.fillText('!', triX, triY + triSize * 0.3);
+        ctx.textAlign = 'start';
+    }
+}
+
+// --- Utility ---
+function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+}
+
+// --- Signal rings from building ---
+function drawSignalRings(t, L) {
+    const { scale, bW, bX, bY, roofH } = L;
+    const cx = bX + bW / 2;
+    const cy = bY - roofH - 5 * scale;
+
+    for (let i = 0; i < 3; i++) {
+        const phase = ((t * 0.3 + i * 0.33) % 1);
+        const radius = (20 + phase * 40) * scale;
+        const opacity = 0.12 * (1 - phase);
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, -Math.PI * 0.8, -Math.PI * 0.2);
+        ctx.strokeStyle = `rgba(72, 183, 232, ${opacity})`;
+        ctx.lineWidth = 1.5 * scale;
+        ctx.stroke();
+    }
+}
+
+// --- Floor labels ---
+function drawFloorLabels(t, L) {
+    const { scale, bW, bH, floorH, floors, bX, bY } = L;
+
+    ctx.font = `${9 * scale}px Inter, system-ui, sans-serif`;
+    ctx.fillStyle = COL_TEXT_DIM;
+
+    for (let f = 0; f < floors; f++) {
+        const fy = bY + f * floorH + floorH * 0.55;
+        ctx.fillText(`F${floors - f}`, bX - 22 * scale, fy);
+    }
+
+    // Anomaly floor label
+    const anomalyF = 3;
+    const afy = bY + anomalyF * floorH + floorH * 0.55;
+    const pulse = (Math.sin(t * 2.5) + 1) / 2;
+    ctx.fillStyle = `rgba(255, 107, 74, ${0.4 + pulse * 0.4})`;
+    ctx.font = `bold ${9 * scale}px Inter, system-ui, sans-serif`;
+    ctx.fillText(`F${floors - anomalyF}`, bX - 22 * scale, afy);
+}
+
+// --- Main loop ---
+const startTime = performance.now();
+
+function draw() {
+    requestAnimationFrame(draw);
+    const t = (performance.now() - startTime) / 1000;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const L = getLayout();
+
+    drawBuilding(t, L);
+    drawRiser(t, L);
+    drawFloorLabels(t, L);
+    drawSignalRings(t, L);
+    drawChart(t, L);
+}
+
+draw();
+</script>
+</body>
+</html>

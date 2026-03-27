@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaShield Building Hero</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100vh; }
+.debug-panel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  width: min(188px, calc(100vw - 20px));
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(10, 10, 10, 0.72);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font: 10px/1.35 Inter, system-ui, sans-serif;
+}
+.debug-panel__eyebrow {
+  color: #48b7e8;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.debug-panel h3 {
+  margin-top: 2px;
+  font-size: 11px;
+}
+.debug-panel p {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 9px;
+}
+.debug-panel__grid {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+.debug-panel__block {
+  padding: 7px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.debug-panel__label {
+  display: block;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.debug-panel__value {
+  display: block;
+  margin-top: 3px;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 8px;
+  line-height: 1.35;
+  word-break: break-word;
+}
+.debug-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.debug-panel__button {
+  min-height: 26px;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+}
+.debug-panel__button:hover {
+  border-color: rgba(72, 183, 232, 0.34);
+}
+.debug-panel__status {
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 8px;
+}
+@media (max-width: 520px) {
+  .debug-panel {
+    width: min(168px, calc(100vw - 16px));
+    padding: 8px;
+  }
+}
+</style>
+</head>
+<body>
+<aside class="debug-panel" aria-label="Camera debug panel">
+  <span class="debug-panel__eyebrow">Temporary debug</span>
+  <h3>Hero camera controls</h3>
+  <p>Drag to orbit, right-drag to pan, scroll to zoom, then copy the current start view.</p>
+  <div class="debug-panel__grid">
+    <div class="debug-panel__block">
+      <span class="debug-panel__label">Camera position</span>
+      <code class="debug-panel__value" data-camera-position></code>
+    </div>
+    <div class="debug-panel__block">
+      <span class="debug-panel__label">Orbit target</span>
+      <code class="debug-panel__value" data-camera-target></code>
+    </div>
+  </div>
+  <div class="debug-panel__actions">
+    <button type="button" class="debug-panel__button" data-toggle-autorotate>Pause</button>
+    <button type="button" class="debug-panel__button" data-reset-view>Reset</button>
+    <button type="button" class="debug-panel__button" data-copy-view>Copy</button>
+  </div>
+  <p class="debug-panel__status" data-copy-status>Copy the values once the view looks right.</p>
+</aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+// Hero-only building scene derived from the house anomaly animation without the chart overlay.
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a0a0a, 0.004);
+const defaultCameraPosition = new THREE.Vector3(50, 28, 50);
+const defaultOrbitTarget = new THREE.Vector3(0, 10, 0);
+const cameraPositionLabel = document.querySelector("[data-camera-position]");
+const cameraTargetLabel = document.querySelector("[data-camera-target]");
+const autoRotateToggle = document.querySelector("[data-toggle-autorotate]");
+const resetViewButton = document.querySelector("[data-reset-view]");
+const copyViewButton = document.querySelector("[data-copy-view]");
+const copyStatus = document.querySelector("[data-copy-status]");
+
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 600);
+camera.position.copy(defaultCameraPosition);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0x0a0a0a, 1);
+document.body.appendChild(renderer.domElement);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.5;
+controls.target.copy(defaultOrbitTarget);
+controls.minDistance = 35;
+controls.maxDistance = 110;
+controls.maxPolarAngle = Math.PI * 0.7;
+controls.minPolarAngle = Math.PI * 0.12;
+controls.enablePan = true;
+controls.update();
+
+function formatVector(vector) {
+  return `${vector.x.toFixed(2)}, ${vector.y.toFixed(2)}, ${vector.z.toFixed(2)}`;
+}
+
+function updateDebugReadout() {
+  if (cameraPositionLabel) {
+    cameraPositionLabel.textContent = `camera.position.set(${formatVector(camera)});`;
+  }
+
+  if (cameraTargetLabel) {
+    cameraTargetLabel.textContent = `controls.target.set(${formatVector(controls.target)});`;
+  }
+}
+
+function setStatus(message) {
+  if (copyStatus) {
+    copyStatus.textContent = message;
+  }
+}
+
+autoRotateToggle?.addEventListener("click", () => {
+  controls.autoRotate = !controls.autoRotate;
+  autoRotateToggle.textContent = controls.autoRotate ? "Pause" : "Resume";
+  setStatus(controls.autoRotate ? "Auto-rotate resumed." : "Auto-rotate paused.");
+});
+
+resetViewButton?.addEventListener("click", () => {
+  camera.position.copy(defaultCameraPosition);
+  controls.target.copy(defaultOrbitTarget);
+  controls.update();
+  updateDebugReadout();
+  setStatus("Reset to the current default start view.");
+});
+
+copyViewButton?.addEventListener("click", async () => {
+  const text = `${cameraPositionLabel?.textContent}\n${cameraTargetLabel?.textContent}`;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    setStatus("Copied the current camera and target values.");
+  } catch (error) {
+    setStatus("Clipboard copy failed. You can still read the values above.");
+  }
+});
+
+scene.add(new THREE.AmbientLight(0x8899aa, 0.6));
+const keyLight = new THREE.DirectionalLight(0xccddee, 0.7);
+keyLight.position.set(20, 50, 25);
+scene.add(keyLight);
+const fillLight = new THREE.DirectionalLight(0x6699bb, 0.3);
+fillLight.position.set(-25, 15, -15);
+scene.add(fillLight);
+const rimLight = new THREE.DirectionalLight(0x88aacc, 0.25);
+rimLight.position.set(0, 10, -40);
+scene.add(rimLight);
+
+const anomalyLight = new THREE.PointLight(0xff6b4a, 0, 14);
+scene.add(anomalyLight);
+
+const grid = new THREE.GridHelper(100, 50, 0x0d1a22, 0x0a1118);
+grid.position.y = -1;
+scene.add(grid);
+
+const edgeMat = new THREE.LineBasicMaterial({ color: 0x778899, transparent: true, opacity: 0.8 });
+const edgeBrightMat = new THREE.LineBasicMaterial({ color: 0x99aabb, transparent: true, opacity: 0.95 });
+const fillMat = new THREE.MeshBasicMaterial({ color: 0x1a2530, transparent: true, opacity: 0.12, side: THREE.DoubleSide, depthWrite: false });
+const floorMat = new THREE.MeshBasicMaterial({ color: 0x334455, transparent: true, opacity: 0.14, side: THREE.DoubleSide });
+const winMat = new THREE.LineBasicMaterial({ color: 0x667788, transparent: true, opacity: 0.55 });
+const winFillMat = new THREE.MeshBasicMaterial({ color: 0x223344, transparent: true, opacity: 0.1, side: THREE.DoubleSide });
+const pilMat = new THREE.LineBasicMaterial({ color: 0x667788, transparent: true, opacity: 0.5 });
+
+const pipeRadius = 0.35;
+const jointRadius = 0.5;
+const jointSet = new Set();
+const pipeMat = new THREE.MeshPhysicalMaterial({ color: 0x2a3a4a, metalness: 0.9, roughness: 0.3, clearcoat: 0.4 });
+const pipeActMat = new THREE.MeshPhysicalMaterial({ color: 0x1a6a8a, metalness: 0.85, roughness: 0.25, clearcoat: 0.5, emissive: 0x48b7e8, emissiveIntensity: 0.15 });
+const anomalyPipeMat = new THREE.MeshPhysicalMaterial({ color: 0x883322, metalness: 0.5, roughness: 0.3, emissive: 0xff6b4a, emissiveIntensity: 0.4 });
+const packetMat = new THREE.MeshBasicMaterial({ color: 0x48b7e8 });
+const packetGlowMat = new THREE.MeshBasicMaterial({ color: 0x48b7e8, transparent: true, opacity: 0.15 });
+const anomalyPacketMat = new THREE.MeshBasicMaterial({ color: 0xff6b4a });
+const anomalyPacketGlowMat = new THREE.MeshBasicMaterial({ color: 0xff6b4a, transparent: true, opacity: 0.15 });
+
+const buildingWidth = 22;
+const buildingDepth = 16;
+const floorHeight = 5;
+const floorCount = 5;
+const buildingHeight = floorCount * floorHeight;
+const buildingY = 0;
+const halfX = buildingWidth / 2;
+const halfZ = buildingDepth / 2;
+
+function addEdge(x1, y1, z1, x2, y2, z2, material) {
+  const geometry = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(x1, y1, z1),
+    new THREE.Vector3(x2, y2, z2)
+  ]);
+  scene.add(new THREE.Line(geometry, material || edgeMat));
+}
+
+[[-halfX, -halfZ], [halfX, -halfZ], [halfX, halfZ], [-halfX, halfZ]].forEach(([x, z]) => {
+  addEdge(x, buildingY, z, x, buildingY + buildingHeight, z, edgeBrightMat);
+});
+
+for (let floor = 0; floor <= floorCount; floor++) {
+  const y = buildingY + floor * floorHeight;
+  const material = floor === 0 || floor === floorCount ? edgeBrightMat : edgeMat;
+  addEdge(-halfX, y, -halfZ, halfX, y, -halfZ, material);
+  addEdge(halfX, y, -halfZ, halfX, y, halfZ, material);
+  addEdge(halfX, y, halfZ, -halfX, y, halfZ, material);
+  addEdge(-halfX, y, halfZ, -halfX, y, -halfZ, material);
+}
+
+for (let floor = 0; floor <= floorCount; floor++) {
+  const y = buildingY + floor * floorHeight;
+  const plane = new THREE.Mesh(new THREE.PlaneGeometry(buildingWidth, buildingDepth), floorMat);
+  plane.rotation.x = -Math.PI / 2;
+  plane.position.set(0, y, 0);
+  scene.add(plane);
+}
+
+[[0, buildingY + buildingHeight / 2, halfZ, 0], [0, buildingY + buildingHeight / 2, -halfZ, 0], [halfX, buildingY + buildingHeight / 2, 0, Math.PI / 2], [-halfX, buildingY + buildingHeight / 2, 0, Math.PI / 2]].forEach(([x, y, z, rotationY]) => {
+  const wall = rotationY
+    ? new THREE.Mesh(new THREE.PlaneGeometry(buildingDepth, buildingHeight), fillMat)
+    : new THREE.Mesh(new THREE.PlaneGeometry(buildingWidth, buildingHeight), fillMat);
+  if (rotationY) {
+    wall.rotation.y = rotationY;
+  }
+  wall.position.set(x, y, z);
+  scene.add(wall);
+});
+
+function addWindows(face) {
+  for (let floor = 0; floor < floorCount; floor++) {
+    const windowY = buildingY + floor * floorHeight + 1.2;
+
+    if (face === "front" || face === "back") {
+      const zOffset = face === "front" ? halfZ + 0.05 : -halfZ - 0.05;
+
+      for (let windowIndex = 0; windowIndex < 5; windowIndex++) {
+        const windowX = -halfX + 1.8 + windowIndex * 4.1;
+        const windowWidth = 2.8;
+        const windowHeight = 2.6;
+        const points = [
+          new THREE.Vector3(windowX, windowY, zOffset),
+          new THREE.Vector3(windowX + windowWidth, windowY, zOffset),
+          new THREE.Vector3(windowX + windowWidth, windowY + windowHeight, zOffset),
+          new THREE.Vector3(windowX, windowY + windowHeight, zOffset),
+          new THREE.Vector3(windowX, windowY, zOffset)
+        ];
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), winMat));
+
+        const fill = new THREE.Mesh(new THREE.PlaneGeometry(windowWidth, windowHeight), winFillMat);
+        fill.position.set(windowX + windowWidth / 2, windowY + windowHeight / 2, zOffset);
+        scene.add(fill);
+
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(windowX + windowWidth / 2, windowY, zOffset + 0.01),
+          new THREE.Vector3(windowX + windowWidth / 2, windowY + windowHeight, zOffset + 0.01)
+        ]), winMat));
+
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(windowX, windowY + windowHeight * 0.55, zOffset + 0.01),
+          new THREE.Vector3(windowX + windowWidth, windowY + windowHeight * 0.55, zOffset + 0.01)
+        ]), winMat));
+      }
+    } else {
+      const xOffset = face === "right" ? halfX + 0.05 : -halfX - 0.05;
+
+      for (let windowIndex = 0; windowIndex < 3; windowIndex++) {
+        const windowZ = -halfZ + 2 + windowIndex * 4.5;
+        const windowWidth = 3;
+        const windowHeight = 2.6;
+        const points = [
+          new THREE.Vector3(xOffset, windowY, windowZ),
+          new THREE.Vector3(xOffset, windowY, windowZ + windowWidth),
+          new THREE.Vector3(xOffset, windowY + windowHeight, windowZ + windowWidth),
+          new THREE.Vector3(xOffset, windowY + windowHeight, windowZ),
+          new THREE.Vector3(xOffset, windowY, windowZ)
+        ];
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), winMat));
+      }
+    }
+  }
+}
+
+addWindows("front");
+addWindows("back");
+addWindows("right");
+addWindows("left");
+
+for (let pillarX = -halfX + 3; pillarX <= halfX - 3; pillarX += 5.5) {
+  for (let pillarZ = -halfZ + 3; pillarZ <= halfZ - 3; pillarZ += 5) {
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(pillarX, -4, pillarZ),
+      new THREE.Vector3(pillarX, buildingY, pillarZ)
+    ]), pilMat));
+  }
+}
+
+[[-halfX - 3, -halfZ - 2, halfX + 3, -halfZ - 2], [-halfX - 3, halfZ + 2, halfX + 3, halfZ + 2], [-halfX - 3, -halfZ - 2, -halfX - 3, halfZ + 2], [halfX + 3, -halfZ - 2, halfX + 3, halfZ + 2]].forEach(([x1, z1, x2, z2]) => {
+  addEdge(x1, -4, z1, x2, -4, z2);
+});
+
+function addPipe(start, end, material) {
+  const distance = start.distanceTo(end);
+  const geometry = new THREE.CylinderGeometry(pipeRadius, pipeRadius, distance, 10);
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.addVectors(start, end).multiplyScalar(0.5);
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), end.clone().sub(start).normalize());
+  scene.add(mesh);
+}
+
+function addJoint(point, material) {
+  const key = `${point.x.toFixed(1)},${point.y.toFixed(1)},${point.z.toFixed(1)}`;
+  if (jointSet.has(key)) {
+    return;
+  }
+  jointSet.add(key);
+  const mesh = new THREE.Mesh(new THREE.SphereGeometry(jointRadius, 12, 12), material);
+  mesh.position.copy(point);
+  scene.add(mesh);
+}
+
+function connectPipe(start, end, material) {
+  addPipe(start, end, material);
+  addJoint(start, material);
+  addJoint(end, material);
+}
+
+const riserX = -3;
+const riserZ = -2;
+const riserNodes = [];
+
+for (let floor = 0; floor <= floorCount; floor++) {
+  riserNodes.push(new THREE.Vector3(riserX, buildingY + floor * floorHeight + 0.5, riserZ));
+}
+
+const supplyEntry = new THREE.Vector3(riserX, -4, riserZ);
+const supplyGround = new THREE.Vector3(riserX - 14, -4, riserZ);
+connectPipe(supplyGround, supplyEntry, pipeActMat);
+connectPipe(supplyEntry, riserNodes[0], pipeActMat);
+
+for (let index = 0; index < riserNodes.length - 1; index++) {
+  connectPipe(riserNodes[index], riserNodes[index + 1], pipeActMat);
+}
+
+const anomalyFloor = 3;
+const anomalyNode = new THREE.Vector3(riserX + 14, buildingY + anomalyFloor * floorHeight + 0.5, riserZ + 6);
+anomalyLight.position.copy(anomalyNode);
+
+for (let floor = 0; floor < floorCount; floor++) {
+  const y = buildingY + floor * floorHeight + 0.5;
+  const riserNode = riserNodes[floor];
+  const isAnomalyFloor = floor === anomalyFloor;
+  const rightEntry = new THREE.Vector3(riserX + 14, y, riserZ);
+  const frontRun = new THREE.Vector3(riserX + 14, y, riserZ + 6);
+
+  connectPipe(riserNode, rightEntry, isAnomalyFloor ? anomalyPipeMat : pipeMat);
+  connectPipe(rightEntry, frontRun, isAnomalyFloor ? anomalyPipeMat : pipeMat);
+  connectPipe(riserNode, new THREE.Vector3(riserX - 7, y, riserZ), pipeMat);
+
+  if (floor % 2 === 0) {
+    connectPipe(riserNode, new THREE.Vector3(riserX, y, riserZ - 6), pipeMat);
+  }
+}
+
+const anomalyRingMat = new THREE.MeshBasicMaterial({ color: 0xff6b4a, transparent: true, opacity: 0.4 });
+const anomalyRing = new THREE.Mesh(new THREE.TorusGeometry(1.8, 0.06, 8, 32), anomalyRingMat);
+anomalyRing.position.copy(anomalyNode);
+anomalyRing.rotation.x = Math.PI / 2;
+scene.add(anomalyRing);
+
+const anomalyRing2Mat = new THREE.MeshBasicMaterial({ color: 0xff6b4a, transparent: true, opacity: 0.2 });
+const anomalyRing2 = new THREE.Mesh(new THREE.TorusGeometry(2.8, 0.04, 8, 32), anomalyRing2Mat);
+anomalyRing2.position.copy(anomalyNode);
+anomalyRing2.rotation.x = Math.PI / 2;
+scene.add(anomalyRing2);
+
+const packets = [];
+const packetGeometry = new THREE.SphereGeometry(0.25, 8, 8);
+const packetGlowGeometry = new THREE.SphereGeometry(0.5, 6, 6);
+
+function spawnPacket(path, speed, isAnomaly) {
+  const mesh = new THREE.Mesh(packetGeometry, isAnomaly ? anomalyPacketMat : packetMat);
+  const glow = new THREE.Mesh(packetGlowGeometry, isAnomaly ? anomalyPacketGlowMat : packetGlowMat);
+  scene.add(mesh);
+  scene.add(glow);
+  packets.push({ mesh, glow, path, speed, segment: 0, t: Math.random() });
+}
+
+for (let floor = 0; floor < floorCount; floor++) {
+  if (floor === anomalyFloor) {
+    continue;
+  }
+  const y = buildingY + floor * floorHeight + 0.5;
+  spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, floor + 1), new THREE.Vector3(riserX + 14, y, riserZ)], 0.003 + Math.random() * 0.001, false);
+}
+
+spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, anomalyFloor + 1), new THREE.Vector3(riserX + 14, buildingY + anomalyFloor * floorHeight + 0.5, riserZ), anomalyNode], 0.006, true);
+spawnPacket([supplyEntry, riserNodes[0], ...riserNodes.slice(0, anomalyFloor + 1), new THREE.Vector3(riserX + 14, buildingY + anomalyFloor * floorHeight + 0.5, riserZ), anomalyNode], 0.007, true);
+spawnPacket([riserNodes[anomalyFloor], new THREE.Vector3(riserX + 14, buildingY + anomalyFloor * floorHeight + 0.5, riserZ), anomalyNode], 0.005, true);
+spawnPacket([supplyGround, supplyEntry, riserNodes[0], riserNodes[1], riserNodes[2]], 0.002, false);
+
+const signalRings = [];
+for (let index = 0; index < 3; index++) {
+  const ring = new THREE.Mesh(
+    new THREE.RingGeometry(12, 12.3, 32),
+    new THREE.MeshBasicMaterial({ color: 0x48b7e8, transparent: true, opacity: 0, side: THREE.DoubleSide })
+  );
+  ring.rotation.x = -Math.PI / 2;
+  ring.position.set(0, buildingY + buildingHeight + 2, 0);
+  ring.userData.phase = index * 2.1;
+  scene.add(ring);
+  signalRings.push(ring);
+}
+
+function normalizeHexColor(value) {
+  const color = String(value || "").trim();
+  return /^#[0-9a-f]{6}$/i.test(color) ? color.toLowerCase() : "#48b7e8";
+}
+
+function applyAccent(accentHex) {
+  const accent = new THREE.Color(normalizeHexColor(accentHex));
+  pipeActMat.color.copy(accent).multiplyScalar(0.62);
+  pipeActMat.emissive.copy(accent);
+  packetMat.color.copy(accent);
+  packetGlowMat.color.copy(accent);
+  signalRings.forEach((ring) => ring.material.color.copy(accent));
+}
+
+try {
+  const storedAccent = window.localStorage.getItem("aquashield-theme-debug");
+  if (storedAccent) {
+    applyAccent(storedAccent);
+  }
+} catch (error) {
+  // Keep the default accent if storage access is unavailable.
+}
+
+window.addEventListener("message", (event) => {
+  if (event.data?.type !== "aquashield-accent" || !event.data.accent) {
+    return;
+  }
+
+  applyAccent(event.data.accent);
+});
+
+const clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const time = clock.getElapsedTime();
+  controls.update();
+
+  const pulse = (Math.sin(time * 2.5) + 1) / 2;
+  anomalyPipeMat.emissiveIntensity = 0.2 + pulse * 0.4;
+  anomalyLight.intensity = 0.3 + pulse * 1.2;
+  anomalyRing.scale.setScalar(1 + pulse * 0.5);
+  anomalyRingMat.opacity = 0.1 + pulse * 0.3;
+  anomalyRing2.scale.setScalar(1 + pulse * 0.3);
+  anomalyRing2Mat.opacity = 0.05 + pulse * 0.15;
+  pipeActMat.emissiveIntensity = 0.1 + (Math.sin(time * 1.2) + 1) / 2 * 0.1;
+
+  packets.forEach((packet) => {
+    packet.t += packet.speed;
+
+    if (packet.t >= 1) {
+      packet.t = 0;
+      packet.segment++;
+      if (packet.segment >= packet.path.length - 1) {
+        packet.segment = 0;
+      }
+    }
+
+    const start = packet.path[packet.segment];
+    const end = packet.path[packet.segment + 1];
+    if (start && end) {
+      packet.mesh.position.lerpVectors(start, end, packet.t);
+      packet.glow.position.copy(packet.mesh.position);
+    }
+  });
+
+  signalRings.forEach((ring) => {
+    const phase = ((time + ring.userData.phase) % 4) / 4;
+    ring.scale.setScalar(1 + phase * 2);
+    ring.material.opacity = Math.max(0, 0.12 * (1 - phase));
+  });
+
+  renderer.render(scene, camera);
+}
+
+window.addEventListener("resize", () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+  updateDebugReadout();
+});
+
+updateDebugReadout();
+animate();
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaShield Pipe Network</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+// Embedded 3D pipe network used in the top row of the solution section.
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a0a0a, 0.005);
+
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 500);
+camera.position.set(30, 38, 10);
+camera.lookAt(0, -2, 0);
+const initialTarget = new THREE.Vector3(0, -2, 0);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0x0a0a0a, 1);
+document.body.appendChild(renderer.domElement);
+
+// Lighting — cool tones matching AquaShield brand
+scene.add(new THREE.AmbientLight(0x99aacc, 1.0));
+
+const keyLight = new THREE.DirectionalLight(0xccddee, 1.0);
+keyLight.position.set(15, 40, 20);
+scene.add(keyLight);
+
+const fillLight = new THREE.DirectionalLight(0x6699bb, 0.6);
+fillLight.position.set(-20, 10, -10);
+scene.add(fillLight);
+
+const rimLight = new THREE.DirectionalLight(0x88aacc, 0.4);
+rimLight.position.set(0, 10, -30);
+scene.add(rimLight);
+
+// Anomaly glow light
+const anomalyLight = new THREE.PointLight(0xff6b4a, 0, 18);
+scene.add(anomalyLight);
+
+// Subtle ground reference — faint grid
+const gridHelper = new THREE.GridHelper(80, 40, 0x0d1a22, 0x0a1118);
+gridHelper.position.y = -20;
+scene.add(gridHelper);
+
+// --- Materials ---
+const pipeR = 0.6;
+const jointR = 0.9;
+
+const pipeMat = new THREE.MeshPhysicalMaterial({
+    color: 0x4a6070,
+    metalness: 0.8,
+    roughness: 0.3,
+    clearcoat: 0.4,
+    clearcoatRoughness: 0.2
+});
+
+const pipeActiveMat = new THREE.MeshPhysicalMaterial({
+    color: 0x2a8aaa,
+    metalness: 0.75,
+    roughness: 0.25,
+    clearcoat: 0.5,
+    emissive: 0x48b7e8,
+    emissiveIntensity: 0.3
+});
+
+const anomalyMat = new THREE.MeshPhysicalMaterial({
+    color: 0xcc5533,
+    metalness: 0.4,
+    roughness: 0.3,
+    emissive: 0xff6b4a,
+    emissiveIntensity: 0.6
+});
+
+const packetMat = new THREE.MeshBasicMaterial({ color: 0x48b7e8 });
+const packetGlowMat = new THREE.MeshBasicMaterial({
+    color: 0x48b7e8,
+    transparent: true,
+    opacity: 0.2
+});
+
+// --- Geometry helpers ---
+const joints = new Set();
+
+function makePipe(p1, p2, mat) {
+    const d = p1.distanceTo(p2);
+    const geo = new THREE.CylinderGeometry(pipeR, pipeR, d, 12);
+    const mesh = new THREE.Mesh(geo, mat);
+    const mid = new THREE.Vector3().addVectors(p1, p2).multiplyScalar(0.5);
+    mesh.position.copy(mid);
+    mesh.quaternion.setFromUnitVectors(
+        new THREE.Vector3(0, 1, 0),
+        p2.clone().sub(p1).normalize()
+    );
+    scene.add(mesh);
+}
+
+function makeJoint(pos, mat) {
+    const k = `${pos.x},${pos.y},${pos.z}`;
+    if (joints.has(k)) return;
+    joints.add(k);
+    const geo = new THREE.SphereGeometry(jointR, 16, 16);
+    const m = new THREE.Mesh(geo, mat);
+    m.position.copy(pos);
+    scene.add(m);
+}
+
+function connect(p1, p2, mat) {
+    makePipe(p1, p2, mat);
+    makeJoint(p1, mat);
+    makeJoint(p2, mat);
+}
+
+// --- Building water network ---
+// Layout: a main vertical riser with horizontal branches
+// Reads as a simplified building cross-section
+
+// Main riser (vertical) — this is the backbone
+const R_top = new THREE.Vector3(0, 12, 0);
+const R_mid2 = new THREE.Vector3(0, 4, 0);
+const R_mid1 = new THREE.Vector3(0, -4, 0);
+const R_bot = new THREE.Vector3(0, -12, 0);
+const R_base = new THREE.Vector3(0, -18, 0);
+
+connect(R_top, R_mid2, pipeActiveMat);
+connect(R_mid2, R_mid1, pipeActiveMat);
+connect(R_mid1, R_bot, pipeActiveMat);
+connect(R_bot, R_base, pipeMat);
+
+// Floor 3 (top) — branches left and right
+const F3_L = new THREE.Vector3(-14, 12, 0);
+const F3_R = new THREE.Vector3(14, 12, 0);
+const F3_R2 = new THREE.Vector3(14, 12, -10);
+connect(R_top, F3_L, pipeActiveMat);
+connect(R_top, F3_R, pipeActiveMat);
+connect(F3_R, F3_R2, pipeMat);
+
+// Floor 2 — branches with an anomaly zone
+const F2_L = new THREE.Vector3(-16, 4, 0);
+const F2_L2 = new THREE.Vector3(-16, 4, 8);
+const F2_R = new THREE.Vector3(12, 4, 0);
+const F2_R_down = new THREE.Vector3(12, -4, 0);
+
+const ANOMALY_POS = new THREE.Vector3(-16, 4, 8);
+
+connect(R_mid2, F2_L, pipeActiveMat);
+connect(F2_L, F2_L2, anomalyMat); // Anomaly pipe
+connect(R_mid2, F2_R, pipeMat);
+connect(F2_R, F2_R_down, pipeMat);
+
+anomalyLight.position.copy(ANOMALY_POS);
+
+// Floor 1 — lower branches
+const F1_L = new THREE.Vector3(-10, -4, 0);
+const F1_L_back = new THREE.Vector3(-10, -4, -12);
+const F1_R = new THREE.Vector3(16, -4, 0);
+const F1_R_back = new THREE.Vector3(16, -4, -8);
+connect(R_mid1, F1_L, pipeMat);
+connect(F1_L, F1_L_back, pipeMat);
+connect(R_mid1, F1_R, pipeMat);
+connect(F1_R, F1_R_back, pipeMat);
+
+// Basement — supply lines
+const B_L = new THREE.Vector3(-8, -12, 0);
+const B_R = new THREE.Vector3(8, -12, 0);
+const B_fwd = new THREE.Vector3(0, -12, 10);
+connect(R_bot, B_L, pipeMat);
+connect(R_bot, B_R, pipeMat);
+connect(R_bot, B_fwd, pipeMat);
+
+// Base extension (supply entry)
+const Base_back = new THREE.Vector3(0, -18, -14);
+connect(R_base, Base_back, pipeMat);
+
+// --- Anomaly glow ring ---
+const anomalyRingGeo = new THREE.TorusGeometry(2.5, 0.08, 8, 32);
+const anomalyRingMat = new THREE.MeshBasicMaterial({
+    color: 0xff6b4a,
+    transparent: true,
+    opacity: 0.5
+});
+const anomalyRing = new THREE.Mesh(anomalyRingGeo, anomalyRingMat);
+anomalyRing.position.copy(ANOMALY_POS);
+anomalyRing.rotation.x = Math.PI / 2;
+scene.add(anomalyRing);
+
+// --- Energy packets flowing through the system ---
+const packets = [];
+const packetGeo = new THREE.SphereGeometry(0.35, 10, 10);
+const packetGlowGeo = new THREE.SphereGeometry(0.7, 8, 8);
+
+function spawnPacket(path, speed) {
+    const mesh = new THREE.Mesh(packetGeo, packetMat);
+    const glow = new THREE.Mesh(packetGlowGeo, packetGlowMat);
+    scene.add(mesh);
+    scene.add(glow);
+    packets.push({
+        mesh, glow, path, speed: speed || 0.004,
+        seg: 0, t: 0
+    });
+}
+
+// Flow paths — packets travel along the riser and out to branches
+spawnPacket([R_base, R_bot, R_mid1, R_mid2, R_top, F3_L], 0.003);
+spawnPacket([R_base, R_bot, R_mid1, R_mid2, R_top, F3_R, F3_R2], 0.0035);
+spawnPacket([R_base, R_bot, R_mid1, F1_R, F1_R_back], 0.004);
+spawnPacket([R_base, R_bot, R_mid1, R_mid2, F2_L, F2_L2], 0.003);
+spawnPacket([R_base, R_bot, B_fwd], 0.0025);
+spawnPacket([Base_back, R_base, R_bot, R_mid1, F1_L, F1_L_back], 0.0032);
+
+// --- OrbitControls — interactive + auto-rotate ---
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.6;
+controls.target.copy(initialTarget);
+controls.minDistance = 25;
+controls.maxDistance = 90;
+controls.maxPolarAngle = Math.PI * 0.75;
+controls.minPolarAngle = Math.PI * 0.15;
+controls.enablePan = false;
+controls.enableRotate = false;
+controls.enableZoom = false;
+controls.update();
+
+// --- Animation ---
+const clock = new THREE.Clock();
+
+function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    controls.update();
+
+    // Anomaly pulse
+    const pulse = (Math.sin(t * 2.5) + 1) / 2;
+    anomalyMat.emissiveIntensity = 0.3 + pulse * 0.5;
+    anomalyLight.intensity = 0.5 + pulse * 1.5;
+    anomalyRing.scale.setScalar(1 + pulse * 0.4);
+    anomalyRingMat.opacity = 0.15 + pulse * 0.35;
+
+    // Active pipe glow
+    pipeActiveMat.emissiveIntensity = 0.08 + (Math.sin(t * 1.5) + 1) / 2 * 0.12;
+
+    // Move packets
+    packets.forEach(p => {
+        p.t += p.speed;
+        if (p.t >= 1) {
+            p.t = 0;
+            p.seg++;
+            if (p.seg >= p.path.length - 1) p.seg = 0;
+        }
+        const a = p.path[p.seg];
+        const b = p.path[p.seg + 1];
+        p.mesh.position.lerpVectors(a, b, p.t);
+        p.glow.position.copy(p.mesh.position);
+    });
+
+    renderer.render(scene, camera);
+}
+
+// --- Resize ---
+addEventListener('resize', () => {
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+});
+
+animate();
+</script>
+</body>
+</html>
