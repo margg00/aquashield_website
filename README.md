@@ -44,8 +44,10 @@ No build step is required.
 
 ## Logo Files
 
+- [new_logo.svg](logos/new_logo.svg)
+  Current header logo source. Applied as a background image on `.brand` in `styles.css`.
 - [5608_U_AquaShield_DV_PM_01_header.png](logos/5608_U_AquaShield_DV_PM_01_header.png)
-  Combined icon + wordmark header logo.
+  Older combined icon + wordmark header logo kept in the repo for reference.
 - [5608_U_AquaShield_DV_PM_01.png](logos/5608_U_AquaShield_DV_PM_01.png)
   Full AquaShield logo asset.
 - [5608_U_AquaShield_wordmark_header.png](logos/5608_U_AquaShield_wordmark_header.png)
@@ -63,8 +65,8 @@ No build step is required.
 ### Header
 
 - HTML: `index.html`
-- Style: `styles.css` (`.site-header`, `.nav-shell`, `.brand`, `.brand-logo`)
-- Logo asset: `logos/5608_U_AquaShield_DV_PM_01_header.png`
+- Style: `styles.css` (`.site-header`, `.nav-shell`, `.brand`)
+- Logo asset: `logos/new_logo.svg` applied via the `.brand` background image
 - Backdrop blur is on `.site-header::before` pseudo-element to avoid rendering bugs with `position: sticky`.
 
 ### Hero
@@ -105,7 +107,7 @@ No build step is required.
 
 - HTML: `index.html`
 - Style: `styles.css` (`.footer-shell`, `.footer-social`)
-- Social links: email (founders@aquashieldai.com) and LinkedIn
+- Social links: email (`founders@aquashieldai.com`) and LinkedIn (`https://www.linkedin.com/company/aquashieldinc/`)
 - Footer does not use scroll-reveal animations — it is always visible.
 
 ## Form Submission

@@ -47,13 +47,13 @@
   align-self: center;
   justify-content: flex-start;
   flex: 0 0 auto;
-  width: 280px;
-  height: 74px;
+  width: 200px;
+  height: 53px;
   overflow: hidden;
   background-image: url("logos/new_logo.svg");
-  background-position: -207px -296px;
+  background-position: -148px -211px;
   background-repeat: no-repeat;
-  background-size: 670px 670px;
+  background-size: 479px 479px;
 }
 
 .nav-shell {

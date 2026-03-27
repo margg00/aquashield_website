@@ -47,22 +47,22 @@ Files:
 
 - [index.html](index.html)
 - [styles.css](styles.css)
-- [5608_U_AquaShield_DV_PM_01_header.png](logos/5608_U_AquaShield_DV_PM_01_header.png)
+- [new_logo.svg](logos/new_logo.svg)
 
 What you can change:
 
-- the top-left AquaShield logo (single combined image: icon + wordmark)
+- the top-left AquaShield logo, which is rendered through the `.brand` background image
 - the `Get in touch` button text
 
 Where to edit:
 
 - in `index.html`, inside `<header class="site-header"...>`
+- in `styles.css`, inside `.brand`, for the current logo file, crop, and size
 
 If the header height or spacing feels wrong:
 
 - edit `.nav-shell`
 - edit `.brand`
-- edit `.brand-logo`
 - edit `.nav-cta`
 
 Note: the header backdrop blur is on `.site-header::before`, not the header itself. This avoids browser rendering bugs.
@@ -286,7 +286,7 @@ Note: the footer does not use scroll-reveal animations. It is always visible. So
 Current links:
 
 - Email: founders@aquashieldai.com
-- LinkedIn: placeholder (`#`)
+- LinkedIn: https://www.linkedin.com/company/aquashieldinc/
 
 Prompt for AI:
 
