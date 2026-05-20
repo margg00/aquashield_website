@@ -16,6 +16,7 @@
   >
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body>
   <!-- Header / top navigation -->
@@ -39,7 +40,7 @@
             Detect leaks before they become disasters.
           </p>
           <div class="hero-actions">
-            <a class="primary-cta" href="#contact">Start a pilot rollout</a>
+            <a class="primary-cta" href="#contact">Book a demo</a>
           </div>
           <div class="hero-trust">
             <img src="logos/Y_Combinator_logo.svg" alt="Y Combinator logo">
@@ -136,58 +137,20 @@
       <div class="container contact-layout">
         <div class="contact-copy" data-reveal data-reveal-delay="0">
           <div class="section-heading">
-            <span class="section-kicker">Pilot program</span>
-            <h2>Never miss a leak again</h2>
+            <span class="section-kicker">Book a demo</span>
+            <h2>See AquaShield in action</h2>
           </div>
 
-          <p class="contact-blurb">No pipe cutting — sensors clamp onto existing pipes and we handle the rest, from network mapping to sensor placement.</p>
+          <p class="contact-blurb">Book a 30-minute call with our team. We'll show you the live dashboard, walk through how sensors deploy, and answer your questions.</p>
         </div>
 
-        <div class="contact-card" data-reveal data-reveal-delay="1">
-          <form
-            class="contact-form"
-            data-contact-form
-            action="https://formspree.io/f/mqeyjeqn"
-            method="POST"
-            novalidate
+        <div class="contact-card" data-reveal data-reveal-delay="1" style="text-align: center;">
+          <button
+            class="primary-cta primary-cta-wide"
+            onclick="Calendly.initPopupWidget({url:'https://calendly.com/pbeckers-aquashieldai/demo'});return false;"
           >
-            <input type="hidden" name="_subject" value="AquaShield pilot program inquiry">
-            <div class="field-grid">
-              <label>
-                <span>Full name</span>
-                <input type="text" name="fullName" autocomplete="name" required>
-              </label>
-
-              <label>
-                <span>Work email</span>
-                <input type="email" name="email" autocomplete="email" required>
-              </label>
-
-              <label>
-                <span>Company</span>
-                <input type="text" name="company" autocomplete="organization" required>
-              </label>
-
-              <label>
-                <span>Portfolio size</span>
-                <select name="portfolioSize" required>
-                  <option value="">Select portfolio size</option>
-                  <option>Under 1,000 units</option>
-                  <option>1,000–10,000 units</option>
-                  <option>10,000–50,000 units</option>
-                  <option>50,000+ units</option>
-                </select>
-              </label>
-
-              <label class="field-span-full">
-                <span>Message (optional)</span>
-                <textarea name="message" rows="4" placeholder="Tell us about your portfolio, pilot goals, or timeline."></textarea>
-              </label>
-            </div>
-
-            <button type="submit" class="primary-cta primary-cta-wide">Request a pilot</button>
-            <p class="form-note" data-form-note aria-live="polite"></p>
-          </form>
+            Book a demo
+          </button>
         </div>
       </div>
     </section>
@@ -239,5 +202,6 @@
   -->
 
   <script src="script.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
