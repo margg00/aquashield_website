@@ -203,6 +203,10 @@ h1 span {
   opacity: 0.9;
 }
 
+.hero-trust-openai {
+  height: 17px;
+}
+
 .hero-visual {
   width: min(500px, 100%);
   flex: 0 1 500px;
