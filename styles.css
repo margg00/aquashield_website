@@ -190,21 +190,29 @@ h1 span {
 .hero-trust {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 4px 6px;
   margin-top: 16px;
   color: var(--text-muted);
   font-size: 0.93rem;
 }
 
+.hero-trust-backer {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
 .hero-trust img {
   display: block;
   width: auto;
-  height: 20px;
+  height: 18px;
   opacity: 0.9;
 }
 
 .hero-trust-openai {
-  height: 17px;
+  height: 16px;
 }
 
 .hero-visual {
