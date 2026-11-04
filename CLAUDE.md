@@ -15,8 +15,11 @@ Read EDITING_GUIDE.md first. It maps each section to its files.
 4. Check before showing: no broken links or images, no console errors, looks right at
    desktop (1440px) and phone (390px). Render screenshots (headless Chrome) and show them.
    Never say "looks good" without having looked.
-5. Push the branch. Give Felix the preview link if the branch has one; if not, say so
-   plainly and rely on the screenshots.
+5. Push the branch, then give Felix these local-preview steps (no hosted preview exists):
+   a) download `https://github.com/margg00/aquashield_website/archive/refs/heads/<branch>.zip`
+   (use the real branch name, e.g. `felix/hero-text`), b) unzip it, c) double-click
+   `index.html` to open it in his browser, d) narrow the window or use the browser's phone
+   view to check mobile. After each new round of changes, tell him to download it again.
 6. Summarize in plain English: what changed, which files, anything you're unsure about.
    Then STOP and ask whether he wants edits or wants to open the PR.
 7. Open a PR into `main` ONLY after Felix clearly says yes. PR text: what and why in plain
