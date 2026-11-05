@@ -1,0 +1,93 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{realEstate.eyebrow}}</p>
+        <h1>{{realEstate.h1}}</h1>
+        <p class="lead">{{canonical}} {{realEstate.lead}}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
+          <p class="cta-line">{{cta.realEstate}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="story-title">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 id="story-title">{{realEstate.story.h2}}</h2>
+            <p>{{realEstate.story.text}}</p>
+          </div>
+        </div>
+        <div>
+{{> alert-card}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="customers-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="customers-title">{{realEstate.customers.h2}}</h2>
+        </div>
+        <div class="groups">
+{{#each realEstate.customers.groups}}          <div class="group" data-reveal>
+            <h3>{{label}}</h3>
+            <ul>
+{{#each items}}              <li>{{this}}</li>
+{{/each}}            </ul>
+          </div>
+{{/each}}        </div>
+        <p class="note">{{realEstate.customers.confirm}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="facts-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="facts-title">{{realEstate.facts.h2}}</h2>
+        </div>
+        <div class="stat-boxes">
+{{#each realEstate.facts.items}}          <div class="stat-box" data-reveal>
+            <p class="stat-value">{{value}}</p>
+            <p class="stat-label">{{label}}</p>
+          </div>
+{{/each}}        </div>
+        <p class="section-line">{{realEstate.facts.note}}</p>
+        <p class="note">{{realEstate.facts.confirm}}</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="anchor-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="anchor-title">{{realEstate.anchor.h2}}</h2>
+        </div>
+        <div class="stat-boxes cols-4">
+{{#each realEstate.anchor.items}}          <div class="stat-box" data-reveal>
+            <p class="stat-value">{{value}}</p>
+            <p class="stat-label">{{label}}</p>
+            {{#if source}}<p class="stat-source">{{common.source}}: {{source}}</p>{{/if}}
+          </div>
+{{/each}}        </div>
+        <p class="section-line">{{realEstate.anchor.line}}</p>
+        <p class="note">{{realEstate.anchor.confirm}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="path-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="path-title">{{realEstate.path.h2}}</h2>
+        </div>
+        <ol class="path cols-2">
+{{#each realEstate.path.steps}}          <li data-reveal>
+            <h3>{{name}}</h3>
+            <p>{{text}}</p>
+          </li>
+{{/each}}        </ol>
+      </div>
+    </section>
+
+{{> faq}}
+
+{{> cta}}

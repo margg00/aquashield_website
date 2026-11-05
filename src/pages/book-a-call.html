@@ -1,0 +1,42 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{nav.cta}}</p>
+        <h1>{{book.h1}}</h1>
+        <p class="lead" data-for-line data-line-real-estate="{{cta.realEstate}}" data-line-insurance="{{cta.insurance}}" data-line-data-centers="{{cta.dataCenters}}">{{cta.home}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container book-grid">
+        <div class="book-card">
+          <h2>{{book.lead}}</h2>
+          <p class="muted small">{{cta.questionsIntro}}</p>
+          <ol class="book-questions">
+{{#each cta.questions}}            <li>{{this}}</li>
+{{/each}}          </ol>
+          <button type="button" class="btn btn-primary btn-lg btn-block" data-calendly="https://calendly.com/tbaumeister-aquashieldai/aquashield-demo">{{book.pick}}</button>
+          <p class="book-note">{{book.pickNote}}</p>
+          <p class="book-note">{{cta.fallback}} <a href="mailto:{{cta.email}}">{{cta.email}}</a></p>
+          <p class="book-note">{{book.confirm}}</p>
+        </div>
+        <div class="book-card">
+          <h2>{{book.or}}</h2>
+          <form class="form" action="https://formspree.io/f/mqeyjeqn" method="POST" data-form data-msg-invalid="{{book.form.invalid}}" data-msg-sending="{{book.form.sending}}" data-msg-success="{{book.form.success}}" data-msg-error="{{book.form.error}}">
+            <div class="form-row">
+              <label>{{book.form.name}}<input type="text" name="name" autocomplete="name" required></label>
+              <label>{{book.form.email}}<input type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label>{{book.form.company}}<input type="text" name="company" autocomplete="organization"></label>
+            <div class="form-row">
+              <label>{{book.form.size}}<input type="text" name="size"></label>
+              <label>{{book.form.type}}<input type="text" name="building_type"></label>
+            </div>
+            <label>{{book.form.country}}<input type="text" name="country" autocomplete="country-name"></label>
+            <label class="honeypot" aria-hidden="true">Leave empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+            <input type="hidden" name="_subject" value="Discovery call request from aquashieldai.com">
+            <button type="submit" class="btn btn-secondary btn-lg">{{book.form.send}}</button>
+            <p class="form-note" data-form-note aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>

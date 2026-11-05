@@ -1,0 +1,113 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{nav.product}}</p>
+        <h1>{{product.h1}}</h1>
+        <p class="lead">{{canonical}} {{product.lead}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="install-title">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 id="install-title">{{product.install.h2}}</h2>
+            <p>{{product.install.text}}</p>
+          </div>
+        </div>
+        <div>
+          <div class="media media-3x4">
+            <img src="{{base}}assets/img/clamp-on-sensor.webp" srcset="{{base}}assets/img/clamp-on-sensor-600.webp 600w, {{base}}assets/img/clamp-on-sensor-900.webp 900w, {{base}}assets/img/clamp-on-sensor.webp 1200w" sizes="(min-width: 900px) 460px, 90vw" alt="{{product.install.visualAlt}}" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <p class="media-caption">{{product.install.labels.ultrasonic}}. {{product.install.labels.time}}. {{product.install.labels.cut}}.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="data-title">
+      <div class="container split split-reverse">
+        <div>
+          <div class="section-head">
+            <h2 id="data-title">{{product.data.h2}}</h2>
+            <p>{{product.data.text}} <span class="to-confirm">{{product.data.confirm}}</span></p>
+          </div>
+        </div>
+        <div>
+          <div class="media">
+            <svg viewBox="0 0 640 400" role="img" aria-label="{{product.data.visualAlt}}">
+              <text class="chart-text-strong" x="32" y="40">{{product.data.chart.title}}</text>
+              <g transform="translate(0 0)">
+                <line class="chart-legend-base" x1="32" y1="64" x2="54" y2="64"/><text class="chart-text" x="62" y="68">{{product.data.chart.baseline}}</text>
+                <line class="chart-legend-live" x1="232" y1="64" x2="254" y2="64"/><text class="chart-text" x="262" y="68">{{product.data.chart.actual}}</text>
+                <line class="chart-legend-anomaly" x1="380" y1="64" x2="402" y2="64"/><text class="chart-text" x="410" y="68">{{product.data.chart.deviation}}</text>
+              </g>
+              <g class="chart-grid"><line x1="32" y1="120" x2="608" y2="120"/><line x1="32" y1="180" x2="608" y2="180"/><line x1="32" y1="240" x2="608" y2="240"/><line x1="32" y1="300" x2="608" y2="300"/><line x1="32" y1="340" x2="608" y2="340"/></g>
+              <path class="chart-band" d="M32 268 C80 262 100 200 150 198 C200 196 220 262 270 264 C320 266 340 200 390 198 C440 196 460 262 510 262 C550 262 580 230 608 232 L608 262 C580 260 550 292 510 292 C460 292 440 226 390 228 C340 230 320 296 270 294 C220 292 200 226 150 228 C100 230 80 292 32 298 Z"/>
+              <path class="chart-base" d="M32 283 C80 277 100 215 150 213 C200 211 220 277 270 279 C320 281 340 215 390 213 C440 211 460 277 510 277 C550 277 580 245 608 247"/>
+              <path class="chart-live" d="M32 285 C80 279 100 218 150 216 C200 214 220 280 270 281 C320 282 340 217 390 215 C430 214 445 250 470 262"/>
+              <path class="chart-live chart-live-anomaly" d="M470 262 C500 240 530 160 560 130 C580 112 596 102 608 98"/>
+              <circle class="chart-flag" cx="608" cy="98" r="5"/>
+              <g class="chart-text">
+                <text x="32" y="372">{{product.data.chart.days.0}}</text>
+                <text x="128" y="372">{{product.data.chart.days.1}}</text>
+                <text x="224" y="372">{{product.data.chart.days.2}}</text>
+                <text x="320" y="372">{{product.data.chart.days.3}}</text>
+                <text x="416" y="372">{{product.data.chart.days.4}}</text>
+                <text x="512" y="372">{{product.data.chart.days.5}}</text>
+                <text x="590" y="372">{{product.data.chart.days.6}}</text>
+              </g>
+            </svg>
+          </div>
+          <p class="media-caption">{{product.data.visualAlt}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="precision-title">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 id="precision-title">{{product.precision.h2}}</h2>
+            <p>{{product.precision.text}} <span class="to-confirm">{{product.precision.confirm}}</span></p>
+          </div>
+        </div>
+        <div>
+          <div class="media media-16x10 media-zoom">
+            <video data-autoplay muted loop playsinline preload="none" poster="{{base}}assets/img/twin-poster.webp" aria-label="{{product.twin.h2}}">
+              <source src="{{base}}assets/video/twin.webm" type="video/webm">
+              <source src="{{base}}assets/video/twin.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="media-caption">{{product.twin.h2}}: {{product.twin.text}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ml-title">
+      <div class="container split split-reverse">
+        <div>
+          <div class="section-head">
+            <h2 id="ml-title">{{product.ml.h2}}</h2>
+            <p>{{product.ml.text}}</p>
+          </div>
+        </div>
+        <div>
+          <div class="media media-16x10 media-zoom">
+            <img src="{{base}}assets/img/twin-ui.webp" alt="{{product.twin.h2}}" width="1400" height="745" loading="lazy">
+          </div>
+          <p class="media-caption">{{product.data.h2}} [TO CONFIRM: product screenshot approved for public use]</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="sensors-title">
+      <div class="container narrow">
+        <div class="status-box">
+          <h2 id="sensors-title">{{product.sensors.h2}}</h2>
+          <p>{{product.sensors.text}} {{product.sensors.confirm}}</p>
+        </div>
+      </div>
+    </section>
+
+{{> faq}}
+
+{{> cta}}

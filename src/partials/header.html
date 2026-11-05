@@ -1,0 +1,27 @@
+  <header class="site-header" data-header>
+    <div class="container nav-shell">
+      <a class="brand" href="{{urls.home}}" aria-label="AquaShield">
+        <img src="{{base}}assets/img/logo-wordmark.webp" alt="AquaShield" width="150" height="34">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle data-close-label="{{nav.close}}">
+        <span class="nav-toggle-label">{{nav.menu}}</span>
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main" data-nav>
+        <ul class="nav-list">
+          <li><a href="{{urls.product}}" {{#if page.isProduct}}aria-current="page"{{/if}}>{{nav.product}}</a></li>
+          <li><a href="{{urls.real-estate}}" {{#if page.isRealEstate}}aria-current="page"{{/if}}>{{nav.realEstate}}</a></li>
+          <li><a href="{{urls.insurance}}" {{#if page.isInsurance}}aria-current="page"{{/if}}>{{nav.insurance}}</a></li>
+          <li><a href="{{urls.data-centers}}" {{#if page.isDataCenters}}aria-current="page"{{/if}}>{{nav.dataCenters}}</a></li>
+          <li><a href="{{urls.team}}" {{#if page.isTeam}}aria-current="page"{{/if}}>{{nav.team}}</a></li>
+          <li><a href="{{urls.blog}}" {{#if page.isBlog}}aria-current="page"{{/if}}>{{nav.blog}}</a></li>
+        </ul>
+        <div class="nav-tools">
+          <div class="lang-switch" aria-label="{{nav.language}}">
+{{#each alternates}}            <a href="{{href}}" hreflang="{{lang}}" lang="{{lang}}" {{#if current}}aria-current="true"{{/if}}>{{code}}</a>
+{{/each}}          </div>
+          <a class="btn btn-primary btn-nav" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{nav.cta}}</a>
+        </div>
+      </nav>
+    </div>
+  </header>

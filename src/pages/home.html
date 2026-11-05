@@ -1,0 +1,162 @@
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{home.hero.eyebrow}}</p>
+          <h1>{{home.hero.h1}}</h1>
+          <p class="tagline">{{tagline}}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}">{{cta.label}}</a>
+            <p class="cta-line">{{cta.home}}</p>
+          </div>
+          <p class="hero-proof">{{home.hero.proof}}</p>
+        </div>
+        <div class="hero-visual">
+          {{{heroBuilding}}}
+        </div>
+      </div>
+    </section>
+
+{{> counter}}
+
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{home.problem.eyebrow}}</p>
+          <h2 id="problem-title">{{home.problem.h2}}</h2>
+        </div>
+        <div class="stat-boxes">
+{{#each home.problem.stats}}          <div class="stat-box" data-reveal>
+            <p class="stat-value">{{value}}</p>
+            <p class="stat-label">{{label}}</p>
+            {{#if source}}<p class="stat-source">{{common.source}}: {{source}} {{#if confirm}}<span class="to-confirm">{{common.toConfirm}}</span>{{/if}}</p>{{/if}}
+          </div>
+{{/each}}        </div>
+        <p class="section-line">{{home.problem.line}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{home.how.eyebrow}}</p>
+          <h2 id="how-title">{{home.how.h2}}</h2>
+        </div>
+        <div class="steps cols-4">
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              <img src="{{base}}assets/img/clamp-on-sensor-600.webp" srcset="{{base}}assets/img/clamp-on-sensor-600.webp 600w, {{base}}assets/img/clamp-on-sensor-900.webp 900w, {{base}}assets/img/clamp-on-sensor.webp 1200w" sizes="(min-width: 1024px) 270px, (min-width: 640px) 45vw, 90vw" alt="{{product.install.visualAlt}}" width="600" height="800" loading="lazy" decoding="async">
+            </div>
+            <h3 class="step-name">{{home.how.steps.0.name}}</h3>
+            <p>{{home.how.steps.0.text}}</p>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+                <g class="chart-grid"><line x1="30" y1="70" x2="380" y2="70"/><line x1="30" y1="130" x2="380" y2="130"/><line x1="30" y1="190" x2="380" y2="190"/><line x1="30" y1="250" x2="380" y2="250"/></g>
+                <path class="chart-band" d="M30 200 C70 196 90 120 130 118 C170 116 190 170 230 172 C270 174 290 110 330 112 C350 113 365 150 380 150 L380 176 C365 176 350 139 330 138 C290 136 270 200 230 198 C190 196 170 142 130 144 C90 146 70 222 30 226 Z"/>
+                <path class="chart-base" d="M30 213 C70 211 90 133 130 131 C170 129 190 185 230 185 C270 185 290 123 330 125 C350 126 365 163 380 163"/>
+                <path class="chart-live" d="M30 216 C70 212 90 136 130 134 C170 132 190 188 230 186 C270 184 290 126 330 128 C350 129 365 160 380 161"/>
+                <text class="chart-text-strong" x="30" y="40">{{product.data.chart.baseline}}</text>
+                <text class="chart-text" x="30" y="280">{{product.data.chart.days.0}}</text>
+                <text class="chart-text" x="355" y="280">{{product.data.chart.days.6}}</text>
+              </svg>
+            </div>
+            <h3 class="step-name">{{home.how.steps.1.name}}</h3>
+            <p>{{home.how.steps.1.text}}</p>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+                <g class="chart-grid"><line x1="30" y1="70" x2="380" y2="70"/><line x1="30" y1="130" x2="380" y2="130"/><line x1="30" y1="190" x2="380" y2="190"/><line x1="30" y1="250" x2="380" y2="250"/></g>
+                <path class="chart-band" d="M30 200 C70 196 90 196 130 198 C170 200 190 196 230 198 C270 200 290 196 330 198 C350 199 365 196 380 198 L380 226 C365 224 350 227 330 226 C290 224 270 228 230 226 C190 224 170 228 130 226 C90 224 70 224 30 228 Z"/>
+                <path class="chart-base" d="M30 214 C70 210 90 210 130 212 C170 214 190 210 230 212 C270 214 290 210 330 212 C350 213 365 210 380 212"/>
+                <path class="chart-live chart-live-anomaly" d="M30 216 C70 212 90 212 130 214 C170 216 190 212 220 210 C250 206 270 150 300 120 C320 100 350 86 380 80"/>
+                <circle class="chart-flag" cx="380" cy="80" r="5"/>
+                <text class="chart-text-strong" x="30" y="40">{{product.data.chart.deviation}}</text>
+                <text class="chart-text" x="30" y="280">{{product.data.chart.days.0}}</text>
+                <text class="chart-text" x="355" y="280">{{product.data.chart.days.6}}</text>
+              </svg>
+            </div>
+            <h3 class="step-name">{{home.how.steps.2.name}}</h3>
+            <p>{{home.how.steps.2.text}}</p>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              <img src="{{base}}assets/img/pipe-network-600.webp" srcset="{{base}}assets/img/pipe-network-600.webp 600w, {{base}}assets/img/pipe-network.webp 1200w" sizes="(min-width: 1024px) 270px, (min-width: 640px) 45vw, 90vw" alt="{{product.twin.h2}}" width="600" height="338" loading="lazy" decoding="async">
+            </div>
+            <h3 class="step-name">{{home.how.steps.3.name}}</h3>
+            <p>{{home.how.steps.3.text}}</p>
+          </div>
+        </div>
+        <p class="steps-cta"><a class="link-arrow" href="{{urls.product}}">{{common.learnMore}}</a></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="who-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{home.who.eyebrow}}</p>
+          <h2 id="who-title">{{home.who.h2}}</h2>
+        </div>
+        <div class="segments">
+          <a class="segment segment-first" href="{{urls.real-estate}}" data-reveal>
+            <h3>{{home.who.cards.0.name}}</h3>
+            <p>{{home.who.cards.0.text}}</p>
+            <span class="link-arrow">{{home.who.cards.0.link}}</span>
+          </a>
+          <a class="segment" href="{{urls.insurance}}" data-reveal>
+            <h3>{{home.who.cards.1.name}}</h3>
+            <p>{{home.who.cards.1.text}}</p>
+            <span class="link-arrow">{{home.who.cards.1.link}}</span>
+          </a>
+          <a class="segment" href="{{urls.data-centers}}" data-reveal>
+            <h3>{{home.who.cards.2.name}}</h3>
+            <p>{{home.who.cards.2.text}}</p>
+            <span class="link-arrow">{{home.who.cards.2.link}}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="proof-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{home.proof.eyebrow}}</p>
+          <h2 id="proof-title">{{home.proof.h2}}</h2>
+        </div>
+        <div class="proof-grid">
+{{> alert-card}}
+          <div class="customers">
+            <p><strong>{{home.proof.customersLive}}</strong> {{home.proof.customersLiveList}}</p>
+            <p><strong>{{home.proof.customersPlanned}}</strong> {{home.proof.customersPlannedList}}</p>
+            <p class="small">{{home.proof.confirm}}</p>
+          </div>
+        </div>
+{{> logo-strip}}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="promise-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="promise-title">{{home.notPromise.h2}}</h2>
+        </div>
+        <ol class="promise-list">
+{{#each home.notPromise.items}}          <li data-reveal>{{this}}</li>
+{{/each}}        </ol>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <h2 id="cta-title">{{home.final.h2}}</h2>
+        <p class="cta-line">{{home.final.line}}</p>
+        <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}">{{cta.label}}</a>
+        <p class="cta-fallback">{{cta.home}}</p>
+        <ul class="cta-questions" aria-label="{{cta.questionsIntro}}">
+{{#each cta.questions}}          <li>{{this}}</li>
+{{/each}}        </ul>
+        <p class="cta-fallback">{{cta.fallback}} <a href="mailto:{{cta.email}}">{{cta.email}}</a></p>
+      </div>
+    </section>

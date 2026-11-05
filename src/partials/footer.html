@@ -1,0 +1,35 @@
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="{{base}}assets/img/logo-wordmark.webp" alt="AquaShield" width="150" height="34" loading="lazy">
+        <p class="footer-canonical">{{canonical}}</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-title">{{nav.menu}}</p>
+        <ul>
+          <li><a href="{{urls.product}}">{{nav.product}}</a></li>
+          <li><a href="{{urls.real-estate}}">{{nav.realEstate}}</a></li>
+          <li><a href="{{urls.insurance}}">{{nav.insurance}}</a></li>
+          <li><a href="{{urls.data-centers}}">{{nav.dataCenters}}</a></li>
+          <li><a href="{{urls.team}}">{{nav.team}}</a></li>
+          <li><a href="{{urls.blog}}">{{nav.blog}}</a></li>
+          <li><a href="{{urls.book-a-call}}">{{cta.label}}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-title">AquaShield</p>
+        <ul>
+          <li>{{footer.offices}}</li>
+          <li><a href="mailto:{{footer.email}}">{{footer.email}}</a></li>
+          <li><a href="https://www.linkedin.com/company/aquashieldinc/" rel="noopener">{{footer.linkedin}}</a></li>
+        </ul>
+        <div class="lang-switch lang-switch-footer" aria-label="{{nav.language}}">
+{{#each alternates}}          <a href="{{href}}" hreflang="{{lang}}" lang="{{lang}}" {{#if current}}aria-current="true"{{/if}}>{{name}}</a>
+{{/each}}        </div>
+      </div>
+    </div>
+    <div class="container footer-legal">
+      <p>&copy; {{site.year}} {{footer.legal}} <span class="to-confirm">{{footer.legalNote}}</span></p>
+      <p><a href="{{urls.imprint}}">{{footer.imprint}}</a> · <a href="{{base}}privacy-policy.html">{{footer.privacy}}</a></p>
+    </div>
+  </footer>

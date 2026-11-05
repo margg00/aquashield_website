@@ -1,0 +1,49 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{dataCenters.eyebrow}}</p>
+        <h1>{{dataCenters.h1}}</h1>
+        <p class="lead">{{canonical}} {{dataCenters.lead}}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
+          <p class="cta-line">{{cta.dataCenters}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="story-title">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 id="story-title">{{dataCenters.story.h2}}</h2>
+            <p>{{dataCenters.story.text}}</p>
+          </div>
+        </div>
+        <div>
+          <div class="media media-16x10">
+            <img src="{{base}}assets/img/pipe-network.webp" srcset="{{base}}assets/img/pipe-network-600.webp 600w, {{base}}assets/img/pipe-network.webp 1200w" sizes="(min-width: 900px) 540px, 90vw" alt="{{product.twin.h2}}" width="1200" height="675" loading="lazy" decoding="async">
+          </div>
+          <p class="media-caption">{{product.twin.h2}}: {{product.twin.text}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-title">
+      <div class="container narrow">
+        <div class="status-box">
+          <h2 id="status-title">{{dataCenters.status.h2}}</h2>
+          <p>{{dataCenters.status.text}}</p>
+          <p>{{dataCenters.status.proof}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="together-title">
+      <div class="container narrow">
+        <div class="section-head">
+          <h2 id="together-title">{{dataCenters.together.h2}}</h2>
+          <p>{{dataCenters.together.text}}</p>
+        </div>
+      </div>
+    </section>
+
+{{> cta}}

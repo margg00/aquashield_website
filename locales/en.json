@@ -1,0 +1,432 @@
+{
+  "meta": { "langName": "English", "locale": "en_US", "htmlLang": "en" },
+  "canonical": "AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and AI.",
+  "tagline": "The smoke detector for your building's water system.",
+  "service": { "name": "AquaShield leak detection and localisation", "type": "AI leak detection and localisation for buildings" },
+
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "realEstate": "Real estate",
+    "insurance": "Insurance",
+    "dataCenters": "Data centres",
+    "team": "Team",
+    "blog": "Blog",
+    "cta": "Book a call",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language"
+  },
+
+  "cta": {
+    "label": "Book a 30-min discovery call",
+    "home": "We check whether we can fix your water problem.",
+    "realEstate": "We check whether we can fix your water-damage problem.",
+    "insurance": "We check whether we can cut your water-claim severity.",
+    "dataCenters": "We check whether we can catch your cooling-loop leaks.",
+    "fallback": "Or email",
+    "email": "founders@aquashieldai.com",
+    "titles": {
+      "home": "Start with one building.",
+      "realEstate": "Start with one building.",
+      "insurance": "Start with one book of business.",
+      "dataCenters": "Start with one cooling loop."
+    },
+    "questionsIntro": "Three questions before we talk:",
+    "questions": ["Portfolio or book size", "Building type", "Country"]
+  },
+
+  "common": {
+    "skip": "Skip to content",
+    "sample": "Sample alert, anonymised",
+    "readMore": "Read",
+    "learnMore": "See how AquaShield works",
+    "toConfirm": "To confirm",
+    "backHome": "Back to home",
+    "load3d": "Load the 3D view",
+    "load3dNote": "Loads a 3D scene (about 600 KB).",
+    "by": "By",
+    "updated": "Updated",
+    "minutes": "min read",
+    "source": "Source"
+  },
+
+  "footer": {
+    "offices": "Zurich HQ, Technoparkstrasse 1, 8005 Zurich. San Francisco.",
+    "legal": "AquaShield AI Inc.",
+    "legalNote": "[TO CONFIRM: legal address]",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "linkedin": "LinkedIn",
+    "email": "founders@aquashieldai.com",
+    "rights": "All rights reserved."
+  },
+
+  "counter": {
+    "title": "Live, computed from real sites",
+    "buildingsLabel": "Buildings live",
+    "pointsLabel": "Measuring points",
+    "readingsLabel": "Readings analysed",
+    "leaksLabel": "Leaks found",
+    "note": "Approximate. Computed from each site's go-live date, not typed in.",
+    "formula": "Readings = measuring points × 144 ten-minute intervals per day × days since that site went live, summed over live sites.",
+    "leaksNote": "Two confirmed by flow signature, one being verified."
+  },
+
+  "alert": {
+    "label": "Sample alert, anonymised",
+    "building": "Building 14",
+    "riser": "Riser B",
+    "severityLabel": "Severity",
+    "severity": "High",
+    "line": "Flow 38 percent above the night baseline for 6 hours.",
+    "checkLabel": "Check first",
+    "check": "Riser B, floors 3 to 5. Shut-off valve on floor 3.",
+    "statusLabel": "Status",
+    "status": "Reviewed with the maintenance team",
+    "time": "Today, 07:10"
+  },
+
+  "building": {
+    "riser": "Riser B",
+    "floor": "floor 3",
+    "flag": "Deviation flagged",
+    "normal": "Normal flow"
+  },
+
+  "logos": {
+    "backed": "Backed by",
+    "developed": "Developed in collaboration with",
+    "founders": "Founders from",
+    "yc": "Y Combinator",
+    "openai": "OpenAI",
+    "mit": "MIT",
+    "mitFacilities": "MIT Facilities",
+    "harvard": "Harvard",
+    "epfl": "EPFL"
+  },
+
+  "pages": {
+    "home": { "title": "AquaShield: AI leak detection for buildings", "description": "AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and AI. Clamp-on, no pipe cutting, riser-level localisation." },
+    "product": { "title": "How AquaShield works: sensors, AI, digital twin", "description": "Clamp-on ultrasonic and pressure sensors, a model per measuring point that learns normal flow, and a digital twin that narrows a leak to a riser." },
+    "real-estate": { "title": "Leak detection for real estate portfolios | AquaShield", "description": "AI leak detection for apartment and office portfolios. Clamp-on sensors, no pipe cutting, riser-level localisation. Live at Vonovia since March 2026." },
+    "insurance": { "title": "Water claim severity and risk data | AquaShield", "description": "Earlier detection shortens loss duration and cuts secondary damage. Live building data for risk scoring. Five ways for property insurers to work with AquaShield." },
+    "data-centers": { "title": "Cooling-loop leak detection for data centres | AquaShield", "description": "Networked flow and pressure sensing per rack for liquid-cooled data centres. Catch the cooling-loop leak before the outage. Nothing live yet, first site wanted." },
+    "team": { "title": "Team | AquaShield", "description": "Two robotics researchers from MIT and Harvard who left robotics to fix plumbing. AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and AI." },
+    "blog": { "title": "Blog | AquaShield", "description": "Leak detection, water damage and building data, written by the AquaShield founders. One post every two weeks." },
+    "book-a-call": { "title": "Book a 30-min discovery call | AquaShield", "description": "Book a 30-minute call with the AquaShield founders. We check whether we can fix your water problem. No pilot form, no commitment." },
+    "imprint": { "title": "Imprint | AquaShield", "description": "Legal information for AquaShield AI Inc. and AquaShield AG." },
+    "404": { "title": "Page not found | AquaShield", "description": "That page is not here." }
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "AI leak detection for buildings",
+      "h1": "Find the leak before the damage.",
+      "proof": "Live at Vonovia. Backed by Y Combinator.",
+      "visualAlt": "Wireframe building with five floors and three risers. One riser glows red at the deviation on floor three."
+    },
+    "problem": {
+      "eyebrow": "The problem",
+      "h2": "Water is the one building system you cannot see.",
+      "stats": [
+        { "value": "USD 89k", "label": "Average US commercial water claim", "source": "NAIOP", "confirm": true },
+        { "value": "Up to 5", "label": "Site visits to find one hidden leak, a wall opened each time", "source": "AquaShield pilot sites", "confirm": true },
+        { "value": "EUR 4.91bn", "label": "German tap-water claims in 2024", "source": "GDV", "confirm": true }
+      ],
+      "line": "Occupancy, energy and HVAC have dashboards. Water waits for a tenant call, a ceiling stain or a puddle on the floor."
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "h2": "Four steps from pipe to alert.",
+      "steps": [
+        { "name": "Install", "text": "Clamp-on sensors go onto existing pipes in under 15 minutes each. No pipe cutting." },
+        { "name": "Learn", "text": "A model per measuring point learns your building's normal flow in 10-minute steps." },
+        { "name": "Detect", "text": "Deviations from normal are flagged and ranked by severity." },
+        { "name": "Localise", "text": "A digital twin of the plumbing narrows the leak to a riser or a building section." }
+      ]
+    },
+    "who": {
+      "eyebrow": "Who it is for",
+      "h2": "Built for the people who get the call.",
+      "cards": [
+        { "name": "Real estate", "text": "Portfolios with in-house maintenance. Start with one building, then roll out.", "link": "For real estate", "key": "real-estate" },
+        { "name": "Insurance", "text": "Shorter loss duration, lower claim severity, live building data for risk.", "link": "For insurers", "key": "insurance" },
+        { "name": "Data centres", "text": "Flow and pressure sensing per rack for liquid cooling.", "link": "For data centres", "key": "data-centers" }
+      ]
+    },
+    "proof": {
+      "eyebrow": "Proof",
+      "h2": "What a real alert looks like.",
+      "customersLive": "Live or in pilot with",
+      "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities and EPFL Facilities.",
+      "customersPlanned": "In planning with",
+      "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown and VUB.",
+      "confirm": "[TO CONFIRM: written permission per name]"
+    },
+    "notPromise": {
+      "h2": "What we do not promise yet.",
+      "items": [
+        "No accuracy figures. We publish them when they are measured across enough sites, not before.",
+        "Alerts are reviewed with your team, not fired at them.",
+        "False alarms happen. The system learns from every one you flag."
+      ]
+    },
+    "final": {
+      "h2": "Start with one building.",
+      "line": "Thirty minutes with a founder. We ask three questions, you ask yours, and we say honestly whether we can help."
+    }
+  },
+
+  "product": {
+    "h1": "How AquaShield works",
+    "lead": "Clamp-on sensors go onto existing pipes. A model per measuring point learns the building's normal flow. A digital twin of the plumbing narrows a deviation to a riser or a building section. Alerts are reviewed with your maintenance team.",
+    "install": {
+      "h2": "What does an install look like?",
+      "text": "Ultrasonic flow sensors clamp onto the outside of existing pipes. Pressure sensors go onto existing taps. Each sensor takes under 15 minutes. No pipe cutting, no shutdown of the water supply. Every rollout starts with a walkthrough with your maintenance team, on site, remote or from plumbing diagrams. Placement is built on the failure modes they already know. There is no one-size-fits-all layout. After the first building, maintenance teams can self-install.",
+      "visualAlt": "Diagram: a clamp-on ultrasonic flow sensor on a riser and a pressure sensor on a tap.",
+      "labels": { "riser": "Riser", "ultrasonic": "Clamp-on ultrasonic flow sensor", "pressure": "Pressure sensor on an existing tap", "time": "Under 15 minutes each", "cut": "No pipe cutting" }
+    },
+    "data": {
+      "h2": "What data do I get?",
+      "text": "A dashboard with every measuring point, its live flow against its learned baseline, and the alert list ranked by severity. Each alert names the building, the riser or section, how far flow is from normal and for how long, and what to check first. Data coverage per site is shown so you know when a sensor is offline. Alerts go to the people you name. Nothing is sent before it has been reviewed.",
+      "confirm": "[TO CONFIRM: alert channels]",
+      "visualAlt": "Sample chart: one measuring point over seven days, the learned baseline band and a deviation on the last two days.",
+      "chart": { "title": "Measuring point, riser B, seven days", "baseline": "Learned baseline", "actual": "Live flow", "deviation": "Deviation", "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] }
+    },
+    "precision": {
+      "h2": "How precise is the localisation?",
+      "text": "Honest answer: to the riser or the building section, not to the pipe segment. At one site the system narrowed a deviation to a single riser. At another it pointed to one side of the building. Precision grows with the number of measuring points and with every incident the model learns from. We state no accuracy percentage until it is measured across enough sites.",
+      "confirm": "[TO CONFIRM: wording]"
+    },
+    "ml": {
+      "h2": "The machine learning",
+      "text": "Each measuring point gets its own model. It learns that building's normal flow in 10-minute steps: night baseline, morning peak, weekday against weekend. A deviation is a flow pattern that normal does not explain. The digital twin maps which sensors see the same water, so a deviation can be placed in the network. False alarms your team flags go back into the model. Specialised machine learning for hydraulic systems, not a generic anomaly detector."
+    },
+    "sensors": {
+      "h2": "The sensors",
+      "text": "Clamp-on ultrasonic flow sensors on risers and supply lines. Pressure sensors on existing taps. Readings every 10 minutes. Sensors report data coverage so the dashboard shows when one is offline.",
+      "confirm": "[TO CONFIRM: battery sensor availability]"
+    },
+    "twin": {
+      "h2": "The digital twin",
+      "text": "A model of the building's plumbing: risers, branches, which sensor sees which water. It is what turns a deviation into a place to check first."
+    },
+    "faqTitle": "Questions we always get",
+    "faq": [
+      { "q": "Does the install interrupt the water supply?", "a": "No. Sensors clamp onto the outside of the pipe. The water stays on." },
+      { "q": "How long does a rollout take?", "a": "One building: a walkthrough, then one day of installs. A portfolio: start with one building, then roll out at your pace." },
+      { "q": "Does it work with old pipes?", "a": "The sensors clamp onto accessible pipe. The walkthrough confirms it per building. [TO CONFIRM: pipe materials]" },
+      { "q": "What happens with a false alarm?", "a": "You flag it in the dashboard. The model learns from it. Alerts are reviewed with your team before they escalate." },
+      { "q": "Who sees the data?", "a": "You and the people you name. We do not sell data. See the privacy policy." },
+      { "q": "What does it cost?", "a": "Priced per building and measuring point, a fraction of one claim. We quote after the walkthrough. [TO CONFIRM: pricing statement]" }
+    ]
+  },
+
+  "realEstate": {
+    "eyebrow": "Real estate",
+    "h1": "Find the leak before your tenant does.",
+    "lead": "For portfolios with in-house maintenance, from hundreds to hundreds of thousands of units.",
+    "story": {
+      "h2": "Leaks are discovered, not detected.",
+      "text": "A tenant calls. A ceiling stains. Water shows up on a basement floor. By then the leak has been running for days or weeks. Finding it can take up to five site visits and a wall opened each time. Occupancy, energy and HVAC all have a live view. Water does not. AquaShield gives your maintenance team that view: every riser watched, deviations ranked by severity, and a location to check first."
+    },
+    "customers": {
+      "h2": "Who we work with",
+      "confirm": "[TO CONFIRM: every name and status, written permission]",
+      "groups": [
+        { "label": "Live", "items": [
+          "Vonovia, Europe's largest residential landlord [TO CONFIRM: wording]. 22 buildings, 32 measuring points, since March 2026.",
+          "Prime Residential, California. Two sites, 59 sensors, since September 2026.",
+          "Panoramic Interests, Berkeley. A new seven-storey building, 23 sensors on 10 risers."
+        ] },
+        { "label": "R&D pilots", "items": [
+          "MIT Facilities, building NW23, where the system started.",
+          "EPFL Facilities, on campus."
+        ] },
+        { "label": "In planning", "items": [
+          "Life Time Fitness, Roseville. One club, Q1 2027.",
+          "Bedrock, Detroit. Three office high-rises, LOI signed.",
+          "Jamestown, Berlin. Two buildings, site visit done.",
+          "VUB. Three buildings."
+        ] }
+      ]
+    },
+    "facts": {
+      "h2": "What the first eight months show",
+      "items": [
+        { "value": "91 to 100%", "label": "Data coverage per site" },
+        { "value": "2", "label": "Reported damages matched to a clear flow signature" },
+        { "value": "5", "label": "Live anomalies under review with the maintenance team" }
+      ],
+      "note": "No accuracy figures yet. We publish them when they are measured across enough sites.",
+      "confirm": "[TO CONFIRM: Vonovia facts]"
+    },
+    "anchor": {
+      "h2": "One claim pays for the monitoring.",
+      "items": [
+        { "value": "USD 89k", "label": "Average US commercial water claim", "source": "NAIOP" },
+        { "value": "USD 100k", "label": "Deductible per incident many large US portfolios carry", "source": "[TO CONFIRM]" },
+        { "value": "3×", "label": "Claims above USD 1M since 2015", "source": "[TO CONFIRM]" },
+        { "value": "EUR 4.91bn", "label": "German tap-water damage in 2024", "source": "GDV" }
+      ],
+      "line": "AquaShield is priced per building, a fraction of one claim.",
+      "confirm": "[TO CONFIRM: each figure against its primary source. Pricing statement.]"
+    },
+    "path": {
+      "h2": "Start with one building.",
+      "steps": [
+        { "name": "Walkthrough", "text": "On site, remote or from plumbing diagrams, with your maintenance team. Placement follows the failure modes they already know." },
+        { "name": "Install", "text": "Under 15 minutes per sensor. No pipe cutting. The water stays on." },
+        { "name": "Learn", "text": "The model learns normal flow for that building." },
+        { "name": "Review", "text": "Alerts are reviewed with your team. Then roll out at your pace. Your team can self-install." }
+      ]
+    },
+    "faqTitle": "Questions from portfolio teams",
+    "faq": [
+      { "q": "We have smart water meters. Is this the same?", "a": "No. Meters count consumption per unit. AquaShield watches flow at the riser and learns what normal looks like, so it sees a leak that no single meter would." },
+      { "q": "Do we need to open walls?", "a": "No. Sensors clamp onto accessible pipe in risers, basements and shafts." },
+      { "q": "What does our maintenance team have to do?", "a": "Join the walkthrough, flag false alarms, check the location the alert names. After the first building they can install themselves." },
+      { "q": "Does it work in old buildings?", "a": "Yes, on accessible pipe. The walkthrough confirms it per building. [TO CONFIRM: pipe materials]" },
+      { "q": "How many buildings to start?", "a": "One. Roll out when you have seen it work." },
+      { "q": "Can our insurer see the data?", "a": "Only if you decide so. Some portfolios share it to negotiate terms. See the insurance page." }
+    ]
+  },
+
+  "insurance": {
+    "eyebrow": "Insurance",
+    "h1": "Shorter loss duration. Lower claim severity.",
+    "lead": "For property underwriters, claims and innovation leads who think in loss ratio, severity and risk data.",
+    "story": {
+      "h2": "Severity is driven by time.",
+      "text": "A hidden leak runs until someone notices. Every extra day adds secondary damage: subfloors, drywall, neighbouring units, business interruption. Earlier detection shortens the loss duration, and that is the lever on severity. Live flow data per riser adds a second value: a risk signal that underwriting does not have today, from buildings that are owner-operated and already instrumented. No accuracy figures yet. We publish them when they are measured across enough sites."
+    },
+    "ways": {
+      "h2": "Five ways to work together",
+      "items": [
+        { "name": "Insurer-subsidised hardware", "text": "The carrier funds sensors in the insured portfolio." },
+        { "name": "Premium discount", "text": "Monitored buildings earn a lower rate." },
+        { "name": "Bundled rider", "text": "Monitoring sold with the policy." },
+        { "name": "Risk data", "text": "Live building data feeds risk scoring and renewal." },
+        { "name": "Claims response", "text": "An alert triggers the claims process before the tenant calls." }
+      ],
+      "line": "Which one fits depends on your book. The 30-minute call is where we find out."
+    },
+    "share": {
+      "h2": "What we can share, and what we cannot",
+      "can": "We can: aggregated flow deviations per building, alert counts and durations, data coverage, with the owner's consent.",
+      "cannot": "We cannot: unit-level consumption, tenant data, or any data the owner has not released. The owner stays in control of their data.",
+      "confirm": "[TO CONFIRM: data-sharing statement]"
+    },
+    "status": {
+      "h2": "Where we are",
+      "text": "No insurer is a customer or partner yet. Pilots are running with owners in Germany and the US. We are looking for the first carrier to work through one book of business with us."
+    }
+  },
+
+  "dataCenters": {
+    "eyebrow": "Data centres",
+    "h1": "Catch the cooling-loop leak before the outage.",
+    "lead": "For facility and operations leads running liquid cooling, where water is not the pain. The outage is.",
+    "story": {
+      "h2": "Floor leak cables tell you after the fact.",
+      "text": "A leak cable fires when water reaches the floor. By then a rack has lost cooling. Networked flow and pressure sensing per rack sees the deviation in the loop itself: a drop in pressure, a flow that does not match its neighbours. Clamp-on, non-invasive, no cutting into the cooling loop. The same model that learns a building's normal flow learns a cooling loop's."
+    },
+    "status": {
+      "h2": "Where we are",
+      "text": "Nothing is live in a data centre yet. We are looking for a first site, in Switzerland first, to try this together.",
+      "proof": "Proof from real estate: live at Vonovia since March 2026, 22 buildings and 32 measuring points."
+    },
+    "together": {
+      "h2": "Let us try it together at your site.",
+      "text": "One cooling loop, one rack row, a walkthrough with your operations team. We learn your loop's normal. You see whether the alerts are worth it."
+    }
+  },
+
+  "team": {
+    "eyebrow": "Team",
+    "h1": "Two robotics researchers who left robotics to fix plumbing.",
+    "lead": "We started with buildings because they were the easiest system to begin with. The first system was built with MIT Facilities, in building NW23, with the people who maintain it.",
+    "learn": {
+      "h2": "The maintenance team is the expert.",
+      "text": "Every building fails in its own way, and the people who maintain it know how. So every rollout starts with a walkthrough with them, and every alert is reviewed with them. The model learns the building. The team teaches it what matters. Technology does not replace inspections. It tells the inspector where to go first."
+    },
+    "peopleTitle": "People",
+    "people": [
+      { "id": "paul-beckers", "name": "Paul Beckers", "role": "CEO", "alumni": ["MIT", "RWTH Aachen", "Tsinghua"], "line": "Robotics researcher." },
+      { "id": "marguerite-benoist", "name": "Marguerite Benoist", "role": "CTO", "alumni": ["EPFL", "Harvard"], "line": "Robotics researcher." },
+      { "id": "tim-baumeister", "name": "Tim Baumeister", "role": "Co-founder, customers and operations", "alumni": ["RWTH Aachen", "Tsinghua"], "line": "" },
+      { "id": "neil-cecchi", "name": "Neil Cecchi", "role": "Founding engineer", "alumni": [], "line": "" }
+    ],
+    "peopleConfirm": "[TO CONFIRM: one-line bios and headshots]",
+    "photoAlt": "The AquaShield team.",
+    "backing": {
+      "h2": "Backing and research",
+      "items": [
+        "Y Combinator, spring 2026.",
+        "OpenAI. [TO CONFIRM: basis]",
+        "EPFL Startup Launchpad AI grant.",
+        "Research collaborations with EPFL and ETH Zurich. [TO CONFIRM: wording per partner]",
+        "Developed with MIT Facilities."
+      ]
+    },
+    "offices": {
+      "h2": "Offices",
+      "items": [
+        { "city": "Zurich HQ", "line": "Technoparkstrasse 1, 8005 Zurich, Switzerland" },
+        { "city": "San Francisco", "line": "California. [TO CONFIRM: address]" }
+      ]
+    }
+  },
+
+  "blog": {
+    "h1": "Blog",
+    "lead": "Leak detection, water damage and building data. One post every two weeks, from the people building AquaShield.",
+    "empty": "The first post is being written.",
+    "segments": { "real-estate": "Real estate", "insurance": "Insurance", "data-centers": "Data centres" },
+    "faqTitle": "Questions",
+    "definitionLabel": "Definition",
+    "allPosts": "All posts"
+  },
+
+  "book": {
+    "h1": "Book a 30-min discovery call",
+    "lead": "Thirty minutes with a founder. We ask three questions, you ask yours, and we say honestly whether we can help.",
+    "pick": "Pick a time",
+    "pickNote": "Opens the calendar. Loads a scheduling widget from Calendly.",
+    "or": "Or send us the three answers and we reply with times.",
+    "form": {
+      "name": "Name",
+      "email": "Work email",
+      "company": "Company",
+      "size": "Portfolio or book size",
+      "type": "Building type",
+      "country": "Country",
+      "send": "Send",
+      "sending": "Sending",
+      "success": "Thanks. We reply within two working days.",
+      "error": "Something went wrong. Email founders@aquashieldai.com and we will sort it out.",
+      "invalid": "Please fill in your name and a work email."
+    },
+    "confirm": "[TO CONFIRM: founders' meeting link, reply time, form destination]"
+  },
+
+  "imprint": {
+    "h1": "Imprint",
+    "blocks": [
+      { "title": "AquaShield AI Inc.", "lines": ["[TO CONFIRM: legal address, Delaware registered agent or SF office]"] },
+      { "title": "AquaShield AG", "lines": ["Technoparkstrasse 1", "8005 Zurich, Switzerland", "[TO CONFIRM: commercial register number and UID]"] },
+      { "title": "Represented by", "lines": ["Paul Beckers, CEO [TO CONFIRM]"] },
+      { "title": "Contact", "lines": ["founders@aquashieldai.com"] },
+      { "title": "Responsible for content", "lines": ["Paul Beckers [TO CONFIRM]"] },
+      { "title": "Analytics", "lines": ["This site uses cookieless analytics that stores no personal data and sets no cookies. [TO CONFIRM: once the analytics tool is chosen]"] }
+    ],
+    "privacyLink": "Privacy policy",
+    "lawyer": "[TO CONFIRM: lawyer's read]"
+  },
+
+  "notFound": {
+    "h1": "That page is not here.",
+    "line": "The link may be old. Try the home page, or email founders@aquashieldai.com."
+  }
+}

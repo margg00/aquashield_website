@@ -1,0 +1,9 @@
+{
+  "_comment": "Live-counter inputs. Only real sites, only real numbers. The counter is computed from this file, never typed into a page. Dates: [TO CONFIRM: exact go-live day per site, Tim]. leaksFound: two confirmed at Vonovia by flow signature, one at Panoramic being verified [TO CONFIRM: Tim].",
+  "leaksFound": 3,
+  "sites": [
+    { "name": "Vonovia", "buildings": 22, "points": 32, "liveSince": "2026-03-01" },
+    { "name": "Prime Residential", "buildings": 2, "points": 59, "liveSince": "2026-09-01" },
+    { "name": "Panoramic Interests", "buildings": 1, "points": 23, "liveSince": "2026-10-01", "note": "[TO CONFIRM: go-live date]" }
+  ]
+}

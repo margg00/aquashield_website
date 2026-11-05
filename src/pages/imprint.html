@@ -1,0 +1,18 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <h1>{{imprint.h1}}</h1>
+      </div>
+    </section>
+
+    <section class="section-tight section-alt">
+      <div class="container">
+        <div class="blocks">
+{{#each imprint.blocks}}          <div>
+            <strong>{{title}}</strong>
+{{#each lines}}            <p>{{this}}</p>
+{{/each}}          </div>
+{{/each}}        </div>
+        <p class="note"><a href="{{base}}privacy-policy.html">{{imprint.privacyLink}}</a></p>
+        <p class="note">{{imprint.lawyer}}</p>
+      </div>
+    </section>

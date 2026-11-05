@@ -1,0 +1,689 @@
+{
+  "meta": {
+    "langName": "Deutsch",
+    "locale": "de_CH",
+    "htmlLang": "de"
+  },
+  "canonical": "AquaShield erkennt und ortet Lecks in komplexen Rohrnetzen mit nicht-invasiven Sensoren und KI.",
+  "tagline": "Der Rauchmelder für das Wassersystem Ihres Gebäudes.",
+  "service": {
+    "name": "AquaShield Leckageerkennung und Ortung",
+    "type": "KI-Leckageerkennung und Ortung für Gebäude"
+  },
+  "nav": {
+    "home": "Start",
+    "product": "Produkt",
+    "realEstate": "Immobilien",
+    "insurance": "Versicherungen",
+    "dataCenters": "Rechenzentren",
+    "team": "Team",
+    "blog": "Blog",
+    "cta": "Gespräch buchen",
+    "menu": "Menü",
+    "close": "Schliessen",
+    "language": "Sprache"
+  },
+  "cta": {
+    "label": "30-min Erstgespräch buchen",
+    "home": "Wir prüfen, ob wir Ihr Wasserproblem lösen können.",
+    "realEstate": "Wir prüfen, ob wir Ihr Wasserschadenproblem lösen können.",
+    "insurance": "Wir prüfen, ob wir die Schadenhöhe Ihrer Wasserschäden senken können.",
+    "dataCenters": "Wir prüfen, ob wir Lecks in Ihrem Kühlkreislauf erkennen können.",
+    "fallback": "Oder per E-Mail",
+    "email": "founders@aquashieldai.com",
+    "titles": {
+      "home": "Beginnen Sie mit einem Gebäude.",
+      "realEstate": "Beginnen Sie mit einem Gebäude.",
+      "insurance": "Beginnen Sie mit einem Bestand.",
+      "dataCenters": "Beginnen Sie mit einem Kühlkreislauf."
+    },
+    "questionsIntro": "Drei Fragen vor dem Gespräch:",
+    "questions": [
+      "Grösse des Portfolios oder Bestands",
+      "Gebäudetyp",
+      "Land"
+    ]
+  },
+  "common": {
+    "skip": "Zum Inhalt springen",
+    "sample": "Beispielalarm, anonymisiert",
+    "readMore": "Lesen",
+    "learnMore": "So funktioniert AquaShield",
+    "toConfirm": "Zu bestätigen",
+    "backHome": "Zur Startseite",
+    "load3d": "3D-Ansicht laden",
+    "load3dNote": "Lädt eine 3D-Szene (etwa 600 KB).",
+    "by": "Von",
+    "updated": "Aktualisiert",
+    "minutes": "Min. Lesezeit",
+    "source": "Quelle"
+  },
+  "footer": {
+    "offices": "Hauptsitz Zürich, Technoparkstrasse 1, 8005 Zürich. San Francisco.",
+    "legal": "AquaShield AI Inc.",
+    "legalNote": "[TO CONFIRM: legal address]",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "linkedin": "LinkedIn",
+    "email": "founders@aquashieldai.com",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "counter": {
+    "title": "Live, berechnet aus echten Standorten",
+    "buildingsLabel": "Gebäude live",
+    "pointsLabel": "Messstellen",
+    "readingsLabel": "Messwerte analysiert",
+    "leaksLabel": "Lecks gefunden",
+    "note": "Näherungswerte. Berechnet aus dem Go-live-Datum jedes Standorts, nicht von Hand eingetragen.",
+    "formula": "Messwerte = Messstellen × 144 Zehn-Minuten-Intervalle pro Tag × Tage seit dem Go-live des Standorts, summiert über alle Live-Standorte.",
+    "leaksNote": "Zwei durch die Durchflusssignatur bestätigt, eines in Prüfung."
+  },
+  "alert": {
+    "label": "Beispielalarm, anonymisiert",
+    "building": "Gebäude 14",
+    "riser": "Steigleitung B",
+    "severityLabel": "Schweregrad",
+    "severity": "Hoch",
+    "line": "Durchfluss seit 6 Stunden 38 Prozent über dem nächtlichen Normalverlauf.",
+    "checkLabel": "Zuerst prüfen",
+    "check": "Steigleitung B, 3. bis 5. OG. Absperrventil im 3. OG.",
+    "statusLabel": "Status",
+    "status": "Mit der Haustechnik geprüft",
+    "time": "Heute, 07:10"
+  },
+  "building": {
+    "riser": "Steigleitung B",
+    "floor": "3. OG",
+    "flag": "Abweichung erkannt",
+    "normal": "Normaler Durchfluss"
+  },
+  "logos": {
+    "backed": "Unterstützt von",
+    "developed": "Entwickelt in Zusammenarbeit mit",
+    "founders": "Gründer von",
+    "yc": "Y Combinator",
+    "openai": "OpenAI",
+    "mit": "MIT",
+    "mitFacilities": "MIT Facilities",
+    "harvard": "Harvard",
+    "epfl": "EPFL"
+  },
+  "pages": {
+    "home": {
+      "title": "AquaShield: KI-Leckageerkennung für Gebäude",
+      "description": "AquaShield erkennt und ortet Lecks in komplexen Rohrnetzen mit nicht-invasiven Sensoren und KI. Clamp-on, kein Rohrschnitt, Ortung bis zur Steigleitung."
+    },
+    "product": {
+      "title": "AquaShield erklärt: Sensoren, KI, digitaler Zwilling",
+      "description": "Clamp-on-Ultraschall- und Drucksensoren, ein Modell pro Messstelle lernt den Normalverlauf, ein digitaler Zwilling grenzt das Leck auf eine Steigleitung ein."
+    },
+    "real-estate": {
+      "title": "Leckageerkennung für Immobilienportfolios | AquaShield",
+      "description": "KI-Leckageerkennung für Wohn- und Büroportfolios. Clamp-on-Sensoren, kein Rohrschnitt, Ortung bis zur Steigleitung. Live bei Vonovia seit März 2026."
+    },
+    "insurance": {
+      "title": "Schadenhöhe bei Wasserschäden und Risikodaten | AquaShield",
+      "description": "Frühere Erkennung verkürzt die Schadendauer und senkt Folgeschäden. Live-Gebäudedaten für das Risikoscoring. Fünf Kooperationsmodelle für Sachversicherer."
+    },
+    "data-centers": {
+      "title": "Kühlkreislauf-Lecks in Rechenzentren erkennen | AquaShield",
+      "description": "Durchfluss- und Druckmessung pro Rack in flüssigkeitsgekühlten Rechenzentren. Das Leck im Kühlkreislauf vor dem Ausfall erkennen. Erster Standort gesucht."
+    },
+    "team": {
+      "title": "Team | AquaShield",
+      "description": "Zwei Robotikforscher von MIT und Harvard, die jetzt Rohrnetze reparieren. AquaShield erkennt und ortet Lecks mit nicht-invasiven Sensoren und KI."
+    },
+    "blog": {
+      "title": "Blog | AquaShield",
+      "description": "Leckageerkennung, Wasserschäden und Gebäudedaten, geschrieben von den AquaShield-Gründern. Ein Beitrag alle zwei Wochen."
+    },
+    "book-a-call": {
+      "title": "30-min Erstgespräch buchen | AquaShield",
+      "description": "Buchen Sie 30 Minuten mit den AquaShield-Gründern. Wir prüfen, ob wir Ihr Wasserproblem lösen können. Kein Pilotformular, keine Verpflichtung."
+    },
+    "imprint": {
+      "title": "Impressum | AquaShield",
+      "description": "Rechtliche Angaben zu AquaShield AI Inc. und AquaShield AG."
+    },
+    "404": {
+      "title": "Seite nicht gefunden | AquaShield",
+      "description": "Diese Seite gibt es hier nicht."
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "KI-Leckageerkennung für Gebäude",
+      "h1": "Das Leck finden, bevor der Schaden entsteht.",
+      "proof": "Live bei Vonovia. Unterstützt von Y Combinator.",
+      "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss."
+    },
+    "problem": {
+      "eyebrow": "Das Problem",
+      "h2": "Wasser ist das eine Gebäudesystem, das Sie nicht sehen können.",
+      "stats": [
+        {
+          "value": "USD 89k",
+          "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
+          "source": "NAIOP",
+          "confirm": true
+        },
+        {
+          "value": "Bis zu 5",
+          "label": "Vor-Ort-Termine, um ein verstecktes Leck zu finden, jedes Mal mit einer geöffneten Wand",
+          "source": "AquaShield-Pilotstandorte",
+          "confirm": true
+        },
+        {
+          "value": "EUR 4,91 Mrd.",
+          "label": "Leitungswasserschäden in Deutschland 2024",
+          "source": "GDV",
+          "confirm": true
+        }
+      ],
+      "line": "Belegung, Energie und HLK haben Dashboards. Wasser wartet auf den Anruf eines Mieters, einen Fleck an der Decke oder eine Pfütze auf dem Boden."
+    },
+    "how": {
+      "eyebrow": "So funktioniert es",
+      "h2": "Vier Schritte vom Rohr zum Alarm.",
+      "steps": [
+        {
+          "name": "Installieren",
+          "text": "Clamp-on-Sensoren kommen in unter 15 Minuten pro Stück auf bestehende Rohre. Kein Rohrschnitt."
+        },
+        {
+          "name": "Lernen",
+          "text": "Ein Modell pro Messstelle lernt den normalen Durchfluss Ihres Gebäudes in 10-Minuten-Schritten."
+        },
+        {
+          "name": "Erkennen",
+          "text": "Abweichungen vom Normalverlauf werden markiert und nach Schweregrad sortiert."
+        },
+        {
+          "name": "Orten",
+          "text": "Ein digitaler Zwilling der Rohrinstallation grenzt das Leck auf eine Steigleitung oder einen Gebäudeabschnitt ein."
+        }
+      ]
+    },
+    "who": {
+      "eyebrow": "Für wen",
+      "h2": "Gebaut für die Menschen, die den Anruf bekommen.",
+      "cards": [
+        {
+          "name": "Immobilien",
+          "text": "Portfolios mit eigener Haustechnik. Mit einem Gebäude beginnen, dann ausrollen.",
+          "link": "Für Immobilien",
+          "key": "real-estate"
+        },
+        {
+          "name": "Versicherungen",
+          "text": "Kürzere Schadendauer, geringere Schadenhöhe, Live-Gebäudedaten für die Risikobewertung.",
+          "link": "Für Versicherer",
+          "key": "insurance"
+        },
+        {
+          "name": "Rechenzentren",
+          "text": "Durchfluss- und Druckmessung pro Rack bei Flüssigkeitskühlung.",
+          "link": "Für Rechenzentren",
+          "key": "data-centers"
+        }
+      ]
+    },
+    "proof": {
+      "eyebrow": "Nachweis",
+      "h2": "So sieht ein echter Alarm aus.",
+      "customersLive": "Live oder im Pilot bei",
+      "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities und EPFL Facilities.",
+      "customersPlanned": "In Planung mit",
+      "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown und VUB.",
+      "confirm": "[TO CONFIRM: written permission per name]"
+    },
+    "notPromise": {
+      "h2": "Was wir noch nicht versprechen.",
+      "items": [
+        "Keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind, nicht vorher.",
+        "Alarme werden mit Ihrem Team geprüft, nicht einfach an es abgeschickt.",
+        "Fehlalarme kommen vor. Das System lernt aus jedem, den Sie markieren."
+      ]
+    },
+    "final": {
+      "h2": "Beginnen Sie mit einem Gebäude.",
+      "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir sagen ehrlich, ob wir helfen können."
+    }
+  },
+  "product": {
+    "h1": "So funktioniert AquaShield",
+    "lead": "Clamp-on-Sensoren kommen auf bestehende Rohre. Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes. Ein digitaler Zwilling der Rohrinstallation grenzt eine Abweichung auf eine Steigleitung oder einen Gebäudeabschnitt ein. Alarme werden mit Ihrer Haustechnik geprüft.",
+    "install": {
+      "h2": "Wie läuft eine Installation ab?",
+      "text": "Ultraschall-Durchflusssensoren werden aussen auf bestehende Rohre geklemmt. Drucksensoren kommen auf bestehende Zapfstellen. Jeder Sensor braucht unter 15 Minuten. Kein Rohrschnitt, keine Unterbrechung der Wasserversorgung. Jeder Rollout beginnt mit einer Begehung mit Ihrer Haustechnik, vor Ort, remote oder anhand der Installationspläne. Die Platzierung folgt den Schwachstellen, die sie bereits kennt. Es gibt kein Standardlayout. Nach dem ersten Gebäude kann die Haustechnik selbst installieren.",
+      "visualAlt": "Diagramm: ein Clamp-on-Ultraschall-Durchflusssensor an einer Steigleitung und ein Drucksensor an einer Zapfstelle.",
+      "labels": {
+        "riser": "Steigleitung",
+        "ultrasonic": "Clamp-on-Ultraschall-Durchflusssensor",
+        "pressure": "Drucksensor an einer bestehenden Zapfstelle",
+        "time": "Unter 15 Minuten pro Sensor",
+        "cut": "Kein Rohrschnitt"
+      }
+    },
+    "data": {
+      "h2": "Welche Daten bekomme ich?",
+      "text": "Ein Dashboard mit jeder Messstelle, ihrem Live-Durchfluss gegenüber dem gelernten Normalverlauf und der Alarmliste, sortiert nach Schweregrad. Jeder Alarm nennt das Gebäude, die Steigleitung oder den Abschnitt, wie weit und wie lange der Durchfluss vom Normalverlauf abweicht, und was zuerst zu prüfen ist. Die Datenabdeckung pro Standort wird angezeigt, damit Sie wissen, wenn ein Sensor offline ist. Alarme gehen an die Personen, die Sie benennen. Nichts wird verschickt, bevor es geprüft wurde.",
+      "confirm": "[TO CONFIRM: alert channels]",
+      "visualAlt": "Beispieldiagramm: eine Messstelle über sieben Tage, das gelernte Baseline-Band und eine Abweichung an den letzten zwei Tagen.",
+      "chart": {
+        "title": "Messstelle, Steigleitung B, sieben Tage",
+        "baseline": "Gelernte Baseline",
+        "actual": "Live-Durchfluss",
+        "deviation": "Abweichung",
+        "days": [
+          "Mo",
+          "Di",
+          "Mi",
+          "Do",
+          "Fr",
+          "Sa",
+          "So"
+        ]
+      }
+    },
+    "precision": {
+      "h2": "Wie genau ist die Ortung?",
+      "text": "Ehrliche Antwort: bis zur Steigleitung oder zum Gebäudeabschnitt, nicht bis zum Rohrabschnitt. An einem Standort hat das System eine Abweichung auf eine einzelne Steigleitung eingegrenzt. An einem anderen zeigte es auf eine Seite des Gebäudes. Die Genauigkeit wächst mit der Zahl der Messstellen und mit jedem Vorfall, aus dem das Modell lernt. Wir nennen keinen Genauigkeitswert in Prozent, bevor er über genügend Standorte gemessen ist.",
+      "confirm": "[TO CONFIRM: wording]"
+    },
+    "ml": {
+      "h2": "Das maschinelle Lernen",
+      "text": "Jede Messstelle bekommt ihr eigenes Modell. Es lernt den normalen Durchfluss dieses Gebäudes in 10-Minuten-Schritten: nächtlicher Normalverlauf, Morgenspitze, Werktag gegenüber Wochenende. Eine Abweichung ist ein Durchflussmuster, das der Normalverlauf nicht erklärt. Der digitale Zwilling bildet ab, welche Sensoren dasselbe Wasser sehen, damit eine Abweichung im Netz platziert werden kann. Fehlalarme, die Ihr Team markiert, fliessen zurück ins Modell. Spezialisiertes maschinelles Lernen für hydraulische Systeme, kein generischer Anomaliedetektor."
+    },
+    "sensors": {
+      "h2": "Die Sensoren",
+      "text": "Clamp-on-Ultraschall-Durchflusssensoren an Steigleitungen und Zuleitungen. Drucksensoren an bestehenden Zapfstellen. Messwerte alle 10 Minuten. Die Sensoren melden ihre Datenabdeckung, damit das Dashboard zeigt, wenn einer offline ist.",
+      "confirm": "[TO CONFIRM: battery sensor availability]"
+    },
+    "twin": {
+      "h2": "Der digitale Zwilling",
+      "text": "Ein Modell der Rohrinstallation des Gebäudes: Steigleitungen, Abzweigungen, welcher Sensor welches Wasser sieht. Er macht aus einer Abweichung einen Ort, den man zuerst prüft."
+    },
+    "faqTitle": "Fragen, die wir immer bekommen",
+    "faq": [
+      {
+        "q": "Unterbricht die Installation die Wasserversorgung?",
+        "a": "Nein. Die Sensoren werden aussen auf das Rohr geklemmt. Das Wasser bleibt an."
+      },
+      {
+        "q": "Wie lange dauert ein Rollout?",
+        "a": "Ein Gebäude: eine Begehung, dann ein Tag Installation. Ein Portfolio: mit einem Gebäude beginnen, dann in Ihrem Tempo ausrollen."
+      },
+      {
+        "q": "Funktioniert es mit alten Rohren?",
+        "a": "Die Sensoren werden auf zugängliche Rohre geklemmt. Die Begehung klärt das pro Gebäude. [TO CONFIRM: pipe materials]"
+      },
+      {
+        "q": "Was passiert bei einem Fehlalarm?",
+        "a": "Sie markieren ihn im Dashboard. Das Modell lernt daraus. Alarme werden mit Ihrem Team geprüft, bevor sie eskalieren."
+      },
+      {
+        "q": "Wer sieht die Daten?",
+        "a": "Sie und die Personen, die Sie benennen. Wir verkaufen keine Daten. Siehe Datenschutzerklärung."
+      },
+      {
+        "q": "Was kostet es?",
+        "a": "Preis pro Gebäude und Messstelle, ein Bruchteil eines Schadenfalls. Wir machen ein Angebot nach der Begehung. [TO CONFIRM: pricing statement]"
+      }
+    ]
+  },
+  "realEstate": {
+    "eyebrow": "Immobilien",
+    "h1": "Das Leck finden, bevor Ihr Mieter es findet.",
+    "lead": "Für Portfolios mit eigener Haustechnik, von Hunderten bis zu Hunderttausenden Einheiten.",
+    "story": {
+      "h2": "Lecks werden entdeckt, nicht erkannt.",
+      "text": "Ein Mieter ruft an. Eine Decke bekommt einen Fleck. Wasser steht auf dem Kellerboden. Bis dahin läuft das Leck seit Tagen oder Wochen. Es zu finden kann bis zu fünf Vor-Ort-Termine kosten, jedes Mal mit einer geöffneten Wand. Belegung, Energie und HLK haben alle eine Live-Ansicht. Wasser nicht. AquaShield gibt Ihrer Haustechnik diese Ansicht: jede Steigleitung überwacht, Abweichungen nach Schweregrad sortiert und ein Ort, der zuerst zu prüfen ist."
+    },
+    "customers": {
+      "h2": "Mit wem wir arbeiten",
+      "confirm": "[TO CONFIRM: every name and status, written permission]",
+      "groups": [
+        {
+          "label": "Live",
+          "items": [
+            "Vonovia, Europas [TO CONFIRM: wording] grösster Wohnungsvermieter. 22 Gebäude, 32 Messstellen, seit März 2026.",
+            "Prime Residential, Kalifornien. Zwei Standorte, 59 Sensoren, seit September 2026.",
+            "Panoramic Interests, Berkeley. Ein neues siebenstöckiges Gebäude, 23 Sensoren an 10 Steigleitungen."
+          ]
+        },
+        {
+          "label": "F&E-Pilotprojekte",
+          "items": [
+            "MIT Facilities, Gebäude NW23, wo das System begann.",
+            "EPFL Facilities, auf dem Campus."
+          ]
+        },
+        {
+          "label": "In Planung",
+          "items": [
+            "Life Time Fitness, Roseville. Ein Club, Q1 2027.",
+            "Bedrock, Detroit. Drei Bürohochhäuser, LOI unterzeichnet.",
+            "Jamestown, Berlin. Zwei Gebäude, Besichtigung erfolgt.",
+            "VUB. Drei Gebäude."
+          ]
+        }
+      ]
+    },
+    "facts": {
+      "h2": "Was die ersten acht Monate zeigen",
+      "items": [
+        {
+          "value": "91 bis 100 %",
+          "label": "Datenabdeckung pro Standort"
+        },
+        {
+          "value": "2",
+          "label": "Gemeldete Schäden mit klarer Durchflusssignatur"
+        },
+        {
+          "value": "5",
+          "label": "Live-Anomalien in Prüfung mit der Haustechnik"
+        }
+      ],
+      "note": "Noch keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind.",
+      "confirm": "[TO CONFIRM: Vonovia facts]"
+    },
+    "anchor": {
+      "h2": "Ein Schadenfall bezahlt die Überwachung.",
+      "items": [
+        {
+          "value": "USD 89k",
+          "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
+          "source": "NAIOP"
+        },
+        {
+          "value": "USD 100k",
+          "label": "Selbstbehalt pro Schadenfall, den viele grosse US-Portfolios tragen",
+          "source": "[TO CONFIRM]"
+        },
+        {
+          "value": "3×",
+          "label": "Schadenfälle über USD 1M seit 2015",
+          "source": "[TO CONFIRM]"
+        },
+        {
+          "value": "EUR 4,91 Mrd.",
+          "label": "Leitungswasserschäden in Deutschland 2024",
+          "source": "GDV"
+        }
+      ],
+      "line": "AquaShield wird pro Gebäude bepreist, ein Bruchteil eines Schadenfalls.",
+      "confirm": "[TO CONFIRM: each figure against its primary source. Pricing statement.]"
+    },
+    "path": {
+      "h2": "Beginnen Sie mit einem Gebäude.",
+      "steps": [
+        {
+          "name": "Begehung",
+          "text": "Vor Ort, remote oder anhand der Installationspläne, mit Ihrer Haustechnik. Die Platzierung folgt den Schwachstellen, die sie bereits kennt."
+        },
+        {
+          "name": "Installieren",
+          "text": "Unter 15 Minuten pro Sensor. Kein Rohrschnitt. Das Wasser bleibt an."
+        },
+        {
+          "name": "Lernen",
+          "text": "Das Modell lernt den normalen Durchfluss dieses Gebäudes."
+        },
+        {
+          "name": "Prüfen",
+          "text": "Alarme werden mit Ihrem Team geprüft. Dann rollen Sie in Ihrem Tempo aus. Ihr Team kann selbst installieren."
+        }
+      ]
+    },
+    "faqTitle": "Fragen von Portfolio-Teams",
+    "faq": [
+      {
+        "q": "Wir haben intelligente Wasserzähler. Ist das dasselbe?",
+        "a": "Nein. Zähler zählen den Verbrauch pro Einheit. AquaShield beobachtet den Durchfluss an der Steigleitung und lernt, wie normal aussieht. So sieht es ein Leck, das kein einzelner Zähler sehen würde."
+      },
+      {
+        "q": "Müssen wir Wände öffnen?",
+        "a": "Nein. Die Sensoren werden auf zugängliche Rohre in Steigleitungen, Kellern und Schächten geklemmt."
+      },
+      {
+        "q": "Was muss unsere Haustechnik tun?",
+        "a": "An der Begehung teilnehmen, Fehlalarme markieren, den im Alarm genannten Ort prüfen. Nach dem ersten Gebäude kann sie selbst installieren."
+      },
+      {
+        "q": "Funktioniert es in alten Gebäuden?",
+        "a": "Ja, an zugänglichen Rohren. Die Begehung klärt das pro Gebäude. [TO CONFIRM: pipe materials]"
+      },
+      {
+        "q": "Mit wie vielen Gebäuden beginnen wir?",
+        "a": "Mit einem. Ausrollen, wenn Sie gesehen haben, dass es funktioniert."
+      },
+      {
+        "q": "Kann unser Versicherer die Daten sehen?",
+        "a": "Nur wenn Sie das entscheiden. Manche Portfolios teilen sie, um Konditionen zu verhandeln. Siehe Seite Versicherungen."
+      }
+    ]
+  },
+  "insurance": {
+    "eyebrow": "Versicherungen",
+    "h1": "Kürzere Schadendauer. Geringere Schadenhöhe.",
+    "lead": "Für Underwriter, Schaden- und Innovationsverantwortliche in der Sachversicherung, die in Schadenquote, Schadenhöhe und Risikodaten denken.",
+    "story": {
+      "h2": "Die Schadenhöhe hängt von der Zeit ab.",
+      "text": "Ein verstecktes Leck läuft, bis es jemand bemerkt. Jeder zusätzliche Tag bringt Folgeschäden: Unterböden, Trockenbau, Nachbarwohnungen, Betriebsunterbrechung. Frühere Erkennung verkürzt die Schadendauer, und das ist der Hebel für die Schadenhöhe. Live-Durchflussdaten pro Steigleitung bringen einen zweiten Wert: ein Risikosignal, das dem Underwriting heute fehlt, aus Gebäuden, die vom Eigentümer betrieben und bereits mit Sensoren ausgestattet sind. Noch keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind."
+    },
+    "ways": {
+      "h2": "Fünf Wege der Zusammenarbeit",
+      "items": [
+        {
+          "name": "Vom Versicherer finanzierte Hardware",
+          "text": "Der Versicherer finanziert die Sensoren im versicherten Portfolio."
+        },
+        {
+          "name": "Prämienrabatt",
+          "text": "Überwachte Gebäude erhalten einen tieferen Tarif."
+        },
+        {
+          "name": "Gebündelter Zusatzbaustein",
+          "text": "Die Überwachung wird mit der Police verkauft."
+        },
+        {
+          "name": "Risikodaten",
+          "text": "Live-Gebäudedaten fliessen in Risikoscoring und Erneuerung ein."
+        },
+        {
+          "name": "Schadenreaktion",
+          "text": "Ein Alarm startet den Schadenprozess, bevor der Mieter anruft."
+        }
+      ],
+      "line": "Welcher passt, hängt von Ihrem Bestand ab. Im 30-minütigen Gespräch finden wir es heraus."
+    },
+    "share": {
+      "h2": "Was wir teilen können, und was nicht",
+      "can": "Wir können: aggregierte Durchflussabweichungen pro Gebäude, Anzahl und Dauer der Alarme, Datenabdeckung, mit Zustimmung des Eigentümers.",
+      "cannot": "Wir können nicht: Verbrauch pro Einheit, Mieterdaten oder Daten, die der Eigentümer nicht freigegeben hat. Der Eigentümer behält die Kontrolle über seine Daten.",
+      "confirm": "[TO CONFIRM: data-sharing statement]"
+    },
+    "status": {
+      "h2": "Wo wir stehen",
+      "text": "Noch ist kein Versicherer Kunde oder Partner. Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Wir suchen den ersten Versicherer, der mit uns einen Bestand durcharbeitet."
+    }
+  },
+  "dataCenters": {
+    "eyebrow": "Rechenzentren",
+    "h1": "Das Leck im Kühlkreislauf erkennen, bevor es zum Ausfall kommt.",
+    "lead": "Für Facility- und Betriebsverantwortliche mit Flüssigkeitskühlung, bei denen nicht das Wasser das Problem ist. Sondern der Ausfall.",
+    "story": {
+      "h2": "Leckagekabel am Boden melden sich erst hinterher.",
+      "text": "Ein Leckagekabel schlägt an, wenn Wasser den Boden erreicht. Bis dahin hat ein Rack seine Kühlung verloren. Vernetzte Durchfluss- und Druckmessung pro Rack sieht die Abweichung im Kreislauf selbst: einen Druckabfall, einen Durchfluss, der nicht zu den Nachbarn passt. Clamp-on, nicht-invasiv, kein Eingriff in den Kühlkreislauf. Dasselbe Modell, das den normalen Durchfluss eines Gebäudes lernt, lernt den eines Kühlkreislaufs."
+    },
+    "status": {
+      "h2": "Wo wir stehen",
+      "text": "In einem Rechenzentrum ist noch nichts live. Wir suchen einen ersten Standort, zuerst in der Schweiz, um das gemeinsam zu erproben.",
+      "proof": "Nachweis aus dem Immobilienbereich: live bei Vonovia seit März 2026, 22 Gebäude und 32 Messstellen."
+    },
+    "together": {
+      "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
+      "text": "Ein Kühlkreislauf, eine Rack-Reihe, eine Begehung mit Ihrem Betriebsteam. Wir lernen den Normalverlauf Ihres Kreislaufs. Sie sehen, ob die Alarme etwas taugen."
+    }
+  },
+  "team": {
+    "eyebrow": "Team",
+    "h1": "Zwei Robotikforscher, die die Robotik verlassen haben, um Rohrleitungen zu reparieren.",
+    "lead": "Wir haben mit Gebäuden begonnen, weil sie das einfachste System für den Anfang waren. Das erste System entstand mit MIT Facilities, im Gebäude NW23, mit den Menschen, die es instand halten.",
+    "learn": {
+      "h2": "Die Haustechnik ist der Experte.",
+      "text": "Jedes Gebäude versagt auf seine eigene Art, und die Menschen, die es instand halten, wissen wie. Deshalb beginnt jeder Rollout mit einer Begehung mit ihnen, und jeder Alarm wird mit ihnen geprüft. Das Modell lernt das Gebäude. Das Team bringt ihm bei, was zählt. Technologie ersetzt keine Inspektionen. Sie sagt dem Inspektor, wohin er zuerst gehen soll."
+    },
+    "peopleTitle": "Personen",
+    "people": [
+      {
+        "id": "paul-beckers",
+        "name": "Paul Beckers",
+        "role": "CEO",
+        "alumni": [
+          "MIT",
+          "RWTH Aachen",
+          "Tsinghua"
+        ],
+        "line": "Robotikforscher."
+      },
+      {
+        "id": "marguerite-benoist",
+        "name": "Marguerite Benoist",
+        "role": "CTO",
+        "alumni": [
+          "EPFL",
+          "Harvard"
+        ],
+        "line": "Robotikforscherin."
+      },
+      {
+        "id": "tim-baumeister",
+        "name": "Tim Baumeister",
+        "role": "Mitgründer, Kunden und Betrieb",
+        "alumni": [
+          "RWTH Aachen",
+          "Tsinghua"
+        ],
+        "line": ""
+      },
+      {
+        "id": "neil-cecchi",
+        "name": "Neil Cecchi",
+        "role": "Founding Engineer",
+        "alumni": [],
+        "line": ""
+      }
+    ],
+    "peopleConfirm": "[TO CONFIRM: one-line bios and headshots]",
+    "photoAlt": "Das AquaShield-Team.",
+    "backing": {
+      "h2": "Unterstützung und Forschung",
+      "items": [
+        "Y Combinator, Frühjahr 2026.",
+        "OpenAI. [TO CONFIRM: basis]",
+        "EPFL Startup Launchpad AI Grant.",
+        "Forschungskooperationen mit EPFL und ETH Zürich. [TO CONFIRM: wording per partner]",
+        "Entwickelt mit MIT Facilities."
+      ]
+    },
+    "offices": {
+      "h2": "Standorte",
+      "items": [
+        {
+          "city": "Hauptsitz Zürich",
+          "line": "Technoparkstrasse 1, 8005 Zürich, Schweiz"
+        },
+        {
+          "city": "San Francisco",
+          "line": "Kalifornien. [TO CONFIRM: address]"
+        }
+      ]
+    }
+  },
+  "blog": {
+    "h1": "Blog",
+    "lead": "Leckageerkennung, Wasserschäden und Gebäudedaten. Ein Beitrag alle zwei Wochen, von den Menschen, die AquaShield bauen.",
+    "empty": "Der erste Beitrag wird gerade geschrieben.",
+    "segments": {
+      "real-estate": "Immobilien",
+      "insurance": "Versicherungen",
+      "data-centers": "Rechenzentren"
+    },
+    "faqTitle": "Fragen",
+    "definitionLabel": "Definition",
+    "allPosts": "Alle Beiträge"
+  },
+  "book": {
+    "h1": "30-min Erstgespräch buchen",
+    "lead": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir sagen ehrlich, ob wir helfen können.",
+    "pick": "Termin wählen",
+    "pickNote": "Öffnet den Kalender. Lädt ein Terminbuchungs-Widget von Calendly.",
+    "or": "Oder schicken Sie uns die drei Antworten und wir antworten mit Terminvorschlägen.",
+    "form": {
+      "name": "Name",
+      "email": "Geschäftliche E-Mail",
+      "company": "Unternehmen",
+      "size": "Grösse des Portfolios oder Bestands",
+      "type": "Gebäudetyp",
+      "country": "Land",
+      "send": "Senden",
+      "sending": "Wird gesendet",
+      "success": "Danke. Wir antworten innerhalb von zwei Werktagen.",
+      "error": "Etwas ist schiefgelaufen. Schreiben Sie an founders@aquashieldai.com und wir kümmern uns darum.",
+      "invalid": "Bitte geben Sie Ihren Namen und eine geschäftliche E-Mail an."
+    },
+    "confirm": "[TO CONFIRM: founders' meeting link, reply time, form destination]"
+  },
+  "imprint": {
+    "h1": "Impressum",
+    "blocks": [
+      {
+        "title": "AquaShield AI Inc.",
+        "lines": [
+          "[TO CONFIRM: legal address, Delaware registered agent or SF office]"
+        ]
+      },
+      {
+        "title": "AquaShield AG",
+        "lines": [
+          "Technoparkstrasse 1",
+          "8005 Zürich, Schweiz",
+          "[TO CONFIRM: commercial register number and UID]"
+        ]
+      },
+      {
+        "title": "Vertreten durch",
+        "lines": [
+          "Paul Beckers, CEO [TO CONFIRM]"
+        ]
+      },
+      {
+        "title": "Kontakt",
+        "lines": [
+          "founders@aquashieldai.com"
+        ]
+      },
+      {
+        "title": "Verantwortlich für den Inhalt",
+        "lines": [
+          "Paul Beckers [TO CONFIRM]"
+        ]
+      },
+      {
+        "title": "Analytics",
+        "lines": [
+          "Diese Website nutzt cookielose Analytics, die keine personenbezogenen Daten speichern und keine Cookies setzen. [TO CONFIRM: once the analytics tool is chosen]"
+        ]
+      }
+    ],
+    "privacyLink": "Datenschutzerklärung",
+    "lawyer": "[TO CONFIRM: lawyer's read]"
+  },
+  "notFound": {
+    "h1": "Diese Seite gibt es hier nicht.",
+    "line": "Der Link ist möglicherweise veraltet. Versuchen Sie die Startseite oder schreiben Sie an founders@aquashieldai.com."
+  }
+}

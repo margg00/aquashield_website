@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{meta.htmlLang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page.title}}</title>
+  <meta name="description" content="{{page.description}}">
+  <link rel="canonical" href="{{page.url}}">
+{{#each alternates}}  <link rel="alternate" hreflang="{{lang}}" href="{{url}}">
+{{/each}}  <link rel="alternate" hreflang="x-default" href="{{xDefault}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AquaShield">
+  <meta property="og:title" content="{{page.title}}">
+  <meta property="og:description" content="{{page.description}}">
+  <meta property="og:url" content="{{page.url}}">
+  <meta property="og:image" content="{{site.url}}/assets/img/og-default.png">
+  <meta property="og:locale" content="{{meta.locale}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="{{base}}favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="{{base}}assets/img/logo-mark.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"></noscript>
+  <style>{{{inlineCss}}}</style>
+  <script type="application/ld+json">{{{jsonLd}}}</script>
+  <!-- Analytics slot. Cookieless only (Plausible or Umami). Off until agreed. [TO CONFIRM: tool and approval]
+  <script defer data-domain="aquashieldai.com" src="https://plausible.io/js/script.js"></script>
+  -->
+  <!-- LinkedIn Insight Tag slot. Consent-gated. Off by default. Enable only when retargeting ads start. -->
+</head>
+<body class="page-{{page.key}}">
+  <a class="skip-link" href="#main">{{common.skip}}</a>
+{{> header}}
+  <main id="main" tabindex="-1">
+{{{content}}}
+  </main>
+{{> footer}}
+  <script src="{{base}}script.js" defer></script>
+</body>
+</html>

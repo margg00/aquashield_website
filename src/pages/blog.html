@@ -1,0 +1,25 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{nav.blog}}</p>
+        <h1>{{blog.h1}}</h1>
+        <p class="lead">{{blog.lead}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        {{#if posts}}<ul class="post-list">
+{{#each posts}}          <li>
+            <a class="post-card" href="{{url}}">
+              <div class="post-meta"><span class="post-tag">{{segmentLabel}}</span><span>{{date}}</span><span>{{author}}</span></div>
+              <h2>{{title}}</h2>
+              <p>{{description}}</p>
+              <span class="link-arrow">{{common.readMore}}</span>
+            </a>
+          </li>
+{{/each}}        </ul>{{/if}}
+        {{#unless posts}}<p class="lead">{{blog.empty}}</p>{{/unless}}
+      </div>
+    </section>
+
+{{> cta}}

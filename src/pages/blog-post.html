@@ -1,0 +1,32 @@
+    <article class="section">
+      <div class="container article">
+        <header>
+          <p class="eyebrow"><a href="{{urls.blog}}" style="color: inherit;">{{nav.blog}}</a></p>
+          <h1>{{page.post.title}}</h1>
+          <div class="post-meta">
+            <span class="post-tag">{{page.post.segmentLabel}}</span>
+            <span>{{page.post.date}}</span>
+            {{#if page.post.updated}}<span>{{common.updated}} {{page.post.updated}}</span>{{/if}}
+            <span>{{common.by}} <a href="{{urls.team}}#{{page.post.authorId}}">{{page.post.author}}</a></span>
+          </div>
+          <p class="direct-answer">{{page.post.answer}}</p>
+        </header>
+        {{#if page.post.statValue}}<div class="stat-callout">
+          <p class="stat-value">{{page.post.statValue}}</p>
+          <p>{{page.post.statLabel}} <span class="muted">({{common.source}}: {{page.post.statSource}}, {{page.post.statDate}})</span></p>
+        </div>{{/if}}
+        {{#if page.post.definition}}<div class="definition"><strong>{{blog.definitionLabel}}</strong>{{page.post.definition}}</div>{{/if}}
+        <div class="prose">
+{{{page.post.html}}}
+        </div>
+        {{#if page.post.faq}}<div class="article-faq">
+          <h2>{{blog.faqTitle}}</h2>
+          <div class="faq">
+{{#each page.post.faq}}            <details class="faq-item"><summary>{{q}}</summary><p>{{a}}</p></details>
+{{/each}}          </div>
+        </div>{{/if}}
+        <p style="margin-top: 40px;"><a class="link-arrow" href="{{urls.blog}}">{{blog.allPosts}}</a></p>
+      </div>
+    </article>
+
+{{> cta}}

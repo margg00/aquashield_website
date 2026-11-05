@@ -1,0 +1,23 @@
+# AquaShield
+
+> AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and AI.
+
+AquaShield (legal entity AquaShield AI Inc., Zurich HQ at Technoparkstrasse 1, 8005 Zurich, and San Francisco) builds clamp-on ultrasonic and pressure sensors, a model per measuring point that learns a building's normal flow in 10-minute steps, and a digital twin that narrows a leak to a riser or a building section. Alerts are reviewed with the maintenance team. Founded by robotics researchers Paul Beckers (CEO) and Marguerite Benoist (CTO) with Tim Baumeister (customers and operations). Y Combinator, spring 2026. Developed with MIT Facilities. Live at Vonovia since March 2026 (22 buildings, 32 measuring points), Prime Residential and Panoramic Interests in California.
+
+## Pages
+
+- [Home](https://aquashieldai.com/): what AquaShield does and who it is for
+- [Product](https://aquashieldai.com/product/): sensors, machine learning, digital twin, FAQ
+- [Real estate](https://aquashieldai.com/real-estate/): portfolios, pilot facts, one-claim anchor
+- [Insurance](https://aquashieldai.com/insurance/): claim severity, risk data, five ways to work together
+- [Data centres](https://aquashieldai.com/data-centers/): liquid cooling, per-rack sensing
+- [Team](https://aquashieldai.com/team/): founders and offices
+- [Blog](https://aquashieldai.com/blog/): leak detection, water damage and building data
+- [Book a call](https://aquashieldai.com/book-a-call/): 30-minute discovery call
+
+## Facts
+
+- Install: under 15 minutes per sensor, no pipe cutting, non-invasive
+- Localisation: to the riser or building section, not the pipe segment
+- No accuracy figures published yet
+- Languages: English, German (/de/), French (/fr/)

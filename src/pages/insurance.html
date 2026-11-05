@@ -1,0 +1,59 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{insurance.eyebrow}}</p>
+        <h1>{{insurance.h1}}</h1>
+        <p class="lead">{{canonical}} {{insurance.lead}}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
+          <p class="cta-line">{{cta.insurance}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="story-title">
+      <div class="container narrow">
+        <div class="section-head">
+          <h2 id="story-title">{{insurance.story.h2}}</h2>
+          <p>{{insurance.story.text}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ways-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="ways-title">{{insurance.ways.h2}}</h2>
+        </div>
+        <ol class="ways">
+{{#each insurance.ways.items}}          <li data-reveal>
+            <h3>{{name}}</h3>
+            <p>{{text}}</p>
+          </li>
+{{/each}}        </ol>
+        <p class="section-line" style="margin-top: 32px;">{{insurance.ways.line}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="share-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="share-title">{{insurance.share.h2}}</h2>
+        </div>
+        <div class="two-col">
+          <div>{{insurance.share.can}}</div>
+          <div>{{insurance.share.cannot}}</div>
+        </div>
+        <p class="note">{{insurance.share.confirm}}</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-title">
+      <div class="container narrow">
+        <div class="status-box">
+          <h2 id="status-title">{{insurance.status.h2}}</h2>
+          <p>{{insurance.status.text}}</p>
+        </div>
+      </div>
+    </section>
+
+{{> cta}}

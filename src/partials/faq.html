@@ -1,0 +1,11 @@
+    <section class="section section-faq" aria-labelledby="faq-title">
+      <div class="container narrow">
+        <h2 id="faq-title">{{page.faqTitle}}</h2>
+        <div class="faq">
+{{#each page.faq}}          <details class="faq-item">
+            <summary>{{q}}</summary>
+            <p>{{a}}</p>
+          </details>
+{{/each}}        </div>
+      </div>
+    </section>

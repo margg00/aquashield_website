@@ -1,0 +1,10 @@
+# Build preview output (relative links, for local and hosted previews)
+preview/
+
+# Raw originals pulled from Drive. The web-sized versions live in assets/img and assets/video.
+assets/raw/
+
+# Tooling
+node_modules/
+.lighthouseci/
+*.log

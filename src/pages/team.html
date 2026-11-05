@@ -1,0 +1,66 @@
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">{{team.eyebrow}}</p>
+        <h1>{{team.h1}}</h1>
+        <p class="lead">{{canonical}} {{team.lead}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="learn-title">
+      <div class="container split">
+        <div>
+          <div class="media media-3x4">
+            <img src="{{base}}assets/img/team.webp" srcset="{{base}}assets/img/team-600.webp 600w, {{base}}assets/img/team-900.webp 900w, {{base}}assets/img/team.webp 1200w" sizes="(min-width: 900px) 460px, 90vw" alt="{{team.photoAlt}}" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div>
+          <div class="section-head">
+            <h2 id="learn-title">{{team.learn.h2}}</h2>
+            <p>{{team.learn.text}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="people-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="people-title">{{team.peopleTitle}}</h2>
+        </div>
+        <ul class="people">
+{{#each team.people}}          <li class="person" id="{{id}}" data-reveal>
+            <span class="person-avatar" aria-hidden="true">{{initials}}</span>
+            <h3>{{name}}</h3>
+            <p class="person-role">{{role}}</p>
+            {{#if alumni}}<ul class="person-alumni">
+{{#each alumni}}              <li>{{this}}</li>
+{{/each}}            </ul>{{/if}}
+            {{#if line}}<p class="person-line">{{line}}</p>{{/if}}
+          </li>
+{{/each}}        </ul>
+        <p class="note">{{team.peopleConfirm}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="backing-title">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 id="backing-title">{{team.backing.h2}}</h2>
+          </div>
+          <ul class="plain-list">
+{{#each team.backing.items}}            <li>{{this}}</li>
+{{/each}}          </ul>
+        </div>
+        <div>
+          <div class="section-head">
+            <h2 id="offices-title">{{team.offices.h2}}</h2>
+          </div>
+          <ul class="offices">
+{{#each team.offices.items}}            <li><strong>{{city}}</strong><span>{{line}}</span></li>
+{{/each}}          </ul>
+        </div>
+      </div>
+    </section>
+
+{{> cta}}

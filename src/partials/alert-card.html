@@ -1,0 +1,21 @@
+        <figure class="alert-card" aria-label="{{alert.label}}">
+          <figcaption class="alert-tag">{{alert.label}}</figcaption>
+          <div class="alert-head">
+            <div>
+              <p class="alert-building">{{alert.building}}, {{alert.riser}}</p>
+              <p class="alert-time">{{alert.time}}</p>
+            </div>
+            <p class="alert-severity"><span class="alert-dot" aria-hidden="true"></span>{{alert.severityLabel}}: {{alert.severity}}</p>
+          </div>
+          <p class="alert-line">{{alert.line}}</p>
+          <svg class="alert-spark" viewBox="0 0 320 64" aria-hidden="true" focusable="false">
+            <rect class="spark-band" x="0" y="26" width="320" height="16" rx="2"/>
+            <polyline class="spark-base" points="0,34 40,33 80,35 120,34 160,33 200,34 240,34 280,33 320,34"/>
+            <polyline class="spark-live" points="0,35 40,34 80,36 120,35 160,33 200,24 240,16 280,12 320,10"/>
+            <circle class="spark-end" cx="320" cy="10" r="3.5"/>
+          </svg>
+          <dl class="alert-meta">
+            <div><dt>{{alert.checkLabel}}</dt><dd>{{alert.check}}</dd></div>
+            <div><dt>{{alert.statusLabel}}</dt><dd>{{alert.status}}</dd></div>
+          </dl>
+        </figure>

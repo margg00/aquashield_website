@@ -1,315 +1,171 @@
-const header = document.querySelector("[data-header]");
-const contactForm = document.querySelector("[data-contact-form]");
-const formNote = document.querySelector("[data-form-note]");
-const anchorLinks = document.querySelectorAll('a[href^="#"]');
-const revealSections = document.querySelectorAll("[data-reveal-section]");
-const themeDebug = document.querySelector("[data-theme-debug]");
-const heroVisualFrame = document.querySelector(".blob-frame");
+/* AquaShield site script. No dependencies. Loaded with defer. */
+(function () {
+  "use strict";
 
-function setupScrollReveals() {
-  if (
-    revealSections.length > 0 &&
-    "IntersectionObserver" in window &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
-    document.body.classList.add("has-scroll-reveal");
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          const section = entry.target;
-          section.classList.add("is-visible");
-          revealObserver.unobserve(section);
-        });
-      },
-      {
-        rootMargin: "0px 0px -14% 0px",
-        threshold: 0.22
-      }
-    );
-
-    revealSections.forEach((section) => {
-      section.querySelectorAll("[data-reveal]").forEach((item) => {
-        const delay = Number(item.getAttribute("data-reveal-delay") || 0);
-        item.style.setProperty("--reveal-delay", delay);
-      });
-
-      revealObserver.observe(section);
-    });
-    return;
-  }
-
-  revealSections.forEach((section) => {
-    section.classList.add("is-visible");
-  });
-}
-
-function setupAnchorScrolling() {
-  anchorLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
-
-      if (!targetId || targetId === "#") {
-        return;
-      }
-
-      const target = document.querySelector(targetId);
-
-      if (!target) {
-        return;
-      }
-
-      event.preventDefault();
-
-      const headerOffset = header ? header.offsetHeight + 12 : 0;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: targetTop,
-        behavior: "smooth"
-      });
-    });
-  });
-}
-
-function setupContactForm() {
-  if (!contactForm || !formNote) {
-    return;
-  }
-
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const fields = Array.from(contactForm.querySelectorAll("input, select"));
-    const invalidField = fields.find((field) => !field.checkValidity());
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-
-    formNote.classList.remove("is-success", "is-error");
-
-    if (invalidField) {
-      formNote.textContent = "Complete all fields with valid work details to continue.";
-      formNote.classList.add("is-error");
-      invalidField.focus();
-      return;
-    }
-
-    const endpoint = contactForm.getAttribute("action");
-
-    if (!endpoint) {
-      formNote.textContent = "Form endpoint is missing.";
-      formNote.classList.add("is-error");
-      return;
-    }
-
-    const originalButtonText = submitButton ? submitButton.textContent : "";
-
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-    }
-
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        body: new FormData(contactForm),
-        headers: {
-          Accept: "application/json"
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error("Submission failed");
-      }
-
-      formNote.textContent = "Thanks. Your pilot request was sent successfully.";
-      formNote.classList.add("is-success");
-      contactForm.reset();
-    } catch (error) {
-      formNote.textContent = "Submission failed. Try again in a moment or email us directly.";
-      formNote.classList.add("is-error");
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      }
-    }
-  });
-}
-
-function normalizeHexColor(value) {
-  const color = value.trim();
-
-  if (/^#[0-9a-f]{6}$/i.test(color)) {
-    return color.toLowerCase();
-  }
-
-  const rgbMatch = color.match(/^rgba?\(([^)]+)\)$/i);
-
-  if (!rgbMatch) {
-    return "#000000";
-  }
-
-  const [r, g, b] = rgbMatch[1]
-    .split(",")
-    .slice(0, 3)
-    .map((channel) => Math.max(0, Math.min(255, Number.parseInt(channel.trim(), 10) || 0)));
-
-  return `#${[r, g, b]
-    .map((channel) => channel.toString(16).padStart(2, "0"))
-    .join("")}`;
-}
-
-function hexToRgbChannels(hex) {
-  const normalized = hex.replace("#", "");
-  const r = Number.parseInt(normalized.slice(0, 2), 16);
-  const g = Number.parseInt(normalized.slice(2, 4), 16);
-  const b = Number.parseInt(normalized.slice(4, 6), 16);
-  return `${r} ${g} ${b}`;
-}
-
-function getContrastInk(hex) {
-  const normalized = hex.replace("#", "");
-  const r = Number.parseInt(normalized.slice(0, 2), 16) / 255;
-  const g = Number.parseInt(normalized.slice(2, 4), 16) / 255;
-  const b = Number.parseInt(normalized.slice(4, 6), 16) / 255;
-  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return luminance > 0.6 ? "#041017" : "#f6fbff";
-}
-
-function syncHeroVisualAccent(accent) {
-  if (!heroVisualFrame?.contentWindow) {
-    return;
-  }
-
-  heroVisualFrame.contentWindow.postMessage(
-    {
-      type: "aquashield-accent",
-      accent
-    },
-    "*"
-  );
-}
-
-function setupThemeDebug() {
-  if (!themeDebug) {
-    return;
-  }
-
-  const root = document.documentElement;
-  const computed = getComputedStyle(root);
-  const accentInput = themeDebug.querySelector('[data-theme-input="accent"]');
-  const accentValue = themeDebug.querySelector('[data-theme-value="accent"]');
-  const resetButton = themeDebug.querySelector("[data-theme-reset]");
-  const toggleButton = themeDebug.querySelector("[data-theme-toggle]");
-  const themeBody = themeDebug.querySelector("[data-theme-body]");
-
-  if (!accentInput || !accentValue) {
-    return;
-  }
-
-  const defaults = {
-    accent: normalizeHexColor(computed.getPropertyValue("--accent"))
-  };
-
-  const deriveColorSet = (accent) => {
-    const normalized = normalizeHexColor(accent);
-    const normalizedBody = normalized.replace("#", "");
-    const r = Number.parseInt(normalizedBody.slice(0, 2), 16);
-    const g = Number.parseInt(normalizedBody.slice(2, 4), 16);
-    const b = Number.parseInt(normalizedBody.slice(4, 6), 16);
-    const brighten = (channel, amount) => Math.max(0, Math.min(255, Math.round(channel + (255 - channel) * amount)));
-
-    const bright = `#${[brighten(r, 0.38), brighten(g, 0.38), brighten(b, 0.38)]
-      .map((channel) => channel.toString(16).padStart(2, "0"))
-      .join("")}`;
-    const light = `#${[brighten(r, 0.68), brighten(g, 0.68), brighten(b, 0.68)]
-      .map((channel) => channel.toString(16).padStart(2, "0"))
-      .join("")}`;
-
-    return {
-      accent: normalized,
-      bright,
-      light
+  // ---------- Navigation ----------
+  var toggle = document.querySelector("[data-nav-toggle]");
+  var nav = document.querySelector("[data-nav]");
+  if (toggle && nav) {
+    var closeLabel = toggle.getAttribute("data-close") || toggle.textContent;
+    var openLabel = toggle.querySelector(".nav-toggle-label") ? toggle.querySelector(".nav-toggle-label").textContent : "";
+    var setNav = function (open) {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("nav-open", open);
+      var label = toggle.querySelector(".nav-toggle-label");
+      if (label) label.textContent = open ? (toggle.getAttribute("data-close-label") || openLabel) : openLabel;
     };
-  };
-
-  const updateTheme = (accentColor, persist = true) => {
-    const { accent, bright, light } = deriveColorSet(accentColor);
-
-    root.style.setProperty("--accent", accent);
-    root.style.setProperty("--accent-rgb", hexToRgbChannels(accent));
-    root.style.setProperty("--accent-bright", bright);
-    root.style.setProperty("--accent-bright-rgb", hexToRgbChannels(bright));
-    root.style.setProperty("--accent-light", light);
-    root.style.setProperty("--accent-light-rgb", hexToRgbChannels(light));
-    root.style.setProperty("--accent-ink", getContrastInk(accent));
-    root.style.setProperty("--border-strong", `rgb(${hexToRgbChannels(accent)} / 0.24)`);
-
-    accentInput.value = accent;
-    accentValue.textContent = accent;
-
-    if (persist) {
-      window.localStorage.setItem("aquashield-theme-debug", accent);
-    }
-
-    syncHeroVisualAccent(accent);
-  };
-
-  const storedTheme = window.localStorage.getItem("aquashield-theme-debug");
-
-  if (storedTheme) {
-    try {
-      updateTheme(storedTheme, false);
-    } catch {
-      updateTheme(defaults.accent, false);
-    }
-  } else {
-    updateTheme(defaults.accent, false);
+    toggle.addEventListener("click", function () {
+      setNav(!nav.classList.contains("is-open"));
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) { setNav(false); toggle.focus(); }
+    });
+    window.matchMedia("(min-width: 1100px)").addEventListener("change", function (e) {
+      if (e.matches) setNav(false);
+    });
+    void closeLabel;
   }
 
-  accentInput.addEventListener("input", () => {
-    updateTheme(accentInput.value);
-  });
-
-  resetButton?.addEventListener("click", () => {
-    window.localStorage.removeItem("aquashield-theme-debug");
-    updateTheme(defaults.accent, false);
-  });
-
-  heroVisualFrame?.addEventListener("load", () => {
-    syncHeroVisualAccent(accentInput.value);
-  });
-
-  const setCollapsed = (collapsed, persist = true) => {
-    themeDebug.classList.toggle("is-collapsed", collapsed);
-
-    if (toggleButton) {
-      toggleButton.textContent = collapsed ? "Show" : "Hide";
-      toggleButton.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  // ---------- Live counter ----------
+  var counter = document.querySelector("[data-counter]");
+  if (counter) {
+    var dataEl = counter.querySelector("[data-sites]");
+    var readingsEl = counter.querySelector("[data-counter-readings]");
+    if (dataEl && readingsEl) {
+      try {
+        var sites = JSON.parse(dataEl.textContent).sites;
+        var lang = readingsEl.getAttribute("data-lang") || "en";
+        var fmt = new Intl.NumberFormat(lang === "de" ? "de-CH" : lang === "fr" ? "fr-CH" : "en-US");
+        var compute = function () {
+          var now = Date.now();
+          var total = 0;
+          sites.forEach(function (s) {
+            var days = Math.max(0, (now - Date.parse(s.liveSince)) / 86400000);
+            total += s.points * 144 * days;
+          });
+          return Math.floor(total);
+        };
+        var paint = function () { readingsEl.textContent = fmt.format(compute()); };
+        paint();
+        if (!reducedMotion) setInterval(paint, 1000);
+      } catch (err) { /* keep the build-time number */ }
     }
+  }
 
-    if (themeBody) {
-      themeBody.hidden = collapsed;
-    }
-
-    if (persist) {
-      window.localStorage.setItem("aquashield-theme-debug-collapsed", collapsed ? "true" : "false");
-    }
-  };
-
-  const storedCollapsed = window.localStorage.getItem("aquashield-theme-debug-collapsed") === "true";
-  setCollapsed(storedCollapsed, false);
-
-  toggleButton?.addEventListener("click", () => {
-    setCollapsed(!themeDebug.classList.contains("is-collapsed"));
+  // ---------- Tooltips on touch ----------
+  document.querySelectorAll(".info[data-tooltip]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = btn.classList.toggle("is-open");
+      document.querySelectorAll(".info.is-open").forEach(function (b) { if (b !== btn) b.classList.remove("is-open"); });
+      void open;
+    });
   });
-}
+  document.addEventListener("click", function () {
+    document.querySelectorAll(".info.is-open").forEach(function (b) { b.classList.remove("is-open"); });
+  });
 
-setupScrollReveals();
-setupAnchorScrolling();
-setupContactForm();
-// setupThemeDebug();
+  // ---------- Calendly, loaded on interaction only ----------
+  var calendlyLoaded = false;
+  function loadCalendly(cb) {
+    if (calendlyLoaded && window.Calendly) return cb();
+    var css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "https://assets.calendly.com/assets/external/widget.css";
+    document.head.appendChild(css);
+    var s = document.createElement("script");
+    s.src = "https://assets.calendly.com/assets/external/widget.js";
+    s.async = true;
+    s.onload = function () { calendlyLoaded = true; cb(); };
+    document.head.appendChild(s);
+  }
+  document.querySelectorAll("[data-calendly]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var url = btn.getAttribute("data-calendly");
+      btn.disabled = true;
+      loadCalendly(function () {
+        btn.disabled = false;
+        if (window.Calendly) window.Calendly.initPopupWidget({ url: url });
+        else window.open(url, "_blank", "noopener");
+      });
+    });
+  });
+
+  // ---------- Per-segment line on the Book a call page (?for=...) ----------
+  var forLine = document.querySelector("[data-for-line]");
+  if (forLine) {
+    var seg = new URLSearchParams(window.location.search).get("for");
+    var text = seg && forLine.getAttribute("data-line-" + seg);
+    if (text) forLine.textContent = text;
+  }
+
+  // ---------- Contact form ----------
+  var form = document.querySelector("[data-form]");
+  if (form) {
+    var note = form.querySelector("[data-form-note]");
+    var submit = form.querySelector('button[type="submit"]');
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      note.className = "form-note";
+      var name = form.querySelector('[name="name"]');
+      var email = form.querySelector('[name="email"]');
+      if (!name.value.trim() || !email.checkValidity()) {
+        note.textContent = form.getAttribute("data-msg-invalid");
+        note.classList.add("is-error");
+        (name.value.trim() ? email : name).focus();
+        return;
+      }
+      var original = submit.textContent;
+      submit.disabled = true;
+      submit.textContent = form.getAttribute("data-msg-sending");
+      fetch(form.getAttribute("action"), { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) { if (!r.ok) throw new Error("failed"); note.textContent = form.getAttribute("data-msg-success"); note.classList.add("is-success"); form.reset(); })
+        .catch(function () { note.textContent = form.getAttribute("data-msg-error"); note.classList.add("is-error"); })
+        .then(function () { submit.disabled = false; submit.textContent = original; });
+    });
+  }
+
+  // ---------- Videos: play when visible, never autoplay under reduced motion ----------
+  var videos = document.querySelectorAll("video[data-autoplay]");
+  if (videos.length && "IntersectionObserver" in window && !reducedMotion) {
+    var vo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+      });
+    }, { threshold: 0.35 });
+    videos.forEach(function (v) { vo.observe(v); });
+  }
+
+  // ---------- Click-to-load 3D scene ----------
+  document.querySelectorAll("[data-load-frame]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var wrap = btn.closest(".twin-embed");
+      var src = wrap.getAttribute("data-src");
+      var iframe = document.createElement("iframe");
+      iframe.src = src;
+      iframe.title = wrap.getAttribute("data-title") || "";
+      iframe.loading = "lazy";
+      iframe.setAttribute("tabindex", "-1");
+      wrap.appendChild(iframe);
+      var overlay = wrap.querySelector(".twin-load");
+      if (overlay) overlay.remove();
+    });
+  });
+
+  // ---------- Reveal ----------
+  var reveals = document.querySelectorAll("[data-reveal]");
+  if (reveals.length && "IntersectionObserver" in window && !reducedMotion) {
+    document.body.classList.add("has-reveal");
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("is-visible"); ro.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
+    reveals.forEach(function (el) { ro.observe(el); });
+  }
+})();
