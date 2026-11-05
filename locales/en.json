@@ -525,6 +525,14 @@
     "together": {
       "h2": "Let us try it together at your site.",
       "text": "One cooling loop, one rack row, a walkthrough with your operations team. We learn your loop's normal. You see whether the alerts are worth it."
+    },
+    "visual": {
+      "alt": "Diagram: a row of liquid-cooled racks on one cooling loop, a clamp-on sensor on every rack branch, one branch showing a pressure drop.",
+      "supply": "Supply",
+      "returnLine": "Return",
+      "deviation": "Pressure drop, rack 3",
+      "sensor": "Flow and pressure per rack",
+      "caption": "Networked flow and pressure sensing per rack. Clamp-on, no cutting into the loop."
     }
   },
   "team": {

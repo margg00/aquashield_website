@@ -525,6 +525,14 @@
     "together": {
       "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
       "text": "Ein Kühlkreislauf, eine Rack-Reihe, eine Begehung mit Ihrem Betriebsteam. Wir lernen den Normalverlauf Ihres Kreislaufs. Sie sehen, ob die Alarme etwas taugen."
+    },
+    "visual": {
+      "alt": "Diagramm: eine Reihe flüssigkeitsgekühlter Racks an einem Kühlkreislauf, ein Clamp-on-Sensor an jedem Rack-Abzweig, ein Abzweig mit Druckabfall.",
+      "supply": "Vorlauf",
+      "returnLine": "Rücklauf",
+      "deviation": "Druckabfall, Rack 3",
+      "sensor": "Durchfluss und Druck pro Rack",
+      "caption": "Vernetzte Durchfluss- und Druckmessung pro Rack. Clamp-on, kein Eingriff in den Kreislauf."
     }
   },
   "team": {

@@ -43,13 +43,22 @@ Web-sized pictures live in `assets/img/`. Replace a file with one of the same na
 
 | File | Used on |
 | --- | --- |
-| `clamp-on-sensor.webp` | Home, step 1. Product, install section. |
 | `team.webp` | Team page. |
-| `pipe-network.webp` | Home, step 4. Data centres. |
-| `twin-poster.webp`, `assets/video/twin.webm`, `twin.mp4` | Product, localisation section. |
-| `twin-ui.webp` | Product, machine learning section. |
+| `twin-ui.webp` | Product, machine learning section (real dashboard view). |
 | `logo-wordmark.webp` | Header and footer. |
 | `og-default.png` | Link previews on LinkedIn and chat apps. |
+| `clamp-on-sensor.webp`, `pipe-network.webp`, `assets/video/twin.*` | Kept in the repo, not on any page right now. |
+
+Drawn visuals (sharp at any size, animated, every label from the locale file) live in code, not in image files:
+
+| Visual | File | Used on |
+| --- | --- | --- |
+| Hero building, the 16-second story loop | `src/hero.js` | Home hero. Same drawing in a still "twin" variant on Product (localisation) and Home step 4. |
+| Clamp-on sensor on a riser, pressure sensor on a tap | `src/visuals.js`, `installSvg` | Home step 1, Product install. |
+| Rack row on a cooling loop | `src/visuals.js`, `rackSvg` | Data centres. |
+| Baseline and deviation charts | inline in `src/pages/home.html` and `product.html` | Home steps 2 and 3, Product data section. |
+
+To change a label inside a drawing, edit the `building`, `product.install.labels` or `dataCenters.visual` block in the locale files.
 
 ## Change colours or type
 

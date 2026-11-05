@@ -210,6 +210,7 @@ function parseFrontMatter(src) {
 
 // --- Hero building SVG lives in src/hero.js ---------------------------
 const heroBuildingSvg = require("./src/hero.js");
+const visuals = require("./src/visuals.js");
 
 // --- Counter numbers computed at build time (the browser keeps them ticking) --
 function counterSnapshot(sites) {
@@ -391,6 +392,10 @@ function build() {
       counter: { ...t.counter, buildings: formatNumber(counter.buildings, lang), points: formatNumber(counter.points, lang), readings: formatNumber(counter.readings, lang), leaks: formatNumber(counter.leaks, lang) },
       sitesJson: JSON.stringify(sites),
       heroBuilding: heroBuildingSvg(t),
+      twinSvg: heroBuildingSvg(t, { twin: true }),
+      installSvg: visuals.installSvg(t),
+      installSvgCompact: visuals.installSvg(t, { compact: true }),
+      rackSvg: visuals.rackSvg(t),
       posts: posts[lang].map((p) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "" })),
       sitesList: sites.sites,
       team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name) })) }

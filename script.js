@@ -171,6 +171,17 @@
     });
   }
 
+
+  // ---------- Pause animations while their visual is off-screen ----------
+  var animated = document.querySelectorAll(".hero-visual, .media-vis, .media-twin, .step-visual, .alert-card");
+  if (animated.length && "IntersectionObserver" in window) {
+    animated.forEach(function (el) { el.classList.add("is-offscreen"); });
+    var ao = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle("is-offscreen", !en.isIntersecting); });
+    }, { rootMargin: "120px 0px", threshold: 0.01 });
+    animated.forEach(function (el) { ao.observe(el); });
+  }
+
   // ---------- Reveal ----------
   var reveals = document.querySelectorAll("[data-reveal]");
   if (reveals.length && "IntersectionObserver" in window && !reducedMotion) {

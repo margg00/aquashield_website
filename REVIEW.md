@@ -79,6 +79,19 @@ Budget check: total JavaScript on the page is script.js at under 10 KB. No third
 | R4 | Automatic hyphenation split "be-fore" in the English H1 on phones. | Hyphenation limited to German headings on phones. |
 | R5 | No `[TO CONFIRM]` chips on the rendered site. | grep across locales, templates and posts: none. Open items tracked in CLAIMS.md only. |
 
+## Third round, 5 Nov (Felix: drawn install visual, sharpness, triple check)
+
+| # | Change | Check |
+| --- | --- | --- |
+| T1 | The basement photo is replaced by a drawn, animated clamp-on sensor on a riser with a pressure sensor on a tap (`src/visuals.js`). Used on Home step 1 and the Product install section. | Captured at 1440 and 390. Labels hidden in the small step frame. |
+| T2 | Product localisation: the 720p render video is replaced by the vector digital twin (still variant of the hero drawing). Home step 4 uses the same. | Callout fully visible, sharp at 2x. |
+| T3 | Product machine learning: the dashboard screenshot re-extracted from the original 3024px capture, cropped to the building, no UI chrome or cursor, portrait box, 1500px and 900px variants. | Captured at 1440 and 390. |
+| T4 | Data centres: pipe render replaced by a drawn rack row on a cooling loop with per-rack sensing and one pressure drop. | Captured at 1440. |
+| T5 | Performance: step-frame drawings are static, and every animated visual pauses while off-screen. | Home 100 twice (blocking time 40 to 50 ms), Product 100, Data centres 100, de and fr 99. |
+| T6 | Link crawl: every internal href, src, srcset, poster, hreflang and canonical target. | 31 pages, 944 references, 0 broken, 0 console errors. |
+| T7 | Images: every placement loaded, visible, HTTP 200. | 120 placements on 21 pages at 2 sizes, 0 problems. |
+| T8 | Overflow sweep on the pages with new visuals at 360, 390, 768, 1024, 1100, 1440 and 1920. | 0 overflow. |
+
 ## Open items that the reviews cannot close
 
 See CLAIMS.md section 2, "Confirm before merge". The six items from the master prompt, Part 1, plus the ones the builder added: alert channels, pipe materials, battery sensors, pricing statement, data-sharing statement, product screenshot approval, founders' meeting link, contact-form destination, legal address.

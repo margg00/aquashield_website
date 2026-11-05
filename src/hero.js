@@ -19,7 +19,8 @@ function escapeHtml(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-module.exports = function heroBuildingSvg(t) {
+module.exports = function heroBuildingSvg(t, opts) {
+  const twin = Boolean(opts && opts.twin);
   const b = t.building;
   const cos = Math.cos(Math.PI / 6);
   const sin = Math.sin(Math.PI / 6);
@@ -49,8 +50,10 @@ module.exports = function heroBuildingSvg(t) {
     g += `<line class="hb-bg-pipe" x1="${f1(Pb(w * 0.5, 0, d * 0.5)[0])}" y1="${f1(Pb(w * 0.5, 0, d * 0.5)[1])}" x2="${f1(Pb(w * 0.5, n * fh, d * 0.5)[0])}" y2="${f1(Pb(w * 0.5, n * fh, d * 0.5)[1])}"/>`;
     return g + `</g>`;
   };
-  s += bgBuilding(96, 214, 96, 70, 30, 4);
-  s += bgBuilding(452, 236, 84, 64, 30, 5);
+  if (!twin) {
+    s += bgBuilding(96, 214, 96, 70, 30, 4);
+    s += bgBuilding(452, 236, 84, 64, 30, 5);
+  }
 
   // --- Ground pad and grid ---
   s += `<polygon class="hb-ground" points="${pt(P(-30, 0, -30))} ${pt(P(W + 30, 0, -30))} ${pt(P(W + 30, 0, D + 30))} ${pt(P(-30, 0, D + 30))}"/>`;
@@ -61,7 +64,7 @@ module.exports = function heroBuildingSvg(t) {
   }
 
   // --- Scan plane (sweeps up during learning) ---
-  s += `<polygon class="hb-scan" points="${pt(P(0, 0, 0))} ${pt(P(W, 0, 0))} ${pt(P(W, 0, D))} ${pt(P(0, 0, D))}"/>`;
+  if (!twin) s += `<polygon class="hb-scan" points="${pt(P(0, 0, 0))} ${pt(P(W, 0, 0))} ${pt(P(W, 0, D))} ${pt(P(0, 0, D))}"/>`;
 
   // --- Main building: faces, floors, edges, windows ---
   s += `<g class="hb-faces">`;
@@ -167,6 +170,7 @@ module.exports = function heroBuildingSvg(t) {
 
   // --- Model node: sensors stream readings to it ---
   const mx = 500, my = 34;
+  if (!twin) {
   s += `<g class="hb-model">`;
   risers.forEach((r, i) => {
     const top = P(r.x, H, r.z);
@@ -182,6 +186,7 @@ module.exports = function heroBuildingSvg(t) {
   s += `<circle class="hb-model-dot" cx="${mx}" cy="${my}" r="3.2"/>`;
   s += `<text class="hb-model-label" x="${mx}" y="${my + 30}" text-anchor="middle">${escapeHtml(b.model)}</text>`;
   s += `</g>`;
+  }
 
   // --- Chart panel: the model learns normal, then the live line departs ---
   const cx0 = 14, cy0 = 18, cw = 196, chh = 112;
@@ -193,6 +198,7 @@ module.exports = function heroBuildingSvg(t) {
   const poly = (pts) => pts.map(([u, v], i) => `${i ? "L" : "M"}${f1(X(u))} ${f1(Y(v))}`).join(" ");
   const bandTop = base.map(([u, v]) => `${f1(X(u))} ${f1(Y(v + 0.1))}`);
   const bandBot = base.slice().reverse().map(([u, v]) => `${f1(X(u))} ${f1(Y(v - 0.1))}`);
+  if (!twin) {
   s += `<g class="hb-chart">`;
   s += `<rect class="hb-chart-bg" x="${cx0}" y="${cy0}" width="${cw}" height="${chh}" rx="10"/>`;
   s += `<text class="hb-chart-title" x="${cx0 + 12}" y="${cy0 + 18}">${escapeHtml(b.chartTitle)}</text>`;
@@ -206,6 +212,7 @@ module.exports = function heroBuildingSvg(t) {
   s += `<path class="hb-chart-tail" d="${poly(tail)}" pathLength="1"/>`;
   s += `<circle class="hb-chart-flag" cx="${f1(X(1))}" cy="${f1(Y(0.92))}" r="3.4"/>`;
   s += `</g>`;
+  }
 
   // --- Label: riser B, floor 3 (localisation) ---
   const lx = 396, ly = 150;
@@ -219,12 +226,17 @@ module.exports = function heroBuildingSvg(t) {
   s += `</g></g>`;
 
   // --- Legend ---
+  if (!twin) {
   s += `<g class="hb-legend" transform="translate(16 452)">`;
   s += `<line class="hb-pipe" x1="0" y1="0" x2="22" y2="0"/><text x="30" y="4">${escapeHtml(b.normal)}</text>`;
   s += `<line class="hb-pipe hb-pipe-anomaly" x1="150" y1="0" x2="172" y2="0"/><text x="180" y="4">${escapeHtml(b.flag)}</text>`;
   s += `<rect class="hb-sensor-body" x="300" y="-3" width="9" height="6" rx="1.6"/><text x="316" y="4">${escapeHtml(b.sensors)}</text>`;
   s += `</g>`;
+  }
 
+  if (twin) {
+    return `<svg class="hero-building hb-static" viewBox="100 40 460 430" role="img" aria-label="${escapeHtml(t.product.twin.h2)}" focusable="false">${s}</svg>`;
+  }
   const svg = `<svg class="hero-building" viewBox="0 0 560 480" role="img" aria-labelledby="hb-title" focusable="false"><title id="hb-title">${escapeHtml(t.home.hero.visualAlt)}</title>${s}</svg>`;
 
   // Status line, HTML so it stays legible on phones. Same 16 s cycle.

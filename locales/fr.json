@@ -525,6 +525,14 @@
     "together": {
       "h2": "Essayons ensemble sur votre site.",
       "text": "Une boucle de refroidissement, une rangée de racks, une visite de repérage avec votre équipe d'exploitation. Nous apprenons le normal de votre boucle. Vous voyez si les alertes en valent la peine."
+    },
+    "visual": {
+      "alt": "Schéma : une rangée de racks à refroidissement liquide sur une boucle, un capteur à pince sur chaque dérivation, une dérivation avec chute de pression.",
+      "supply": "Aller",
+      "returnLine": "Retour",
+      "deviation": "Chute de pression, rack 3",
+      "sensor": "Débit et pression par rack",
+      "caption": "Mesure de débit et de pression par rack, en réseau. À pince, sans intervention sur la boucle."
     }
   },
   "team": {

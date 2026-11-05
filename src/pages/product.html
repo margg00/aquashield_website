@@ -15,8 +15,8 @@
           </div>
         </div>
         <div>
-          <div class="media media-3x4">
-            <img src="{{base}}assets/img/clamp-on-sensor.webp" srcset="{{base}}assets/img/clamp-on-sensor-600.webp 600w, {{base}}assets/img/clamp-on-sensor-900.webp 900w, {{base}}assets/img/clamp-on-sensor.webp 1200w" sizes="(min-width: 900px) 460px, 90vw" alt="{{product.install.visualAlt}}" width="1200" height="1600" loading="lazy" decoding="async">
+          <div class="media media-4x3 media-vis">
+            {{{installSvg}}}
           </div>
           <p class="media-caption">{{product.install.labels.ultrasonic}}. {{product.install.labels.time}}. {{product.install.labels.cut}}.</p>
         </div>
@@ -71,11 +71,8 @@
           </div>
         </div>
         <div>
-          <div class="media media-16x10 media-zoom">
-            <video data-autoplay muted loop playsinline preload="none" poster="{{base}}assets/img/twin-poster.webp" aria-label="{{product.twin.h2}}">
-              <source src="{{base}}assets/video/twin.webm" type="video/webm">
-              <source src="{{base}}assets/video/twin.mp4" type="video/mp4">
-            </video>
+          <div class="media media-vis media-twin">
+            {{{twinSvg}}}
           </div>
           <p class="media-caption">{{product.twin.h2}}: {{product.twin.text}}</p>
         </div>
@@ -91,8 +88,8 @@
           </div>
         </div>
         <div>
-          <div class="media media-16x10 media-zoom">
-            <img src="{{base}}assets/img/twin-ui.webp" alt="{{product.twin.h2}}" width="1400" height="745" loading="lazy">
+          <div class="media media-3x4">
+            <img src="{{base}}assets/img/twin-ui.webp" srcset="{{base}}assets/img/twin-ui-1200.webp 900w, {{base}}assets/img/twin-ui.webp 1500w" sizes="(min-width: 900px) 460px, 90vw" alt="{{product.data.h2}}" width="1500" height="1967" loading="lazy" decoding="async">
           </div>
           <p class="media-caption">{{product.data.h2}}</p>
         </div>
