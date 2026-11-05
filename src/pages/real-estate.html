@@ -29,7 +29,8 @@
         <div class="section-head">
           <h2 id="customers-title">{{realEstate.customers.h2}}</h2>
         </div>
-        <div class="groups">
+{{> customer-logos}}
+        <div class="groups groups-after-logos">
 {{#each realEstate.customers.groups}}          <div class="group" data-reveal>
             <h3>{{label}}</h3>
             <ul>

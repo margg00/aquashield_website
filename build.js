@@ -370,6 +370,7 @@ function build() {
   const layout = read("src/layout.html");
   const css = inlineCss();
   const sites = JSON.parse(read("data/sites.json"));
+  const customers = JSON.parse(read("data/customers.json")).customers;
   const locales = {};
   LANGS.forEach((l) => { if (exists(`locales/${l}.json`)) locales[l] = JSON.parse(read(`locales/${l}.json`)); });
   const langsBuilt = Object.keys(locales);
@@ -398,6 +399,7 @@ function build() {
       rackSvg: visuals.rackSvg(t),
       posts: posts[lang].map((p) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "" })),
       sitesList: sites.sites,
+      customerGroups: ["live", "rd", "planned"].map((g, i) => ({ key: g, label: t.realEstate.customers.groups[i].label, items: customers.filter((c) => c.group === g) })).filter((g) => g.items.length),
       team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name) })) }
     };
 

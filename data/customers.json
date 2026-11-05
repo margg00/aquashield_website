@@ -1,0 +1,59 @@
+{
+  "_comment": "Customers and partners shown as logos. file: path under assets/img/logos (null shows the name as a wordmark). group: live, rd (research pilots), planned. Permission per name is tracked in CLAIMS.md.",
+  "customers": [
+    {
+      "name": "Vonovia",
+      "file": "vonovia.png",
+      "group": "live",
+      "height": 22
+    },
+    {
+      "name": "Prime Residential",
+      "file": null,
+      "group": "live",
+      "height": 30
+    },
+    {
+      "name": "Panoramic Interests",
+      "file": null,
+      "group": "live",
+      "height": 30
+    },
+    {
+      "name": "MIT Facilities",
+      "file": "mit.svg",
+      "group": "rd",
+      "height": 32
+    },
+    {
+      "name": "EPFL",
+      "file": "epfl.svg",
+      "group": "rd",
+      "height": 26
+    },
+    {
+      "name": "Life Time",
+      "file": null,
+      "group": "planned",
+      "height": 30
+    },
+    {
+      "name": "Bedrock",
+      "file": null,
+      "group": "planned",
+      "height": 30
+    },
+    {
+      "name": "Jamestown",
+      "file": null,
+      "group": "planned",
+      "height": 30
+    },
+    {
+      "name": "VUB",
+      "file": null,
+      "group": "planned",
+      "height": 30
+    }
+  ]
+}

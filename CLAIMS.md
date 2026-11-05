@@ -104,7 +104,8 @@ False-positive rates. Detection lead times. Localisation accuracy. Verified savi
 | MIT | logos/MIT_logo.svg | confirm (Felix) | yes |
 | Harvard | none | confirm (Felix) | wordmark text only |
 | EPFL | logos/EPGL_logo.svg | confirm (Felix) | yes |
-| Any customer | none | confirm (Tim, written) | no |
+| Vonovia | assets/img/logos/vonovia.png (from the LOI document on Drive) | confirm (Tim, written) | yes, at Felix's request on 5 Nov |
+| Prime Residential, Panoramic Interests, Life Time, Bedrock, Jamestown, VUB | none in Drive, shown as wordmarks | confirm (Tim, written) and a logo file each | wordmark |
 
 ## 4. Photo and screenshot permission table
 

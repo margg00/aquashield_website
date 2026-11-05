@@ -684,7 +684,18 @@ body.nav-open { overflow: hidden; }
 .logo-mit { height: 32px; }
 .logo-openai { height: 30px; }
 .logo-words li { color: var(--text-secondary); font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; }
-@media (min-width: 768px) { .logo-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+@media (min-width: 768px) { .logo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
+
+.logo-wall-groups { display: grid; gap: 24px; }
+.logo-wall-group .logo-label { margin-bottom: 12px; }
+.logo-wall { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; list-style: none; }
+.logo-wall li { display: flex; align-items: center; min-height: 34px; }
+.logo-wall img { width: auto; max-width: 150px; filter: brightness(0) invert(1); opacity: 0.86; transition: opacity 200ms ease, transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.logo-wall li:hover img { opacity: 1; transform: translateY(-2px); }
+.logo-word { color: var(--text-primary); font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; opacity: 0.86; transition: opacity 200ms ease; }
+.logo-wall li:hover .logo-word { opacity: 1; }
+.groups-after-logos { margin-top: 40px; }
+@media (min-width: 900px) { .proof-grid .logo-wall-groups { gap: 28px; } }
 
 /* ---------- Not promise ---------- */
 
