@@ -2,7 +2,7 @@
 
 > AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and AI.
 
-AquaShield (legal entity AquaShield AI Inc., Zurich HQ at Technoparkstrasse 1, 8005 Zurich, and San Francisco) builds clamp-on ultrasonic and pressure sensors, a model per measuring point that learns a building's normal flow in 10-minute steps, and a digital twin that narrows a leak to a riser or a building section. Alerts are reviewed with the maintenance team. Founded by robotics researchers Paul Beckers (CEO) and Marguerite Benoist (CTO) with Tim Baumeister (customers and operations). Y Combinator, spring 2026. Developed with MIT Facilities. Live at Vonovia since March 2026 (22 buildings, 32 measuring points), Prime Residential and Panoramic Interests in California.
+AquaShield (legal entity AquaShield AI Inc., Zurich HQ at Technoparkstrasse 1, 8005 Zurich, and San Francisco) builds clamp-on ultrasonic and pressure sensors, a model per measuring point that learns a building's normal flow in 10-minute steps, and a digital twin that narrows a leak to a riser or a building section. Alerts are reviewed with the maintenance team. Founded by robotics researchers Paul Beckers (CEO) and Marguerite Benoist (CTO) with Tim Baumeister (customers and operations). Y Combinator, spring 2026. Developed with MIT Facilities. Live in Germany and the US since March 2026 (22 buildings and 32 measuring points at the first portfolio).
 
 ## Pages
 

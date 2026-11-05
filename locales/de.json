@@ -108,14 +108,15 @@
   },
   "logos": {
     "backed": "Unterstützt von",
-    "developed": "Entwickelt in Zusammenarbeit mit",
-    "founders": "Gründer von",
     "yc": "Y Combinator",
     "openai": "OpenAI",
     "mit": "MIT",
-    "mitFacilities": "MIT Facilities",
     "harvard": "Harvard",
-    "epfl": "EPFL"
+    "epfl": "EPFL",
+    "researchers": "Entwickelt von Forschenden aus",
+    "rwth": "RWTH Aachen",
+    "tsinghua": "Tsinghua",
+    "nvidia": "NVIDIA Inception"
   },
   "pages": {
     "home": {
@@ -128,7 +129,7 @@
     },
     "real-estate": {
       "title": "Leckageerkennung für Immobilienportfolios | AquaShield",
-      "description": "KI-Leckageerkennung für Wohn- und Büroportfolios. Clamp-on-Sensoren, kein Rohrschnitt, Ortung bis zur Steigleitung. Live bei Vonovia seit März 2026."
+      "description": "KI-Leckageerkennung für Wohn- und Büroportfolios. Clamp-on-Sensoren, kein Rohrschnitt, Ortung bis zur Steigleitung. Live seit März 2026."
     },
     "insurance": {
       "title": "Schadenhöhe bei Wasserschäden und Risikodaten | AquaShield",
@@ -163,7 +164,7 @@
     "hero": {
       "eyebrow": "KI-Leckageerkennung für Gebäude",
       "h1": "Das Leck finden, bevor der Schaden entsteht.",
-      "proof": "Live bei Vonovia. Unterstützt von Y Combinator.",
+      "proof": "Live in Deutschland und den USA. Unterstützt von Y Combinator.",
       "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss."
     },
     "problem": {
@@ -240,11 +241,7 @@
     "proof": {
       "eyebrow": "Nachweis",
       "h2": "So sieht ein echter Alarm aus.",
-      "customersLive": "Live oder im Pilot bei",
-      "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities und EPFL Facilities.",
-      "customersPlanned": "In Planung mit",
-      "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown und VUB.",
-      "confirm": ""
+      "line": "Live in Deutschland und den USA seit März 2026. Forschungspiloten mit MIT Facilities und EPFL Facilities."
     },
     "notPromise": {
       "h2": "Was wir noch nicht versprechen.",
@@ -350,15 +347,15 @@
       "text": "Ein Mieter ruft an. Eine Decke bekommt einen Fleck. Wasser steht auf dem Kellerboden. Bis dahin läuft das Leck seit Tagen oder Wochen. Es zu finden kann bis zu fünf Vor-Ort-Termine kosten, jedes Mal mit einer geöffneten Wand. Belegung, Energie und HLK haben alle eine Live-Ansicht. Wasser nicht. AquaShield gibt Ihrer Haustechnik diese Ansicht: jede Steigleitung überwacht, Abweichungen nach Schweregrad sortiert und ein Ort, der zuerst zu prüfen ist."
     },
     "customers": {
-      "h2": "Mit wem wir arbeiten",
+      "h2": "Wo es heute läuft",
       "confirm": "",
       "groups": [
         {
           "label": "Live",
           "items": [
-            "Vonovia, Europas grösster Wohnungsvermieter. 22 Gebäude, 32 Messstellen, seit März 2026.",
-            "Prime Residential, Kalifornien. Zwei Standorte, 59 Sensoren, seit September 2026.",
-            "Panoramic Interests, Berkeley. Ein neues siebenstöckiges Gebäude, 23 Sensoren an 10 Steigleitungen."
+            "Ein grosses Wohnungsportfolio in Deutschland. 22 Gebäude, 32 Messstellen, seit März 2026.",
+            "Zwei Wohnstandorte in Kalifornien. 59 Sensoren, seit September 2026.",
+            "Ein neues siebenstöckiges Wohngebäude in Kalifornien. 23 Sensoren an 10 Steigleitungen."
           ]
         },
         {
@@ -371,10 +368,10 @@
         {
           "label": "In Planung",
           "items": [
-            "Life Time Fitness, Roseville. Ein Club, Q1 2027.",
-            "Bedrock, Detroit. Drei Bürohochhäuser, LOI unterzeichnet.",
-            "Jamestown, Berlin. Zwei Gebäude, Besichtigung erfolgt.",
-            "VUB. Drei Gebäude."
+            "Ein Fitnessclub-Betreiber in Kalifornien. Ein Club, Q1 2027.",
+            "Drei Bürohochhäuser in Detroit. LOI unterzeichnet.",
+            "Zwei Gebäude in Berlin. Besichtigung erfolgt.",
+            "Ein Universitätscampus in Belgien. Drei Gebäude."
           ]
         }
       ]
@@ -520,7 +517,7 @@
     "status": {
       "h2": "Wo wir stehen",
       "text": "In einem Rechenzentrum ist noch nichts live. Wir suchen einen ersten Standort, zuerst in der Schweiz, um das gemeinsam zu erproben.",
-      "proof": "Nachweis aus dem Immobilienbereich: live bei Vonovia seit März 2026, 22 Gebäude und 32 Messstellen."
+      "proof": "Nachweis aus dem Immobilienbereich: live in einem grossen Wohnungsportfolio in Deutschland seit März 2026, 22 Gebäude und 32 Messstellen."
     },
     "together": {
       "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
@@ -590,6 +587,7 @@
       "h2": "Unterstützung und Forschung",
       "items": [
         "Y Combinator, Frühjahr 2026.",
+        "Mitglied im NVIDIA Inception Programm.",
         "OpenAI.",
         "EPFL Startup Launchpad AI Grant.",
         "Forschungskooperationen mit EPFL und ETH Zürich.",

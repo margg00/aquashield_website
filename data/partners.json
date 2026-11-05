@@ -1,0 +1,71 @@
+{
+  "_comment": "Backers and institutions shown as logos. file under assets/img/logos, null shows the name as a wordmark. Labels come from locales logos.backed and logos.researchers.",
+  "groups": [
+    {
+      "key": "backed",
+      "items": [
+        {
+          "name": "Y Combinator",
+          "key": "yc",
+          "file": "y-combinator.svg",
+          "height": 30,
+          "tone": "mono"
+        },
+        {
+          "name": "OpenAI",
+          "key": "openai",
+          "file": "openai.svg",
+          "height": 30,
+          "tone": "mono"
+        },
+        {
+          "name": "NVIDIA Inception",
+          "key": "nvidia",
+          "file": "nvidia-inception.svg",
+          "height": 34,
+          "tone": "plain"
+        }
+      ]
+    },
+    {
+      "key": "researchers",
+      "items": [
+        {
+          "name": "MIT",
+          "key": "mit",
+          "file": "mit.svg",
+          "height": 32,
+          "tone": "mono"
+        },
+        {
+          "name": "Harvard",
+          "key": "harvard",
+          "file": "harvard.svg",
+          "height": 40,
+          "tone": "soft"
+        },
+        {
+          "name": "EPFL",
+          "key": "epfl",
+          "file": "epfl.svg",
+          "height": 26,
+          "tone": "mono"
+        },
+        {
+          "name": "RWTH Aachen",
+          "key": "rwth",
+          "file": "rwth.svg",
+          "height": 34,
+          "tone": "soft"
+        },
+        {
+          "name": "Tsinghua",
+          "key": "tsinghua",
+          "file": null,
+          "height": 30,
+          "tone": "word"
+        }
+      ]
+    }
+  ]
+}

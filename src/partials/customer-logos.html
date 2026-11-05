@@ -1,8 +1,0 @@
-        <div class="logo-wall-groups">
-{{#each customerGroups}}          <div class="logo-wall-group">
-            <p class="logo-label">{{label}}</p>
-            <ul class="logo-wall">
-{{#each items}}              <li>{{#if file}}<img src="{{base}}assets/img/logos/{{file}}" alt="{{name}}" style="height: {{height}}px" loading="lazy" decoding="async">{{/if}}{{#unless file}}<span class="logo-word">{{name}}</span>{{/unless}}</li>
-{{/each}}            </ul>
-          </div>
-{{/each}}        </div>

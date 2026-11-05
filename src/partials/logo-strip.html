@@ -1,17 +1,8 @@
-        <div class="logo-strip">
-          <div class="logo-group">
-            <p class="logo-label">{{logos.backed}}</p>
-            <ul>
-              <li><img src="{{base}}logos/Y_Combinator_logo_cutout.svg" alt="{{logos.yc}}" class="logo-yc" width="110" height="28"></li>
-              <li><img src="{{base}}logos/OpenAI_logo.svg" alt="{{logos.openai}}" class="logo-mono logo-openai" width="30" height="30"></li>
-            </ul>
+        <div class="logo-wall-groups logo-strip">
+{{#each logoGroups}}          <div class="logo-wall-group">
+            <p class="logo-label">{{label}}</p>
+            <ul class="logo-wall">
+{{#each items}}              <li>{{#if file}}<img class="logo-{{tone}}" src="{{base}}assets/img/logos/{{file}}" alt="{{name}}" style="height: {{height}}px" decoding="async">{{/if}}{{#unless file}}<span class="logo-word">{{name}}</span>{{/unless}}</li>
+{{/each}}            </ul>
           </div>
-          <div class="logo-group">
-            <p class="logo-label">{{logos.founders}}</p>
-            <ul class="logo-words">
-              <li>{{logos.mit}}</li>
-              <li>{{logos.harvard}}</li>
-              <li>{{logos.epfl}}</li>
-            </ul>
-          </div>
-        </div>
+{{/each}}        </div>

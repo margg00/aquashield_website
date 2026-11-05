@@ -108,14 +108,15 @@
   },
   "logos": {
     "backed": "Backed by",
-    "developed": "Developed in collaboration with",
-    "founders": "Founders from",
     "yc": "Y Combinator",
     "openai": "OpenAI",
     "mit": "MIT",
-    "mitFacilities": "MIT Facilities",
     "harvard": "Harvard",
-    "epfl": "EPFL"
+    "epfl": "EPFL",
+    "researchers": "Built by researchers from",
+    "rwth": "RWTH Aachen",
+    "tsinghua": "Tsinghua",
+    "nvidia": "NVIDIA Inception"
   },
   "pages": {
     "home": {
@@ -128,7 +129,7 @@
     },
     "real-estate": {
       "title": "Leak detection for real estate portfolios | AquaShield",
-      "description": "AI leak detection for apartment and office portfolios. Clamp-on sensors, no pipe cutting, riser-level localisation. Live at Vonovia since March 2026."
+      "description": "AI leak detection for apartment and office portfolios. Clamp-on sensors, no pipe cutting, riser-level localisation. Live since March 2026."
     },
     "insurance": {
       "title": "Water claim severity and risk data | AquaShield",
@@ -163,7 +164,7 @@
     "hero": {
       "eyebrow": "AI leak detection for buildings",
       "h1": "Find the leak before the damage.",
-      "proof": "Live at Vonovia. Backed by Y Combinator.",
+      "proof": "Live in Germany and the US. Backed by Y Combinator.",
       "visualAlt": "Wireframe building with five floors and three risers. One riser glows red at the deviation on floor three."
     },
     "problem": {
@@ -240,11 +241,7 @@
     "proof": {
       "eyebrow": "Proof",
       "h2": "What a real alert looks like.",
-      "customersLive": "Live or in pilot with",
-      "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities and EPFL Facilities.",
-      "customersPlanned": "In planning with",
-      "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown and VUB.",
-      "confirm": ""
+      "line": "Live in Germany and the US since March 2026. Research pilots with MIT Facilities and EPFL Facilities."
     },
     "notPromise": {
       "h2": "What we do not promise yet.",
@@ -350,15 +347,15 @@
       "text": "A tenant calls. A ceiling stains. Water shows up on a basement floor. By then the leak has been running for days or weeks. Finding it can take up to five site visits and a wall opened each time. Occupancy, energy and HVAC all have a live view. Water does not. AquaShield gives your maintenance team that view: every riser watched, deviations ranked by severity, and a location to check first."
     },
     "customers": {
-      "h2": "Who we work with",
+      "h2": "Where it runs today",
       "confirm": "",
       "groups": [
         {
           "label": "Live",
           "items": [
-            "Vonovia, Europe's largest residential landlord. 22 buildings, 32 measuring points, since March 2026.",
-            "Prime Residential, California. Two sites, 59 sensors, since September 2026.",
-            "Panoramic Interests, Berkeley. A new seven-storey building, 23 sensors on 10 risers."
+            "A large residential portfolio in Germany. 22 buildings, 32 measuring points, since March 2026.",
+            "Two residential sites in California. 59 sensors, since September 2026.",
+            "A new seven-storey residential building in California. 23 sensors on 10 risers."
           ]
         },
         {
@@ -371,10 +368,10 @@
         {
           "label": "In planning",
           "items": [
-            "Life Time Fitness, Roseville. One club, Q1 2027.",
-            "Bedrock, Detroit. Three office high-rises, LOI signed.",
-            "Jamestown, Berlin. Two buildings, site visit done.",
-            "VUB. Three buildings."
+            "A fitness club operator in California. One club, Q1 2027.",
+            "Three office high-rises in Detroit. LOI signed.",
+            "Two buildings in Berlin. Site visit done.",
+            "A university campus in Belgium. Three buildings."
           ]
         }
       ]
@@ -520,7 +517,7 @@
     "status": {
       "h2": "Where we are",
       "text": "Nothing is live in a data centre yet. We are looking for a first site, in Switzerland first, to try this together.",
-      "proof": "Proof from real estate: live at Vonovia since March 2026, 22 buildings and 32 measuring points."
+      "proof": "Proof from real estate: live at a large residential portfolio in Germany since March 2026, 22 buildings and 32 measuring points."
     },
     "together": {
       "h2": "Let us try it together at your site.",
@@ -590,6 +587,7 @@
       "h2": "Backing and research",
       "items": [
         "Y Combinator, spring 2026.",
+        "NVIDIA Inception member.",
         "OpenAI.",
         "EPFL Startup Launchpad AI grant.",
         "Research collaborations with EPFL and ETH Zurich.",

@@ -370,7 +370,7 @@ function build() {
   const layout = read("src/layout.html");
   const css = inlineCss();
   const sites = JSON.parse(read("data/sites.json"));
-  const customers = JSON.parse(read("data/customers.json")).customers;
+  const partners = JSON.parse(read("data/partners.json")).groups;
   const locales = {};
   LANGS.forEach((l) => { if (exists(`locales/${l}.json`)) locales[l] = JSON.parse(read(`locales/${l}.json`)); });
   const langsBuilt = Object.keys(locales);
@@ -391,7 +391,7 @@ function build() {
       root: lang === DEFAULT_LANG ? "/" : `/${lang}/`,
       urls: Object.fromEntries(Object.keys(ROUTES).map((k) => [k, urlFor(k, lang)])),
       counter: { ...t.counter, buildings: formatNumber(counter.buildings, lang), points: formatNumber(counter.points, lang), readings: formatNumber(counter.readings, lang), leaks: formatNumber(counter.leaks, lang) },
-      sitesJson: JSON.stringify(sites),
+      sitesJson: JSON.stringify({ leaksFound: sites.leaksFound, sites: sites.sites.map((s) => ({ buildings: s.buildings, points: s.points, liveSince: s.liveSince })) }),
       heroBuilding: heroBuildingSvg(t),
       twinSvg: heroBuildingSvg(t, { twin: true }),
       installSvg: visuals.installSvg(t),
@@ -399,7 +399,7 @@ function build() {
       rackSvg: visuals.rackSvg(t),
       posts: posts[lang].map((p) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "" })),
       sitesList: sites.sites,
-      customerGroups: ["live", "rd", "planned"].map((g, i) => ({ key: g, label: t.realEstate.customers.groups[i].label, items: customers.filter((c) => c.group === g) })).filter((g) => g.items.length),
+      logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),
       team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name) })) }
     };
 

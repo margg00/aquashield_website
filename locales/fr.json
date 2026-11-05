@@ -108,14 +108,15 @@
   },
   "logos": {
     "backed": "Soutenu par",
-    "developed": "Développé en collaboration avec",
-    "founders": "Fondateurs issus de",
     "yc": "Y Combinator",
     "openai": "OpenAI",
     "mit": "MIT",
-    "mitFacilities": "MIT Facilities",
     "harvard": "Harvard",
-    "epfl": "EPFL"
+    "epfl": "EPFL",
+    "researchers": "Conçu par des chercheurs issus de",
+    "rwth": "RWTH Aachen",
+    "tsinghua": "Tsinghua",
+    "nvidia": "NVIDIA Inception"
   },
   "pages": {
     "home": {
@@ -128,7 +129,7 @@
     },
     "real-estate": {
       "title": "Détection de fuites pour parcs immobiliers | AquaShield",
-      "description": "Détection de fuites par IA pour l'immobilier résidentiel et de bureaux. Capteurs à pince, sans découpe. En service chez Vonovia depuis mars 2026."
+      "description": "Détection de fuites par IA pour l'immobilier résidentiel et de bureaux. Capteurs à pince, sans découpe. En service depuis mars 2026."
     },
     "insurance": {
       "title": "Sinistres eau : gravité et données de risque | AquaShield",
@@ -163,7 +164,7 @@
     "hero": {
       "eyebrow": "Détection de fuites par IA pour bâtiments",
       "h1": "Trouvez la fuite avant les dégâts.",
-      "proof": "En service chez Vonovia. Soutenu par Y Combinator.",
+      "proof": "En service en Allemagne et aux États-Unis. Soutenu par Y Combinator.",
       "visualAlt": "Bâtiment en fil de fer avec cinq étages et trois colonnes montantes. Une colonne montante s'allume en rouge à l'écart détecté au troisième étage."
     },
     "problem": {
@@ -240,11 +241,7 @@
     "proof": {
       "eyebrow": "Preuve",
       "h2": "À quoi ressemble une vraie alerte.",
-      "customersLive": "En service ou en pilote chez",
-      "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities et EPFL Facilities.",
-      "customersPlanned": "En planification avec",
-      "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown et VUB.",
-      "confirm": ""
+      "line": "En service en Allemagne et aux États-Unis depuis mars 2026. Pilotes de recherche avec MIT Facilities et EPFL Facilities."
     },
     "notPromise": {
       "h2": "Ce que nous ne promettons pas encore.",
@@ -350,15 +347,15 @@
       "text": "Un locataire appelle. Un plafond se tache. De l'eau apparaît sur le sol d'un sous-sol. À ce moment-là, la fuite coule depuis des jours ou des semaines. La trouver peut demander jusqu'à cinq visites sur site, avec un mur ouvert à chaque fois. L'occupation, l'énergie et la CVC ont toutes une vue en direct. L'eau, non. AquaShield donne cette vue à votre équipe de maintenance : chaque colonne montante surveillée, les écarts classés par gravité, et un endroit à vérifier en premier."
     },
     "customers": {
-      "h2": "Avec qui nous travaillons",
+      "h2": "Où le système tourne aujourd'hui",
       "confirm": "",
       "groups": [
         {
           "label": "En service",
           "items": [
-            "Vonovia, le plus grand bailleur résidentiel d'Europe. 22 bâtiments, 32 points de mesure, depuis mars 2026.",
-            "Prime Residential, Californie. Deux sites, 59 capteurs, depuis septembre 2026.",
-            "Panoramic Interests, Berkeley. Un bâtiment neuf de sept étages, 23 capteurs sur 10 colonnes montantes."
+            "Un grand parc résidentiel en Allemagne. 22 bâtiments, 32 points de mesure, depuis mars 2026.",
+            "Deux sites résidentiels en Californie. 59 capteurs, depuis septembre 2026.",
+            "Un immeuble résidentiel neuf de sept étages en Californie. 23 capteurs sur 10 colonnes montantes."
           ]
         },
         {
@@ -371,10 +368,10 @@
         {
           "label": "En planification",
           "items": [
-            "Life Time Fitness, Roseville. Un club, T1 2027.",
-            "Bedrock, Detroit. Trois tours de bureaux, lettre d'intention signée.",
-            "Jamestown, Berlin. Deux bâtiments, visite de site effectuée.",
-            "VUB. Trois bâtiments."
+            "Un exploitant de clubs de fitness en Californie. Un club, T1 2027.",
+            "Trois tours de bureaux à Detroit. Lettre d'intention signée.",
+            "Deux bâtiments à Berlin. Visite de site effectuée.",
+            "Un campus universitaire en Belgique. Trois bâtiments."
           ]
         }
       ]
@@ -520,7 +517,7 @@
     "status": {
       "h2": "Où nous en sommes",
       "text": "Rien n'est encore en service dans un centre de données. Nous cherchons un premier site, en Suisse d'abord, pour essayer ensemble.",
-      "proof": "Preuve venue de l'immobilier : en service chez Vonovia depuis mars 2026, 22 bâtiments et 32 points de mesure."
+      "proof": "Preuve venue de l'immobilier : en service dans un grand parc résidentiel en Allemagne depuis mars 2026, 22 bâtiments et 32 points de mesure."
     },
     "together": {
       "h2": "Essayons ensemble sur votre site.",
@@ -590,6 +587,7 @@
       "h2": "Soutiens et recherche",
       "items": [
         "Y Combinator, printemps 2026.",
+        "Membre du programme NVIDIA Inception.",
         "OpenAI.",
         "Bourse IA du Startup Launchpad de l'EPFL.",
         "Collaborations de recherche avec l'EPFL et l'ETH Zurich.",
