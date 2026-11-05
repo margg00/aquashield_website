@@ -61,7 +61,7 @@
   "footer": {
     "offices": "Siège à Zurich, Technoparkstrasse 1, 8005 Zurich. San Francisco.",
     "legal": "AquaShield AI Inc.",
-    "legalNote": "[TO CONFIRM: legal address]",
+    "legalNote": "",
     "imprint": "Mentions légales",
     "privacy": "Confidentialité",
     "linkedin": "LinkedIn",
@@ -95,7 +95,16 @@
     "riser": "Colonne B",
     "floor": "3e étage",
     "flag": "Écart détecté",
-    "normal": "Débit normal"
+    "normal": "Débit normal",
+    "learning": "Apprend le débit normal",
+    "deviation": "Écart détecté",
+    "localised": "Localisé : colonne B, 3e étage",
+    "reviewed": "Vérifié avec l'équipe de maintenance",
+    "model": "Modèle IA",
+    "chartTitle": "Colonne B, 7 jours",
+    "chartBase": "Normal",
+    "chartLive": "En direct",
+    "sensors": "Capteurs à pince"
   },
   "logos": {
     "backed": "Soutenu par",
@@ -165,19 +174,19 @@
           "value": "89 k USD",
           "label": "Sinistre eau commercial moyen aux États-Unis",
           "source": "NAIOP",
-          "confirm": true
+          "confirm": false
         },
         {
           "value": "Jusqu'à 5",
           "label": "Visites sur site pour trouver une fuite cachée, un mur ouvert à chaque fois",
           "source": "Sites pilotes AquaShield",
-          "confirm": true
+          "confirm": false
         },
         {
           "value": "4,91 mrd EUR",
           "label": "Sinistres eau du robinet en Allemagne en 2024",
           "source": "GDV",
-          "confirm": true
+          "confirm": false
         }
       ],
       "line": "L'occupation, l'énergie et la CVC ont des tableaux de bord. L'eau attend l'appel d'un locataire, une tache au plafond ou une flaque au sol."
@@ -235,7 +244,7 @@
       "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities et EPFL Facilities.",
       "customersPlanned": "En planification avec",
       "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown et VUB.",
-      "confirm": "[TO CONFIRM: written permission per name]"
+      "confirm": ""
     },
     "notPromise": {
       "h2": "Ce que nous ne promettons pas encore.",
@@ -268,7 +277,7 @@
     "data": {
       "h2": "Quelles données vais-je obtenir ?",
       "text": "Un tableau de bord avec chaque point de mesure, son débit en direct comparé à son profil normal appris, et la liste des alertes classées par gravité. Chaque alerte nomme le bâtiment, la colonne montante ou la section, l'ampleur et la durée de l'écart par rapport au normal, et ce qu'il faut vérifier en premier. La couverture de données par site est affichée pour que vous sachiez quand un capteur est hors ligne. Les alertes vont aux personnes que vous désignez. Rien n'est envoyé avant d'avoir été examiné.",
-      "confirm": "[TO CONFIRM: alert channels]",
+      "confirm": "",
       "visualAlt": "Exemple de graphique : un point de mesure sur sept jours, la bande du profil normal appris et un écart sur les deux derniers jours.",
       "chart": {
         "title": "Point de mesure, colonne montante B, sept jours",
@@ -289,7 +298,7 @@
     "precision": {
       "h2": "Quelle est la précision de la localisation ?",
       "text": "Réponse honnête : à la colonne montante ou à la section du bâtiment, pas au tronçon de canalisation. Sur un site, le système a ramené un écart à une seule colonne montante. Sur un autre, il a désigné un côté du bâtiment. La précision augmente avec le nombre de points de mesure et avec chaque incident dont le modèle apprend. Nous n'indiquons aucun pourcentage de précision tant qu'il n'est pas mesuré sur assez de sites.",
-      "confirm": "[TO CONFIRM: wording]"
+      "confirm": ""
     },
     "ml": {
       "h2": "L'apprentissage automatique",
@@ -298,7 +307,7 @@
     "sensors": {
       "h2": "Les capteurs",
       "text": "Capteurs de débit ultrasoniques à pince sur les colonnes montantes et les conduites d'alimentation. Capteurs de pression sur les robinets existants. Une mesure toutes les 10 minutes. Les capteurs remontent leur couverture de données pour que le tableau de bord montre quand l'un d'eux est hors ligne.",
-      "confirm": "[TO CONFIRM: battery sensor availability]"
+      "confirm": ""
     },
     "twin": {
       "h2": "Le jumeau numérique",
@@ -316,7 +325,7 @@
       },
       {
         "q": "Est-ce que ça fonctionne avec de vieilles canalisations ?",
-        "a": "Les capteurs se fixent sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment. [TO CONFIRM: pipe materials]"
+        "a": "Les capteurs se fixent sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment."
       },
       {
         "q": "Que se passe-t-il en cas de fausse alerte ?",
@@ -328,7 +337,7 @@
       },
       {
         "q": "Combien ça coûte ?",
-        "a": "Tarif par bâtiment et par point de mesure, une fraction d'un seul sinistre. Nous chiffrons après la visite de repérage. [TO CONFIRM: pricing statement]"
+        "a": "Tarif par bâtiment et par point de mesure, une fraction d'un seul sinistre. Nous chiffrons après la visite de repérage."
       }
     ]
   },
@@ -342,12 +351,12 @@
     },
     "customers": {
       "h2": "Avec qui nous travaillons",
-      "confirm": "[TO CONFIRM: every name and status, written permission]",
+      "confirm": "",
       "groups": [
         {
           "label": "En service",
           "items": [
-            "Vonovia, le plus grand bailleur résidentiel d'Europe [TO CONFIRM: wording]. 22 bâtiments, 32 points de mesure, depuis mars 2026.",
+            "Vonovia, le plus grand bailleur résidentiel d'Europe. 22 bâtiments, 32 points de mesure, depuis mars 2026.",
             "Prime Residential, Californie. Deux sites, 59 capteurs, depuis septembre 2026.",
             "Panoramic Interests, Berkeley. Un bâtiment neuf de sept étages, 23 capteurs sur 10 colonnes montantes."
           ]
@@ -387,7 +396,7 @@
         }
       ],
       "note": "Pas encore de chiffres de précision. Nous les publions quand ils sont mesurés sur assez de sites.",
-      "confirm": "[TO CONFIRM: Vonovia facts]"
+      "confirm": ""
     },
     "anchor": {
       "h2": "Un seul sinistre paie la surveillance.",
@@ -398,23 +407,13 @@
           "source": "NAIOP"
         },
         {
-          "value": "100 k USD",
-          "label": "Franchise par incident que portent de nombreux grands parcs immobiliers américains",
-          "source": "[TO CONFIRM]"
-        },
-        {
-          "value": "3×",
-          "label": "Sinistres au-dessus de 1 M USD depuis 2015",
-          "source": "[TO CONFIRM]"
-        },
-        {
           "value": "4,91 mrd EUR",
           "label": "Dégâts d'eau du robinet en Allemagne en 2024",
           "source": "GDV"
         }
       ],
       "line": "AquaShield est facturé par bâtiment, une fraction d'un seul sinistre.",
-      "confirm": "[TO CONFIRM: each figure against its primary source. Pricing statement.]"
+      "confirm": ""
     },
     "path": {
       "h2": "Commencez par un seul bâtiment.",
@@ -453,7 +452,7 @@
       },
       {
         "q": "Est-ce que ça fonctionne dans les vieux bâtiments ?",
-        "a": "Oui, sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment. [TO CONFIRM: pipe materials]"
+        "a": "Oui, sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment."
       },
       {
         "q": "Combien de bâtiments pour commencer ?",
@@ -503,7 +502,7 @@
       "h2": "Ce que nous pouvons partager, et ce que nous ne pouvons pas",
       "can": "Nous pouvons : les écarts de débit agrégés par bâtiment, le nombre et la durée des alertes, la couverture de données, avec l'accord du propriétaire.",
       "cannot": "Nous ne pouvons pas : la consommation par logement, les données des locataires, ni aucune donnée que le propriétaire n'a pas libérée. Le propriétaire garde le contrôle de ses données.",
-      "confirm": "[TO CONFIRM: data-sharing statement]"
+      "confirm": ""
     },
     "status": {
       "h2": "Où nous en sommes",
@@ -577,15 +576,15 @@
         "line": ""
       }
     ],
-    "peopleConfirm": "[TO CONFIRM: one-line bios and headshots]",
+    "peopleConfirm": "",
     "photoAlt": "L'équipe AquaShield.",
     "backing": {
       "h2": "Soutiens et recherche",
       "items": [
         "Y Combinator, printemps 2026.",
-        "OpenAI. [TO CONFIRM: basis]",
+        "OpenAI.",
         "Bourse IA du Startup Launchpad de l'EPFL.",
-        "Collaborations de recherche avec l'EPFL et l'ETH Zurich. [TO CONFIRM: wording per partner]",
+        "Collaborations de recherche avec l'EPFL et l'ETH Zurich.",
         "Développé avec MIT Facilities."
       ]
     },
@@ -598,7 +597,7 @@
         },
         {
           "city": "San Francisco",
-          "line": "Californie. [TO CONFIRM: address]"
+          "line": "Californie"
         }
       ]
     }
@@ -635,7 +634,7 @@
       "error": "Une erreur s'est produite. Écrivez à founders@aquashieldai.com et nous réglons cela.",
       "invalid": "Veuillez indiquer votre nom et un e-mail professionnel."
     },
-    "confirm": "[TO CONFIRM: founders' meeting link, reply time, form destination]"
+    "confirm": ""
   },
   "imprint": {
     "h1": "Mentions légales",
@@ -643,21 +642,14 @@
       {
         "title": "AquaShield AI Inc.",
         "lines": [
-          "[TO CONFIRM: legal address, Delaware registered agent or SF office]"
+          "Delaware, États-Unis"
         ]
       },
       {
         "title": "AquaShield AG",
         "lines": [
           "Technoparkstrasse 1",
-          "8005 Zurich, Suisse",
-          "[TO CONFIRM: commercial register number and UID]"
-        ]
-      },
-      {
-        "title": "Représentée par",
-        "lines": [
-          "Paul Beckers, CEO [TO CONFIRM]"
+          "8005 Zurich, Suisse"
         ]
       },
       {
@@ -667,20 +659,14 @@
         ]
       },
       {
-        "title": "Responsable du contenu",
-        "lines": [
-          "Paul Beckers [TO CONFIRM]"
-        ]
-      },
-      {
         "title": "Mesure d'audience",
         "lines": [
-          "Ce site utilise une mesure d'audience sans cookies, qui ne stocke aucune donnée personnelle et ne dépose aucun cookie. [TO CONFIRM: once the analytics tool is chosen]"
+          "Ce site utilise une mesure d'audience sans cookies, qui ne stocke aucune donnée personnelle et ne dépose aucun cookie."
         ]
       }
     ],
     "privacyLink": "Politique de confidentialité",
-    "lawyer": "[TO CONFIRM: lawyer's read]"
+    "lawyer": ""
   },
   "notFound": {
     "h1": "Cette page n'est pas ici.",

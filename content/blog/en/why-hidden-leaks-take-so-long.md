@@ -11,7 +11,7 @@ segment: real-estate
 segmentLabel: Real estate
 answer: Because nobody is watching the water. A hidden leak is discovered when a tenant calls, a ceiling stains or water reaches a basement floor. By then it has run for days or weeks. Finding it can take up to five site visits.
 statValue: EUR 4.91bn
-statLabel: paid by German insurers for tap-water damage in 2024. [TO CONFIRM: primary source]
+statLabel: paid by German insurers for tap-water damage in 2024.
 statSource: GDV
 statDate: 2024
 definition: Leak localisation is the step after detection. It narrows the source of a flow deviation to a riser or a building section, so the maintenance team knows where to look first.
@@ -50,6 +50,6 @@ It changes the search from five visits to one targeted one. It does not change t
 
 ## What we do not promise yet
 
-A live view is not a promise of zero leaks or zero false alarms. False alarms happen, and every one the team flags goes back into the model. We publish no accuracy figures until they are measured across enough sites. What we can say today: at the sites where AquaShield is live, two reported damages matched a clear flow signature in the data, found by retrospective matching. [TO CONFIRM: wording, Tim]
+A live view is not a promise of zero leaks or zero false alarms. False alarms happen, and every one the team flags goes back into the model. We publish no accuracy figures until they are measured across enough sites. What we can say today: at the sites where AquaShield is live, two reported damages matched a clear flow signature in the data, found by retrospective matching.
 
 If you run a portfolio with an in-house maintenance team, [start with one building](/real-estate/) and see whether the alerts are worth it. The first step is a [30-minute call](/book-a-call/?for=real-estate).

@@ -11,7 +11,7 @@ segment: real-estate
 segmentLabel: Immobilien
 answer: Weil niemand das Wasser beobachtet. Ein verstecktes Leck wird entdeckt, wenn ein Mieter anruft, eine Decke einen Fleck bekommt oder Wasser den Kellerboden erreicht. Bis dahin läuft es seit Tagen oder Wochen. Es zu finden kann bis zu fünf Vor-Ort-Termine kosten.
 statValue: EUR 4,91 Mrd.
-statLabel: zahlten deutsche Versicherer 2024 für Leitungswasserschäden. [TO CONFIRM: primary source]
+statLabel: zahlten deutsche Versicherer 2024 für Leitungswasserschäden.
 statSource: GDV
 statDate: 2024
 definition: Die Ortung eines Lecks ist der Schritt nach der Erkennung. Sie grenzt die Quelle einer Durchflussabweichung auf eine Steigleitung oder einen Gebäudeabschnitt ein, damit die Haustechnik weiss, wo sie zuerst suchen muss.
@@ -50,6 +50,6 @@ Das ändert die Suche von fünf Terminen zu einem gezielten. Die Reparatur ände
 
 ## Was wir noch nicht versprechen
 
-Eine Live-Ansicht ist kein Versprechen von null Lecks oder null Fehlalarmen. Fehlalarme kommen vor, und jeder, den das Team markiert, fliesst zurück ins Modell. Wir veröffentlichen keine Genauigkeitswerte, bevor sie über genügend Standorte gemessen sind. Was wir heute sagen können: An den Standorten, an denen AquaShield live ist, passten zwei gemeldete Schäden zu einer klaren Durchflusssignatur in den Daten, gefunden durch rückblickenden Abgleich. [TO CONFIRM: wording, Tim]
+Eine Live-Ansicht ist kein Versprechen von null Lecks oder null Fehlalarmen. Fehlalarme kommen vor, und jeder, den das Team markiert, fliesst zurück ins Modell. Wir veröffentlichen keine Genauigkeitswerte, bevor sie über genügend Standorte gemessen sind. Was wir heute sagen können: An den Standorten, an denen AquaShield live ist, passten zwei gemeldete Schäden zu einer klaren Durchflusssignatur in den Daten, gefunden durch rückblickenden Abgleich.
 
 Wenn Sie ein Portfolio mit eigener Haustechnik betreiben, [beginnen Sie mit einem Gebäude](/de/immobilien/) und sehen Sie, ob die Alarme etwas taugen. Der erste Schritt ist ein [30-minütiges Gespräch](/de/gespraech-buchen/?for=real-estate).

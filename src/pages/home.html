@@ -29,7 +29,7 @@
 {{#each home.problem.stats}}          <div class="stat-box" data-reveal>
             <p class="stat-value">{{value}}</p>
             <p class="stat-label">{{label}}</p>
-            {{#if source}}<p class="stat-source">{{common.source}}: {{source}} {{#if confirm}}<span class="to-confirm">{{common.toConfirm}}</span>{{/if}}</p>{{/if}}
+            {{#if source}}<p class="stat-source">{{common.source}}: {{source}}</p>{{/if}}
           </div>
 {{/each}}        </div>
         <p class="section-line">{{home.problem.line}}</p>
@@ -130,7 +130,6 @@
           <div class="customers">
             <p><strong>{{home.proof.customersLive}}</strong> {{home.proof.customersLiveList}}</p>
             <p><strong>{{home.proof.customersPlanned}}</strong> {{home.proof.customersPlannedList}}</p>
-            <p class="small">{{home.proof.confirm}}</p>
           </div>
         </div>
 {{> logo-strip}}

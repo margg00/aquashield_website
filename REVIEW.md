@@ -69,6 +69,16 @@ Before the fixes in pass A the home page scored 88 on performance (first paint 2
 
 Budget check: total JavaScript on the page is script.js at under 10 KB. No third-party script above the fold. Calendly loads on click. The Three.js scenes are not on any page by default. Fonts: Google Fonts Inter, loaded without blocking, with system-ui fallback.
 
+## Second round, 5 Nov (Felix: fancier hero, hover on every image, no chips)
+
+| # | Change | Check |
+| --- | --- | --- |
+| R1 | Hero is now a 16 s story loop: building draws in, sensors take readings, scan sweeps the floors while the chart learns the normal band and packets stream to the model node, riser B deviates, the twin localises to floors 3 to 5, reviewed with the team. CSS keyframes only, strings from the locale, status line in HTML so it stays legible on phones. Reduced motion shows the localised still frame. | Frozen at 3 s, 7.5 s, 10.5 s and 13.5 s at 1440px and at 10.5 s at 390px. All four phases render. |
+| R2 | Hover system: cursor spotlight, lift and border glow on every card and media box, sheen sweep and 4.5 percent zoom on photos, sparkline redraw on the alert card. Pointer devices only. | Hover screenshots on the segment card, the install photo, the alert card and a step frame. |
+| R3 | Every image on every page verified: loaded, non-zero natural size, visible box, HTTP 200 for every src, srcset candidate, video source and poster. | 184 placements, 31 pages, 2 sizes, 0 problems. Strip logos and footer wordmark made eager. |
+| R4 | Automatic hyphenation split "be-fore" in the English H1 on phones. | Hyphenation limited to German headings on phones. |
+| R5 | No `[TO CONFIRM]` chips on the rendered site. | grep across locales, templates and posts: none. Open items tracked in CLAIMS.md only. |
+
 ## Open items that the reviews cannot close
 
 See CLAIMS.md section 2, "Confirm before merge". The six items from the master prompt, Part 1, plus the ones the builder added: alert channels, pipe materials, battery sensors, pricing statement, data-sharing statement, product screenshot approval, founders' meeting link, contact-form destination, legal address.

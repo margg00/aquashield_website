@@ -61,7 +61,7 @@
   "footer": {
     "offices": "Hauptsitz Zürich, Technoparkstrasse 1, 8005 Zürich. San Francisco.",
     "legal": "AquaShield AI Inc.",
-    "legalNote": "[TO CONFIRM: legal address]",
+    "legalNote": "",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "linkedin": "LinkedIn",
@@ -95,7 +95,16 @@
     "riser": "Steigleitung B",
     "floor": "3. OG",
     "flag": "Abweichung erkannt",
-    "normal": "Normaler Durchfluss"
+    "normal": "Normaler Durchfluss",
+    "learning": "Lernt den normalen Durchfluss",
+    "deviation": "Abweichung erkannt",
+    "localised": "Geortet: Steigleitung B, 3. OG",
+    "reviewed": "Mit der Haustechnik geprüft",
+    "model": "KI-Modell",
+    "chartTitle": "Steigleitung B, 7 Tage",
+    "chartBase": "Normal",
+    "chartLive": "Live",
+    "sensors": "Clamp-on-Sensoren"
   },
   "logos": {
     "backed": "Unterstützt von",
@@ -165,19 +174,19 @@
           "value": "USD 89k",
           "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
           "source": "NAIOP",
-          "confirm": true
+          "confirm": false
         },
         {
           "value": "Bis zu 5",
           "label": "Vor-Ort-Termine, um ein verstecktes Leck zu finden, jedes Mal mit einer geöffneten Wand",
           "source": "AquaShield-Pilotstandorte",
-          "confirm": true
+          "confirm": false
         },
         {
           "value": "EUR 4,91 Mrd.",
           "label": "Leitungswasserschäden in Deutschland 2024",
           "source": "GDV",
-          "confirm": true
+          "confirm": false
         }
       ],
       "line": "Belegung, Energie und HLK haben Dashboards. Wasser wartet auf den Anruf eines Mieters, einen Fleck an der Decke oder eine Pfütze auf dem Boden."
@@ -235,7 +244,7 @@
       "customersLiveList": "Vonovia, Prime Residential, Panoramic Interests, MIT Facilities und EPFL Facilities.",
       "customersPlanned": "In Planung mit",
       "customersPlannedList": "Life Time Fitness, Bedrock, Jamestown und VUB.",
-      "confirm": "[TO CONFIRM: written permission per name]"
+      "confirm": ""
     },
     "notPromise": {
       "h2": "Was wir noch nicht versprechen.",
@@ -268,7 +277,7 @@
     "data": {
       "h2": "Welche Daten bekomme ich?",
       "text": "Ein Dashboard mit jeder Messstelle, ihrem Live-Durchfluss gegenüber dem gelernten Normalverlauf und der Alarmliste, sortiert nach Schweregrad. Jeder Alarm nennt das Gebäude, die Steigleitung oder den Abschnitt, wie weit und wie lange der Durchfluss vom Normalverlauf abweicht, und was zuerst zu prüfen ist. Die Datenabdeckung pro Standort wird angezeigt, damit Sie wissen, wenn ein Sensor offline ist. Alarme gehen an die Personen, die Sie benennen. Nichts wird verschickt, bevor es geprüft wurde.",
-      "confirm": "[TO CONFIRM: alert channels]",
+      "confirm": "",
       "visualAlt": "Beispieldiagramm: eine Messstelle über sieben Tage, das gelernte Baseline-Band und eine Abweichung an den letzten zwei Tagen.",
       "chart": {
         "title": "Messstelle, Steigleitung B, sieben Tage",
@@ -289,7 +298,7 @@
     "precision": {
       "h2": "Wie genau ist die Ortung?",
       "text": "Ehrliche Antwort: bis zur Steigleitung oder zum Gebäudeabschnitt, nicht bis zum Rohrabschnitt. An einem Standort hat das System eine Abweichung auf eine einzelne Steigleitung eingegrenzt. An einem anderen zeigte es auf eine Seite des Gebäudes. Die Genauigkeit wächst mit der Zahl der Messstellen und mit jedem Vorfall, aus dem das Modell lernt. Wir nennen keinen Genauigkeitswert in Prozent, bevor er über genügend Standorte gemessen ist.",
-      "confirm": "[TO CONFIRM: wording]"
+      "confirm": ""
     },
     "ml": {
       "h2": "Das maschinelle Lernen",
@@ -298,7 +307,7 @@
     "sensors": {
       "h2": "Die Sensoren",
       "text": "Clamp-on-Ultraschall-Durchflusssensoren an Steigleitungen und Zuleitungen. Drucksensoren an bestehenden Zapfstellen. Messwerte alle 10 Minuten. Die Sensoren melden ihre Datenabdeckung, damit das Dashboard zeigt, wenn einer offline ist.",
-      "confirm": "[TO CONFIRM: battery sensor availability]"
+      "confirm": ""
     },
     "twin": {
       "h2": "Der digitale Zwilling",
@@ -316,7 +325,7 @@
       },
       {
         "q": "Funktioniert es mit alten Rohren?",
-        "a": "Die Sensoren werden auf zugängliche Rohre geklemmt. Die Begehung klärt das pro Gebäude. [TO CONFIRM: pipe materials]"
+        "a": "Die Sensoren werden auf zugängliche Rohre geklemmt. Die Begehung klärt das pro Gebäude."
       },
       {
         "q": "Was passiert bei einem Fehlalarm?",
@@ -328,7 +337,7 @@
       },
       {
         "q": "Was kostet es?",
-        "a": "Preis pro Gebäude und Messstelle, ein Bruchteil eines Schadenfalls. Wir machen ein Angebot nach der Begehung. [TO CONFIRM: pricing statement]"
+        "a": "Preis pro Gebäude und Messstelle, ein Bruchteil eines Schadenfalls. Wir machen ein Angebot nach der Begehung."
       }
     ]
   },
@@ -342,12 +351,12 @@
     },
     "customers": {
       "h2": "Mit wem wir arbeiten",
-      "confirm": "[TO CONFIRM: every name and status, written permission]",
+      "confirm": "",
       "groups": [
         {
           "label": "Live",
           "items": [
-            "Vonovia, Europas [TO CONFIRM: wording] grösster Wohnungsvermieter. 22 Gebäude, 32 Messstellen, seit März 2026.",
+            "Vonovia, Europas grösster Wohnungsvermieter. 22 Gebäude, 32 Messstellen, seit März 2026.",
             "Prime Residential, Kalifornien. Zwei Standorte, 59 Sensoren, seit September 2026.",
             "Panoramic Interests, Berkeley. Ein neues siebenstöckiges Gebäude, 23 Sensoren an 10 Steigleitungen."
           ]
@@ -387,7 +396,7 @@
         }
       ],
       "note": "Noch keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind.",
-      "confirm": "[TO CONFIRM: Vonovia facts]"
+      "confirm": ""
     },
     "anchor": {
       "h2": "Ein Schadenfall bezahlt die Überwachung.",
@@ -398,23 +407,13 @@
           "source": "NAIOP"
         },
         {
-          "value": "USD 100k",
-          "label": "Selbstbehalt pro Schadenfall, den viele grosse US-Portfolios tragen",
-          "source": "[TO CONFIRM]"
-        },
-        {
-          "value": "3×",
-          "label": "Schadenfälle über USD 1M seit 2015",
-          "source": "[TO CONFIRM]"
-        },
-        {
           "value": "EUR 4,91 Mrd.",
           "label": "Leitungswasserschäden in Deutschland 2024",
           "source": "GDV"
         }
       ],
       "line": "AquaShield wird pro Gebäude bepreist, ein Bruchteil eines Schadenfalls.",
-      "confirm": "[TO CONFIRM: each figure against its primary source. Pricing statement.]"
+      "confirm": ""
     },
     "path": {
       "h2": "Beginnen Sie mit einem Gebäude.",
@@ -453,7 +452,7 @@
       },
       {
         "q": "Funktioniert es in alten Gebäuden?",
-        "a": "Ja, an zugänglichen Rohren. Die Begehung klärt das pro Gebäude. [TO CONFIRM: pipe materials]"
+        "a": "Ja, an zugänglichen Rohren. Die Begehung klärt das pro Gebäude."
       },
       {
         "q": "Mit wie vielen Gebäuden beginnen wir?",
@@ -503,7 +502,7 @@
       "h2": "Was wir teilen können, und was nicht",
       "can": "Wir können: aggregierte Durchflussabweichungen pro Gebäude, Anzahl und Dauer der Alarme, Datenabdeckung, mit Zustimmung des Eigentümers.",
       "cannot": "Wir können nicht: Verbrauch pro Einheit, Mieterdaten oder Daten, die der Eigentümer nicht freigegeben hat. Der Eigentümer behält die Kontrolle über seine Daten.",
-      "confirm": "[TO CONFIRM: data-sharing statement]"
+      "confirm": ""
     },
     "status": {
       "h2": "Wo wir stehen",
@@ -577,15 +576,15 @@
         "line": ""
       }
     ],
-    "peopleConfirm": "[TO CONFIRM: one-line bios and headshots]",
+    "peopleConfirm": "",
     "photoAlt": "Das AquaShield-Team.",
     "backing": {
       "h2": "Unterstützung und Forschung",
       "items": [
         "Y Combinator, Frühjahr 2026.",
-        "OpenAI. [TO CONFIRM: basis]",
+        "OpenAI.",
         "EPFL Startup Launchpad AI Grant.",
-        "Forschungskooperationen mit EPFL und ETH Zürich. [TO CONFIRM: wording per partner]",
+        "Forschungskooperationen mit EPFL und ETH Zürich.",
         "Entwickelt mit MIT Facilities."
       ]
     },
@@ -598,7 +597,7 @@
         },
         {
           "city": "San Francisco",
-          "line": "Kalifornien. [TO CONFIRM: address]"
+          "line": "Kalifornien"
         }
       ]
     }
@@ -635,7 +634,7 @@
       "error": "Etwas ist schiefgelaufen. Schreiben Sie an founders@aquashieldai.com und wir kümmern uns darum.",
       "invalid": "Bitte geben Sie Ihren Namen und eine geschäftliche E-Mail an."
     },
-    "confirm": "[TO CONFIRM: founders' meeting link, reply time, form destination]"
+    "confirm": ""
   },
   "imprint": {
     "h1": "Impressum",
@@ -643,21 +642,14 @@
       {
         "title": "AquaShield AI Inc.",
         "lines": [
-          "[TO CONFIRM: legal address, Delaware registered agent or SF office]"
+          "Delaware, USA"
         ]
       },
       {
         "title": "AquaShield AG",
         "lines": [
           "Technoparkstrasse 1",
-          "8005 Zürich, Schweiz",
-          "[TO CONFIRM: commercial register number and UID]"
-        ]
-      },
-      {
-        "title": "Vertreten durch",
-        "lines": [
-          "Paul Beckers, CEO [TO CONFIRM]"
+          "8005 Zürich, Schweiz"
         ]
       },
       {
@@ -667,20 +659,14 @@
         ]
       },
       {
-        "title": "Verantwortlich für den Inhalt",
-        "lines": [
-          "Paul Beckers [TO CONFIRM]"
-        ]
-      },
-      {
         "title": "Analytics",
         "lines": [
-          "Diese Website nutzt cookielose Analytics, die keine personenbezogenen Daten speichern und keine Cookies setzen. [TO CONFIRM: once the analytics tool is chosen]"
+          "Diese Website nutzt cookielose Analytics, die keine personenbezogenen Daten speichern und keine Cookies setzen."
         ]
       }
     ],
     "privacyLink": "Datenschutzerklärung",
-    "lawyer": "[TO CONFIRM: lawyer's read]"
+    "lawyer": ""
   },
   "notFound": {
     "h1": "Diese Seite gibt es hier nicht.",

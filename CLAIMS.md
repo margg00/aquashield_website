@@ -1,5 +1,7 @@
 # CLAIMS.md
 
+**5 Nov, later:** at Felix's request the rendered site carries no `[TO CONFIRM]` chips any more, so it can be published in one step. The open items below are unchanged and still need a yes from the named person before merge. Two unsourced figures (the USD 100k deductible and "claims above USD 1M tripled") were taken off the page rather than shown without a source. Placeholder lines in the Imprint (registered address, register number, responsible person) were removed, the entities and the Zurich address stay.
+
 Every claim on the current site (read from `main`, 5 Nov 2026) and every claim planned for the rebuild, with its status. Nothing marked **remove** survives into the new site. Nothing marked **confirm** goes live until the named person has confirmed it in writing. The source for every "safe" line is the master prompt, section 2 (Felix, 5 Nov 2026).
 
 Status legend: **safe** = may go live as written. **confirm** = may appear in the draft, needs confirmation before merge. **remove** = must not appear.

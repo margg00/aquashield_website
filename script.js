@@ -157,6 +157,20 @@
     });
   });
 
+
+  // ---------- Spotlight on cards and media (pointer devices only) ----------
+  if (window.matchMedia("(hover: hover)").matches) {
+    var spots = document.querySelectorAll(".media, .step-visual, .segment, .stat-box, .alert-card, .person, .post-card, .group, .ways li, .path li, .offices li, .promise-list li, .faq-item, .book-card, .status-box, .blocks > div");
+    spots.forEach(function (el) {
+      el.classList.add("spot");
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        el.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+  }
+
   // ---------- Reveal ----------
   var reveals = document.querySelectorAll("[data-reveal]");
   if (reveals.length && "IntersectionObserver" in window && !reducedMotion) {

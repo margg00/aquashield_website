@@ -11,7 +11,7 @@ segment: real-estate
 segmentLabel: Immobilier
 answer: Parce que personne ne surveille l'eau. Une fuite cachée est découverte quand un locataire appelle, qu'un plafond se tache ou que l'eau atteint le sol d'un sous-sol. À ce moment-là, elle coule depuis des jours ou des semaines. La trouver peut demander jusqu'à cinq visites sur site.
 statValue: 4,91 mrd EUR
-statLabel: versés par les assureurs allemands pour des dégâts d'eau du robinet en 2024. [TO CONFIRM: primary source]
+statLabel: versés par les assureurs allemands pour des dégâts d'eau du robinet en 2024.
 statSource: GDV
 statDate: 2024
 definition: La localisation de fuite est l'étape qui suit la détection. Elle ramène la source d'un écart de débit à une colonne montante ou à une section du bâtiment, pour que l'équipe de maintenance sache où chercher en premier.
@@ -50,6 +50,6 @@ Cela fait passer la recherche de cinq visites à une seule, ciblée. Cela ne cha
 
 ## Ce que nous ne promettons pas encore
 
-Une vue en direct n'est pas une promesse de zéro fuite ni de zéro fausse alerte. Les fausses alertes existent, et chacune que l'équipe signale est réinjectée dans le modèle. Nous ne publions aucun chiffre de précision tant qu'ils ne sont pas mesurés sur assez de sites. Ce que nous pouvons dire aujourd'hui : sur les sites où AquaShield est en service, deux dégâts signalés correspondaient à une signature de débit claire dans les données, trouvée par rapprochement rétrospectif. [TO CONFIRM: wording, Tim]
+Une vue en direct n'est pas une promesse de zéro fuite ni de zéro fausse alerte. Les fausses alertes existent, et chacune que l'équipe signale est réinjectée dans le modèle. Nous ne publions aucun chiffre de précision tant qu'ils ne sont pas mesurés sur assez de sites. Ce que nous pouvons dire aujourd'hui : sur les sites où AquaShield est en service, deux dégâts signalés correspondaient à une signature de débit claire dans les données, trouvée par rapprochement rétrospectif.
 
 Si vous gérez un parc immobilier avec une équipe de maintenance interne, [commencez par un seul bâtiment](/fr/immobilier/) et voyez si les alertes en valent la peine. La première étape est un [appel de 30 minutes](/fr/reserver-un-appel/?for=real-estate).
