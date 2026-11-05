@@ -299,12 +299,15 @@ function writeOut(rel, content) {
 function relativize(html, outRel) {
   const depth = outRel.split("/").length - 1;
   const prefix = depth ? "../".repeat(depth) : "./";
-  return html.replace(/(href|src|poster)="\/(?!\/)([^"]*)"/g, (_, attr, p) => {
+  const rel = (p) => {
     let target = p;
     if (target === "" || target.endsWith("/")) target += "index.html";
-    if (target.startsWith("book-a-call/?") || target.includes("/?")) target = target.replace("/?", "/index.html?");
-    return `${attr}="${prefix}${target}"`;
-  });
+    if (target.includes("/?")) target = target.replace("/?", "/index.html?");
+    return prefix + target;
+  };
+  return html
+    .replace(/(href|src|poster)="\/(?!\/)([^"]*)"/g, (_, attr, p) => `${attr}="${rel(p)}"`)
+    .replace(/srcset="([^"]*)"/g, (_, list) => `srcset="${list.split(",").map((c) => c.trim().replace(/^\/(?!\/)/, (m) => rel("").replace("index.html", ""))).join(", ")}"`);
 }
 
 function copyStatic() {
