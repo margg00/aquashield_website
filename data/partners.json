@@ -42,7 +42,7 @@
           "key": "harvard",
           "file": "harvard.svg",
           "height": 40,
-          "tone": "soft"
+          "tone": "plain"
         },
         {
           "name": "EPFL",

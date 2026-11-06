@@ -37,13 +37,7 @@
       "realEstate": "Das nächste Leck früh erkennen.",
       "insurance": "Den nächsten Schaden klein halten.",
       "dataCenters": "Das nächste Leck vor dem Ausfall erkennen."
-    },
-    "questionsIntro": "Drei Fragen vor dem Gespräch:",
-    "questions": [
-      "Grösse des Portfolios oder Bestands",
-      "Gebäudetyp",
-      "Land"
-    ]
+    }
   },
   "common": {
     "skip": "Zum Inhalt springen",
@@ -80,8 +74,6 @@
     "pointsLabel": "Messstellen",
     "readingsLabel": "Messwerte analysiert",
     "leaksLabel": "Lecks gefunden",
-    "note": "Näherungswerte. Berechnet aus dem Go-live-Datum jedes Standorts, nicht von Hand eingetragen.",
-    "formula": "Messwerte = Messstellen × 144 Zehn-Minuten-Intervalle pro Tag × Tage seit dem Go-live des Standorts, summiert über alle Live-Standorte.",
     "leaksNote": "Drei gemeldete Schäden passten an Live-Standorten zu einem klaren Durchflussmuster.",
     "perDay": "pro Tag"
   },
@@ -126,6 +118,10 @@
     "nvidia": "NVIDIA"
   },
   "pages": {
+    "404": {
+      "title": "Seite nicht gefunden | AquaShield",
+      "description": "Diese Seite gibt es hier nicht."
+    },
     "home": {
       "title": "AquaShield: KI-Leckageerkennung für Gebäude",
       "description": "AquaShield erkennt und ortet Lecks in komplexen Rohrnetzen mit nicht-invasiven Sensoren und KI. Clamp-on, kein Rohrschnitt, Ortung bis zur Steigleitung."
@@ -161,10 +157,6 @@
     "imprint": {
       "title": "Impressum | AquaShield",
       "description": "Rechtliche Angaben zu AquaShield AI Inc. und AquaShield AG."
-    },
-    "404": {
-      "title": "Seite nicht gefunden | AquaShield",
-      "description": "Diese Seite gibt es hier nicht."
     }
   },
   "home": {
@@ -177,24 +169,23 @@
     },
     "problem": {
       "eyebrow": "Das Problem",
-      "h2": "Wasser ist das eine Gebäudesystem,<br>das Sie nicht sehen können.",
+      "h2": "Wasser ist das eine Gebäudesystem, <br>das Sie nicht sehen können.",
       "stats": [
         {
           "value": "USD 89k",
           "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
-          "source": "NAIOP",
+          "source": "NAIOP, US-Verband für Gewerbeimmobilien",
           "confirm": false
         },
         {
           "value": "Bis zu 5",
           "label": "Vor-Ort-Termine, um ein verstecktes Leck zu finden, jedes Mal mit einer geöffneten Wand",
-          "source": "AquaShield-Pilotstandorte",
           "confirm": false
         },
         {
           "value": "EUR 4,91 Mrd.",
           "label": "Leitungswasserschäden in Deutschland 2024",
-          "source": "GDV",
+          "source": "GDV, Gesamtverband der Deutschen Versicherer, 2024",
           "confirm": false
         }
       ],
@@ -228,7 +219,7 @@
       "cards": [
         {
           "name": "Immobilien",
-          "text": "Portfolios mit eigener Haustechnik. Mit einem Gebäude beginnen, dann ausrollen.",
+          "text": "Portfolios mit eigener Haustechnik. Jeder Strang kartiert, jedes Leck geortet, bevor der Mieter anruft.",
           "link": "Für Immobilien",
           "key": "real-estate"
         },
@@ -249,11 +240,11 @@
     "proof": {
       "eyebrow": "Nachweis",
       "h2": "So sieht ein echter Alarm aus.",
-      "line": "Live in Deutschland und den USA seit März 2026. Forschungspiloten mit MIT Facilities und EPFL Facilities."
+      "line": "Live in Deutschland und den USA seit März 2026. Forschungspiloten mit den Facility-Teams von MIT und EPFL."
     },
     "final": {
       "h2": "Das nächste Leck früh erkennen.",
-      "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen, wo die ersten Sensoren hinkommen."
+      "line": "Dreissig Minuten mit einem Gründer. Sie bringen Ihre Gebäude und Ihren letzten Wasserschaden mit. Wir bringen den Plan: wo die Sensoren hinkommen, wie Ihr erster Alarm aussieht, wie schnell Sie live sind."
     }
   },
   "product": {
@@ -658,10 +649,16 @@
   },
   "book": {
     "h1": "30-min Erstgespräch buchen",
-    "lead": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen, wo die ersten Sensoren hinkommen.",
+    "lead": "Dreissig Minuten mit einem Gründer. Sie bringen Ihre Gebäude und Ihren letzten Wasserschaden mit. Wir bringen den Plan: wo die Sensoren hinkommen, wie Ihr erster Alarm aussieht, wie schnell Sie live sind.",
+    "outcomesIntro": "Das nehmen Sie mit",
+    "outcomes": [
+      "Einen Sensorplan für Ihre ersten Gebäude",
+      "So sieht Ihr erster Alarm aus",
+      "Den Zeitplan bis zum Go-live"
+    ],
     "pick": "Termin wählen",
     "pickNote": "Öffnet den Kalender. Lädt ein Terminbuchungs-Widget von Calendly.",
-    "or": "Oder schicken Sie uns die drei Antworten und wir antworten mit Terminvorschlägen.",
+    "or": "Oder schreiben Sie uns ein paar Zeilen und wir antworten mit Terminvorschlägen.",
     "form": {
       "name": "Name",
       "email": "Geschäftliche E-Mail",

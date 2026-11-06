@@ -45,8 +45,6 @@ Three alternatives, for Felix to weigh. Recommendation: keep the default. It nam
 | footer.email | founders@aquashieldai.com |
 | lang.switch | Language |
 | skip | Skip to content |
-| counter.note | Approximate. Computed from each site's go-live date, not typed in. |
-| counter.formula | Readings = measuring points × 144 ten-minute intervals per day × days since that site went live, summed over live sites. |
 
 ## Home
 

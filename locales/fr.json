@@ -37,13 +37,7 @@
       "realEstate": "Détectez la prochaine fuite à temps.",
       "insurance": "Réduisez le prochain sinistre.",
       "dataCenters": "Détectez la prochaine fuite avant la panne."
-    },
-    "questionsIntro": "Trois questions avant notre échange :",
-    "questions": [
-      "Taille du parc ou du portefeuille",
-      "Type de bâtiment",
-      "Pays"
-    ]
+    }
   },
   "common": {
     "skip": "Aller au contenu",
@@ -80,8 +74,6 @@
     "pointsLabel": "Points de mesure",
     "readingsLabel": "Mesures analysées",
     "leaksLabel": "Fuites trouvées",
-    "note": "Valeurs approximatives. Calculées à partir de la date de mise en service de chaque site, pas saisies à la main.",
-    "formula": "Mesures = points de mesure × 144 intervalles de dix minutes par jour × jours depuis la mise en service du site, additionnés sur les sites en service.",
     "leaksNote": "Trois dégâts signalés correspondaient à une signature de débit claire sur les sites en service.",
     "perDay": "par jour"
   },
@@ -126,6 +118,10 @@
     "nvidia": "NVIDIA"
   },
   "pages": {
+    "404": {
+      "title": "Page introuvable | AquaShield",
+      "description": "Cette page n'est pas ici."
+    },
     "home": {
       "title": "AquaShield : détection de fuites par IA pour bâtiments",
       "description": "Détection et localisation de fuites par capteurs non invasifs et IA. Capteurs à pince, sans découpe de tuyau, localisation à la colonne montante."
@@ -161,10 +157,6 @@
     "imprint": {
       "title": "Mentions légales | AquaShield",
       "description": "Informations légales sur AquaShield AI Inc. et AquaShield AG."
-    },
-    "404": {
-      "title": "Page introuvable | AquaShield",
-      "description": "Cette page n'est pas ici."
     }
   },
   "home": {
@@ -177,24 +169,23 @@
     },
     "problem": {
       "eyebrow": "Le problème",
-      "h2": "L'eau est le seul système du bâtiment<br>que vous ne voyez pas.",
+      "h2": "L'eau est le seul système du bâtiment <br>que vous ne voyez pas.",
       "stats": [
         {
           "value": "89 k USD",
           "label": "Sinistre eau commercial moyen aux États-Unis",
-          "source": "NAIOP",
+          "source": "NAIOP, association américaine de l'immobilier commercial",
           "confirm": false
         },
         {
           "value": "Jusqu'à 5",
           "label": "Visites sur site pour trouver une fuite cachée, un mur ouvert à chaque fois",
-          "source": "Sites pilotes AquaShield",
           "confirm": false
         },
         {
           "value": "4,91 mrd EUR",
           "label": "Sinistres eau du robinet en Allemagne en 2024",
-          "source": "GDV",
+          "source": "GDV, fédération des assureurs allemands, 2024",
           "confirm": false
         }
       ],
@@ -228,7 +219,7 @@
       "cards": [
         {
           "name": "Immobilier",
-          "text": "Parcs immobiliers avec maintenance interne. Commencez par un bâtiment, puis déployez.",
+          "text": "Parcs immobiliers avec maintenance interne. Chaque colonne cartographiée, chaque fuite localisée avant l'appel du locataire.",
           "link": "Pour l'immobilier",
           "key": "real-estate"
         },
@@ -249,11 +240,11 @@
     "proof": {
       "eyebrow": "Preuve",
       "h2": "À quoi ressemble une vraie alerte.",
-      "line": "En service en Allemagne et aux États-Unis depuis mars 2026. Pilotes de recherche avec MIT Facilities et EPFL Facilities."
+      "line": "En service en Allemagne et aux États-Unis depuis mars 2026. Pilotes de recherche avec les services techniques du MIT et de l'EPFL."
     },
     "final": {
       "h2": "Détectez la prochaine fuite à temps.",
-      "line": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous planifions où poser les premiers capteurs."
+      "line": "Trente minutes avec un fondateur. Vous apportez vos bâtiments et votre dernier dégât des eaux. Nous apportons le plan : où vont les capteurs, à quoi ressemble votre première alerte, à quelle vitesse vous êtes en service."
     }
   },
   "product": {
@@ -658,10 +649,16 @@
   },
   "book": {
     "h1": "Réserver un appel découverte de 30 min",
-    "lead": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous planifions où poser les premiers capteurs.",
+    "lead": "Trente minutes avec un fondateur. Vous apportez vos bâtiments et votre dernier dégât des eaux. Nous apportons le plan : où vont les capteurs, à quoi ressemble votre première alerte, à quelle vitesse vous êtes en service.",
+    "outcomesIntro": "Vous repartez avec",
+    "outcomes": [
+      "Un plan de capteurs pour vos premiers bâtiments",
+      "À quoi ressemble votre première alerte",
+      "Le calendrier jusqu'à la mise en service"
+    ],
     "pick": "Choisir un créneau",
     "pickNote": "Ouvre le calendrier. Charge un outil de planification de Calendly.",
-    "or": "Ou envoyez-nous les trois réponses et nous vous proposons des créneaux.",
+    "or": "Ou envoyez-nous quelques lignes et nous vous proposons des créneaux.",
     "form": {
       "name": "Nom",
       "email": "E-mail professionnel",
