@@ -42,6 +42,42 @@
     drop.addEventListener("mouseleave", function () { setOpen(false); });
   });
 
+
+  // ---------- Count-up on view for every stat number ----------
+  var countEls = document.querySelectorAll(".stat-value");
+  if (countEls.length && "IntersectionObserver" in window && !reducedMotion) {
+    var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+    var runCount = function (el) {
+      var text = el.textContent;
+      var m = text.match(/(\d[\d.,' ]*\d|\d)/);
+      if (!m) return;
+      var raw = m[1];
+      var lang = document.documentElement.lang || "en";
+      var decSep = lang === "en" ? "." : ",";
+      var parts = raw.split(decSep);
+      var decimals = parts.length > 1 && parts[parts.length - 1].length <= 2 ? parts[parts.length - 1].length : 0;
+      var num = parseFloat(raw.replace(/[^\d]/g, "")) / Math.pow(10, decimals);
+      if (!isFinite(num)) return;
+      var fmt = new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      var prefix = text.slice(0, m.index), suffix = text.slice(m.index + raw.length);
+      var start = null, dur = 2000;
+      el.classList.add("is-counting");
+      el.setAttribute("data-counting", "1");
+      var step = function (ts) {
+        if (!start) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        el.textContent = prefix + fmt.format(num * ease(p)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else { el.textContent = text; el.classList.remove("is-counting"); el.removeAttribute("data-counting"); }
+      };
+      requestAnimationFrame(step);
+    };
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } });
+    }, { threshold: 0.4 });
+    countEls.forEach(function (el) { co.observe(el); });
+  }
+
   // ---------- Live counter ----------
   var counter = document.querySelector("[data-counter]");
   if (counter) {
@@ -61,7 +97,7 @@
           });
           return Math.floor(total);
         };
-        var paint = function () { readingsEl.textContent = fmt.format(compute()); };
+        var paint = function () { if (readingsEl.getAttribute("data-counting")) return; readingsEl.textContent = fmt.format(compute()); };
         paint();
         if (!reducedMotion) setInterval(paint, 1000);
       } catch (err) { /* keep the build-time number */ }

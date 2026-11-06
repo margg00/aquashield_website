@@ -390,7 +390,7 @@ function build() {
       site: { url: SITE_URL, year: new Date().getFullYear(), buildDate: new Date().toISOString().slice(0, 10) },
       root: lang === DEFAULT_LANG ? "/" : `/${lang}/`,
       urls: Object.fromEntries(Object.keys(ROUTES).map((k) => [k, urlFor(k, lang)])),
-      counter: { ...t.counter, buildings: formatNumber(counter.buildings, lang), points: formatNumber(counter.points, lang), readings: formatNumber(counter.readings, lang), leaks: formatNumber(counter.leaks, lang) },
+      counter: { ...t.counter, perDayLabel: t.counter.perDay, perDay: formatNumber(counter.points * 144, lang), buildings: formatNumber(counter.buildings, lang), points: formatNumber(counter.points, lang), readings: formatNumber(counter.readings, lang), leaks: formatNumber(counter.leaks, lang) },
       sitesJson: JSON.stringify({ leaksFound: sites.leaksFound, sites: sites.sites.map((s) => ({ buildings: s.buildings, points: s.points, liveSince: s.liveSince })) }),
       heroBuilding: heroBuildingSvg(t),
       twinSvg: heroBuildingSvg(t, { twin: true }),

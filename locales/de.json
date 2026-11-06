@@ -78,7 +78,8 @@
     "leaksLabel": "Lecks gefunden",
     "note": "Näherungswerte. Berechnet aus dem Go-live-Datum jedes Standorts, nicht von Hand eingetragen.",
     "formula": "Messwerte = Messstellen × 144 Zehn-Minuten-Intervalle pro Tag × Tage seit dem Go-live des Standorts, summiert über alle Live-Standorte.",
-    "leaksNote": "Zwei durch die Durchflusssignatur bestätigt, eines in Prüfung."
+    "leaksNote": "Zwei durch die Durchflusssignatur bestätigt, eines in Prüfung.",
+    "perDay": "pro Tag"
   },
   "alert": {
     "label": "Beispielalarm, anonymisiert",
