@@ -33,10 +33,10 @@
     "fallback": "Or email",
     "email": "founders@aquashieldai.com",
     "titles": {
-      "home": "Start with one building.",
-      "realEstate": "Start with one building.",
-      "insurance": "Start with one book of business.",
-      "dataCenters": "Start with one cooling loop."
+      "home": "Catch the next leak early.",
+      "realEstate": "Catch the next leak early.",
+      "insurance": "Cut the next claim short.",
+      "dataCenters": "Catch the next leak before the outage."
     },
     "questionsIntro": "Three questions before we talk:",
     "questions": [
@@ -119,7 +119,7 @@
     "researchers": "Built by researchers from",
     "rwth": "RWTH Aachen",
     "tsinghua": "Tsinghua",
-    "nvidia": "NVIDIA Inception"
+    "nvidia": "NVIDIA"
   },
   "pages": {
     "home": {
@@ -173,7 +173,7 @@
     },
     "problem": {
       "eyebrow": "The problem",
-      "h2": "Water is the one building system you cannot see.",
+      "h2": "Water is the one building system<br>you cannot see.",
       "stats": [
         {
           "value": "USD 89k",
@@ -248,8 +248,8 @@
       "line": "Live in Germany and the US since March 2026. Research pilots with MIT Facilities and EPFL Facilities."
     },
     "final": {
-      "h2": "Start with one building.",
-      "line": "Thirty minutes with a founder. We ask three questions, you ask yours, and we map out your first building."
+      "h2": "Catch the next leak early.",
+      "line": "Thirty minutes with a founder. We ask three questions, you ask yours, and we map out where the first sensors go."
     }
   },
   "product": {
@@ -408,7 +408,7 @@
       "confirm": ""
     },
     "path": {
-      "h2": "Start with one building.",
+      "h2": "From plan to first alert.",
       "steps": [
         {
           "name": "Map",
@@ -618,7 +618,7 @@
   },
   "book": {
     "h1": "Book a 30-min discovery call",
-    "lead": "Thirty minutes with a founder. We ask three questions, you ask yours, and we map out your first building.",
+    "lead": "Thirty minutes with a founder. We ask three questions, you ask yours, and we map out where the first sensors go.",
     "pick": "Pick a time",
     "pickNote": "Opens the calendar. Loads a scheduling widget from Calendly.",
     "or": "Or send us the three answers and we reply with times.",

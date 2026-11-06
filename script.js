@@ -47,7 +47,7 @@
   var countEls = document.querySelectorAll(".stat-value");
   if (countEls.length && "IntersectionObserver" in window && !reducedMotion) {
     var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
-    var runCount = function (el) {
+    var runCount = function (el, duration) {
       var text = el.textContent;
       var m = text.match(/(\d[\d.,' ]*\d|\d)/);
       if (!m) return;
@@ -60,7 +60,7 @@
       if (!isFinite(num)) return;
       var fmt = new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
       var prefix = text.slice(0, m.index), suffix = text.slice(m.index + raw.length);
-      var start = null, dur = 2000;
+      var start = null, dur = duration || 2000;
       el.classList.add("is-counting");
       el.setAttribute("data-counting", "1");
       var step = function (ts) {
@@ -75,7 +75,9 @@
     var co = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { runCount(en.target); co.unobserve(en.target); } });
     }, { threshold: 0.4 });
-    countEls.forEach(function (el) { co.observe(el); });
+    countEls.forEach(function (el) {
+      if (el.closest("[data-counter]")) runCount(el, 1600); else co.observe(el);
+    });
   }
 
   // ---------- Live counter ----------

@@ -33,10 +33,10 @@
     "fallback": "Oder per E-Mail",
     "email": "founders@aquashieldai.com",
     "titles": {
-      "home": "Beginnen Sie mit einem Gebäude.",
-      "realEstate": "Beginnen Sie mit einem Gebäude.",
-      "insurance": "Beginnen Sie mit einem Bestand.",
-      "dataCenters": "Beginnen Sie mit einem Kühlkreislauf."
+      "home": "Das nächste Leck früh erkennen.",
+      "realEstate": "Das nächste Leck früh erkennen.",
+      "insurance": "Den nächsten Schaden klein halten.",
+      "dataCenters": "Das nächste Leck vor dem Ausfall erkennen."
     },
     "questionsIntro": "Drei Fragen vor dem Gespräch:",
     "questions": [
@@ -119,7 +119,7 @@
     "researchers": "Entwickelt von Forschenden aus",
     "rwth": "RWTH Aachen",
     "tsinghua": "Tsinghua",
-    "nvidia": "NVIDIA Inception"
+    "nvidia": "NVIDIA"
   },
   "pages": {
     "home": {
@@ -173,7 +173,7 @@
     },
     "problem": {
       "eyebrow": "Das Problem",
-      "h2": "Wasser ist das eine Gebäudesystem, das Sie nicht sehen können.",
+      "h2": "Wasser ist das eine Gebäudesystem,<br>das Sie nicht sehen können.",
       "stats": [
         {
           "value": "USD 89k",
@@ -248,8 +248,8 @@
       "line": "Live in Deutschland und den USA seit März 2026. Forschungspiloten mit MIT Facilities und EPFL Facilities."
     },
     "final": {
-      "h2": "Beginnen Sie mit einem Gebäude.",
-      "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen gemeinsam Ihr erstes Gebäude."
+      "h2": "Das nächste Leck früh erkennen.",
+      "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen, wo die ersten Sensoren hinkommen."
     }
   },
   "product": {
@@ -408,7 +408,7 @@
       "confirm": ""
     },
     "path": {
-      "h2": "Beginnen Sie mit einem Gebäude.",
+      "h2": "Vom Plan zum ersten Alarm.",
       "steps": [
         {
           "name": "Kartieren",
@@ -618,7 +618,7 @@
   },
   "book": {
     "h1": "30-min Erstgespräch buchen",
-    "lead": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen gemeinsam Ihr erstes Gebäude.",
+    "lead": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen, wo die ersten Sensoren hinkommen.",
     "pick": "Termin wählen",
     "pickNote": "Öffnet den Kalender. Lädt ein Terminbuchungs-Widget von Calendly.",
     "or": "Oder schicken Sie uns die drei Antworten und wir antworten mit Terminvorschlägen.",

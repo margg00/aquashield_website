@@ -277,6 +277,8 @@ body.nav-open { overflow: hidden; }
 .section-tight { padding-block: calc(var(--section) * 0.6); }
 .section-head { max-width: 720px; margin-bottom: clamp(32px, 5vw, 56px); }
 .section-head p { margin-top: 16px; }
+.section-head h2 br { display: none; }
+@media (min-width: 640px) { .section-head h2 br { display: initial; } }
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -719,6 +721,7 @@ body.nav-open { overflow: hidden; }
 .logo-wall .logo-mono { filter: brightness(0) invert(1); }
 .logo-wall .logo-soft { filter: grayscale(1) brightness(1.75) contrast(0.95); }
 .logo-wall .logo-badge { filter: invert(1) hue-rotate(180deg) brightness(1.05); border-radius: 6px; }
+.logo-wall img[src$="tsinghua.png"] { max-width: 150px; }
 .logo-word { color: var(--text-primary); font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; opacity: 0.86; transition: opacity 200ms ease; }
 .logo-wall li:hover .logo-word { opacity: 1; }
 .groups-after-logos { margin-top: 40px; }
