@@ -243,14 +243,6 @@
       "h2": "So sieht ein echter Alarm aus.",
       "line": "Live in Deutschland und den USA seit März 2026. Forschungspiloten mit MIT Facilities und EPFL Facilities."
     },
-    "notPromise": {
-      "h2": "Was wir noch nicht versprechen.",
-      "items": [
-        "Keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind, nicht vorher.",
-        "Alarme werden mit Ihrem Team geprüft, nicht einfach an es abgeschickt.",
-        "Fehlalarme kommen vor. Das System lernt aus jedem, den Sie markieren."
-      ]
-    },
     "final": {
       "h2": "Beginnen Sie mit einem Gebäude.",
       "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir sagen ehrlich, ob wir helfen können."
@@ -392,7 +384,6 @@
           "label": "Live-Anomalien in Prüfung mit der Haustechnik"
         }
       ],
-      "note": "Noch keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind.",
       "confirm": ""
     },
     "anchor": {
@@ -467,7 +458,7 @@
     "lead": "Für Underwriter, Schaden- und Innovationsverantwortliche in der Sachversicherung, die in Schadenquote, Schadenhöhe und Risikodaten denken.",
     "story": {
       "h2": "Die Schadenhöhe hängt von der Zeit ab.",
-      "text": "Ein verstecktes Leck läuft, bis es jemand bemerkt. Jeder zusätzliche Tag bringt Folgeschäden: Unterböden, Trockenbau, Nachbarwohnungen, Betriebsunterbrechung. Frühere Erkennung verkürzt die Schadendauer, und das ist der Hebel für die Schadenhöhe. Live-Durchflussdaten pro Steigleitung bringen einen zweiten Wert: ein Risikosignal, das dem Underwriting heute fehlt, aus Gebäuden, die vom Eigentümer betrieben und bereits mit Sensoren ausgestattet sind. Noch keine Genauigkeitswerte. Wir veröffentlichen sie, wenn sie über genügend Standorte gemessen sind."
+      "text": "Ein verstecktes Leck läuft, bis es jemand bemerkt. Jeder zusätzliche Tag bringt Folgeschäden: Unterböden, Trockenbau, Nachbarwohnungen, Betriebsunterbrechung. Frühere Erkennung verkürzt die Schadendauer, und das ist der Hebel für die Schadenhöhe. Live-Durchflussdaten pro Steigleitung bringen einen zweiten Wert: ein Risikosignal, das dem Underwriting heute fehlt, aus Gebäuden, die vom Eigentümer betrieben und bereits mit Sensoren ausgestattet sind."
     },
     "ways": {
       "h2": "Fünf Wege der Zusammenarbeit",

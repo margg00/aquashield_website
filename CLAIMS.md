@@ -2,6 +2,8 @@
 
 **5 Nov, evening (Felix):** no customer or pilot names on the site at all, not even in the draft. Real estate and data-centre pages describe sites anonymously (country, building type, numbers). Logos shown: Y Combinator, OpenAI, NVIDIA Inception (Felix: Inception programme closed on 5 Nov), MIT, Harvard, EPFL, RWTH Aachen, Tsinghua. The customer tables below stay as the internal record only.
 
+**6 Nov (Felix):** the "What we do not promise yet" block and the "no accuracy figures yet" sentences are off the site. The site still states no accuracy, lead-time or savings figures, it just does not announce their absence.
+
 **5 Nov, later:** at Felix's request the rendered site carries no `[TO CONFIRM]` chips any more, so it can be published in one step. The open items below are unchanged and still need a yes from the named person before merge. Two unsourced figures (the USD 100k deductible and "claims above USD 1M tripled") were taken off the page rather than shown without a source. Placeholder lines in the Imprint (registered address, register number, responsible person) were removed, the entities and the Zurich address stay.
 
 Every claim on the current site (read from `main`, 5 Nov 2026) and every claim planned for the rebuild, with its status. Nothing marked **remove** survives into the new site. Nothing marked **confirm** goes live until the named person has confirmed it in writing. The source for every "safe" line is the master prompt, section 2 (Felix, 5 Nov 2026).

@@ -243,14 +243,6 @@
       "h2": "À quoi ressemble une vraie alerte.",
       "line": "En service en Allemagne et aux États-Unis depuis mars 2026. Pilotes de recherche avec MIT Facilities et EPFL Facilities."
     },
-    "notPromise": {
-      "h2": "Ce que nous ne promettons pas encore.",
-      "items": [
-        "Pas de chiffres de précision. Nous les publions quand ils sont mesurés sur assez de sites, pas avant.",
-        "Les alertes sont examinées avec votre équipe, pas envoyées à l'aveugle.",
-        "Les fausses alertes existent. Le système apprend de chacune que vous signalez."
-      ]
-    },
     "final": {
       "h2": "Commencez par un seul bâtiment.",
       "line": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous vous disons franchement si nous pouvons aider."
@@ -392,7 +384,6 @@
           "label": "Anomalies en cours d'examen avec l'équipe de maintenance"
         }
       ],
-      "note": "Pas encore de chiffres de précision. Nous les publions quand ils sont mesurés sur assez de sites.",
       "confirm": ""
     },
     "anchor": {
@@ -467,7 +458,7 @@
     "lead": "Pour les souscripteurs dommages, les responsables sinistres et innovation qui raisonnent en ratio de sinistralité, gravité et données de risque.",
     "story": {
       "h2": "La gravité dépend du temps.",
-      "text": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque. Chaque jour de plus ajoute des dommages secondaires : sous-planchers, cloisons, logements voisins, interruption d'activité. Une détection plus précoce raccourcit la durée du sinistre, et c'est là le levier sur la gravité. Les données de débit en direct par colonne montante ajoutent une seconde valeur : un signal de risque dont la souscription ne dispose pas aujourd'hui, issu de bâtiments exploités par leur propriétaire et déjà instrumentés. Pas encore de chiffres de précision. Nous les publions quand ils sont mesurés sur assez de sites."
+      "text": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque. Chaque jour de plus ajoute des dommages secondaires : sous-planchers, cloisons, logements voisins, interruption d'activité. Une détection plus précoce raccourcit la durée du sinistre, et c'est là le levier sur la gravité. Les données de débit en direct par colonne montante ajoutent une seconde valeur : un signal de risque dont la souscription ne dispose pas aujourd'hui, issu de bâtiments exploités par leur propriétaire et déjà instrumentés."
     },
     "ways": {
       "h2": "Cinq façons de travailler ensemble",
