@@ -92,6 +92,37 @@ Budget check: total JavaScript on the page is script.js at under 10 KB. No third
 | T7 | Images: every placement loaded, visible, HTTP 200. | 120 placements on 21 pages at 2 sizes, 0 problems. |
 | T8 | Overflow sweep on the pages with new visuals at 360, 390, 768, 1024, 1100, 1440 and 1920. | 0 overflow. |
 
+## Fourth round, 6 Nov (Felix: pixel-perfect pass)
+
+Instrumented checks on all 31 pages, then a visual pass of every English page and the German and French home at 1440 and 390.
+
+| Check | Scope | Result |
+| --- | --- | --- |
+| Overflow sweep | 25 pages × 12 widths (360 to 1920) | 0 |
+| Link crawl (href, src, srcset, poster, hreflang, canonical) | 31 pages, 953 references | 0 broken, 0 console errors |
+| Image check (loaded, visible, HTTP 200) | 130 placements on 19 pages, 2 sizes | 0 problems |
+| Box audit (siblings in one row, equal size) | 19 pages × 8 widths | 0 unequal rows |
+| axe (WCAG 2 A, AA, best practice) | 31 pages × 2 widths | 0 serious or critical. One moderate (duplicate landmark name) fixed. |
+| html-validate (recommended rules) | 13 pages | 0 errors after fixes |
+| Interactions | menu, counter, tooltip, language switch, FAQ, CTA query, booking line, form validation, Calendly loader, skip link, reduced motion | all pass |
+| Style rules (no en or em dash, no semicolon in visible text) | 31 pages | 0 |
+
+Fixes from this round:
+
+| # | Finding | Fix |
+| --- | --- | --- |
+| P1 | Info buttons on the counter were 20px, under the 24px target size. | 24px. |
+| P2 | `aria-label` on plain `div`s (language switch) and on a `ul`. | Language switch is a labelled group, list label removed. |
+| P3 | Real estate: two landmarks named "Start with one building." (path section and CTA band). | CTA band is no longer a named landmark. |
+| P4 | Booking form: `required` let the browser block submission before our message showed. | `novalidate`, our validation handles it. |
+| P5 | German headlines hyphenated short words on phones ("Scha-den"). | Hyphenation only for words of 12 letters or more. |
+| P6 | Data centres H1 broke at "cooling-" / "loop". | Non-breaking hyphen. |
+| P7 | Team page: "Offices" heading sat lower than "Backing and research". | Top-aligned split. |
+| P8 | Home step 4 twin thumbnail looked faint. | Side risers at full opacity in the thumbnail. |
+| P9 | German counter used Swiss apostrophes (1'837'664). | Standard German grouping (1.837.664). |
+
+Known and accepted: inline text links (email fallback, blog author, "Blog" crumb) are under 24px tall. WCAG 2.5.8 exempts inline links in running text.
+
 ## Open items that the reviews cannot close
 
 See CLAIMS.md section 2, "Confirm before merge". The six items from the master prompt, Part 1, plus the ones the builder added: alert channels, pipe materials, battery sensors, pricing statement, data-sharing statement, product screenshot approval, founders' meeting link, contact-form destination, legal address.

@@ -17,7 +17,7 @@
           <li><a href="{{urls.blog}}" {{#if page.isBlog}}aria-current="page"{{/if}}>{{nav.blog}}</a></li>
         </ul>
         <div class="nav-tools">
-          <div class="lang-switch" aria-label="{{nav.language}}">
+          <div class="lang-switch" role="group" aria-label="{{nav.language}}">
 {{#each alternates}}            <a href="{{href}}" hreflang="{{lang}}" lang="{{lang}}" {{#if current}}aria-current="true"{{/if}}>{{code}}</a>
 {{/each}}          </div>
           <a class="btn btn-primary btn-nav" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{nav.cta}}</a>

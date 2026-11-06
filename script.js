@@ -38,7 +38,7 @@
       try {
         var sites = JSON.parse(dataEl.textContent).sites;
         var lang = readingsEl.getAttribute("data-lang") || "en";
-        var fmt = new Intl.NumberFormat(lang === "de" ? "de-CH" : lang === "fr" ? "fr-CH" : "en-US");
+        var fmt = new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US");
         var compute = function () {
           var now = Date.now();
           var total = 0;

@@ -23,7 +23,7 @@
           <li><a href="mailto:{{footer.email}}">{{footer.email}}</a></li>
           <li><a href="https://www.linkedin.com/company/aquashieldinc/" rel="noopener">{{footer.linkedin}}</a></li>
         </ul>
-        <div class="lang-switch lang-switch-footer" aria-label="{{nav.language}}">
+        <div class="lang-switch lang-switch-footer" role="group" aria-label="{{nav.language}}">
 {{#each alternates}}          <a href="{{href}}" hreflang="{{lang}}" lang="{{lang}}" {{#if current}}aria-current="true"{{/if}}>{{name}}</a>
 {{/each}}        </div>
       </div>

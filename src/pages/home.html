@@ -146,13 +146,13 @@
       </div>
     </section>
 
-    <section class="cta-band" aria-labelledby="cta-title">
+    <section class="cta-band">
       <div class="container cta-inner">
         <h2 id="cta-title">{{home.final.h2}}</h2>
         <p class="cta-line">{{home.final.line}}</p>
         <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}">{{cta.label}}</a>
         <p class="cta-fallback">{{cta.home}}</p>
-        <ul class="cta-questions" aria-label="{{cta.questionsIntro}}">
+        <ul class="cta-questions">
 {{#each cta.questions}}          <li>{{this}}</li>
 {{/each}}        </ul>
         <p class="cta-fallback">{{cta.fallback}} <a href="mailto:{{cta.email}}">{{cta.email}}</a></p>

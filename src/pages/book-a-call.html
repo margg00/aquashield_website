@@ -20,7 +20,7 @@
         </div>
         <div class="book-card">
           <h2>{{book.or}}</h2>
-          <form class="form" action="https://formspree.io/f/mqeyjeqn" method="POST" data-form data-msg-invalid="{{book.form.invalid}}" data-msg-sending="{{book.form.sending}}" data-msg-success="{{book.form.success}}" data-msg-error="{{book.form.error}}">
+          <form class="form" action="https://formspree.io/f/mqeyjeqn" method="POST" novalidate data-form data-msg-invalid="{{book.form.invalid}}" data-msg-sending="{{book.form.sending}}" data-msg-success="{{book.form.success}}" data-msg-error="{{book.form.error}}">
             <div class="form-row">
               <label>{{book.form.name}}<input type="text" name="name" autocomplete="name" required></label>
               <label>{{book.form.email}}<input type="email" name="email" autocomplete="email" required></label>

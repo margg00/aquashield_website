@@ -226,7 +226,7 @@ function counterSnapshot(sites) {
 }
 
 function formatNumber(n, lang) {
-  return new Intl.NumberFormat(lang === "de" ? "de-CH" : lang === "fr" ? "fr-CH" : "en-US").format(n);
+  return new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US").format(n);
 }
 
 // --- JSON-LD -----------------------------------------------------------
@@ -333,7 +333,7 @@ function initials(name) {
 function formatDate(iso, lang) {
   if (!iso) return "";
   const d = new Date(iso + "T00:00:00Z");
-  return new Intl.DateTimeFormat(lang === "de" ? "de-CH" : lang === "fr" ? "fr-CH" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(d);
+  return new Intl.DateTimeFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(d);
 }
 
 const written = [];
