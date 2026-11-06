@@ -399,6 +399,7 @@ function build() {
       rackSvg: visuals.rackSvg(t),
       mlSvg: visuals.mlSvg(t),
       severitySvg: visuals.severitySvg(t),
+      portfolioSvg: visuals.portfolioSvg(t),
       posts: posts[lang].map((p) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "" })),
       sitesList: sites.sites,
       logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),

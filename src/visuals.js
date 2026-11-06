@@ -4,6 +4,7 @@
 
     installSvg(t)  clamp-on ultrasonic sensor on a riser, pressure sensor on a tap
     rackSvg(t)     liquid-cooled rack row with a cooling loop and per-rack sensing
+    portfolioSvg(t) row of six isometric buildings, one riser deviation and an alert
 */
 
 function esc(v) {
@@ -120,7 +121,6 @@ function rackSvg(t) {
   s += `<text class="vi-text vi-text-muted" x="30" y="274">${esc(L.returnLine)}</text>`;
   s += `<line class="vi-leader" x1="276" y1="74" x2="330" y2="30"/><circle class="vi-leader-end" cx="330" cy="30" r="2.5"/>`;
   s += `<text class="vi-text vi-text-bad" x="336" y="34">${esc(L.deviation)}</text>`;
-  s += `<text class="vi-text vi-text-muted" x="240" y="296" text-anchor="middle">${esc(L.sensor)}</text>`;
   s += `</g>`;
   return `<svg class="vis vis-rack" viewBox="0 0 480 300" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
 }
@@ -202,15 +202,97 @@ function severitySvg(t) {
   const dx = X(ud), dy = Y(curve(ud)), fx = X(uf), fy = Y(curve(uf));
   s += `<line class="sv-drop sv-drop-good" x1="${f1(dx)}" y1="${f1(dy)}" x2="${f1(dx)}" y2="${y0}"/>`;
   s += `<circle class="sv-dot sv-dot-good" cx="${f1(dx)}" cy="${f1(dy)}" r="6"/>`;
-  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-good" x="${f1(dx + 12)}" y="${f1(dy - 14)}">${esc(L.detected)}</text></g>`;
+  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-good" x="${f1(dx - 4)}" y="${y0 + 22}" text-anchor="start">${esc(L.detected)}</text></g>`;
   s += `<line class="sv-drop sv-drop-bad" x1="${f1(fx)}" y1="${f1(fy)}" x2="${f1(fx)}" y2="${y0}"/>`;
   s += `<circle class="sv-dot sv-dot-bad" cx="${f1(fx)}" cy="${f1(fy)}" r="6"/>`;
-  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-bad" x="${f1(fx - 10)}" y="${f1(y0 - 10)}" text-anchor="end">${esc(L.discovered)}</text></g>`;
+  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-bad" x="${f1(fx + 4)}" y="${y0 + 22}" text-anchor="end">${esc(L.discovered)}</text></g>`;
   // axes labels
-  s += `<g class="vi-labels"><text class="vi-text vi-text-muted" x="${x1}" y="${y0 + 22}" text-anchor="end">${esc(L.axis)}</text>`;
+  s += `<g class="vi-labels"><text class="vi-text vi-text-muted" x="${x1}" y="30" text-anchor="end">${esc(L.axis)}</text>`;
   s += `<text class="vi-text vi-text-muted" transform="translate(${x0 - 14} ${y1}) rotate(-90)" text-anchor="end">${esc(L.severity)}</text>`;
   s += `<text class="vi-text vi-text-strong" x="${x0}" y="30">${esc(L.title)}</text></g>`;
   return `<svg class="vis vis-severity" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
 }
 
-module.exports = { installSvg, rackSvg, mlSvg, severitySvg };
+
+function portfolioSvg(t) {
+  const A = t.alert;
+  const f1 = (n) => n.toFixed(1);
+  const cos = Math.cos(Math.PI / 6), sin = Math.sin(Math.PI / 6);
+  // same isometric projection as src/hero.js, with a movable origin
+  const proj = (ox, oy) => (x, y, z) => [ox + (x - z) * cos, oy + (x + z) * sin - y];
+  const P = proj(125, 132);
+  const pt = (p) => `${f1(p[0])},${f1(p[1])}`;
+  const seg = (a, c) => { const p0 = P(...a), p1 = P(...c); return `M${f1(p0[0])} ${f1(p0[1])} L${f1(p1[0])} ${f1(p1[1])} `; };
+  const ln = (a, c, cls) => { const p0 = P(...a), p1 = P(...c); return `<line class="${cls}" x1="${f1(p0[0])}" y1="${f1(p0[1])}" x2="${f1(p1[0])}" y2="${f1(p1[1])}"/>`; };
+  const W = 44, D = 34, F = 22, S = 58, M = 14;
+  const floors = [4, 6, 3, 5, 4, 3];
+  const bad = 3, badFloor = 2; // fourth building, third floor
+  const gx0 = -M, gx1 = S * (floors.length - 1) + W + M, gz0 = -M, gz1 = D + M;
+  let s = `<rect class="vi-grid" x="0" y="0" width="560" height="380"/>`;
+  s += `<g class="pf-scene">`;
+  // ground plane and faint grid
+  s += `<polygon class="pf-ground" points="${pt(P(gx0, 0, gz0))} ${pt(P(gx1, 0, gz0))} ${pt(P(gx1, 0, gz1))} ${pt(P(gx0, 0, gz1))}"/>`;
+  let g = "";
+  for (let x = gx0 + 29; x < gx1; x += 29) g += seg([x, 0, gz0], [x, 0, gz1]);
+  for (let z = gz0 + 31; z < gz1; z += 31) g += seg([gx0, 0, z], [gx1, 0, z]);
+  s += `<path class="pf-grid" d="${g.trim()}"/>`;
+  floors.forEach((n, i) => {
+    const x0 = i * S, x1 = x0 + W, H = n * F, cx = x0 + W / 2, cz = D / 2;
+    s += `<g class="pf-bldg">`;
+    s += `<polygon class="pf-face" points="${pt(P(x0, 0, D))} ${pt(P(x1, 0, D))} ${pt(P(x1, H, D))} ${pt(P(x0, H, D))}"/>`;
+    s += `<polygon class="pf-face" points="${pt(P(x1, 0, 0))} ${pt(P(x1, 0, D))} ${pt(P(x1, H, D))} ${pt(P(x1, H, 0))}"/>`;
+    s += `<polygon class="pf-roof" points="${pt(P(x0, H, 0))} ${pt(P(x1, H, 0))} ${pt(P(x1, H, D))} ${pt(P(x0, H, D))}"/>`;
+    for (let f = 0; f < n; f++) {
+      const y0 = f * F + 6, y1 = f * F + 16;
+      [[7, 19], [25, 37]].forEach(([a, b]) => { s += `<polygon class="pf-win" points="${pt(P(x0 + a, y0, D))} ${pt(P(x0 + b, y0, D))} ${pt(P(x0 + b, y1, D))} ${pt(P(x0 + a, y1, D))}"/>`; });
+      [[6, 14], [20, 28]].forEach(([a, b]) => { s += `<polygon class="pf-win" points="${pt(P(x1, y0, a))} ${pt(P(x1, y0, b))} ${pt(P(x1, y1, b))} ${pt(P(x1, y1, a))}"/>`; });
+    }
+    let thin = "", strong = "";
+    for (let f = 0; f <= n; f++) {
+      const y = f * F, d = seg([x0, y, 0], [x1, y, 0]) + seg([x0, y, 0], [x0, y, D]) + seg([x1, y, 0], [x1, y, D]) + seg([x0, y, D], [x1, y, D]);
+      if (f === 0 || f === n) strong += d; else thin += d;
+    }
+    [[x0, 0], [x1, 0], [x1, D], [x0, D]].forEach(([x, z]) => { strong += seg([x, 0, z], [x, H, z]); });
+    if (thin) s += `<path class="pf-edge" d="${thin.trim()}"/>`;
+    s += `<path class="pf-edge pf-edge-strong" d="${strong.trim()}"/>`;
+    s += ln([cx, 0, cz], [cx, H, cz], "pf-riser");
+    if (i === bad) {
+      s += `<g class="pf-anomaly">`;
+      s += ln([cx, badFloor * F, cz], [cx, (badFloor + 1) * F, cz], "pf-glow");
+      s += ln([cx, badFloor * F, cz], [cx, (badFloor + 1) * F, cz], "pf-riser-bad");
+      s += `</g>`;
+    }
+    const [dx, dy] = P(cx, H, cz), delay = `animation-delay:${(-i * 0.53).toFixed(2)}s`;
+    if (i === bad) {
+      s += `<g class="pf-ok-only"><circle class="pf-ring" cx="${f1(dx)}" cy="${f1(dy)}" r="4" style="${delay}"/></g>`;
+      s += `<circle class="pf-dot" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/>`;
+      s += `<g class="pf-bad"><circle class="pf-ring pf-ring-bad" cx="${f1(dx)}" cy="${f1(dy)}" r="4" style="${delay}"/><circle class="pf-dot-bad" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/></g>`;
+    } else {
+      s += `<circle class="pf-ring" cx="${f1(dx)}" cy="${f1(dy)}" r="4" style="${delay}"/>`;
+      s += `<circle class="pf-dot" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/>`;
+    }
+    s += `</g>`;
+  });
+  // alert callout, upper right of the fourth building
+  const l1 = `${A.building}, ${A.riser}`;
+  const l2 = `${A.severityLabel}: ${A.severity}`;
+  const l3 = `${A.checkLabel}: ${String(A.check).split(". ")[0].replace(/\.$/, "")}.`;
+  // rough text widths (Inter, 12px bold and 11px) so long languages still fit
+  const cw = Math.max(190, Math.ceil(Math.max(l1.length * 6.6, (l2.length + 2) * 5.6, l3.length * 5.6)) + 24);
+  const ch = 58;
+  const [ax, ay] = P(bad * S + W / 2, badFloor * F + F / 2, D / 2);
+  const bx = Math.min(560 - cw - 10, ax + 70), by = 22;
+  s += `<g class="vi-labels pf-callout"><g class="pf-callout-in">`;
+  s += `<line class="vi-leader" x1="${f1(ax)}" y1="${f1(ay)}" x2="${f1(bx + 16)}" y2="${by + ch}"/>`;
+  s += `<circle class="vi-leader-end" cx="${f1(ax)}" cy="${f1(ay)}" r="2.5"/>`;
+  s += `<rect class="pf-callout-bg" x="${f1(bx)}" y="${by}" width="${cw}" height="${ch}" rx="8"/>`;
+  s += `<text class="vi-text vi-text-strong pf-l1" x="${f1(bx + 12)}" y="${by + 18}">${esc(l1)}</text>`;
+  s += `<circle class="pf-sev-dot" cx="${f1(bx + 15)}" cy="${by + 30}" r="3"/>`;
+  s += `<text class="vi-text pf-l2" x="${f1(bx + 24)}" y="${by + 34}">${esc(l2)}</text>`;
+  s += `<text class="vi-text vi-text-muted pf-l3" x="${f1(bx + 12)}" y="${by + 49}">${esc(l3)}</text>`;
+  s += `</g></g>`;
+  s += `</g>`;
+  return `<svg class="vis vis-portfolio" viewBox="0 0 560 380" role="img" aria-label="${esc(t.realEstate.visual.alt)}" focusable="false">${s}</svg>`;
+}
+
+module.exports = { installSvg, rackSvg, mlSvg, severitySvg, portfolioSvg };

@@ -1,11 +1,19 @@
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">{{realEstate.eyebrow}}</p>
-        <h1>{{realEstate.h1}}</h1>
-        <p class="lead">{{canonical}} {{realEstate.lead}}</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
-          <p class="cta-line">{{cta.realEstate}}</p>
+    <section class="page-hero page-hero-split">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{realEstate.eyebrow}}</p>
+          <h1>{{realEstate.h1}}</h1>
+          <p class="lead">{{canonical}} {{realEstate.lead}}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
+            <p class="cta-line">{{cta.realEstate}}</p>
+          </div>
+        </div>
+        <div class="hero-visual hero-visual-chart">
+          <div class="media media-vis media-chart">
+            {{{portfolioSvg}}}
+          </div>
+          <p class="chart-legend"><span class="chart-legend-item"><i class="dot-ok"></i>{{realEstate.visual.legendOk}}</span><span class="chart-legend-item"><i class="dot-bad"></i>{{realEstate.visual.legendAlert}}</span></p>
         </div>
       </div>
     </section>

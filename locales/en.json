@@ -343,6 +343,11 @@
     "eyebrow": "Real estate",
     "h1": "Find the leak before your tenant does.",
     "lead": "For portfolios with in-house maintenance, from hundreds to hundreds of thousands of units.",
+    "visual": {
+      "alt": "Six buildings of a portfolio, each watched by a riser sensor. One building shows a deviation on riser B and an alert names the floors to check first.",
+      "legendOk": "Watched",
+      "legendAlert": "Alert, place to check first"
+    },
     "story": {
       "h2": "Leaks are discovered, not detected.",
       "text": "A tenant calls. A ceiling stains. Water shows up on a basement floor. By then the leak has been running for days or weeks. Finding it can take up to five site visits and a wall opened each time. Occupancy, energy and HVAC all have a live view. Water does not. AquaShield gives your maintenance team that view: every riser watched, deviations ranked by severity, and a location to check first."

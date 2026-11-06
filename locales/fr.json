@@ -343,6 +343,11 @@
     "eyebrow": "Immobilier",
     "h1": "Trouvez la fuite avant votre locataire.",
     "lead": "Pour les parcs immobiliers avec maintenance interne, de quelques centaines à plusieurs centaines de milliers de logements.",
+    "visual": {
+      "alt": "Six bâtiments d'un parc, chacun surveillé par un capteur de colonne montante. Un bâtiment montre un écart sur la colonne B et une alerte indique les étages à vérifier en premier.",
+      "legendOk": "Surveillé",
+      "legendAlert": "Alerte, endroit à vérifier en premier"
+    },
     "story": {
       "h2": "Les fuites sont découvertes, pas détectées.",
       "text": "Un locataire appelle. Un plafond se tache. De l'eau apparaît sur le sol d'un sous-sol. À ce moment-là, la fuite coule depuis des jours ou des semaines. La trouver peut demander jusqu'à cinq visites sur site, avec un mur ouvert à chaque fois. L'occupation, l'énergie et la CVC ont toutes une vue en direct. L'eau, non. AquaShield donne cette vue à votre équipe de maintenance : chaque colonne montante surveillée, les écarts classés par gravité, et un endroit à vérifier en premier."

@@ -1,28 +1,28 @@
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">{{dataCenters.eyebrow}}</p>
-        <h1>{{dataCenters.h1}}</h1>
-        <p class="lead">{{canonical}} {{dataCenters.lead}}</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
-          <p class="cta-line">{{cta.dataCenters}}</p>
+    <section class="page-hero page-hero-split">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{dataCenters.eyebrow}}</p>
+          <h1>{{dataCenters.h1}}</h1>
+          <p class="lead">{{canonical}} {{dataCenters.lead}}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
+            <p class="cta-line">{{cta.dataCenters}}</p>
+          </div>
+        </div>
+        <div class="hero-visual hero-visual-chart">
+          <div class="media media-vis media-chart">
+            {{{rackSvg}}}
+          </div>
+          <p class="chart-legend"><span class="chart-legend-item"><i class="dot-ok"></i>{{dataCenters.visual.sensor}}</span><span class="chart-legend-item"><i class="dot-bad"></i>{{dataCenters.visual.deviation}}</span></p>
         </div>
       </div>
     </section>
 
     <section class="section section-alt" aria-labelledby="story-title">
-      <div class="container split">
-        <div>
-          <div class="section-head">
-            <h2 id="story-title">{{dataCenters.story.h2}}</h2>
-            <p>{{dataCenters.story.text}}</p>
-          </div>
-        </div>
-        <div>
-          <div class="media media-16x10 media-vis">
-            {{{rackSvg}}}
-          </div>
-          <p class="media-caption">{{dataCenters.visual.caption}}</p>
+      <div class="container narrow">
+        <div class="section-head">
+          <h2 id="story-title">{{dataCenters.story.h2}}</h2>
+          <p>{{dataCenters.story.text}}</p>
         </div>
       </div>
     </section>

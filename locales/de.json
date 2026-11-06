@@ -343,6 +343,11 @@
     "eyebrow": "Immobilien",
     "h1": "Das Leck finden, bevor Ihr Mieter es findet.",
     "lead": "Für Portfolios mit eigener Haustechnik, von Hunderten bis zu Hunderttausenden Einheiten.",
+    "visual": {
+      "alt": "Sechs Gebäude eines Portfolios, jedes über einen Steigleitungssensor überwacht. Ein Gebäude zeigt eine Abweichung an Steigleitung B, ein Alarm nennt die zuerst zu prüfenden Stockwerke.",
+      "legendOk": "Überwacht",
+      "legendAlert": "Alarm, Ort zuerst prüfen"
+    },
     "story": {
       "h2": "Lecks werden entdeckt, nicht erkannt.",
       "text": "Ein Mieter ruft an. Eine Decke bekommt einen Fleck. Wasser steht auf dem Kellerboden. Bis dahin läuft das Leck seit Tagen oder Wochen. Es zu finden kann bis zu fünf Vor-Ort-Termine kosten, jedes Mal mit einer geöffneten Wand. Belegung, Energie und HLK haben alle eine Live-Ansicht. Wasser nicht. AquaShield gibt Ihrer Haustechnik diese Ansicht: jede Steigleitung überwacht, Abweichungen nach Schweregrad sortiert und ein Ort, der zuerst zu prüfen ist."

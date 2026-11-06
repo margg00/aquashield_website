@@ -1184,6 +1184,43 @@ body.nav-open { overflow: hidden; }
 @keyframes sv-pop-bad { 0%, 26% { opacity: 0; } 34%, 94% { opacity: 1; } 100% { opacity: 0; } }
 @media (max-width: 639px) { .vis-severity .vi-labels { display: none; } }
 
+/* ---------- Portfolio visual (real estate hero, see portfolioSvg in src/visuals.js) ---------- */
+.dot-ok { background: var(--ok); box-shadow: 0 0 0 3px rgb(61 220 151 / 0.2); }
+.pf-ground { fill: rgb(var(--accent-rgb) / 0.04); stroke: rgba(255, 255, 255, 0.08); }
+.pf-grid { fill: none; stroke: rgba(255, 255, 255, 0.045); stroke-width: 1; }
+.pf-face { fill: rgb(var(--accent-rgb) / 0.035); }
+.pf-roof { fill: rgb(var(--accent-rgb) / 0.06); }
+.pf-edge { fill: none; stroke: rgba(255, 255, 255, 0.26); stroke-width: 1; }
+.pf-edge-strong { stroke: rgba(255, 255, 255, 0.5); stroke-width: 1.2; }
+.pf-win { fill: rgb(var(--accent-rgb) / 0.07); stroke: rgba(255, 255, 255, 0.16); stroke-width: 0.8; }
+.pf-riser { stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+.pf-riser-bad { stroke: var(--anomaly); stroke-width: 3; stroke-linecap: round; }
+.pf-glow { stroke: rgb(var(--anomaly-rgb) / 0.3); stroke-width: 10; stroke-linecap: round; }
+.pf-dot { fill: var(--ok); }
+.pf-dot-bad { fill: var(--anomaly); }
+.pf-ring { fill: none; stroke: var(--ok); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.pf-ring-bad { stroke: var(--anomaly); }
+.pf-ok-only { opacity: 0; }
+.pf-callout-bg { fill: #131313; stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }
+.pf-sev-dot { fill: var(--anomaly); }
+.vis-portfolio .pf-l1 { font-size: 12px; }
+.vis-portfolio .pf-l2, .vis-portfolio .pf-l3 { font-size: 11px; }
+@media (max-width: 639px) { .vis-portfolio .pf-callout { display: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .pf-scene { animation: pf-scene 12s linear infinite; }
+  .pf-ring { animation: pf-ring 3.2s ease-out infinite; }
+  .pf-anomaly { animation: pf-anomaly 12s linear infinite; }
+  .pf-bad { animation: pf-bad 12s linear infinite; }
+  .pf-ok-only { animation: pf-ok-only 12s linear infinite; }
+  .pf-callout-in { animation: pf-callout 12s ease-out infinite; }
+}
+@keyframes pf-scene { 0% { opacity: 0; } 8%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes pf-ring { 0% { transform: scale(0.5); opacity: 0.9; } 70%, 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes pf-anomaly { 0%, 40% { opacity: 0; } 44%, 100% { opacity: 1; } }
+@keyframes pf-bad { 0%, 44% { opacity: 0; } 48%, 100% { opacity: 1; } }
+@keyframes pf-ok-only { 0%, 44% { opacity: 1; } 48%, 100% { opacity: 0; } }
+@keyframes pf-callout { 0%, 50% { opacity: 0; transform: translateY(8px); } 54%, 94% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(0); } }
+
 /* ---------- Print ---------- */
 @media print {
   .site-header, .site-footer, .cta-band, .nav-toggle { display: none; }
