@@ -500,6 +500,22 @@
     "status": {
       "h2": "Commencez par un portefeuille.",
       "text": "Des pilotes sont en cours avec des propriétaires en Allemagne et aux États-Unis. L'étape suivante : un portefeuille, travaillé avec un assureur. Quels bâtiments, quelles données, lequel des cinq modèles."
+    },
+    "visual": {
+      "title": "Gravité du sinistre selon la durée",
+      "axis": "Jours pendant lesquels la fuite coule",
+      "severity": "Gravité",
+      "detected": "Détectée par écart de débit",
+      "discovered": "Découverte par un locataire",
+      "milestones": [
+        "Sous-plancher",
+        "Cloisons",
+        "Logement voisin",
+        "Interruption d'activité"
+      ],
+      "alt": "Graphique : la gravité d'un sinistre monte d'autant plus vite que la fuite dure. Une fuite détectée tôt par écart de débit s'arrête à une gravité faible. Une fuite découverte par un locataire des semaines plus tard a atteint le sous-plancher, les cloisons, le logement voisin et l'activité.",
+      "legendGood": "Détectée tôt",
+      "legendBad": "Découverte tard"
     }
   },
   "dataCenters": {

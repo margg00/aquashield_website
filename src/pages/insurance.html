@@ -1,11 +1,19 @@
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">{{insurance.eyebrow}}</p>
-        <h1>{{insurance.h1}}</h1>
-        <p class="lead">{{canonical}} {{insurance.lead}}</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
-          <p class="cta-line">{{cta.insurance}}</p>
+    <section class="page-hero page-hero-split">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{insurance.eyebrow}}</p>
+          <h1>{{insurance.h1}}</h1>
+          <p class="lead">{{canonical}} {{insurance.lead}}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
+            <p class="cta-line">{{cta.insurance}}</p>
+          </div>
+        </div>
+        <div class="hero-visual hero-visual-chart">
+          <div class="media media-vis media-chart">
+            {{{severitySvg}}}
+          </div>
+          <p class="chart-legend"><span class="chart-legend-item"><i class="dot-good"></i>{{insurance.visual.legendGood}}</span><span class="chart-legend-item"><i class="dot-bad"></i>{{insurance.visual.legendBad}}</span></p>
         </div>
       </div>
     </section>

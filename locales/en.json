@@ -500,6 +500,22 @@
     "status": {
       "h2": "Start with one book of business.",
       "text": "Pilots are running with owners in Germany and the US. The next step is one book of business, worked through with one carrier: which buildings, which data, which of the five models."
+    },
+    "visual": {
+      "title": "Claim severity over loss duration",
+      "axis": "Days the leak runs",
+      "severity": "Severity",
+      "detected": "Detected by flow deviation",
+      "discovered": "Discovered by a tenant",
+      "milestones": [
+        "Subfloor",
+        "Drywall",
+        "Neighbouring unit",
+        "Business interruption"
+      ],
+      "alt": "Chart: claim severity rises steeply the longer a leak runs. A leak detected early by flow deviation stops at a low severity. One discovered by a tenant weeks later has reached subfloor, drywall, the neighbouring unit and business interruption.",
+      "legendGood": "Detected early",
+      "legendBad": "Discovered late"
     }
   },
   "dataCenters": {

@@ -173,4 +173,44 @@ function mlSvg(t) {
   return `<svg class="vis vis-ml" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t.product.ml.visualAlt)}" focusable="false">${s}</svg>`;
 }
 
-module.exports = { installSvg, rackSvg, mlSvg };
+
+function severitySvg(t) {
+  const L = t.insurance.visual;
+  const W = 560, H = 380, x0 = 56, x1 = 528, y0 = 318, y1 = 56;
+  const f1 = (n) => n.toFixed(1);
+  // severity compounds with loss duration: gentle start, steep end
+  const curve = (u) => Math.pow(u, 2.2);
+  const X = (u) => x0 + (x1 - x0) * u, Y = (v) => y0 - (y0 - y1) * v;
+  const N = 40; let d = "";
+  for (let i = 0; i <= N; i++) { const u = i / N; d += (i ? " L" : "M") + f1(X(u)) + " " + f1(Y(curve(u))); }
+  const area = d + ` L${f1(X(1))} ${y0} L${x0} ${y0} Z`;
+  let s = `<defs><linearGradient id="sv-area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff6b4a" stop-opacity="0.35"/><stop offset="1" stop-color="#ff6b4a" stop-opacity="0.02"/></linearGradient></defs>`;
+  s += `<rect class="vi-grid" x="0" y="0" width="${W}" height="${H}"/>`;
+  for (let i = 1; i <= 4; i++) s += `<line class="chart-grid" x1="${x0}" y1="${f1(Y(i / 4))}" x2="${x1}" y2="${f1(Y(i / 4))}"/>`;
+  s += `<line class="sv-axis" x1="${x0}" y1="${y0}" x2="${x1}" y2="${y0}"/><line class="sv-axis" x1="${x0}" y1="${y0}" x2="${x0}" y2="${y1}"/>`;
+  s += `<path class="sv-area" d="${area}" fill="url(#sv-area)"/>`;
+  s += `<path class="sv-curve" d="${d}" pathLength="1"/>`;
+  // milestones along the curve
+  const marks = [0.42, 0.6, 0.78, 0.94];
+  L.milestones.slice(0, 4).forEach((label, i) => {
+    const u = marks[i], x = X(u), y = Y(curve(u));
+    s += `<circle class="sv-mark" cx="${f1(x)}" cy="${f1(y)}" r="4" style="animation-delay:${(1.2 + i * 0.5).toFixed(1)}s"/>`;
+    s += `<g class="vi-labels" style="animation-delay:${(1.2 + i * 0.5).toFixed(1)}s"><line class="vi-leader" x1="${f1(x)}" y1="${f1(y)}" x2="${f1(x - 10)}" y2="${f1(y - 26)}"/><text class="vi-text vi-text-muted sv-ms" x="${f1(x - 12)}" y="${f1(y - 30)}" text-anchor="end">${esc(label)}</text></g>`;
+  });
+  // detected early, discovered late
+  const ud = 0.16, uf = 0.86;
+  const dx = X(ud), dy = Y(curve(ud)), fx = X(uf), fy = Y(curve(uf));
+  s += `<line class="sv-drop sv-drop-good" x1="${f1(dx)}" y1="${f1(dy)}" x2="${f1(dx)}" y2="${y0}"/>`;
+  s += `<circle class="sv-dot sv-dot-good" cx="${f1(dx)}" cy="${f1(dy)}" r="6"/>`;
+  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-good" x="${f1(dx + 12)}" y="${f1(dy - 14)}">${esc(L.detected)}</text></g>`;
+  s += `<line class="sv-drop sv-drop-bad" x1="${f1(fx)}" y1="${f1(fy)}" x2="${f1(fx)}" y2="${y0}"/>`;
+  s += `<circle class="sv-dot sv-dot-bad" cx="${f1(fx)}" cy="${f1(fy)}" r="6"/>`;
+  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-bad" x="${f1(fx - 10)}" y="${f1(y0 - 10)}" text-anchor="end">${esc(L.discovered)}</text></g>`;
+  // axes labels
+  s += `<g class="vi-labels"><text class="vi-text vi-text-muted" x="${x1}" y="${y0 + 22}" text-anchor="end">${esc(L.axis)}</text>`;
+  s += `<text class="vi-text vi-text-muted" transform="translate(${x0 - 14} ${y1}) rotate(-90)" text-anchor="end">${esc(L.severity)}</text>`;
+  s += `<text class="vi-text vi-text-strong" x="${x0}" y="30">${esc(L.title)}</text></g>`;
+  return `<svg class="vis vis-severity" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
+}
+
+module.exports = { installSvg, rackSvg, mlSvg, severitySvg };

@@ -500,6 +500,22 @@
     "status": {
       "h2": "Beginnen Sie mit einem Bestand.",
       "text": "Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Der nächste Schritt ist ein Bestand, gemeinsam mit einem Versicherer durchgearbeitet: welche Gebäude, welche Daten, welches der fünf Modelle."
+    },
+    "visual": {
+      "title": "Schadenhöhe über die Schadendauer",
+      "axis": "Tage, die das Leck läuft",
+      "severity": "Schadenhöhe",
+      "detected": "Durch Durchflussabweichung erkannt",
+      "discovered": "Durch einen Mieter entdeckt",
+      "milestones": [
+        "Unterboden",
+        "Trockenbau",
+        "Nachbarwohnung",
+        "Betriebsunterbrechung"
+      ],
+      "alt": "Diagramm: Die Schadenhöhe steigt steil, je länger ein Leck läuft. Ein früh durch eine Durchflussabweichung erkanntes Leck bleibt bei geringer Schadenhöhe. Ein Wochen später von einem Mieter entdecktes Leck hat Unterboden, Trockenbau, die Nachbarwohnung und den Betrieb erreicht.",
+      "legendGood": "Früh erkannt",
+      "legendBad": "Spät entdeckt"
     }
   },
   "dataCenters": {
