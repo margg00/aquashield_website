@@ -250,6 +250,18 @@
   "product": {
     "h1": "How AquaShield works",
     "lead": "Clamp-on sensors go onto existing pipes. A model per measuring point learns the building's normal flow. A digital twin of the plumbing narrows a deviation to a riser or a building section. Alerts are reviewed with your maintenance team.",
+    "hero": {
+      "visual": {
+        "sensor": "Clamp-on sensor",
+        "live": "Live flow",
+        "baseline": "Learned baseline",
+        "twin": "Digital twin",
+        "alert": "Alert: riser B",
+        "legendOk": "Normal flow",
+        "legendAlert": "Deviation",
+        "alt": "Diagram: a clamp-on sensor on a pipe sends readings into a live-flow chart with its learned baseline, a deviation is placed on the building's digital twin and raised as an alert."
+      }
+    },
     "install": {
       "h2": "What does an install look like?",
       "text": "Ultrasonic flow sensors clamp onto the outside of existing pipes, pressure sensors onto existing taps. Under 15 minutes each, no pipe cutting, no shutdown of the water supply. From the sensor positions and the plumbing layout, AquaShield builds a digital twin of the building: which riser feeds which floors, which sensor sees which water. The model learns the building's normal flow from there. Your own team can clamp on the sensors.",
@@ -295,8 +307,23 @@
     },
     "sensors": {
       "h2": "The sensors",
-      "text": "Clamp-on ultrasonic flow sensors on risers and supply lines. Pressure sensors on existing taps. Readings every 10 minutes. Sensors report data coverage so the dashboard shows when one is offline.",
-      "confirm": ""
+      "intro": "Two sensor types, both on existing pipework. Nothing is cut.",
+      "specs": [
+        "Clamp-on ultrasonic flow sensors on risers and supply lines",
+        "Pressure sensors on existing taps",
+        "A reading every 10 minutes from every measuring point",
+        "Coverage reported, so the dashboard shows when a sensor is offline"
+      ],
+      "visual": {
+        "pipe": "Existing pipe",
+        "transducerA": "Transducer A",
+        "transducerB": "Transducer B",
+        "path": "Ultrasonic path",
+        "transit": "Transit time",
+        "flow": "Flow",
+        "clamp": "Clamped on, no cutting",
+        "alt": "Digital twin of a clamp-on ultrasonic flow sensor: two transducers strapped to the outside of a pipe, the ultrasonic path through the water, and the flow direction."
+      }
     },
     "twin": {
       "h2": "The digital twin",

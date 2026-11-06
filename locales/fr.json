@@ -250,6 +250,18 @@
   "product": {
     "h1": "Comment AquaShield fonctionne",
     "lead": "Les capteurs à pince se posent sur les canalisations existantes. Un modèle par point de mesure apprend le débit normal du bâtiment. Un jumeau numérique de la plomberie ramène un écart à une colonne montante ou à une section du bâtiment. Les alertes sont examinées avec votre équipe de maintenance.",
+    "hero": {
+      "visual": {
+        "sensor": "Capteur clamp-on",
+        "live": "Débit en direct",
+        "baseline": "Référence apprise",
+        "twin": "Jumeau numérique",
+        "alert": "Alerte : colonne B",
+        "legendOk": "Débit normal",
+        "legendAlert": "Écart",
+        "alt": "Schéma : un capteur clamp-on sur une conduite envoie ses mesures dans un graphique de débit en direct avec sa référence apprise, un écart est localisé sur le jumeau numérique du bâtiment et remonté comme alerte."
+      }
+    },
     "install": {
       "h2": "À quoi ressemble une installation ?",
       "text": "Les capteurs de débit ultrasoniques se fixent à l'extérieur des canalisations existantes, les capteurs de pression sur des robinets existants. Moins de 15 minutes par capteur, sans découpe, sans coupure d'eau. À partir des positions des capteurs et du plan de plomberie, AquaShield construit un jumeau numérique du bâtiment : quelle colonne alimente quels étages, quel capteur voit quelle eau. Le modèle apprend ensuite le débit normal du bâtiment. Votre propre équipe peut poser les capteurs.",
@@ -295,8 +307,23 @@
     },
     "sensors": {
       "h2": "Les capteurs",
-      "text": "Capteurs de débit ultrasoniques à pince sur les colonnes montantes et les conduites d'alimentation. Capteurs de pression sur les robinets existants. Une mesure toutes les 10 minutes. Les capteurs remontent leur couverture de données pour que le tableau de bord montre quand l'un d'eux est hors ligne.",
-      "confirm": ""
+      "intro": "Deux types de capteurs, tous deux sur la tuyauterie existante. Rien n'est coupé.",
+      "specs": [
+        "Capteurs de débit à ultrasons clamp-on sur les colonnes et les conduites d'alimentation",
+        "Capteurs de pression sur les robinets existants",
+        "Une mesure toutes les 10 minutes depuis chaque point de mesure",
+        "Couverture remontée, le tableau de bord montre quand un capteur est hors ligne"
+      ],
+      "visual": {
+        "pipe": "Conduite existante",
+        "transducerA": "Transducteur A",
+        "transducerB": "Transducteur B",
+        "path": "Trajet ultrasonore",
+        "transit": "Temps de transit",
+        "flow": "Débit",
+        "clamp": "Fixé par collier, sans découpe",
+        "alt": "Jumeau numérique d'un capteur de débit à ultrasons clamp-on : deux transducteurs fixés à l'extérieur d'une conduite, le trajet ultrasonore à travers l'eau et le sens du débit."
+      }
     },
     "twin": {
       "h2": "Le jumeau numérique",

@@ -1,8 +1,20 @@
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">{{nav.product}}</p>
-        <h1>{{product.h1}}</h1>
-        <p class="lead">{{canonical}} {{product.lead}}</p>
+    <section class="page-hero page-hero-split">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">{{nav.product}}</p>
+          <h1>{{product.h1}}</h1>
+          <p class="lead">{{canonical}} {{product.lead}}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}">{{cta.label}}</a>
+            <p class="cta-line">{{cta.home}}</p>
+          </div>
+        </div>
+        <div class="hero-visual hero-visual-chart">
+          <div class="media media-vis media-chart">
+            {{{productHeroSvg}}}
+          </div>
+          <p class="chart-legend"><span class="chart-legend-item"><i class="dot-ok"></i>{{product.hero.visual.legendOk}}</span><span class="chart-legend-item"><i class="dot-bad"></i>{{product.hero.visual.legendAlert}}</span></p>
+        </div>
       </div>
     </section>
 
@@ -97,10 +109,18 @@
     </section>
 
     <section class="section section-alt" aria-labelledby="sensors-title">
-      <div class="container narrow">
-        <div class="status-box">
-          <h2 id="sensors-title">{{product.sensors.h2}}</h2>
-          <p>{{product.sensors.text}}</p>
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2 id="sensors-title">{{product.sensors.h2}}</h2>
+            <p>{{product.sensors.intro}}</p>
+          </div>
+          <ul class="spec-list">{{#each product.sensors.specs}}<li>{{this}}</li>{{/each}}</ul>
+        </div>
+        <div>
+          <div class="media media-4x3 media-vis media-sensor">
+            {{{sensorSvg}}}
+          </div>
         </div>
       </div>
     </section>

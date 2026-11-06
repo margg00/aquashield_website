@@ -250,6 +250,18 @@
   "product": {
     "h1": "So funktioniert AquaShield",
     "lead": "Clamp-on-Sensoren kommen auf bestehende Rohre. Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes. Ein digitaler Zwilling der Rohrinstallation grenzt eine Abweichung auf eine Steigleitung oder einen Gebäudeabschnitt ein. Alarme werden mit Ihrer Haustechnik geprüft.",
+    "hero": {
+      "visual": {
+        "sensor": "Clamp-on-Sensor",
+        "live": "Live-Durchfluss",
+        "baseline": "Gelernte Baseline",
+        "twin": "Digitaler Zwilling",
+        "alert": "Alarm: Strang B",
+        "legendOk": "Normaler Durchfluss",
+        "legendAlert": "Abweichung",
+        "alt": "Diagramm: Ein Clamp-on-Sensor an einem Rohr sendet Messwerte in ein Live-Durchflussdiagramm mit gelernter Baseline, eine Abweichung wird im digitalen Zwilling des Gebäudes verortet und als Alarm gemeldet."
+      }
+    },
     "install": {
       "h2": "Wie läuft eine Installation ab?",
       "text": "Ultraschall-Durchflusssensoren werden aussen an bestehende Rohre geklemmt, Drucksensoren an bestehende Zapfstellen. Unter 15 Minuten pro Sensor, kein Rohrschnitt, keine Abschaltung der Wasserversorgung. Aus den Sensorpositionen und dem Leitungsplan baut AquaShield einen digitalen Zwilling des Gebäudes: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Von dort lernt das Modell den normalen Durchfluss des Gebäudes. Ihr eigenes Team kann die Sensoren anklemmen.",
@@ -295,8 +307,23 @@
     },
     "sensors": {
       "h2": "Die Sensoren",
-      "text": "Clamp-on-Ultraschall-Durchflusssensoren an Steigleitungen und Zuleitungen. Drucksensoren an bestehenden Zapfstellen. Messwerte alle 10 Minuten. Die Sensoren melden ihre Datenabdeckung, damit das Dashboard zeigt, wenn einer offline ist.",
-      "confirm": ""
+      "intro": "Zwei Sensortypen, beide auf bestehenden Leitungen. Nichts wird geschnitten.",
+      "specs": [
+        "Clamp-on-Ultraschall-Durchflusssensoren an Strängen und Versorgungsleitungen",
+        "Drucksensoren an bestehenden Zapfstellen",
+        "Alle 10 Minuten ein Messwert von jeder Messstelle",
+        "Abdeckung wird gemeldet, das Dashboard zeigt, wenn ein Sensor offline ist"
+      ],
+      "visual": {
+        "pipe": "Bestehendes Rohr",
+        "transducerA": "Wandler A",
+        "transducerB": "Wandler B",
+        "path": "Ultraschallpfad",
+        "transit": "Laufzeit",
+        "flow": "Durchfluss",
+        "clamp": "Aufgeklemmt, kein Schneiden",
+        "alt": "Digitaler Zwilling eines Clamp-on-Ultraschall-Durchflusssensors: zwei Wandler aussen am Rohr, der Ultraschallpfad durch das Wasser und die Flussrichtung."
+      }
     },
     "twin": {
       "h2": "Der digitale Zwilling",

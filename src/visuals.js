@@ -5,6 +5,8 @@
     installSvg(t)  clamp-on ultrasonic sensor on a riser, pressure sensor on a tap
     rackSvg(t)     liquid-cooled rack row with a cooling loop and per-rack sensing
     portfolioSvg(t) row of six isometric buildings, one riser deviation and an alert
+    productHeroSvg(t) signal chain: clamp-on sensor, learned baseline chart, building twin alert
+    sensorSvg(t)   wireframe close-up of a clamp-on ultrasonic flow sensor and its V-path
 */
 
 function esc(v) {
@@ -295,4 +297,155 @@ function portfolioSvg(t) {
   return `<svg class="vis vis-portfolio" viewBox="0 0 560 380" role="img" aria-label="${esc(t.realEstate.visual.alt)}" focusable="false">${s}</svg>`;
 }
 
-module.exports = { installSvg, rackSvg, mlSvg, severitySvg, portfolioSvg };
+
+function productHeroSvg(t) {
+  const L = t.product.hero.visual;
+  const f1 = (n) => n.toFixed(1);
+  let s = `<rect class="vi-grid" x="0" y="0" width="560" height="380"/>`;
+  // stage 1: pipe segment with a clamp-on sensor and ultrasonic arcs
+  s += `<rect class="ph-pipe" x="20" y="190" width="132" height="40" rx="10"/>`;
+  s += `<rect class="ph-pipe ph-bore" x="26" y="198" width="120" height="24" rx="6"/>`;
+  s += `<rect class="ph-sensor" x="72" y="168" width="36" height="22" rx="4"/>`;
+  s += `<circle class="ph-led" cx="100" cy="176" r="2"/>`;
+  [6, 11, 16].forEach((r, i) => {
+    s += `<path class="ph-arc" d="M${90 - r} 196 A${r} ${r} 0 0 0 ${90 + r} 196" style="animation-delay:${(i * 0.25).toFixed(2)}s"/>`;
+  });
+  // stage 2: mini chart with a learned band and the live line leaving it
+  const px0 = 214, px1 = 366;
+  const X = (u) => px0 + (px1 - px0) * u;
+  const base = (u) => 200 + 7 * Math.sin(u * 3 * Math.PI);
+  const live = (u) => base(u) + (u > 0.7 ? -66 * Math.pow((u - 0.7) / 0.3, 1.6) : 1.5 * Math.sin(u * 22));
+  const N = 36;
+  let top = "", bot = "", ok = "", bad = "";
+  for (let i = 0; i <= N; i++) {
+    const u = i / N;
+    top += (i ? " L" : "M") + f1(X(u)) + " " + f1(base(u) - 13);
+    const ub = 1 - u;
+    bot += " L" + f1(X(ub)) + " " + f1(base(ub) + 13);
+    const p = f1(X(u)) + " " + f1(live(u));
+    if (u <= 0.7 + 1e-9) ok += (i ? " L" : "M") + p;
+    if (u >= 0.7 - 1e-9) bad += (bad ? " L" : "M") + p;
+  }
+  const end = [X(1), live(1)];
+  s += `<rect class="ph-panel" x="200" y="92" width="180" height="190" rx="10"/>`;
+  s += `<path class="ph-gridline" d="M${px0} 160 H${px1} M${px0} 200 H${px1} M${px0} 240 H${px1}"/>`;
+  s += `<path class="ph-band" d="${top}${bot} Z"/>`;
+  s += `<path class="ph-live" d="${ok}"/>`;
+  s += `<path class="ph-live ph-live-bad" d="${bad}"/>`;
+  s += `<circle class="ph-flag" cx="${f1(end[0])}" cy="${f1(end[1])}" r="4"/>`;
+  // stage 3: building twin, five floors and two risers
+  const bx = 425, bw = 100, by = 120, fh = 35, bb = by + fh * 5;
+  let floors = "";
+  for (let f = 1; f < 5; f++) floors += `M${bx} ${by + f * fh} H${bx + bw} `;
+  s += `<line class="ph-ground" x1="410" y1="${bb}" x2="540" y2="${bb}"/>`;
+  s += `<rect class="ph-bldg" x="${bx}" y="${by}" width="${bw}" height="${fh * 5}" rx="3"/>`;
+  s += `<path class="ph-floor" d="${floors.trim()}"/>`;
+  const rA = 455, rB = 495, fc = (n) => bb - (n - 0.5) * fh; // centre of floor n, counted from the ground
+  s += `<path class="ph-riser" d="M${rA} ${by} V${bb} M${rB} ${by} V${bb}"/>`;
+  s += `<line class="ph-riser-glow" x1="${rB}" y1="${fc(5)}" x2="${rB}" y2="${fc(3)}"/>`;
+  s += `<line class="ph-riser-bad" x1="${rB}" y1="${fc(5)}" x2="${rB}" y2="${fc(3)}"/>`;
+  [1, 3, 5].forEach((n) => {
+    s += `<circle class="ph-dot" cx="${rA}" cy="${fc(n)}" r="3"/>`;
+    s += `<circle class="${n >= 3 ? "ph-dot-bad" : "ph-dot"}" cx="${rB}" cy="${fc(n)}" r="3"/>`;
+  });
+  // alert chip above the building (text width estimated so longer languages fit)
+  const cw = Math.max(92, Math.ceil(String(L.alert).length * 6.6) + 34);
+  const cx = Math.min(548 - cw, Math.max(396, 475 - cw / 2)), cy = 70;
+  s += `<g class="ph-alert"><rect class="ph-chip" x="${f1(cx)}" y="${cy}" width="${cw}" height="24" rx="12"/><circle class="ph-chip-dot" cx="${f1(cx + 12)}" cy="${cy + 12}" r="3"/></g>`;
+  // data path: sensor to chart, through the live line, then to the alert chip
+  const c1 = `M108 179 C150 179 175 ${f1(live(0))} ${px0} ${f1(live(0))}`;
+  const c2 = `M${f1(end[0])} ${f1(end[1])} C392 ${f1(end[1])} ${f1(cx - 30)} ${cy + 12} ${f1(cx - 10)} ${cy + 12}`;
+  const motion = `${c1} L${ok.slice(1)} L${bad.slice(1)} C392 ${f1(end[1])} ${f1(cx - 30)} ${cy + 12} ${f1(cx - 10)} ${cy + 12}`;
+  s += `<path class="ph-data" d="${c1} ${c2}"/>`;
+  s += `<circle class="ph-pulse-glow" r="9" style="offset-path: path('${motion}')"/>`;
+  s += `<circle class="ph-pulse" r="4" style="offset-path: path('${motion}')"/>`;
+  // labels (hidden on phones)
+  s += `<g class="vi-labels">`;
+  s += `<text class="vi-text vi-text-muted" x="86" y="262" text-anchor="middle">${esc(L.sensor)}</text>`;
+  s += `<line class="ph-key-live" x1="214" y1="113" x2="230" y2="113"/><text class="vi-text" x="236" y="117">${esc(L.live)}</text>`;
+  s += `<rect class="ph-key-band" x="214" y="126" width="16" height="9" rx="2"/><text class="vi-text vi-text-muted" x="236" y="134">${esc(L.baseline)}</text>`;
+  s += `<text class="vi-text vi-text-muted" x="475" y="${bb + 26}" text-anchor="middle">${esc(L.twin)}</text>`;
+  s += `<text class="vi-text vi-text-bad ph-chip-text" x="${f1(cx + 22)}" y="${cy + 16}">${esc(L.alert)}</text>`;
+  s += `</g>`;
+  return `<svg class="vis vis-product-hero" viewBox="0 0 560 380" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
+}
+
+
+function sensorSvg(t) {
+  const L = t.product.sensors.visual;
+  const f1 = (n) => n.toFixed(1);
+  const x0 = 60, x1 = 600, cy = 220, wall = 6;
+  // slight perspective: radius and ellipse width shrink towards the right
+  const R = (x) => 50 - 6 * (x - x0) / (x1 - x0);
+  const E = (x) => 16 - 6 * (x - x0) / (x1 - x0);
+  let s = `<rect class="vi-grid" x="0" y="0" width="640" height="420"/>`;
+  // water inside the bore
+  const ri0 = R(x0) - wall, ri1 = R(x1) - wall;
+  s += `<path class="ss-water" d="M${x0} ${f1(cy - ri0)} L${x1} ${f1(cy - ri1)} A${f1(E(x1) - 2)} ${f1(ri1)} 0 0 1 ${x1} ${f1(cy + ri1)} L${x0} ${f1(cy + ri0)} A${f1(E(x0) - 2)} ${f1(ri0)} 0 0 1 ${x0} ${f1(cy - ri0)} Z"/>`;
+  // cross-section rings, merged into one path
+  let rings = "";
+  for (let k = 1; k <= 7; k++) {
+    const x = x0 + k * (x1 - x0) / 7, r = R(x), e = E(x);
+    rings += `M${f1(x)} ${f1(cy - r)} A${f1(e)} ${f1(r)} 0 0 1 ${f1(x)} ${f1(cy + r)} A${f1(e)} ${f1(r)} 0 0 1 ${f1(x)} ${f1(cy - r)} `;
+  }
+  s += `<path class="ss-ring" d="${rings.trim()}"/>`;
+  // inner wall lines and outer shell
+  s += `<path class="ss-inner" d="M${x0} ${f1(cy - ri0)} L${x1} ${f1(cy - ri1)} M${x0} ${f1(cy + ri0)} L${x1} ${f1(cy + ri1)}"/>`;
+  s += `<path class="ss-shell" d="M${x0} ${f1(cy - R(x0))} L${x1} ${f1(cy - R(x1))} M${x0} ${f1(cy + R(x0))} L${x1} ${f1(cy + R(x1))}"/>`;
+  s += `<ellipse class="ss-cap" cx="${x0}" cy="${cy}" rx="${E(x0)}" ry="${R(x0)}"/>`;
+  s += `<ellipse class="ss-cap ss-cap-in" cx="${x0}" cy="${cy}" rx="${E(x0) - 4}" ry="${R(x0) - wall}"/>`;
+  // flow: marching line with four chevrons, kept clear of the V-path
+  s += `<path class="ss-flow" d="M96 ${cy} H196 M384 ${cy} H566"/>`;
+  let chev = "";
+  [140, 176, 430, 500].forEach((x) => { chev += `M${x - 5} ${cy - 6} L${x + 3} ${cy} L${x - 5} ${cy + 6} `; });
+  s += `<path class="ss-chevron" d="${chev.trim()}"/>`;
+  // ultrasonic V-path: transducer A, reflection off the bottom wall, transducer B
+  const ax = 230, bx = 350, mx = (ax + bx) / 2;
+  const aTop = cy - R(ax), bTop = cy - R(bx), my = cy + R(mx) - wall;
+  const v = `M${ax} ${f1(cy - R(ax) + wall)} L${mx} ${f1(my)} L${bx} ${f1(cy - R(bx) + wall)}`;
+  [6, 11, 16].forEach((r, i) => {
+    s += `<path class="ss-ripple" d="M${mx - r} ${f1(my - 2)} A${r} ${r} 0 0 1 ${mx + r} ${f1(my - 2)}" style="animation-delay:${(1.2 + i * 0.18).toFixed(2)}s"/>`;
+  });
+  s += `<path class="ss-beam" d="${v}"/>`;
+  s += `<circle class="ss-pulse" r="3.5" style="offset-path: path('${v}')"/>`;
+  // clamp straps around the pipe, one beside each transducer
+  const straps = [ax - 26, bx + 20];
+  straps.forEach((x) => {
+    s += `<rect class="ss-strap" x="${x}" y="${f1(cy - R(x) - 4)}" width="6" height="${f1(2 * R(x) + 8)}" rx="3"/>`;
+  });
+  // electronics box and cables
+  const ex = 250, ey = 52, ew = 80, eh = 40;
+  s += `<path class="ss-cable" d="M${ax} ${f1(aTop - 22)} C${ax} ${ey + eh + 26} ${ex + 18} ${ey + eh + 20} ${ex + 18} ${ey + eh} M${bx} ${f1(bTop - 22)} C${bx} ${ey + eh + 26} ${ex + ew - 18} ${ey + eh + 20} ${ex + ew - 18} ${ey + eh}"/>`;
+  s += `<rect class="ss-box" x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="8"/>`;
+  s += `<rect class="vi-body-line" x="${ex + 12}" y="${ey + 13}" width="40" height="2" rx="1"/>`;
+  s += `<rect class="vi-body-line" x="${ex + 12}" y="${ey + 22}" width="26" height="2" rx="1"/>`;
+  s += `<circle class="vi-led" cx="${ex + ew - 14}" cy="${ey + 20}" r="3.5"/>`;
+  // transducers sitting on top of the pipe
+  [[ax, aTop], [bx, bTop]].forEach(([x, y]) => {
+    s += `<rect class="ss-tx" x="${x - 17}" y="${f1(y - 22)}" width="34" height="22" rx="4"/>`;
+    s += `<line class="ss-tx-face" x1="${x - 10}" y1="${f1(y - 3)}" x2="${x + 10}" y2="${f1(y - 3)}"/>`;
+  });
+  // callouts (hidden on phones)
+  const sb = cy + R(straps[0]);
+  const ry = 336, ly = 322;
+  const vy = (x) => my - (my - (cy - R(bx) + wall)) * (x - mx) / (bx - mx);
+  s += `<g class="vi-labels">`;
+  s += `<line class="vi-leader" x1="${ax - 17}" y1="${f1(aTop - 12)}" x2="150" y2="122"/><circle class="vi-leader-end" cx="${ax - 17}" cy="${f1(aTop - 12)}" r="2.5"/>`;
+  s += `<text class="vi-text vi-text-strong" x="146" y="118" text-anchor="end">${esc(L.transducerA)}</text>`;
+  s += `<line class="vi-leader" x1="${bx + 17}" y1="${f1(bTop - 12)}" x2="430" y2="122"/><circle class="vi-leader-end" cx="${bx + 17}" cy="${f1(bTop - 12)}" r="2.5"/>`;
+  s += `<text class="vi-text vi-text-strong" x="434" y="118">${esc(L.transducerB)}</text>`;
+  s += `<line class="vi-leader" x1="92" y1="${f1(cy - R(92))}" x2="70" y2="156"/><circle class="vi-leader-end" cx="92" cy="${f1(cy - R(92))}" r="2.5"/>`;
+  s += `<text class="vi-text vi-text-muted" x="24" y="150">${esc(L.pipe)}</text>`;
+  s += `<line class="vi-leader" x1="${straps[0] + 3}" y1="${f1(sb + 4)}" x2="120" y2="${ly}"/><circle class="vi-leader-end" cx="${straps[0] + 3}" cy="${f1(sb + 4)}" r="2.5"/>`;
+  s += `<text class="vi-text" x="24" y="${ry}">${esc(L.clamp)}</text>`;
+  s += `<line class="vi-leader" x1="${mx}" y1="${f1(my + 2)}" x2="${mx}" y2="${ly}"/><circle class="vi-leader-end" cx="${mx}" cy="${f1(my + 2)}" r="2.5"/>`;
+  s += `<text class="vi-text ss-text-path" x="${mx}" y="${ry}" text-anchor="middle">${esc(L.path)}</text>`;
+  s += `<line class="vi-leader" x1="326" y1="${f1(vy(326))}" x2="404" y2="${ly}"/><circle class="vi-leader-end" cx="326" cy="${f1(vy(326))}" r="2.5"/>`;
+  s += `<text class="vi-text" x="400" y="${ry}">${esc(L.transit)} <tspan class="ss-dt">Δt</tspan></text>`;
+  s += `<line class="vi-leader" x1="500" y1="${cy + 8}" x2="590" y2="${ly}"/><circle class="vi-leader-end" cx="500" cy="${cy + 8}" r="2.5"/>`;
+  s += `<text class="vi-text" x="616" y="${ry}" text-anchor="end">${esc(L.flow)}</text>`;
+  s += `</g>`;
+  return `<svg class="vis vis-sensor" viewBox="0 0 640 420" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
+}
+
+module.exports = { installSvg, rackSvg, mlSvg, severitySvg, portfolioSvg, productHeroSvg, sensorSvg };
