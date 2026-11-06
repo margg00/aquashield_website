@@ -256,7 +256,7 @@
     "lead": "Les capteurs à pince se posent sur les canalisations existantes. Un modèle par point de mesure apprend le débit normal du bâtiment. Un jumeau numérique de la plomberie ramène un écart à une colonne montante ou à une section du bâtiment. Les alertes sont examinées avec votre équipe de maintenance.",
     "install": {
       "h2": "À quoi ressemble une installation ?",
-      "text": "Les capteurs de débit ultrasoniques se fixent à pince sur l'extérieur des canalisations existantes. Les capteurs de pression se posent sur les robinets existants. Chaque capteur prend moins de 15 minutes. Sans découpe de tuyau, sans coupure de l'alimentation en eau. Chaque déploiement commence par une visite de repérage avec votre équipe de maintenance, sur site, à distance ou à partir des plans de plomberie. Le placement s'appuie sur les modes de défaillance qu'elle connaît déjà. Il n'y a pas de schéma standard. Après le premier bâtiment, les équipes de maintenance peuvent installer elles-mêmes.",
+      "text": "Les capteurs de débit ultrasoniques se fixent à l'extérieur des canalisations existantes, les capteurs de pression sur des robinets existants. Moins de 15 minutes par capteur, sans découpe, sans coupure d'eau. À partir des positions des capteurs et du plan de plomberie, AquaShield construit un jumeau numérique du bâtiment : quelle colonne alimente quels étages, quel capteur voit quelle eau. Le modèle apprend ensuite le débit normal du bâtiment. Votre propre équipe peut poser les capteurs.",
       "visualAlt": "Schéma : un capteur de débit ultrasonique à pince sur une colonne montante et un capteur de pression sur un robinet.",
       "labels": {
         "riser": "Colonne montante",
@@ -313,11 +313,11 @@
       },
       {
         "q": "Combien de temps prend un déploiement ?",
-        "a": "Un bâtiment : une visite de repérage, puis une journée d'installation. Un parc immobilier : commencez par un bâtiment, puis déployez à votre rythme."
+        "a": "Un bâtiment : une journée de pose, le jumeau numérique le jour même, le modèle apprend la normale au fil des premières semaines. Un parc : bâtiment par bâtiment, à votre rythme."
       },
       {
         "q": "Est-ce que ça fonctionne avec de vieilles canalisations ?",
-        "a": "Les capteurs se fixent sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment."
+        "a": "Oui. Les capteurs se fixent sur toute canalisation accessible, ancienne ou récente."
       },
       {
         "q": "Comment les alertes restent-elles pertinentes ?",
@@ -329,7 +329,7 @@
       },
       {
         "q": "Combien ça coûte ?",
-        "a": "Tarif par bâtiment et par point de mesure, une fraction d'un seul sinistre. Nous chiffrons après la visite de repérage."
+        "a": "Tarif par bâtiment et par point de mesure, une fraction d'un seul sinistre. Nous chiffrons à partir de votre plan de plomberie."
       }
     ]
   },
@@ -410,20 +410,20 @@
       "h2": "Commencez par un seul bâtiment.",
       "steps": [
         {
-          "name": "Visite de repérage",
-          "text": "Sur site, à distance ou à partir des plans de plomberie, avec votre équipe de maintenance. Le placement suit les modes de défaillance qu'elle connaît déjà."
+          "name": "Cartographier",
+          "text": "Envoyez-nous le plan de plomberie, ou faites-nous visiter une fois. AquaShield place les capteurs et construit le jumeau numérique du bâtiment."
         },
         {
           "name": "Installer",
-          "text": "Moins de 15 minutes par capteur. Sans découpe de tuyau. L'eau reste ouverte."
+          "text": "Moins de 15 minutes par capteur. Sans découpe. L'eau reste ouverte."
         },
         {
           "name": "Apprendre",
-          "text": "Le modèle apprend le débit normal de ce bâtiment."
+          "text": "Un modèle par point de mesure apprend le débit normal du bâtiment."
         },
         {
-          "name": "Examiner",
-          "text": "Les alertes sont examinées avec votre équipe. Puis déployez à votre rythme. Votre équipe peut installer elle-même."
+          "name": "Détecter",
+          "text": "Les écarts sont classés par gravité et localisés à la colonne montante. Votre équipe reçoit l'endroit à vérifier en premier."
         }
       ]
     },
@@ -439,11 +439,11 @@
       },
       {
         "q": "Que doit faire notre équipe de maintenance ?",
-        "a": "Participer à la visite de repérage, confirmer les alertes, vérifier l'endroit nommé par l'alerte. Après le premier bâtiment, elle peut installer elle-même."
+        "a": "Poser les capteurs, ou nous laisser le faire. Puis agir sur les alertes : chacune indique la colonne et les étages à vérifier en premier."
       },
       {
         "q": "Est-ce que ça fonctionne dans les vieux bâtiments ?",
-        "a": "Oui, sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment."
+        "a": "Oui. Les capteurs se fixent sur toute canalisation accessible, ancienne ou récente."
       },
       {
         "q": "Combien de bâtiments pour commencer ?",
@@ -515,7 +515,7 @@
     },
     "together": {
       "h2": "Essayons ensemble sur votre site.",
-      "text": "Une boucle de refroidissement, une rangée de racks, une visite de repérage avec votre équipe d'exploitation. Nous apprenons le profil normal de votre boucle. Vous voyez les premières alertes sur vos propres racks."
+      "text": "Une boucle de refroidissement, une rangée de racks. Les capteurs se fixent, le jumeau cartographie la boucle, le modèle apprend sa normale. Vous voyez les premières alertes sur vos propres racks."
     },
     "visual": {
       "alt": "Schéma : une rangée de racks à refroidissement liquide sur une boucle, un capteur à pince sur chaque dérivation, une dérivation avec chute de pression.",
@@ -529,10 +529,10 @@
   "team": {
     "eyebrow": "Équipe",
     "h1": "Deux chercheurs en robotique qui ont quitté la robotique pour réparer la plomberie.",
-    "lead": "Nous avons commencé par les bâtiments parce que c'était le système le plus simple pour démarrer. Le premier système a été construit avec MIT Facilities, dans le bâtiment NW23, avec les personnes qui l'entretiennent.",
+    "lead": "Le premier système a été mis en service au MIT, dans le bâtiment NW23. Aujourd'hui, les mêmes capteurs et modèles surveillent des colonnes montantes en Allemagne et aux États-Unis.",
     "learn": {
-      "h2": "L'équipe de maintenance est l'experte.",
-      "text": "Chaque bâtiment tombe en panne à sa manière, et les personnes qui l'entretiennent savent comment. Chaque déploiement commence donc par une visite de repérage avec elles, et chaque alerte est examinée avec elles. Le modèle apprend le bâtiment. L'équipe lui apprend ce qui compte. La technologie ne remplace pas les inspections. Elle dit à l'inspecteur où aller en premier."
+      "h2": "On clipse. Le bâtiment se cartographie lui-même.",
+      "text": "Les capteurs se fixent sur les colonnes montantes en quelques minutes. À partir de leurs positions et du plan de plomberie, AquaShield construit un jumeau numérique du bâtiment : quelle colonne alimente quels étages, quel capteur voit quelle eau. Un modèle par point de mesure apprend le débit normal du bâtiment et signale ce que la normale n'explique pas, jusqu'à la colonne et aux étages à vérifier en premier. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, conçu par des chercheurs en robotique."
     },
     "peopleTitle": "L'équipe",
     "people": [

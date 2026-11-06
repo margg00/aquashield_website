@@ -256,7 +256,7 @@
     "lead": "Clamp-on-Sensoren kommen auf bestehende Rohre. Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes. Ein digitaler Zwilling der Rohrinstallation grenzt eine Abweichung auf eine Steigleitung oder einen Gebäudeabschnitt ein. Alarme werden mit Ihrer Haustechnik geprüft.",
     "install": {
       "h2": "Wie läuft eine Installation ab?",
-      "text": "Ultraschall-Durchflusssensoren werden aussen auf bestehende Rohre geklemmt. Drucksensoren kommen auf bestehende Zapfstellen. Jeder Sensor braucht unter 15 Minuten. Kein Rohrschnitt, keine Unterbrechung der Wasserversorgung. Jeder Rollout beginnt mit einer Begehung mit Ihrer Haustechnik, vor Ort, remote oder anhand der Installationspläne. Die Platzierung folgt den Schwachstellen, die sie bereits kennt. Es gibt kein Standardlayout. Nach dem ersten Gebäude kann die Haustechnik selbst installieren.",
+      "text": "Ultraschall-Durchflusssensoren werden aussen an bestehende Rohre geklemmt, Drucksensoren an bestehende Zapfstellen. Unter 15 Minuten pro Sensor, kein Rohrschnitt, keine Abschaltung der Wasserversorgung. Aus den Sensorpositionen und dem Leitungsplan baut AquaShield einen digitalen Zwilling des Gebäudes: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Von dort lernt das Modell den normalen Durchfluss des Gebäudes. Ihr eigenes Team kann die Sensoren anklemmen.",
       "visualAlt": "Diagramm: ein Clamp-on-Ultraschall-Durchflusssensor an einer Steigleitung und ein Drucksensor an einer Zapfstelle.",
       "labels": {
         "riser": "Steigleitung",
@@ -313,11 +313,11 @@
       },
       {
         "q": "Wie lange dauert ein Rollout?",
-        "a": "Ein Gebäude: eine Begehung, dann ein Tag Installation. Ein Portfolio: mit einem Gebäude beginnen, dann in Ihrem Tempo ausrollen."
+        "a": "Ein Gebäude: ein Tag Installation, der digitale Zwilling am selben Tag, das Modell lernt den Normalverlauf in den ersten Wochen. Ein Portfolio: Gebäude für Gebäude, in Ihrem Tempo."
       },
       {
         "q": "Funktioniert es mit alten Rohren?",
-        "a": "Die Sensoren werden auf zugängliche Rohre geklemmt. Die Begehung klärt das pro Gebäude."
+        "a": "Ja. Die Sensoren werden an jedes zugängliche Rohr geklemmt, alt oder neu."
       },
       {
         "q": "Wie bleiben die Alarme relevant?",
@@ -329,7 +329,7 @@
       },
       {
         "q": "Was kostet es?",
-        "a": "Preis pro Gebäude und Messstelle, ein Bruchteil eines Schadenfalls. Wir machen ein Angebot nach der Begehung."
+        "a": "Preis pro Gebäude und Messstelle, ein Bruchteil eines Schadenfalls. Wir machen ein Angebot anhand Ihres Leitungsplans."
       }
     ]
   },
@@ -410,8 +410,8 @@
       "h2": "Beginnen Sie mit einem Gebäude.",
       "steps": [
         {
-          "name": "Begehung",
-          "text": "Vor Ort, remote oder anhand der Installationspläne, mit Ihrer Haustechnik. Die Platzierung folgt den Schwachstellen, die sie bereits kennt."
+          "name": "Kartieren",
+          "text": "Senden Sie uns den Leitungsplan oder führen Sie uns einmal durch. AquaShield platziert die Sensoren und baut den digitalen Zwilling des Gebäudes."
         },
         {
           "name": "Installieren",
@@ -419,11 +419,11 @@
         },
         {
           "name": "Lernen",
-          "text": "Das Modell lernt den normalen Durchfluss dieses Gebäudes."
+          "text": "Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes."
         },
         {
-          "name": "Prüfen",
-          "text": "Alarme werden mit Ihrem Team geprüft. Dann rollen Sie in Ihrem Tempo aus. Ihr Team kann selbst installieren."
+          "name": "Erkennen",
+          "text": "Abweichungen werden nach Schwere geordnet und bis zur Steigleitung geortet. Ihr Team bekommt den Ort, der zuerst geprüft wird."
         }
       ]
     },
@@ -439,11 +439,11 @@
       },
       {
         "q": "Was muss unsere Haustechnik tun?",
-        "a": "An der Begehung teilnehmen, Alarme bestätigen, den im Alarm genannten Ort prüfen. Nach dem ersten Gebäude kann sie selbst installieren."
+        "a": "Die Sensoren anklemmen, oder wir übernehmen das. Dann auf die Alarme reagieren: Jeder nennt die Steigleitung und die Stockwerke, die zuerst geprüft werden."
       },
       {
         "q": "Funktioniert es in alten Gebäuden?",
-        "a": "Ja, an zugänglichen Rohren. Die Begehung klärt das pro Gebäude."
+        "a": "Ja. Die Sensoren werden an jedes zugängliche Rohr geklemmt, alt oder neu."
       },
       {
         "q": "Mit wie vielen Gebäuden beginnen wir?",
@@ -515,7 +515,7 @@
     },
     "together": {
       "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
-      "text": "Ein Kühlkreislauf, eine Rack-Reihe, eine Begehung mit Ihrem Betriebsteam. Wir lernen den Normalzustand Ihres Kreislaufs. Sie sehen die ersten Alarme auf Ihren eigenen Racks."
+      "text": "Ein Kühlkreislauf, eine Rack-Reihe. Sensoren werden angeklemmt, der Zwilling kartiert den Kreislauf, das Modell lernt seinen Normalzustand. Sie sehen die ersten Alarme auf Ihren eigenen Racks."
     },
     "visual": {
       "alt": "Diagramm: eine Reihe flüssigkeitsgekühlter Racks an einem Kühlkreislauf, ein Clamp-on-Sensor an jedem Rack-Abzweig, ein Abzweig mit Druckabfall.",
@@ -529,10 +529,10 @@
   "team": {
     "eyebrow": "Team",
     "h1": "Zwei Robotikforscher, die die Robotik verlassen haben, um Rohrleitungen zu reparieren.",
-    "lead": "Wir haben mit Gebäuden begonnen, weil sie das einfachste System für den Anfang waren. Das erste System entstand mit MIT Facilities, im Gebäude NW23, mit den Menschen, die es instand halten.",
+    "lead": "Das erste System ging am MIT live, im Gebäude NW23. Heute überwachen dieselben Sensoren und Modelle Steigleitungen in Deutschland und den USA.",
     "learn": {
-      "h2": "Die Haustechnik ist der Experte.",
-      "text": "Jedes Gebäude versagt auf seine eigene Art, und die Menschen, die es instand halten, wissen wie. Deshalb beginnt jeder Rollout mit einer Begehung mit ihnen, und jeder Alarm wird mit ihnen geprüft. Das Modell lernt das Gebäude. Das Team bringt ihm bei, was zählt. Technologie ersetzt keine Inspektionen. Sie sagt dem Inspektor, wohin er zuerst gehen soll."
+      "h2": "Anklemmen. Das Gebäude kartiert sich selbst.",
+      "text": "Sensoren werden in Minuten an die Steigleitungen geklemmt. Aus ihren Positionen und dem Leitungsplan baut AquaShield einen digitalen Zwilling des Gebäudes: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes und meldet, was der Normalverlauf nicht erklärt, bis zur Steigleitung und den Stockwerken, die zuerst geprüft werden. Spezialisiertes maschinelles Lernen für hydraulische Systeme, entwickelt von Robotikforschenden."
     },
     "peopleTitle": "Personen",
     "people": [
