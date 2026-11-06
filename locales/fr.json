@@ -68,7 +68,11 @@
     "privacy": "Confidentialité",
     "linkedin": "LinkedIn",
     "email": "founders@aquashieldai.com",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "hqLabel": "Siège",
+    "hq": "Technoparkstrasse 1, 8005 Zurich, Suisse",
+    "officeLabel": "Bureau",
+    "office": "500 Sansome Street, San Francisco, CA 94111, États-Unis"
   },
   "counter": {
     "title": "En direct, calculé à partir de sites réels",
@@ -629,7 +633,7 @@
         },
         {
           "city": "San Francisco",
-          "line": "Californie"
+          "line": "500 Sansome Street, San Francisco, CA 94111"
         }
       ]
     }
@@ -674,7 +678,8 @@
       {
         "title": "AquaShield AI Inc.",
         "lines": [
-          "Delaware, États-Unis"
+          "Delaware, États-Unis",
+          "Bureau: 500 Sansome Street, San Francisco, CA 94111, États-Unis"
         ]
       },
       {

@@ -37,6 +37,9 @@ main:focus { outline: none; }
 
 .container { width: var(--container); margin-inline: auto; }
 .narrow { max-width: 760px; }
+.container.narrow { max-width: none; }
+.container.narrow > * { max-width: 760px; }
+.not-found .container.narrow > * { margin-inline: auto; }
 
 h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; overflow-wrap: break-word; hyphens: manual; }
 @media (max-width: 639px) { :lang(de) h1, :lang(de) h2, :lang(de) h3 { hyphens: auto; hyphenate-limit-chars: 12 5 5; overflow-wrap: anywhere; } }
@@ -952,6 +955,10 @@ body.nav-open { overflow: hidden; }
 .footer-title { margin-bottom: 14px; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .footer-col ul { list-style: none; display: grid; gap: 10px; color: var(--text-secondary); font-size: 0.95rem; }
 .footer-col a { color: var(--text-secondary); }
+.footer-contact li { display: grid; gap: 2px; }
+.footer-k { color: var(--text-muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-linkedin { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 4px; }
+.footer-linkedin svg { display: block; }
 .footer-col a:hover { color: var(--text-primary); }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.06); color: var(--text-muted); font-size: 0.8rem; }
 .footer-legal a { color: var(--text-muted); }
