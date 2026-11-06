@@ -78,7 +78,7 @@
     "leaksLabel": "Leaks found",
     "note": "Approximate. Computed from each site's go-live date, not typed in.",
     "formula": "Readings = measuring points × 144 ten-minute intervals per day × days since that site went live, summed over live sites.",
-    "leaksNote": "Two confirmed by flow signature, one being verified.",
+    "leaksNote": "Three reported damages matched to a clear flow signature at live sites.",
     "perDay": "per day"
   },
   "alert": {
@@ -381,7 +381,7 @@
           "label": "Data coverage per site"
         },
         {
-          "value": "2",
+          "value": "3",
           "label": "Reported damages matched to a clear flow signature"
         },
         {

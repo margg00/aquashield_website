@@ -50,7 +50,7 @@ It changes the search from five visits to one targeted one. It does not change t
 
 ## What the first sites show
 
-At the sites where AquaShield is live, two reported damages matched a clear flow signature in the data. Every alert is reviewed with the maintenance team, and every piece of feedback goes back into the model, so it gets sharper with every building.
+At the sites where AquaShield is live, three reported damages matched a clear flow signature in the data. Every alert is reviewed with the maintenance team, and every piece of feedback goes back into the model, so it gets sharper with every building.
 
 ## What to do this week
 

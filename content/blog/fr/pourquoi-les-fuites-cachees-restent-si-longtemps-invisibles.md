@@ -50,6 +50,6 @@ Cela fait passer la recherche de cinq visites à une seule, ciblée. Cela ne cha
 
 ## Ce que montrent les premiers sites
 
-Sur les sites où AquaShield est en service, deux dégâts signalés correspondaient à une signature de débit claire dans les données. Chaque alerte est vérifiée avec l'équipe de maintenance, et chaque retour revient dans le modèle, qui s'affine à chaque bâtiment.
+Sur les sites où AquaShield est en service, trois dégâts signalés correspondaient à une signature de débit claire dans les données. Chaque alerte est vérifiée avec l'équipe de maintenance, et chaque retour revient dans le modèle, qui s'affine à chaque bâtiment.
 
 Si vous gérez un parc immobilier avec une équipe de maintenance interne, [commencez par un seul bâtiment](/fr/immobilier/) et voyez si les alertes en valent la peine. La première étape est un [appel de 30 minutes](/fr/reserver-un-appel/?for=real-estate).

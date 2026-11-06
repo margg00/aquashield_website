@@ -50,6 +50,6 @@ Das ändert die Suche von fünf Terminen zu einem gezielten. Die Reparatur ände
 
 ## Was die ersten Standorte zeigen
 
-An den Standorten, an denen AquaShield live ist, passten zwei gemeldete Schäden zu einem klaren Durchflussmuster in den Daten. Jeder Alarm wird mit der Haustechnik geprüft, und jedes Feedback fliesst zurück ins Modell, so wird es mit jedem Gebäude schärfer.
+An den Standorten, an denen AquaShield live ist, passten drei gemeldete Schäden zu einem klaren Durchflussmuster in den Daten. Jeder Alarm wird mit der Haustechnik geprüft, und jedes Feedback fliesst zurück ins Modell, so wird es mit jedem Gebäude schärfer.
 
 Wenn Sie ein Portfolio mit eigener Haustechnik betreiben, [beginnen Sie mit einem Gebäude](/de/immobilien/) und sehen Sie, ob die Alarme etwas taugen. Der erste Schritt ist ein [30-minütiges Gespräch](/de/gespraech-buchen/?for=real-estate).

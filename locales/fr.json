@@ -78,7 +78,7 @@
     "leaksLabel": "Fuites trouvées",
     "note": "Valeurs approximatives. Calculées à partir de la date de mise en service de chaque site, pas saisies à la main.",
     "formula": "Mesures = points de mesure × 144 intervalles de dix minutes par jour × jours depuis la mise en service du site, additionnés sur les sites en service.",
-    "leaksNote": "Deux confirmées par signature de débit, une en cours de vérification.",
+    "leaksNote": "Trois dégâts signalés correspondaient à une signature de débit claire sur les sites en service.",
     "perDay": "par jour"
   },
   "alert": {
@@ -381,7 +381,7 @@
           "label": "Couverture de données par site"
         },
         {
-          "value": "2",
+          "value": "3",
           "label": "Dégâts signalés associés à une signature de débit claire"
         },
         {

@@ -38,7 +38,7 @@ By the time a leak is discovered, it has usually announced itself three times. F
 
 A clamp-on sensor on the riser reads the flow every 10 minutes. A model learns that riser's normal: the night baseline, the morning peak, the weekly rhythm. The night baseline is the tell. When every tap is closed and the flow still does not return to its usual level, water is moving where it should not. The model flags it, and the digital twin names the riser and the floors to check first.
 
-At the first portfolio where AquaShield is live, 22 buildings and 32 measuring points have been reporting since March 2026 with 91 to 100 percent data coverage per site. Two reported damages there matched a clear flow signature in the data.
+At the first portfolio where AquaShield is live, 22 buildings and 32 measuring points have been reporting since March 2026 with 91 to 100 percent data coverage per site. Three reported damages there matched a clear flow signature in the data.
 
 ## The difference in practice
 
