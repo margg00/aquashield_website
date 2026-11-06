@@ -162,7 +162,7 @@
   "home": {
     "hero": {
       "eyebrow": "KI-Leckageerkennung für Gebäude",
-      "h1": "Das Leck finden, bevor der Schaden entsteht.",
+      "h1": "<span class=\"h1-bracket\">[</span>Wasser, endlich sichtbar.<span class=\"h1-bracket\">]</span>",
       "proof": "Live in Deutschland und den USA. Unterstützt von Y Combinator.",
       "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss.",
       "live": "Live in Deutschland und den USA."
