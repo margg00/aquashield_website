@@ -56,7 +56,8 @@
     "by": "Par",
     "updated": "Mis à jour",
     "minutes": "min de lecture",
-    "source": "Source"
+    "source": "Source",
+    "and": "et"
   },
   "footer": {
     "offices": "Siège à Zurich, Technoparkstrasse 1, 8005 Zurich. San Francisco.",
@@ -165,7 +166,8 @@
       "eyebrow": "Détection de fuites par IA pour bâtiments",
       "h1": "Trouvez la fuite avant les dégâts.",
       "proof": "En service en Allemagne et aux États-Unis. Soutenu par Y Combinator.",
-      "visualAlt": "Bâtiment en fil de fer avec cinq étages et trois colonnes montantes. Une colonne montante s'allume en rouge à l'écart détecté au troisième étage."
+      "visualAlt": "Bâtiment en fil de fer avec cinq étages et trois colonnes montantes. Une colonne montante s'allume en rouge à l'écart détecté au troisième étage.",
+      "live": "En service en Allemagne et aux États-Unis."
     },
     "problem": {
       "eyebrow": "Le problème",

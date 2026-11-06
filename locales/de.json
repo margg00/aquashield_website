@@ -56,7 +56,8 @@
     "by": "Von",
     "updated": "Aktualisiert",
     "minutes": "Min. Lesezeit",
-    "source": "Quelle"
+    "source": "Quelle",
+    "and": "und"
   },
   "footer": {
     "offices": "Hauptsitz Zürich, Technoparkstrasse 1, 8005 Zürich. San Francisco.",
@@ -165,7 +166,8 @@
       "eyebrow": "KI-Leckageerkennung für Gebäude",
       "h1": "Das Leck finden, bevor der Schaden entsteht.",
       "proof": "Live in Deutschland und den USA. Unterstützt von Y Combinator.",
-      "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss."
+      "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss.",
+      "live": "Live in Deutschland und den USA."
     },
     "problem": {
       "eyebrow": "Das Problem",

@@ -9,13 +9,13 @@
           "key": "yc",
           "file": "y-combinator.svg",
           "height": 30,
-          "tone": "plain"
+          "tone": "mono"
         },
         {
           "name": "OpenAI",
           "key": "openai",
           "file": "openai.svg",
-          "height": 28,
+          "height": 30,
           "tone": "mono"
         },
         {

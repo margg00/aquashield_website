@@ -56,7 +56,8 @@
     "by": "By",
     "updated": "Updated",
     "minutes": "min read",
-    "source": "Source"
+    "source": "Source",
+    "and": "and"
   },
   "footer": {
     "offices": "Zurich HQ, Technoparkstrasse 1, 8005 Zurich. San Francisco.",
@@ -165,7 +166,8 @@
       "eyebrow": "AI leak detection for buildings",
       "h1": "Find the leak before the damage.",
       "proof": "Live in Germany and the US. Backed by Y Combinator.",
-      "visualAlt": "Wireframe building with five floors and three risers. One riser glows red at the deviation on floor three."
+      "visualAlt": "Wireframe building with five floors and three risers. One riser glows red at the deviation on floor three.",
+      "live": "Live in Germany and the US."
     },
     "problem": {
       "eyebrow": "The problem",
