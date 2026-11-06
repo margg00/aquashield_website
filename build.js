@@ -407,7 +407,8 @@ function build() {
 
     const renderPage = (pageKey, templateName, pageVars, extraLd, slugOverride) => {
       const url = SITE_URL + urlFor(pageKey, lang, slugOverride);
-      const alternates = langsBuilt.map((l) => {
+      const altLangs = pageVars.altLangs || langsBuilt;
+      const alternates = langsBuilt.filter((l) => altLangs.includes(l)).map((l) => {
         const slug = slugOverride !== undefined ? (pageVars.altSlugs ? pageVars.altSlugs[l] : slugOverride) : undefined;
         const u = urlFor(pageKey, l, slug);
         return { lang: l, code: l.toUpperCase(), url: SITE_URL + u, href: u, name: locales[l].meta.langName, current: l === lang };
@@ -430,7 +431,7 @@ function build() {
           ...pageVars
         },
         alternates,
-        xDefault: SITE_URL + urlFor(pageKey, DEFAULT_LANG, slugOverride !== undefined && pageVars.altSlugs ? pageVars.altSlugs[DEFAULT_LANG] : slugOverride),
+        xDefault: (pageVars.altLangs && !pageVars.altLangs.includes(DEFAULT_LANG)) ? url : SITE_URL + urlFor(pageKey, DEFAULT_LANG, slugOverride !== undefined && pageVars.altSlugs ? pageVars.altSlugs[DEFAULT_LANG] : slugOverride),
         jsonLd: jsonLdFor(pageKey, t, lang, url, extraLd)
       };
       const trace = `${lang}/${pageKey}${slugOverride ? "/" + slugOverride : ""}`;
@@ -458,12 +459,13 @@ function build() {
     // blog posts
     posts[lang].forEach((post) => {
       const altSlugs = {};
+      const altLangs = [];
       langsBuilt.forEach((l) => {
         const match = posts[l].find((p) => p.id === post.id);
-        altSlugs[l] = `${ROUTES.blog[l]}/${match ? match.slug : post.slug}`;
+        if (match) { altSlugs[l] = `${ROUTES.blog[l]}/${match.slug}`; altLangs.push(l); }
       });
       const postView = base.posts.find((p) => p.slug === post.slug);
-      renderPage("blog", "blog-post", { post: postView, title: post.title, description: post.description, altSlugs, isPost: true, faq: [] }, { faq: post.faq, article: { ...post, authorUrl: SITE_URL + urlFor("team", lang) + "#" + post.authorId } }, altSlugs[lang]);
+      renderPage("blog", "blog-post", { post: postView, title: post.title, description: post.description, altSlugs, altLangs, isPost: true, faq: [] }, { faq: post.faq, article: { ...post, authorUrl: SITE_URL + urlFor("team", lang) + "#" + post.authorId } }, altSlugs[lang]);
     });
   });
 

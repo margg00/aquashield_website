@@ -52,4 +52,12 @@ It changes the search from five visits to one targeted one. It does not change t
 
 At the sites where AquaShield is live, two reported damages matched a clear flow signature in the data. Every alert is reviewed with the maintenance team, and every piece of feedback goes back into the model, so it gets sharper with every building.
 
+## What to do this week
+
+Three things a portfolio can do before any sensor is installed.
+
+1. **Pull the last five water claims** and note where each leak was found and how long it had run. The pattern is usually the same: shared network, weeks, found by a tenant.
+2. **Pick the building** with the most units on the fewest risers. It is the fastest proof of a live view.
+3. **Send the plumbing plan.** The sensor positions and the digital twin are planned from it before anyone is on site.
+
 If you run a portfolio with an in-house maintenance team, [start with one building](/real-estate/) and see whether the alerts are worth it. The first step is a [30-minute call](/book-a-call/?for=real-estate).

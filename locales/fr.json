@@ -574,6 +574,20 @@
         "role": "Ingénieur fondateur",
         "alumni": [],
         "line": ""
+      },
+      {
+        "id": "jacques-raffaeli",
+        "name": "Jacques Raffaeli",
+        "role": "Banc d'essai",
+        "alumni": [],
+        "line": "Stagiaire."
+      },
+      {
+        "id": "felix-leupold",
+        "name": "Felix Leupold",
+        "role": "Founder's Associate",
+        "alumni": [],
+        "line": "Stagiaire."
       }
     ],
     "peopleConfirm": "",
@@ -582,7 +596,7 @@
       "h2": "Soutiens et recherche",
       "items": [
         "Y Combinator, printemps 2026.",
-        "Membre du programme NVIDIA Inception.",
+        "NVIDIA.",
         "OpenAI.",
         "Bourse IA du Startup Launchpad de l'EPFL.",
         "Collaborations de recherche avec l'EPFL et l'ETH Zurich.",

@@ -574,6 +574,20 @@
         "role": "Founding Engineer",
         "alumni": [],
         "line": ""
+      },
+      {
+        "id": "jacques-raffaeli",
+        "name": "Jacques Raffaeli",
+        "role": "Prüfstand",
+        "alumni": [],
+        "line": "Praktikum."
+      },
+      {
+        "id": "felix-leupold",
+        "name": "Felix Leupold",
+        "role": "Founder's Associate",
+        "alumni": [],
+        "line": "Praktikum."
       }
     ],
     "peopleConfirm": "",
@@ -582,7 +596,7 @@
       "h2": "Unterstützung und Forschung",
       "items": [
         "Y Combinator, Frühjahr 2026.",
-        "Mitglied im NVIDIA Inception Programm.",
+        "NVIDIA.",
         "OpenAI.",
         "EPFL Startup Launchpad AI Grant.",
         "Forschungskooperationen mit EPFL und ETH Zürich.",
