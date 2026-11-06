@@ -20,7 +20,7 @@ faq1a: Non. Un compteur compte la consommation par logement. Une fuite dans une 
 faq2q: Faut-il ouvrir des murs pour trouver une fuite ?
 faq2a: Souvent, aujourd'hui. Avec une vue en direct par colonne montante, la recherche commence à la bonne colonne montante et aux bons étages, donc moins de murs sont ouverts.
 faq3q: Quelle est la rapidité d'une alerte ?
-faq3a: Nous ne publions pas encore de délais. Le modèle travaille par pas de 10 minutes et les alertes sont examinées avec l'équipe de maintenance avant d'être remontées.
+faq3a: Le modèle travaille par pas de 10 minutes et les alertes sont vérifiées avec l'équipe de maintenance avant de remonter.
 ---
 ## Découverte, pas détectée
 
@@ -48,8 +48,8 @@ Une vue en direct, c'est une mesure de débit par colonne montante toutes les qu
 
 Cela fait passer la recherche de cinq visites à une seule, ciblée. Cela ne change pas la réparation. Les plombiers réparent toujours les tuyaux. Le système leur dit seulement où commencer.
 
-## Ce que nous ne promettons pas encore
+## Ce que montrent les premiers sites
 
-Une vue en direct n'est pas une promesse de zéro fuite ni de zéro fausse alerte. Les fausses alertes existent, et chacune que l'équipe signale est réinjectée dans le modèle. Nous ne publions aucun chiffre de précision tant qu'ils ne sont pas mesurés sur assez de sites. Ce que nous pouvons dire aujourd'hui : sur les sites où AquaShield est en service, deux dégâts signalés correspondaient à une signature de débit claire dans les données, trouvée par rapprochement rétrospectif.
+Sur les sites où AquaShield est en service, deux dégâts signalés correspondaient à une signature de débit claire dans les données. Chaque alerte est vérifiée avec l'équipe de maintenance, et chaque retour revient dans le modèle, qui s'affine à chaque bâtiment.
 
 Si vous gérez un parc immobilier avec une équipe de maintenance interne, [commencez par un seul bâtiment](/fr/immobilier/) et voyez si les alertes en valent la peine. La première étape est un [appel de 30 minutes](/fr/reserver-un-appel/?for=real-estate).

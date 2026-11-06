@@ -10,9 +10,14 @@
       <nav class="site-nav" id="site-nav" aria-label="Main" data-nav>
         <ul class="nav-list">
           <li><a href="{{urls.product}}" {{#if page.isProduct}}aria-current="page"{{/if}}>{{nav.product}}</a></li>
-          <li><a href="{{urls.real-estate}}" {{#if page.isRealEstate}}aria-current="page"{{/if}}>{{nav.realEstate}}</a></li>
-          <li><a href="{{urls.insurance}}" {{#if page.isInsurance}}aria-current="page"{{/if}}>{{nav.insurance}}</a></li>
-          <li><a href="{{urls.data-centers}}" {{#if page.isDataCenters}}aria-current="page"{{/if}}>{{nav.dataCenters}}</a></li>
+          <li class="nav-item-drop" data-dropdown>
+            <button type="button" class="nav-drop-toggle{{#if page.isRealEstate}} is-active{{/if}}{{#if page.isInsurance}} is-active{{/if}}{{#if page.isDataCenters}} is-active{{/if}}" aria-expanded="false" aria-controls="nav-sectors" data-drop-toggle>{{nav.sectors}}<svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <ul class="nav-drop" id="nav-sectors">
+              <li><a href="{{urls.real-estate}}" {{#if page.isRealEstate}}aria-current="page"{{/if}}>{{nav.realEstate}}</a></li>
+              <li><a href="{{urls.insurance}}" {{#if page.isInsurance}}aria-current="page"{{/if}}>{{nav.insurance}}</a></li>
+              <li><a href="{{urls.data-centers}}" {{#if page.isDataCenters}}aria-current="page"{{/if}}>{{nav.dataCenters}}</a></li>
+            </ul>
+          </li>
           <li><a href="{{urls.team}}" {{#if page.isTeam}}aria-current="page"{{/if}}>{{nav.team}}</a></li>
           <li><a href="{{urls.blog}}" {{#if page.isBlog}}aria-current="page"{{/if}}>{{nav.blog}}</a></li>
         </ul>

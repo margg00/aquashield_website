@@ -21,7 +21,8 @@
     "cta": "Book a call",
     "menu": "Menu",
     "close": "Close",
-    "language": "Language"
+    "language": "Language",
+    "sectors": "Sectors"
   },
   "cta": {
     "label": "Book a 30-min discovery call",
@@ -138,7 +139,7 @@
     },
     "data-centers": {
       "title": "Cooling-loop leak detection for data centres | AquaShield",
-      "description": "Networked flow and pressure sensing per rack for liquid-cooled data centres. Catch the cooling-loop leak before the outage. Nothing live yet, first site wanted."
+      "description": "Networked flow and pressure sensing per rack for liquid-cooled data centres. Catch the cooling-loop leak before the outage. First sites in Switzerland."
     },
     "team": {
       "title": "Team | AquaShield",
@@ -247,7 +248,7 @@
     },
     "final": {
       "h2": "Start with one building.",
-      "line": "Thirty minutes with a founder. We ask three questions, you ask yours, and we say honestly whether we can help."
+      "line": "Thirty minutes with a founder. We ask three questions, you ask yours, and we map out your first building."
     }
   },
   "product": {
@@ -288,12 +289,12 @@
     },
     "precision": {
       "h2": "How precise is the localisation?",
-      "text": "Honest answer: to the riser or the building section, not to the pipe segment. At one site the system narrowed a deviation to a single riser. At another it pointed to one side of the building. Precision grows with the number of measuring points and with every incident the model learns from. We state no accuracy percentage until it is measured across enough sites.",
+      "text": "To the riser or the building section. The digital twin narrows a deviation to the place to check first, so the search starts at the right riser and the right floors instead of behind the first wet wall. Precision grows with every measuring point and every incident the model learns from.",
       "confirm": ""
     },
     "ml": {
       "h2": "The machine learning",
-      "text": "Each measuring point gets its own model. It learns that building's normal flow in 10-minute steps: night baseline, morning peak, weekday against weekend. A deviation is a flow pattern that normal does not explain. The digital twin maps which sensors see the same water, so a deviation can be placed in the network. False alarms your team flags go back into the model. Specialised machine learning for hydraulic systems, not a generic anomaly detector."
+      "text": "Each measuring point gets its own model. It learns that building's normal flow in 10-minute steps: night baseline, morning peak, weekday against weekend. A deviation is a flow pattern that normal does not explain. The digital twin maps which sensors see the same water, so a deviation can be placed in the network. Your team's feedback goes straight back into the model. Specialised machine learning for hydraulic systems, not a generic anomaly detector."
     },
     "sensors": {
       "h2": "The sensors",
@@ -319,8 +320,8 @@
         "a": "The sensors clamp onto accessible pipe. The walkthrough confirms it per building."
       },
       {
-        "q": "What happens with a false alarm?",
-        "a": "You flag it in the dashboard. The model learns from it. Alerts are reviewed with your team before they escalate."
+        "q": "How do alerts stay relevant?",
+        "a": "Alerts are ranked by severity and reviewed with your team before they escalate. Your feedback goes back into the model, so it gets sharper with every building."
       },
       {
         "q": "Who sees the data?",
@@ -438,7 +439,7 @@
       },
       {
         "q": "What does our maintenance team have to do?",
-        "a": "Join the walkthrough, flag false alarms, check the location the alert names. After the first building they can install themselves."
+        "a": "Join the walkthrough, confirm alerts, check the location the alert names. After the first building they can install themselves."
       },
       {
         "q": "Does it work in old buildings?",
@@ -489,14 +490,14 @@
       "line": "Which one fits depends on your book. The 30-minute call is where we find out."
     },
     "share": {
-      "h2": "What we can share, and what we cannot",
+      "h2": "What we share, and what stays with the owner",
       "can": "We can: aggregated flow deviations per building, alert counts and durations, data coverage, with the owner's consent.",
-      "cannot": "We cannot: unit-level consumption, tenant data, or any data the owner has not released. The owner stays in control of their data.",
+      "cannot": "Stays with the owner: unit-level consumption, tenant data, anything the owner has not released. The owner stays in control of their data.",
       "confirm": ""
     },
     "status": {
-      "h2": "Where we are",
-      "text": "No insurer is a customer or partner yet. Pilots are running with owners in Germany and the US. We are looking for the first carrier to work through one book of business with us."
+      "h2": "Start with one book of business.",
+      "text": "Pilots are running with owners in Germany and the US. The next step is one book of business, worked through with one carrier: which buildings, which data, which of the five models."
     }
   },
   "dataCenters": {
@@ -508,13 +509,13 @@
       "text": "A leak cable fires when water reaches the floor. By then a rack has lost cooling. Networked flow and pressure sensing per rack sees the deviation in the loop itself: a drop in pressure, a flow that does not match its neighbours. Clamp-on, non-invasive, no cutting into the cooling loop. The same model that learns a building's normal flow learns a cooling loop's."
     },
     "status": {
-      "h2": "Where we are",
-      "text": "Nothing is live in a data centre yet. We are looking for a first site, in Switzerland first, to try this together.",
+      "h2": "From residential risers to liquid cooling.",
+      "text": "The sensors and the model that watch residential risers today go onto your cooling loop. First sites in Switzerland.",
       "proof": "Proof from real estate: live at a large residential portfolio in Germany since March 2026, 22 buildings and 32 measuring points."
     },
     "together": {
       "h2": "Let us try it together at your site.",
-      "text": "One cooling loop, one rack row, a walkthrough with your operations team. We learn your loop's normal. You see whether the alerts are worth it."
+      "text": "One cooling loop, one rack row, a walkthrough with your operations team. We learn your loop's normal. You see the first alerts on your own racks."
     },
     "visual": {
       "alt": "Diagram: a row of liquid-cooled racks on one cooling loop, a clamp-on sensor on every rack branch, one branch showing a pressure drop.",
@@ -616,7 +617,7 @@
   },
   "book": {
     "h1": "Book a 30-min discovery call",
-    "lead": "Thirty minutes with a founder. We ask three questions, you ask yours, and we say honestly whether we can help.",
+    "lead": "Thirty minutes with a founder. We ask three questions, you ask yours, and we map out your first building.",
     "pick": "Pick a time",
     "pickNote": "Opens the calendar. Loads a scheduling widget from Calendly.",
     "or": "Or send us the three answers and we reply with times.",

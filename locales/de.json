@@ -21,7 +21,8 @@
     "cta": "Gespräch buchen",
     "menu": "Menü",
     "close": "Schliessen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "sectors": "Branchen"
   },
   "cta": {
     "label": "30-min Erstgespräch buchen",
@@ -138,7 +139,7 @@
     },
     "data-centers": {
       "title": "Kühlkreislauf-Lecks in Rechenzentren erkennen | AquaShield",
-      "description": "Durchfluss- und Druckmessung pro Rack in flüssigkeitsgekühlten Rechenzentren. Das Leck im Kühlkreislauf vor dem Ausfall erkennen. Erster Standort gesucht."
+      "description": "Vernetzte Durchfluss- und Druckmessung pro Rack für flüssigkeitsgekühlte Rechenzentren. Das Leck im Kühlkreislauf erkennen, bevor der Ausfall kommt. Erste Standorte in der Schweiz."
     },
     "team": {
       "title": "Team | AquaShield",
@@ -247,7 +248,7 @@
     },
     "final": {
       "h2": "Beginnen Sie mit einem Gebäude.",
-      "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir sagen ehrlich, ob wir helfen können."
+      "line": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen gemeinsam Ihr erstes Gebäude."
     }
   },
   "product": {
@@ -288,12 +289,12 @@
     },
     "precision": {
       "h2": "Wie genau ist die Ortung?",
-      "text": "Ehrliche Antwort: bis zur Steigleitung oder zum Gebäudeabschnitt, nicht bis zum Rohrabschnitt. An einem Standort hat das System eine Abweichung auf eine einzelne Steigleitung eingegrenzt. An einem anderen zeigte es auf eine Seite des Gebäudes. Die Genauigkeit wächst mit der Zahl der Messstellen und mit jedem Vorfall, aus dem das Modell lernt. Wir nennen keinen Genauigkeitswert in Prozent, bevor er über genügend Standorte gemessen ist.",
+      "text": "Bis zur Steigleitung oder zum Gebäudeabschnitt. Der digitale Zwilling grenzt eine Abweichung auf den Ort ein, der zuerst geprüft wird. Die Suche beginnt an der richtigen Steigleitung und den richtigen Stockwerken statt hinter der ersten nassen Wand. Die Präzision wächst mit jeder Messstelle und jedem Vorfall, aus dem das Modell lernt.",
       "confirm": ""
     },
     "ml": {
       "h2": "Das maschinelle Lernen",
-      "text": "Jede Messstelle bekommt ihr eigenes Modell. Es lernt den normalen Durchfluss dieses Gebäudes in 10-Minuten-Schritten: nächtlicher Normalverlauf, Morgenspitze, Werktag gegenüber Wochenende. Eine Abweichung ist ein Durchflussmuster, das der Normalverlauf nicht erklärt. Der digitale Zwilling bildet ab, welche Sensoren dasselbe Wasser sehen, damit eine Abweichung im Netz platziert werden kann. Fehlalarme, die Ihr Team markiert, fliessen zurück ins Modell. Spezialisiertes maschinelles Lernen für hydraulische Systeme, kein generischer Anomaliedetektor."
+      "text": "Jede Messstelle bekommt ihr eigenes Modell. Es lernt den normalen Durchfluss dieses Gebäudes in 10-Minuten-Schritten: nächtlicher Normalverlauf, Morgenspitze, Werktag gegenüber Wochenende. Eine Abweichung ist ein Durchflussmuster, das der Normalverlauf nicht erklärt. Der digitale Zwilling bildet ab, welche Sensoren dasselbe Wasser sehen, damit eine Abweichung im Netz platziert werden kann. Das Feedback Ihres Teams fliesst direkt zurück ins Modell. Spezialisiertes maschinelles Lernen für hydraulische Systeme, kein generischer Anomaliedetektor."
     },
     "sensors": {
       "h2": "Die Sensoren",
@@ -319,8 +320,8 @@
         "a": "Die Sensoren werden auf zugängliche Rohre geklemmt. Die Begehung klärt das pro Gebäude."
       },
       {
-        "q": "Was passiert bei einem Fehlalarm?",
-        "a": "Sie markieren ihn im Dashboard. Das Modell lernt daraus. Alarme werden mit Ihrem Team geprüft, bevor sie eskalieren."
+        "q": "Wie bleiben die Alarme relevant?",
+        "a": "Alarme werden nach Schwere geordnet und mit Ihrem Team geprüft, bevor sie eskalieren. Ihr Feedback fliesst zurück ins Modell, so wird es mit jedem Gebäude schärfer."
       },
       {
         "q": "Wer sieht die Daten?",
@@ -438,7 +439,7 @@
       },
       {
         "q": "Was muss unsere Haustechnik tun?",
-        "a": "An der Begehung teilnehmen, Fehlalarme markieren, den im Alarm genannten Ort prüfen. Nach dem ersten Gebäude kann sie selbst installieren."
+        "a": "An der Begehung teilnehmen, Alarme bestätigen, den im Alarm genannten Ort prüfen. Nach dem ersten Gebäude kann sie selbst installieren."
       },
       {
         "q": "Funktioniert es in alten Gebäuden?",
@@ -489,14 +490,14 @@
       "line": "Welcher passt, hängt von Ihrem Bestand ab. Im 30-minütigen Gespräch finden wir es heraus."
     },
     "share": {
-      "h2": "Was wir teilen können, und was nicht",
+      "h2": "Was wir teilen, und was beim Eigentümer bleibt",
       "can": "Wir können: aggregierte Durchflussabweichungen pro Gebäude, Anzahl und Dauer der Alarme, Datenabdeckung, mit Zustimmung des Eigentümers.",
-      "cannot": "Wir können nicht: Verbrauch pro Einheit, Mieterdaten oder Daten, die der Eigentümer nicht freigegeben hat. Der Eigentümer behält die Kontrolle über seine Daten.",
+      "cannot": "Bleibt beim Eigentümer: Verbrauch pro Einheit, Mieterdaten, alles, was der Eigentümer nicht freigegeben hat. Der Eigentümer behält die Kontrolle über seine Daten.",
       "confirm": ""
     },
     "status": {
-      "h2": "Wo wir stehen",
-      "text": "Noch ist kein Versicherer Kunde oder Partner. Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Wir suchen den ersten Versicherer, der mit uns einen Bestand durcharbeitet."
+      "h2": "Beginnen Sie mit einem Bestand.",
+      "text": "Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Der nächste Schritt ist ein Bestand, gemeinsam mit einem Versicherer durchgearbeitet: welche Gebäude, welche Daten, welches der fünf Modelle."
     }
   },
   "dataCenters": {
@@ -508,13 +509,13 @@
       "text": "Ein Leckagekabel schlägt an, wenn Wasser den Boden erreicht. Bis dahin hat ein Rack seine Kühlung verloren. Vernetzte Durchfluss- und Druckmessung pro Rack sieht die Abweichung im Kreislauf selbst: einen Druckabfall, einen Durchfluss, der nicht zu den Nachbarn passt. Clamp-on, nicht-invasiv, kein Eingriff in den Kühlkreislauf. Dasselbe Modell, das den normalen Durchfluss eines Gebäudes lernt, lernt den eines Kühlkreislaufs."
     },
     "status": {
-      "h2": "Wo wir stehen",
-      "text": "In einem Rechenzentrum ist noch nichts live. Wir suchen einen ersten Standort, zuerst in der Schweiz, um das gemeinsam zu erproben.",
+      "h2": "Von der Steigleitung zur Flüssigkühlung.",
+      "text": "Die Sensoren und das Modell, die heute Steigleitungen in Wohngebäuden überwachen, kommen auf Ihren Kühlkreislauf. Erste Standorte in der Schweiz.",
       "proof": "Nachweis aus dem Immobilienbereich: live in einem grossen Wohnungsportfolio in Deutschland seit März 2026, 22 Gebäude und 32 Messstellen."
     },
     "together": {
       "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
-      "text": "Ein Kühlkreislauf, eine Rack-Reihe, eine Begehung mit Ihrem Betriebsteam. Wir lernen den Normalverlauf Ihres Kreislaufs. Sie sehen, ob die Alarme etwas taugen."
+      "text": "Ein Kühlkreislauf, eine Rack-Reihe, eine Begehung mit Ihrem Betriebsteam. Wir lernen den Normalzustand Ihres Kreislaufs. Sie sehen die ersten Alarme auf Ihren eigenen Racks."
     },
     "visual": {
       "alt": "Diagramm: eine Reihe flüssigkeitsgekühlter Racks an einem Kühlkreislauf, ein Clamp-on-Sensor an jedem Rack-Abzweig, ein Abzweig mit Druckabfall.",
@@ -616,7 +617,7 @@
   },
   "book": {
     "h1": "30-min Erstgespräch buchen",
-    "lead": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir sagen ehrlich, ob wir helfen können.",
+    "lead": "Dreissig Minuten mit einem Gründer. Wir stellen drei Fragen, Sie stellen Ihre, und wir planen gemeinsam Ihr erstes Gebäude.",
     "pick": "Termin wählen",
     "pickNote": "Öffnet den Kalender. Lädt ein Terminbuchungs-Widget von Calendly.",
     "or": "Oder schicken Sie uns die drei Antworten und wir antworten mit Terminvorschlägen.",

@@ -21,7 +21,8 @@
     "cta": "Réserver un appel",
     "menu": "Menu",
     "close": "Fermer",
-    "language": "Langue"
+    "language": "Langue",
+    "sectors": "Secteurs"
   },
   "cta": {
     "label": "Réserver un appel découverte de 30 min",
@@ -138,7 +139,7 @@
     },
     "data-centers": {
       "title": "Centres de données : fuites de refroidissement | AquaShield",
-      "description": "Débit et pression par rack pour les centres de données à refroidissement liquide. Détecter la fuite de la boucle avant la panne. Premier site recherché."
+      "description": "Mesure de débit et de pression par rack pour les centres de données à refroidissement liquide. Détecter la fuite de la boucle de refroidissement avant la panne. Premiers sites en Suisse."
     },
     "team": {
       "title": "Équipe | AquaShield",
@@ -247,7 +248,7 @@
     },
     "final": {
       "h2": "Commencez par un seul bâtiment.",
-      "line": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous vous disons franchement si nous pouvons aider."
+      "line": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous planifions ensemble votre premier bâtiment."
     }
   },
   "product": {
@@ -288,12 +289,12 @@
     },
     "precision": {
       "h2": "Quelle est la précision de la localisation ?",
-      "text": "Réponse honnête : à la colonne montante ou à la section du bâtiment, pas au tronçon de canalisation. Sur un site, le système a ramené un écart à une seule colonne montante. Sur un autre, il a désigné un côté du bâtiment. La précision augmente avec le nombre de points de mesure et avec chaque incident dont le modèle apprend. Nous n'indiquons aucun pourcentage de précision tant qu'il n'est pas mesuré sur assez de sites.",
+      "text": "À la colonne montante ou à la section du bâtiment. Le jumeau numérique ramène un écart à l'endroit à vérifier en premier : la recherche commence à la bonne colonne et aux bons étages, pas derrière le premier mur humide. La précision augmente avec chaque point de mesure et chaque incident dont le modèle apprend.",
       "confirm": ""
     },
     "ml": {
       "h2": "L'apprentissage automatique",
-      "text": "Chaque point de mesure a son propre modèle. Il apprend le débit normal de ce bâtiment par pas de 10 minutes : profil normal de nuit, pic du matin, semaine contre week-end. Un écart est un schéma de débit que le normal n'explique pas. Le jumeau numérique indique quels capteurs voient la même eau, pour que l'écart puisse être placé dans le réseau. Les fausses alertes signalées par votre équipe sont réinjectées dans le modèle. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, pas un détecteur d'anomalies générique."
+      "text": "Chaque point de mesure a son propre modèle. Il apprend le débit normal de ce bâtiment par pas de 10 minutes : profil normal de nuit, pic du matin, semaine contre week-end. Un écart est un schéma de débit que le normal n'explique pas. Le jumeau numérique indique quels capteurs voient la même eau, pour que l'écart puisse être placé dans le réseau. Les retours de votre équipe reviennent directement dans le modèle. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, pas un détecteur d'anomalies générique."
     },
     "sensors": {
       "h2": "Les capteurs",
@@ -319,8 +320,8 @@
         "a": "Les capteurs se fixent sur les canalisations accessibles. La visite de repérage le confirme pour chaque bâtiment."
       },
       {
-        "q": "Que se passe-t-il en cas de fausse alerte ?",
-        "a": "Vous la signalez dans le tableau de bord. Le modèle en apprend. Les alertes sont examinées avec votre équipe avant d'être remontées."
+        "q": "Comment les alertes restent-elles pertinentes ?",
+        "a": "Les alertes sont classées par gravité et vérifiées avec votre équipe avant de remonter. Vos retours reviennent dans le modèle, qui s'affine à chaque bâtiment."
       },
       {
         "q": "Qui voit les données ?",
@@ -438,7 +439,7 @@
       },
       {
         "q": "Que doit faire notre équipe de maintenance ?",
-        "a": "Participer à la visite de repérage, signaler les fausses alertes, vérifier l'endroit nommé par l'alerte. Après le premier bâtiment, elle peut installer elle-même."
+        "a": "Participer à la visite de repérage, confirmer les alertes, vérifier l'endroit nommé par l'alerte. Après le premier bâtiment, elle peut installer elle-même."
       },
       {
         "q": "Est-ce que ça fonctionne dans les vieux bâtiments ?",
@@ -489,14 +490,14 @@
       "line": "Laquelle convient dépend de votre portefeuille. L'appel de 30 minutes sert à le découvrir."
     },
     "share": {
-      "h2": "Ce que nous pouvons partager, et ce que nous ne pouvons pas",
+      "h2": "Ce que nous partageons, et ce qui reste chez le propriétaire",
       "can": "Nous pouvons : les écarts de débit agrégés par bâtiment, le nombre et la durée des alertes, la couverture de données, avec l'accord du propriétaire.",
-      "cannot": "Nous ne pouvons pas : la consommation par logement, les données des locataires, ni aucune donnée que le propriétaire n'a pas libérée. Le propriétaire garde le contrôle de ses données.",
+      "cannot": "Reste chez le propriétaire : la consommation par logement, les données des locataires, toute donnée non libérée par le propriétaire. Le propriétaire garde le contrôle de ses données.",
       "confirm": ""
     },
     "status": {
-      "h2": "Où nous en sommes",
-      "text": "Aucun assureur n'est encore client ou partenaire. Des pilotes sont en cours avec des propriétaires en Allemagne et aux États-Unis. Nous cherchons le premier assureur pour travailler un portefeuille avec nous."
+      "h2": "Commencez par un portefeuille.",
+      "text": "Des pilotes sont en cours avec des propriétaires en Allemagne et aux États-Unis. L'étape suivante : un portefeuille, travaillé avec un assureur. Quels bâtiments, quelles données, lequel des cinq modèles."
     }
   },
   "dataCenters": {
@@ -508,13 +509,13 @@
       "text": "Un câble détecteur se déclenche quand l'eau atteint le sol. À ce moment-là, un rack a déjà perdu son refroidissement. La mesure en réseau du débit et de la pression par rack voit l'écart dans la boucle elle-même : une chute de pression, un débit qui ne correspond pas à ses voisins. À pince, non invasif, sans découpe de la boucle de refroidissement. Le modèle qui apprend le débit normal d'un bâtiment apprend aussi celui d'une boucle de refroidissement."
     },
     "status": {
-      "h2": "Où nous en sommes",
-      "text": "Rien n'est encore en service dans un centre de données. Nous cherchons un premier site, en Suisse d'abord, pour essayer ensemble.",
+      "h2": "De la colonne montante au refroidissement liquide.",
+      "text": "Les capteurs et le modèle qui surveillent aujourd'hui les colonnes montantes résidentielles passent sur votre boucle de refroidissement. Premiers sites en Suisse.",
       "proof": "Preuve venue de l'immobilier : en service dans un grand parc résidentiel en Allemagne depuis mars 2026, 22 bâtiments et 32 points de mesure."
     },
     "together": {
       "h2": "Essayons ensemble sur votre site.",
-      "text": "Une boucle de refroidissement, une rangée de racks, une visite de repérage avec votre équipe d'exploitation. Nous apprenons le normal de votre boucle. Vous voyez si les alertes en valent la peine."
+      "text": "Une boucle de refroidissement, une rangée de racks, une visite de repérage avec votre équipe d'exploitation. Nous apprenons le profil normal de votre boucle. Vous voyez les premières alertes sur vos propres racks."
     },
     "visual": {
       "alt": "Schéma : une rangée de racks à refroidissement liquide sur une boucle, un capteur à pince sur chaque dérivation, une dérivation avec chute de pression.",
@@ -616,7 +617,7 @@
   },
   "book": {
     "h1": "Réserver un appel découverte de 30 min",
-    "lead": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous vous disons franchement si nous pouvons aider.",
+    "lead": "Trente minutes avec un fondateur. Nous posons trois questions, vous posez les vôtres, et nous planifions ensemble votre premier bâtiment.",
     "pick": "Choisir un créneau",
     "pickNote": "Ouvre le calendrier. Charge un outil de planification de Calendly.",
     "or": "Ou envoyez-nous les trois réponses et nous vous proposons des créneaux.",

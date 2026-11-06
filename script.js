@@ -29,6 +29,19 @@
     void closeLabel;
   }
 
+
+  // ---------- Sectors dropdown (desktop) ----------
+  var drops = document.querySelectorAll("[data-dropdown]");
+  drops.forEach(function (drop) {
+    var btn = drop.querySelector("[data-drop-toggle]");
+    var desktop = window.matchMedia("(min-width: 1100px)");
+    var setOpen = function (open) { drop.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", open ? "true" : "false"); };
+    btn.addEventListener("click", function () { if (!desktop.matches) return; setOpen(!drop.classList.contains("is-open")); });
+    document.addEventListener("click", function (e) { if (!drop.contains(e.target)) setOpen(false); });
+    drop.addEventListener("keydown", function (e) { if (e.key === "Escape") { setOpen(false); btn.focus(); } });
+    drop.addEventListener("mouseleave", function () { setOpen(false); });
+  });
+
   // ---------- Live counter ----------
   var counter = document.querySelector("[data-counter]");
   if (counter) {

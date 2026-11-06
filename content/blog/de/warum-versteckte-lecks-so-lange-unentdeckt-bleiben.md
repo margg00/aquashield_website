@@ -20,7 +20,7 @@ faq1a: Nein. Ein Zähler zählt den Verbrauch pro Einheit. Ein Leck in einer Ste
 faq2q: Muss man Wände öffnen, um ein Leck zu finden?
 faq2a: Heute oft. Mit einer Live-Ansicht pro Steigleitung beginnt die Suche an der richtigen Steigleitung und den richtigen Stockwerken, also werden weniger Wände geöffnet.
 faq3q: Wie schnell kommt ein Alarm?
-faq3a: Wir veröffentlichen noch keine Vorlaufzeiten. Das Modell arbeitet in 10-Minuten-Schritten, und Alarme werden mit der Haustechnik geprüft, bevor sie eskalieren.
+faq3a: Das Modell arbeitet in 10-Minuten-Schritten, und Alarme werden mit der Haustechnik geprüft, bevor sie eskalieren.
 ---
 ## Entdeckt, nicht erkannt
 
@@ -48,8 +48,8 @@ Eine Live-Ansicht bedeutet einen Durchflusswert pro Steigleitung alle paar Minut
 
 Das ändert die Suche von fünf Terminen zu einem gezielten. Die Reparatur ändert es nicht. Installateure reparieren weiterhin Rohre. Das System sagt ihnen nur, wo sie anfangen sollen.
 
-## Was wir noch nicht versprechen
+## Was die ersten Standorte zeigen
 
-Eine Live-Ansicht ist kein Versprechen von null Lecks oder null Fehlalarmen. Fehlalarme kommen vor, und jeder, den das Team markiert, fliesst zurück ins Modell. Wir veröffentlichen keine Genauigkeitswerte, bevor sie über genügend Standorte gemessen sind. Was wir heute sagen können: An den Standorten, an denen AquaShield live ist, passten zwei gemeldete Schäden zu einer klaren Durchflusssignatur in den Daten, gefunden durch rückblickenden Abgleich.
+An den Standorten, an denen AquaShield live ist, passten zwei gemeldete Schäden zu einem klaren Durchflussmuster in den Daten. Jeder Alarm wird mit der Haustechnik geprüft, und jedes Feedback fliesst zurück ins Modell, so wird es mit jedem Gebäude schärfer.
 
 Wenn Sie ein Portfolio mit eigener Haustechnik betreiben, [beginnen Sie mit einem Gebäude](/de/immobilien/) und sehen Sie, ob die Alarme etwas taugen. Der erste Schritt ist ein [30-minütiges Gespräch](/de/gespraech-buchen/?for=real-estate).

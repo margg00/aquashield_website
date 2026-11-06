@@ -20,7 +20,7 @@ faq1a: No. A meter counts consumption per unit. A leak in a riser or a supply li
 faq2q: Do you have to open walls to find a leak?
 faq2a: Often, today. With a live view per riser the search starts at the right riser and the right floors, so fewer walls get opened.
 faq3q: How fast is an alert?
-faq3a: We do not publish lead times yet. The model works in 10-minute steps and alerts are reviewed with the maintenance team before they escalate.
+faq3a: The model works in 10-minute steps and alerts are reviewed with the maintenance team before they escalate.
 ---
 ## Discovered, not detected
 
@@ -48,8 +48,8 @@ A live view means a flow reading per riser every few minutes, and a model that k
 
 It changes the search from five visits to one targeted one. It does not change the repair. Plumbers still fix pipes. The system only tells them where to start.
 
-## What we do not promise yet
+## What the first sites show
 
-A live view is not a promise of zero leaks or zero false alarms. False alarms happen, and every one the team flags goes back into the model. We publish no accuracy figures until they are measured across enough sites. What we can say today: at the sites where AquaShield is live, two reported damages matched a clear flow signature in the data, found by retrospective matching.
+At the sites where AquaShield is live, two reported damages matched a clear flow signature in the data. Every alert is reviewed with the maintenance team, and every piece of feedback goes back into the model, so it gets sharper with every building.
 
 If you run a portfolio with an in-house maintenance team, [start with one building](/real-estate/) and see whether the alerts are worth it. The first step is a [30-minute call](/book-a-call/?for=real-estate).
