@@ -3,8 +3,8 @@ id: flow-baseline
 slug: what-is-a-flow-baseline
 title: What is a flow baseline, and how does AI learn it for a building?
 description: Every riser has a rhythm. A model per measuring point learns it in 10-minute steps, and a leak is what that rhythm does not explain. How the learning works and why it is specific to hydraulic systems.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-08-13
+updated: 2026-08-13
 author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product

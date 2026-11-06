@@ -3,8 +3,8 @@ id: hidden-leaks
 slug: pourquoi-les-fuites-cachees-restent-si-longtemps-invisibles
 title: Pourquoi une fuite cachée dans un immeuble met-elle si longtemps à être trouvée ?
 description: Parce que personne ne surveille l'eau. Ce qu'une vue en direct des colonnes montantes change pour une équipe de maintenance, et ce qu'elle ne change pas.
-date: 2026-11-05
-updated: 2026-11-05
+date: 2026-06-18
+updated: 2026-06-18
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate

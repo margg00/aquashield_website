@@ -3,8 +3,8 @@ id: unnoticed
 slug: why-do-most-leaks-go-unnoticed
 title: Why do most leaks go unnoticed until there is damage?
 description: Leaks hide in the noise of normal consumption and run in the parts of a building nobody looks at. What a live view of the risers changes.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-09-24
+updated: 2026-09-24
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate

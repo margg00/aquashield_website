@@ -3,8 +3,8 @@ id: riser-level
 slug: what-does-riser-level-localisation-mean
 title: What does riser-level leak localisation mean?
 description: Detection says that something is wrong. Localisation says where. How AquaShield narrows a deviation to the riser and the floors to check first.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-10-08
+updated: 2026-10-08
 author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product

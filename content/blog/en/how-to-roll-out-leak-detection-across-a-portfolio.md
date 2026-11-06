@@ -3,8 +3,8 @@ id: rollout
 slug: how-to-roll-out-leak-detection-across-a-portfolio
 title: How do you roll out leak detection across a real estate portfolio?
 description: Plan, install, learn, detect. The four steps from the plumbing plan to the first alert, and why starting with one building is faster than planning for all of them.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-11-05
+updated: 2026-11-05
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate

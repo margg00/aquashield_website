@@ -55,48 +55,48 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://aquashieldai.com/fr/equipe/"/>
   </url>
   <url>
-    <loc>https://aquashieldai.com/blog/why-do-most-leaks-go-unnoticed/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/why-do-most-leaks-go-unnoticed/"/>
-  </url>
-  <url>
-    <loc>https://aquashieldai.com/blog/what-is-a-flow-baseline/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-is-a-flow-baseline/"/>
-  </url>
-  <url>
-    <loc>https://aquashieldai.com/blog/what-is-a-digital-twin-of-a-buildings-plumbing/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-is-a-digital-twin-of-a-buildings-plumbing/"/>
-  </url>
-  <url>
-    <loc>https://aquashieldai.com/blog/what-does-riser-level-localisation-mean/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-does-riser-level-localisation-mean/"/>
-  </url>
-  <url>
-    <loc>https://aquashieldai.com/blog/smart-water-meters-vs-leak-detection/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/smart-water-meters-vs-leak-detection/"/>
+    <loc>https://aquashieldai.com/blog/how-to-roll-out-leak-detection-across-a-portfolio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-to-roll-out-leak-detection-across-a-portfolio/"/>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/liquid-cooling-leak-detection-in-data-centres/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/liquid-cooling-leak-detection-in-data-centres/"/>
   </url>
   <url>
-    <loc>https://aquashieldai.com/blog/how-to-roll-out-leak-detection-across-a-portfolio/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-to-roll-out-leak-detection-across-a-portfolio/"/>
+    <loc>https://aquashieldai.com/blog/how-can-insurers-use-building-water-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-can-insurers-use-building-water-data/"/>
   </url>
   <url>
-    <loc>https://aquashieldai.com/blog/how-much-does-a-water-damage-claim-cost/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-much-does-a-water-damage-claim-cost/"/>
+    <loc>https://aquashieldai.com/blog/what-does-riser-level-localisation-mean/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-does-riser-level-localisation-mean/"/>
+  </url>
+  <url>
+    <loc>https://aquashieldai.com/blog/why-do-most-leaks-go-unnoticed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/why-do-most-leaks-go-unnoticed/"/>
+  </url>
+  <url>
+    <loc>https://aquashieldai.com/blog/what-is-a-digital-twin-of-a-buildings-plumbing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-is-a-digital-twin-of-a-buildings-plumbing/"/>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/how-long-does-it-take-to-install-leak-sensors/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-long-does-it-take-to-install-leak-sensors/"/>
   </url>
   <url>
-    <loc>https://aquashieldai.com/blog/how-does-non-invasive-leak-detection-work/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-does-non-invasive-leak-detection-work/"/>
+    <loc>https://aquashieldai.com/blog/what-is-a-flow-baseline/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-is-a-flow-baseline/"/>
   </url>
   <url>
-    <loc>https://aquashieldai.com/blog/how-can-insurers-use-building-water-data/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-can-insurers-use-building-water-data/"/>
+    <loc>https://aquashieldai.com/blog/how-much-does-a-water-damage-claim-cost/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-much-does-a-water-damage-claim-cost/"/>
+  </url>
+  <url>
+    <loc>https://aquashieldai.com/blog/smart-water-meters-vs-leak-detection/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/smart-water-meters-vs-leak-detection/"/>
+  </url>
+  <url>
+    <loc>https://aquashieldai.com/blog/how-does-non-invasive-leak-detection-work/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-does-non-invasive-leak-detection-work/"/>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/why-hidden-leaks-take-so-long/</loc>

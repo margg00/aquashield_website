@@ -3,8 +3,8 @@ id: hidden-leaks
 slug: warum-versteckte-lecks-so-lange-unentdeckt-bleiben
 title: Warum dauert es so lange, ein verstecktes Leck in einem Mehrfamilienhaus zu finden?
 description: Weil niemand das Wasser beobachtet. Was eine Live-Ansicht der Steigleitungen für die Haustechnik ändert, und was nicht.
-date: 2026-11-05
-updated: 2026-11-05
+date: 2026-06-18
+updated: 2026-06-18
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate

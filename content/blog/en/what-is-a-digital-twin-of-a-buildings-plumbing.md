@@ -3,8 +3,8 @@ id: digital-twin
 slug: what-is-a-digital-twin-of-a-buildings-plumbing
 title: What is a digital twin of a building's plumbing?
 description: A model of the risers, branches and sensors that turns a flow deviation into a place to check first. What it contains, how it is built, and what it is for.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-09-10
+updated: 2026-09-10
 author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product

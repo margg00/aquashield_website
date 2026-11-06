@@ -3,8 +3,8 @@ id: insurer-data
 slug: how-can-insurers-use-building-water-data
 title: How can property insurers use live building water data?
 description: Five ways a carrier can work with leak detection, from subsidised hardware to a claims-response trigger, and what the data can and cannot be used for.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-10-22
+updated: 2026-10-22
 author: Paul Beckers
 authorId: paul-beckers
 segment: insurance

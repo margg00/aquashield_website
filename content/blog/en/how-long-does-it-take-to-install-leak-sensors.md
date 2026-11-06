@@ -3,8 +3,8 @@ id: install-time
 slug: how-long-does-it-take-to-install-leak-sensors
 title: How long does it take to install leak detection in a building?
 description: Under 15 minutes per sensor, no pipe cutting, the water stays on. A day for a building, the digital twin the same day, and a model that learns normal over the first weeks.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-08-27
+updated: 2026-08-27
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate

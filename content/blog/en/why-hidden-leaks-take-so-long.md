@@ -3,8 +3,8 @@ id: hidden-leaks
 slug: why-hidden-leaks-take-so-long
 title: Why does a hidden leak in an apartment building take so long to find?
 description: Because nobody is watching the water. What a live view of the risers changes for a maintenance team, and what it does not.
-date: 2026-11-05
-updated: 2026-11-05
+date: 2026-06-18
+updated: 2026-06-18
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate

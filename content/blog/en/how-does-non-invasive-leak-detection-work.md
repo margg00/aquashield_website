@@ -3,8 +3,8 @@ id: non-invasive
 slug: how-does-non-invasive-leak-detection-work
 title: How does non-invasive leak detection work in a building?
 description: Clamp-on ultrasonic sensors read flow through the pipe wall, a model learns what normal looks like, and a digital twin places the deviation. No pipe cutting.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-07-02
+updated: 2026-07-02
 author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product

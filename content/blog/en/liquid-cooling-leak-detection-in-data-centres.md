@@ -3,8 +3,8 @@ id: liquid-cooling
 slug: liquid-cooling-leak-detection-in-data-centres
 title: How do you detect a leak in a liquid-cooled data centre before the outage?
 description: Floor leak cables fire after the water is on the floor. Flow and pressure sensing per rack sees the deviation in the loop itself. How the same model that watches risers watches a cooling loop.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-10-29
+updated: 2026-10-29
 author: Paul Beckers
 authorId: paul-beckers
 segment: data-centers

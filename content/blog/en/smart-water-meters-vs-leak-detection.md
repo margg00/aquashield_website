@@ -3,8 +3,8 @@ id: meters-vs-detection
 slug: smart-water-meters-vs-leak-detection
 title: Smart water meters or leak detection: what is the difference?
 description: Meters count consumption per unit. Leak detection watches flow at the riser and learns normal. Why a leak can hide from every meter in the building.
-date: 2026-11-06
-updated: 2026-11-06
+date: 2026-07-16
+updated: 2026-07-16
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
