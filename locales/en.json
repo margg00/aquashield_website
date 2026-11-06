@@ -295,7 +295,8 @@
     },
     "ml": {
       "h2": "The machine learning",
-      "text": "Each measuring point gets its own model. It learns that building's normal flow in 10-minute steps: night baseline, morning peak, weekday against weekend. A deviation is a flow pattern that normal does not explain. The digital twin maps which sensors see the same water, so a deviation can be placed in the network. Your team's feedback goes straight back into the model. Specialised machine learning for hydraulic systems, not a generic anomaly detector."
+      "text": "Each measuring point gets its own model. It learns that building's normal flow in 10-minute steps: night baseline, morning peak, weekday against weekend. A deviation is a flow pattern that normal does not explain. The digital twin maps which sensors see the same water, so a deviation can be placed in the network. Your team's feedback goes straight back into the model. Specialised machine learning for hydraulic systems, not a generic anomaly detector.",
+      "visualAlt": "Six measuring points, each with its learned baseline band and live flow. One riser departs from its baseline and is flagged."
     },
     "sensors": {
       "h2": "The sensors",

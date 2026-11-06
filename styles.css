@@ -1074,6 +1074,13 @@ body.nav-open { overflow: hidden; }
 .vi-ring { fill: none; stroke: var(--accent); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; }
 .vi-ring-bad { stroke: var(--anomaly); }
 .vi-pulse { fill: rgb(var(--anomaly-rgb) / 0.3); transform-box: fill-box; transform-origin: center; opacity: 0.5; }
+.vi-tile-bg { fill: rgba(13, 13, 13, 0.85); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; }
+.vi-tile-bad .vi-tile-bg { stroke: rgb(var(--anomaly-rgb) / 0.55); }
+.vi-tile-dot { fill: var(--ok); }
+.vi-tile-bad .vi-tile-dot { fill: var(--anomaly); }
+.vi-tile-live { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.vis-ml .vi-text { font-size: 13px; }
+@media (max-width: 639px) { .media-vis .vi-text { display: none; } }
 
 @media (prefers-reduced-motion: no-preference) {
   .vi-flow, .vi-beam-dot { display: block; }
@@ -1086,7 +1093,10 @@ body.nav-open { overflow: hidden; }
   .vi-unit-led { animation: vi-led 3.1s ease-in-out infinite; }
   .vi-ring { animation: hb-ring 3.2s ease-out infinite; }
   .vi-pulse { animation: hb-pulse 2.4s ease-out infinite; }
+  .vi-tile-live { animation: vi-draw 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
+  .vi-tile-bad .vi-tile-dot { animation: live-dot 1.6s ease-in-out infinite; }
 }
+@keyframes vi-draw { 0% { stroke-dashoffset: 1; } 45%, 92% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
 @keyframes vi-beam { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
 @keyframes vi-wave { 0% { transform: scale(0.4); opacity: 0.9; } 100% { transform: scale(2.4); opacity: 0; } }
 @keyframes vi-led { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }

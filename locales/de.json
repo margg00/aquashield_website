@@ -295,7 +295,8 @@
     },
     "ml": {
       "h2": "Das maschinelle Lernen",
-      "text": "Jede Messstelle bekommt ihr eigenes Modell. Es lernt den normalen Durchfluss dieses Gebäudes in 10-Minuten-Schritten: nächtlicher Normalverlauf, Morgenspitze, Werktag gegenüber Wochenende. Eine Abweichung ist ein Durchflussmuster, das der Normalverlauf nicht erklärt. Der digitale Zwilling bildet ab, welche Sensoren dasselbe Wasser sehen, damit eine Abweichung im Netz platziert werden kann. Das Feedback Ihres Teams fliesst direkt zurück ins Modell. Spezialisiertes maschinelles Lernen für hydraulische Systeme, kein generischer Anomaliedetektor."
+      "text": "Jede Messstelle bekommt ihr eigenes Modell. Es lernt den normalen Durchfluss dieses Gebäudes in 10-Minuten-Schritten: nächtlicher Normalverlauf, Morgenspitze, Werktag gegenüber Wochenende. Eine Abweichung ist ein Durchflussmuster, das der Normalverlauf nicht erklärt. Der digitale Zwilling bildet ab, welche Sensoren dasselbe Wasser sehen, damit eine Abweichung im Netz platziert werden kann. Das Feedback Ihres Teams fliesst direkt zurück ins Modell. Spezialisiertes maschinelles Lernen für hydraulische Systeme, kein generischer Anomaliedetektor.",
+      "visualAlt": "Sechs Messstellen, jede mit ihrem gelernten Normalverlauf und dem Live-Durchfluss. Eine Steigleitung weicht ab und wird markiert."
     },
     "sensors": {
       "h2": "Die Sensoren",

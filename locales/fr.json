@@ -295,7 +295,8 @@
     },
     "ml": {
       "h2": "L'apprentissage automatique",
-      "text": "Chaque point de mesure a son propre modèle. Il apprend le débit normal de ce bâtiment par pas de 10 minutes : profil normal de nuit, pic du matin, semaine contre week-end. Un écart est un schéma de débit que le normal n'explique pas. Le jumeau numérique indique quels capteurs voient la même eau, pour que l'écart puisse être placé dans le réseau. Les retours de votre équipe reviennent directement dans le modèle. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, pas un détecteur d'anomalies générique."
+      "text": "Chaque point de mesure a son propre modèle. Il apprend le débit normal de ce bâtiment par pas de 10 minutes : profil normal de nuit, pic du matin, semaine contre week-end. Un écart est un schéma de débit que le normal n'explique pas. Le jumeau numérique indique quels capteurs voient la même eau, pour que l'écart puisse être placé dans le réseau. Les retours de votre équipe reviennent directement dans le modèle. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, pas un détecteur d'anomalies générique.",
+      "visualAlt": "Six points de mesure, chacun avec son profil normal appris et son débit en direct. Une colonne s'écarte de son profil et est signalée."
     },
     "sensors": {
       "h2": "Les capteurs",

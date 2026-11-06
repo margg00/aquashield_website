@@ -125,4 +125,52 @@ function rackSvg(t) {
   return `<svg class="vis vis-rack" viewBox="0 0 480 300" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
 }
 
-module.exports = { installSvg, rackSvg };
+
+function mlSvg(t) {
+  const C = t.product.data.chart;
+  const riserWord = t.product.install.labels.riser;
+  const W = 640, H = 480, cols = 3, rows = 2, pad = 24, gap = 16;
+  const tw = (W - pad * 2 - gap * (cols - 1)) / cols, th = (H - pad * 2 - 44 - gap * (rows - 1)) / rows;
+  const f1 = (n) => n.toFixed(1);
+  // deterministic pseudo-random rhythms per tile
+  const shapes = [
+    [0.42, 0.5, 0.4, 0.52, 0.44, 0.5, 0.43, 0.48],
+    [0.38, 0.52, 0.41, 0.5, 0.4, 0.51, 0.42, 0.49],
+    [0.45, 0.47, 0.43, 0.5, 0.46, 0.49, 0.44, 0.5],
+    [0.4, 0.53, 0.42, 0.5, 0.41, 0.52, 0.4, 0.5],
+    [0.44, 0.5, 0.42, 0.51, 0.45, 0.49, 0.43, 0.47],
+    [0.41, 0.5, 0.43, 0.49, 0.42, 0.5, 0.44, 0.48]
+  ];
+  let s = `<rect class="vi-grid" x="0" y="0" width="${W}" height="${H}"/>`;
+  s += `<text class="vi-text vi-text-strong" x="${pad}" y="${pad + 14}">${esc(t.product.ml.h2)}</text>`;
+  s += `<text class="vi-text vi-text-muted" x="${W - pad}" y="${pad + 14}" text-anchor="end">${esc(C.baseline)} · ${esc(C.actual)}</text>`;
+  shapes.forEach((base, i) => {
+    const col = i % cols, row = Math.floor(i / cols);
+    const x0 = pad + col * (tw + gap), y0 = pad + 44 + row * (th + gap);
+    const bad = i === 4;
+    const px0 = x0 + 14, px1 = x0 + tw - 14, py0 = y0 + 34, py1 = y0 + th - 16;
+    const X = (u) => px0 + (px1 - px0) * u, Y = (v) => py1 - (py1 - py0) * ((v - 0.22) / 0.72);
+    const pts = base.map((v, k) => [k / (base.length - 1), v]);
+    const smooth = (arr) => arr.map(([u, v], k) => {
+      if (!k) return `M${f1(X(u))} ${f1(Y(v))}`;
+      const [pu, pv] = arr[k - 1]; const cx = (X(pu) + X(u)) / 2;
+      return `C${f1(cx)} ${f1(Y(pv))} ${f1(cx)} ${f1(Y(v))} ${f1(X(u))} ${f1(Y(v))}`;
+    }).join(" ");
+    const poly = smooth;
+    const bandTop = pts.map(([u, v]) => [u, v + 0.07]), bandBot = pts.slice().reverse().map(([u, v]) => [u, v - 0.07]);
+    const top = [smooth(bandTop)], bot = [smooth(bandBot).replace(/^M/, "L")];
+    const live = bad ? pts.map(([u, v], k) => [u, k >= 5 ? v + (k - 4) * 0.12 : v + 0.01]) : pts.map(([u, v], k) => [u, v + (k % 2 ? 0.012 : -0.008)]);
+    s += `<g class="vi-tile${bad ? " vi-tile-bad" : ""}">`;
+    s += `<rect class="vi-tile-bg" x="${x0}" y="${y0}" width="${f1(tw)}" height="${f1(th)}" rx="12"/>`;
+    s += `<text class="vi-text" x="${x0 + 14}" y="${y0 + 20}">${esc(riserWord)} ${String.fromCharCode(65 + i)}</text>`;
+    s += `<circle class="vi-tile-dot" cx="${f1(x0 + tw - 18)}" cy="${y0 + 16}" r="3.5"/>`;
+    s += `<path class="chart-band" d="${top[0]} ${bot[0]} Z"/>`;
+    s += `<path class="chart-base" d="${poly(pts)}"/>`;
+    s += `<path class="vi-tile-live${bad ? " chart-live-anomaly" : ""}" d="${poly(live)}" pathLength="1" style="animation-delay:${(-i * 0.9).toFixed(1)}s"/>`;
+    if (bad) s += `<circle class="chart-flag" cx="${f1(X(1))}" cy="${f1(Y(live[live.length - 1][1]))}" r="4"/>`;
+    s += `</g>`;
+  });
+  return `<svg class="vis vis-ml" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t.product.ml.visualAlt)}" focusable="false">${s}</svg>`;
+}
+
+module.exports = { installSvg, rackSvg, mlSvg };
