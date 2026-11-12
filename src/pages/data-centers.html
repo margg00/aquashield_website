@@ -18,31 +18,122 @@
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="story-title">
-      <div class="container narrow">
-        <div class="section-head">
+    <section class="section anchor-band dc-band-section" aria-labelledby="story-title">
+      <div class="anchor-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head dc-head-wide">
           <h2 id="story-title">{{dataCenters.story.h2}}</h2>
-          <p>{{dataCenters.story.text}}</p>
+          <p class="lead">{{dataCenters.story.lead}}</p>
+        </div>
+        <div class="dc-compare">
+          <article class="dc-seq dc-seq-bad" data-reveal>
+            <header class="dc-seq-head">
+              <h3>{{dataCenters.story.cable.title}}</h3>
+              <span class="dc-tag">{{dataCenters.story.cable.tag}}</span>
+            </header>
+            <ol class="dc-steps">
+              <li><span class="dc-node">{{{dcIcons.leak}}}</span><p>{{dataCenters.story.cable.steps.0}}</p></li>
+              <li><span class="dc-node">{{{dcIcons.unseen}}}</span><p>{{dataCenters.story.cable.steps.1}}</p></li>
+              <li><span class="dc-node">{{{dcIcons.floor}}}</span><p>{{dataCenters.story.cable.steps.2}}</p></li>
+              <li class="dc-step-end"><span class="dc-node">{{{dcIcons.hot}}}</span><p>{{dataCenters.story.cable.steps.3}}</p></li>
+            </ol>
+          </article>
+          <article class="dc-seq dc-seq-good" data-reveal>
+            <header class="dc-seq-head">
+              <h3>{{dataCenters.story.aqua.title}}</h3>
+              <span class="dc-tag">{{dataCenters.story.aqua.tag}}</span>
+            </header>
+            <ol class="dc-steps">
+              <li><span class="dc-node">{{{dcIcons.leak}}}</span><p>{{dataCenters.story.aqua.steps.0}}</p></li>
+              <li><span class="dc-node">{{{dcIcons.drift}}}</span><p>{{dataCenters.story.aqua.steps.1}}</p></li>
+              <li><span class="dc-node">{{{dcIcons.pin}}}</span><p>{{dataCenters.story.aqua.steps.2}}</p></li>
+              <li class="dc-step-end"><span class="dc-node">{{{dcIcons.shield}}}</span><p>{{dataCenters.story.aqua.steps.3}}</p></li>
+            </ol>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="status-title">
-      <div class="container narrow">
-        <div class="status-box">
-          <h2 id="status-title">{{dataCenters.status.h2}}</h2>
-          <p>{{dataCenters.status.text}}</p>
-          <p>{{dataCenters.status.proof}}</p>
+    <section class="section section-alt" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="how-title">{{dataCenters.how.h2}}</h2>
+        </div>
+        <div class="steps cols-3 dc-how">
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              {{{dcClampSvg}}}
+            </div>
+            <h3 class="step-name">{{dataCenters.how.steps.0.name}}</h3>
+            <p>{{dataCenters.how.steps.0.text}}</p>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              {{{dcLearnSvg}}}
+            </div>
+            <h3 class="step-name">{{dataCenters.how.steps.1.name}}</h3>
+            <p>{{dataCenters.how.steps.1.text}}</p>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step-visual">
+              {{{dcFlagSvg}}}
+            </div>
+            <h3 class="step-name">{{dataCenters.how.steps.2.name}}</h3>
+            <p>{{dataCenters.how.steps.2.text}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dc-bridge" aria-labelledby="status-title">
+      <div class="container split">
+        <div class="dc-bridge-copy">
+          <div class="section-head">
+            <h2 id="status-title">{{dataCenters.status.h2}}</h2>
+            <p class="lead">{{dataCenters.status.text}}</p>
+          </div>
+          <div class="dc-proof" data-reveal>
+            <p class="dc-proof-live"><span class="live-dot" aria-hidden="true"></span>{{dataCenters.status.live}}</p>
+            <div class="dc-proof-figures">
+{{#each dataCenters.status.figures}}              <div class="dc-figure">
+                <p class="stat-value dc-figure-value">{{value}}</p>
+                <p class="dc-figure-label">{{label}}</p>
+              </div>
+{{/each}}            </div>
+          </div>
+        </div>
+        <div class="hero-visual-chart dc-bridge-visual" data-reveal>
+          <div class="media media-vis media-chart">
+            {{{bridgeSvg}}}
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section section-alt" aria-labelledby="together-title">
-      <div class="container narrow">
+      <div class="container">
         <div class="section-head">
           <h2 id="together-title">{{dataCenters.together.h2}}</h2>
-          <p>{{dataCenters.together.text}}</p>
         </div>
+        <ol class="path cols-3 dc-path" data-reveal>
+          <li>
+            <span class="dc-path-rail" aria-hidden="true"></span>
+            <span class="dc-path-icon">{{{dcIcons.racks}}}</span>
+            <h3>{{dataCenters.together.steps.0.name}}</h3>
+            <p>{{dataCenters.together.steps.0.text}}</p>
+          </li>
+          <li>
+            <span class="dc-path-rail" aria-hidden="true"></span>
+            <span class="dc-path-icon">{{{dcIcons.clamp}}}</span>
+            <h3>{{dataCenters.together.steps.1.name}}</h3>
+            <p>{{dataCenters.together.steps.1.text}}</p>
+          </li>
+          <li class="dc-path-end">
+            <span class="dc-path-icon">{{{dcIcons.bell}}}</span>
+            <h3>{{dataCenters.together.steps.2.name}}</h3>
+            <p>{{dataCenters.together.steps.2.text}}</p>
+          </li>
+        </ol>
       </div>
     </section>
 

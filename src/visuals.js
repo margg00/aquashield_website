@@ -134,8 +134,8 @@ function rackSvg(t) {
     s += `<rect class="vi-sensor" x="${x + 14}" y="76" width="12" height="8" rx="2"/>`;
     s += `<circle class="vi-ring${bad ? " vi-ring-bad" : ""}" cx="${x + 20}" cy="80" r="5" style="animation-delay: ${(-i * 0.8).toFixed(1)}s"/>`;
     s += `<rect class="vi-sensor" x="${x + 44}" y="226" width="12" height="8" rx="2"/>`;
-    // coolant flow through the branch
-    s += `<circle class="vi-flow" r="2" style="offset-path: path('M${x + 20} 60 L${x + 20} 100'); animation-duration: 2.2s; animation-delay: ${(-i * 0.5).toFixed(1)}s"/>`;
+    // coolant flow through the branch (the drifting branch runs slower and in the anomaly colour)
+    s += `<circle class="vi-flow${bad ? " vi-flow-bad" : ""}" r="2" style="offset-path: path('M${x + 20} 60 L${x + 20} 100'); animation-duration: ${bad ? "4.4" : "2.2"}s; animation-delay: ${(-i * 0.5).toFixed(1)}s"/>`;
     s += `</g>`;
   });
   // flow along the supply line
@@ -146,8 +146,10 @@ function rackSvg(t) {
   s += `<g class="vi-labels">`;
   s += `<text class="vi-text vi-text-muted" x="30" y="44">${esc(L.supply)}</text>`;
   s += `<text class="vi-text vi-text-muted" x="30" y="274">${esc(L.returnLine)}</text>`;
-  s += `<line class="vi-leader" x1="276" y1="74" x2="330" y2="30"/><circle class="vi-leader-end" cx="330" cy="30" r="2.5"/>`;
-  s += `<text class="vi-text vi-text-bad" x="336" y="34">${esc(L.deviation)}</text>`;
+  // flow deviation label, shifted left so longer languages stay inside the frame
+  const lx = Math.min(336, 470 - Math.ceil(String(L.deviation).length * 6.9));
+  s += `<line class="vi-leader" x1="276" y1="74" x2="${lx - 6}" y2="30"/><circle class="vi-leader-end" cx="${lx - 6}" cy="30" r="2.5"/>`;
+  s += `<text class="vi-text vi-text-bad" x="${lx}" y="34">${esc(L.deviation)}</text>`;
   s += `</g>`;
   return `<svg class="vis vis-rack" viewBox="0 0 480 300" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;
 }
