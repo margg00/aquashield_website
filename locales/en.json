@@ -498,7 +498,30 @@
     "lead": "For property underwriters, claims and innovation leads who think in loss ratio, severity and risk data.",
     "story": {
       "h2": "Severity is driven by time.",
-      "text": "A hidden leak runs until someone notices. Every extra day adds secondary damage: subfloors, drywall, neighbouring units, business interruption. Earlier detection shortens the loss duration, and that is the lever on severity. Live flow data per riser adds a second value: a risk signal that underwriting does not have today, from buildings that are owner-operated and already instrumented."
+      "lead": "A hidden leak runs until someone notices. Every extra day adds secondary damage: subfloors, drywall, neighbouring units, business interruption.",
+      "timeline": {
+        "alt": "Timeline. Without monitoring, a hidden leak runs for weeks. It reaches the subfloor, the drywall, the neighbouring unit and business interruption before a tenant discovers it. With AquaShield, a flow deviation is flagged early, the riser is located and the rest of the loss is avoided.",
+        "ticks": [
+          "Leak starts",
+          "Days",
+          "Weeks"
+        ],
+        "without": "Without monitoring",
+        "with": "With AquaShield",
+        "flagged": "Flow deviation flagged",
+        "located": "Riser located",
+        "avoided": "Loss avoided"
+      },
+      "levers": [
+        {
+          "name": "Lever 1: shorter loss duration",
+          "text": "Earlier detection shortens the loss. Fewer days of water means less secondary damage and a smaller claim."
+        },
+        {
+          "name": "Lever 2: a live risk signal",
+          "text": "Flow data per riser is a risk signal that underwriting does not have today, from buildings that are already instrumented."
+        }
+      ]
     },
     "ways": {
       "h2": "Five ways to work together",
@@ -524,17 +547,32 @@
           "text": "An alert triggers the claims process before the tenant calls."
         }
       ],
-      "line": "Which one fits depends on your book. The 30-minute call is where we find out."
+      "line": "Which one fits depends on your book. We work it out with you in the first call."
     },
-    "share": {
-      "h2": "What we share, and what stays with the owner",
-      "can": "We can: aggregated flow deviations per building, alert counts and durations, data coverage, with the owner's consent.",
-      "cannot": "Stays with the owner: unit-level consumption, tenant data, anything the owner has not released. The owner stays in control of their data.",
-      "confirm": ""
-    },
-    "status": {
+    "book": {
       "h2": "Start with one book of business.",
-      "text": "Pilots are running with owners in Germany and the US. The next step is one book of business, worked through with one carrier: which buildings, which data, which of the five models."
+      "steps": [
+        {
+          "name": "Pick the book",
+          "text": "One book of business, one carrier. We select the buildings together."
+        },
+        {
+          "name": "Pick the model",
+          "text": "Subsidy, discount, rider, risk data or claims response. We choose what fits your book."
+        },
+        {
+          "name": "Go live",
+          "text": "Sensors clamp on, the data flows, alerts reach your claims team."
+        }
+      ],
+      "line": "Live with owners in Germany and the US today.",
+      "visual": {
+        "alt": "A book of business shown as 40 buildings. A block of 12 is selected and the buildings are monitored one after another. One of them shows a leak, which is caught early.",
+        "book": "One book of business",
+        "selected": "Selected buildings",
+        "legendMonitored": "Monitored",
+        "legendCaught": "Leak caught early"
+      }
     },
     "visual": {
       "title": "Claim severity over loss duration",
