@@ -499,7 +499,7 @@ function build() {
       posts: posts[lang].map((p, i) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), dateIso: p.date, updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "", updatedIso: p.updated || p.date, displayTitle: displayTitle(p.title, lang), minutes: readingMinutes(p.words), featured: i === 0 })),
       sitesList: sites.sites,
       logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),
-      team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name) })) }
+      team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name), photo: fs.existsSync(path.join(ROOT, "assets", "img", "team", "people", `${p.id}.webp`)) })) }
     };
     addExtraVisuals(base, t);
 

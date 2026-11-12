@@ -47,6 +47,8 @@ Web-sized pictures live in `assets/img/`. Replace a file with one of the same na
 | `twin-ui.webp` | Product, machine learning section (real dashboard view). |
 | `logo-wordmark.webp` | Header and footer. |
 | `og-default.png` | Link previews on LinkedIn and chat apps. |
+
+Team photos live in `assets/img/team/people/`. Save a square WebP (240 by 240, under 20 KB) named after the person's `id` in the locale file, for example `paul-beckers.webp`, then run the build: the photo replaces that person's initials, and anyone without a photo keeps the initials.
 | `clamp-on-sensor.webp`, `pipe-network.webp`, `assets/video/twin.*` | Kept in the repo, not on any page right now. |
 
 Drawn visuals (sharp at any size, animated, every label from the locale file) live in code, not in image files:

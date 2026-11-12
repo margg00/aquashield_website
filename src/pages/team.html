@@ -140,7 +140,7 @@
         </div>
         <ul class="people">
 {{#each team.people}}          <li class="person" id="{{id}}" data-reveal>
-            <span class="person-avatar" aria-hidden="true">{{initials}}</span>
+            {{#if photo}}<span class="person-avatar has-photo"><img src="{{base}}assets/img/team/people/{{id}}.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span>{{/if}}{{#unless photo}}<span class="person-avatar" aria-hidden="true">{{initials}}</span>{{/unless}}
             <h3>{{name}}</h3>
             <p class="person-role">{{role}}</p>
             {{#if alumni}}<ul class="person-alumni">

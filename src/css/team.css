@@ -142,45 +142,39 @@
 }
 
 /* ---------- People ---------- */
-.page-team .people { gap: 20px; }
+/* one uniform grid: every card the same size, text blocks start at the same height in every card */
+.page-team .people { --avatar: 64px; --role-lines: 2; --chip-row: calc(0.78rem * 1.4 + 10px); gap: 20px; grid-auto-rows: 1fr; }
 .page-team .person {
   display: flex; flex-direction: column;
-  padding: 28px 26px 26px;
+  padding: 26px;
   border-color: rgba(255, 255, 255, 0.09);
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
 }
 .page-team .person-avatar {
-  position: relative;
-  width: 64px; height: 64px; margin-bottom: 20px;
+  position: relative; flex: none; align-self: flex-start; overflow: hidden;
+  width: var(--avatar); height: var(--avatar); margin-bottom: 20px;
   border: 1.5px solid rgb(var(--accent-rgb) / 0.75);
   background: radial-gradient(120% 120% at 30% 20%, rgb(var(--accent-rgb) / 0.32), rgb(var(--accent-rgb) / 0.06) 60%, transparent 100%), #0e1418;
   box-shadow: 0 0 0 5px rgb(var(--accent-rgb) / 0.07), 0 10px 30px rgb(var(--accent-rgb) / 0.12);
   color: var(--accent-light);
   font-size: 1.15rem; letter-spacing: 0.06em;
 }
-.page-team .person h3 { font-size: 1.25rem; }
-.page-team .person-role { margin-top: 6px; color: var(--accent-light); font-size: 0.95rem; line-height: 1.45; }
-.page-team .person-alumni { margin-top: 16px; }
-.page-team .person-alumni li { border-color: rgba(255, 255, 255, 0.12); color: var(--text-secondary); background: rgba(255, 255, 255, 0.03); }
+.page-team .person-avatar img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.page-team .person h3 { font-size: 1.25rem; line-height: 1.3; }
+.page-team .person-role { min-height: calc(var(--role-lines) * 1.45em); margin-top: 6px; color: var(--accent-light); font-size: 0.95rem; line-height: 1.45; }
+.page-team .person-alumni { min-height: var(--chip-row); margin-top: 16px; }
+.page-team .person-alumni li { flex: none; border-color: rgba(255, 255, 255, 0.12); color: var(--text-secondary); background: rgba(255, 255, 255, 0.03); line-height: 1.4; }
 .page-team .person-line { margin-top: 16px; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; }
+.page-team .person-role + .person-line { margin-top: calc(16px + var(--chip-row) + 16px); }
 @media (prefers-reduced-motion: no-preference) {
   body.has-reveal .person:nth-child(3n + 2) { transition-delay: 90ms; }
   body.has-reveal .person:nth-child(3n) { transition-delay: 180ms; }
 }
-/* three tiers that mirror the team: co-founders, founding engineers, interns. Every row fills the width */
-@media (min-width: 640px) { .page-team .people { grid-auto-rows: auto; } }
-@media (min-width: 640px) and (max-width: 1023px) { .page-team .person:nth-child(5) { grid-column: 1 / -1; } }
-@media (min-width: 1024px) {
-  .page-team .people { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
-  .page-team .person { grid-column: span 2; }
-  .page-team .person:nth-child(-n + 2), .page-team .person:nth-child(n + 6) { grid-column: span 3; }
-}
-@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  body.has-reveal .person:nth-child(n) { transition-delay: 0ms; }
-  body.has-reveal .person:nth-child(2), body.has-reveal .person:nth-child(4), body.has-reveal .person:nth-child(7) { transition-delay: 90ms; }
-  body.has-reveal .person:nth-child(5) { transition-delay: 180ms; }
-}
+@media (min-width: 640px) { .page-team .people { --avatar: 72px; } }
+/* French roles are longer: reserve three lines wherever the longest one wraps to three */
+@media (max-width: 699px), (min-width: 1024px) and (max-width: 1099px) { .page-team .people:lang(fr) { --role-lines: 3; } }
+@media (min-width: 1024px) { .page-team .people { gap: 24px; } }
 
 /* ---------- Backing ---------- */
 .page-team .team-backing .logo-strip { margin-top: 0; padding-top: 0; border-top: 0; }
