@@ -11,7 +11,7 @@ segment: real-estate
 segmentLabel: Immobilier
 coverAlt: Coupe d'un mur avec une colonne montante cachée, une lueur chaude là où un raccord fuit et des gouttes qui descendent dans la cavité.
 answer: Parce que personne ne surveille l'eau. Une fuite cachée est découverte quand un locataire appelle, qu'un plafond se tache ou que l'eau atteint le sol d'un sous-sol. À ce moment-là, elle coule depuis des jours ou des semaines. La trouver peut demander jusqu'à cinq visites sur site.
-statValue: 4,91 Md €
+statValue: 4,91 Md €
 statLabel: versés par les assureurs allemands pour des dégâts d'eau du robinet en 2024.
 statSource: GDV
 statDate: 2024
@@ -52,5 +52,13 @@ Cela fait passer la recherche de cinq visites à une seule, ciblée. Cela ne cha
 ## Ce que montrent les premiers sites
 
 Sur les sites où AquaShield est en service, trois dégâts signalés correspondaient à une signature de débit claire dans les données. Chaque alerte est vérifiée avec l'équipe de maintenance, et chaque retour revient dans le modèle, qui s'affine à chaque bâtiment.
+
+## Que faire cette semaine ?
+
+Trois choses qu'un parc immobilier peut faire avant l'installation du moindre capteur.
+
+1. **Reprenez les cinq derniers sinistres dégâts des eaux** et notez où chaque fuite a été trouvée et depuis combien de temps elle coulait. Le schéma est presque toujours le même : réseau commun, des semaines, découverte par un locataire.
+2. **Choisissez le bâtiment** qui compte le plus de logements sur le moins de colonnes montantes. C'est la preuve la plus rapide de ce qu'apporte une vue en direct.
+3. **Envoyez le plan de plomberie.** Les positions des capteurs et le jumeau numérique sont planifiés à partir de lui, avant que quiconque se rende sur site.
 
 Si vous gérez un parc immobilier avec une équipe de maintenance interne, [commencez par un seul bâtiment](/fr/immobilier/) et voyez si les alertes en valent la peine. La première étape est un [appel de 30 minutes](/fr/reserver-un-appel/?for=real-estate).

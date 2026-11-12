@@ -43,13 +43,13 @@ Which one fits depends on the book, the portfolio and the market. Most conversat
 
 With the owner's consent, AquaShield can share aggregated flow deviations per building, alert counts and durations, and data coverage. Unit-level consumption, tenant data and anything the owner has not released stay with the owner. The owner stays in control of their data, which is also what makes owners willing to share the aggregate.
 
-## The next step
-
 ## Questions a carrier usually asks first
 
 - **Is the data auditable?** Yes. Every alert has a timestamp, a measuring point, a deviation size and duration, and a review outcome. Data coverage per site is reported, so gaps are visible.
 - **Who owns it?** The building owner. Sharing with a carrier is by the owner's consent and in aggregate.
 - **What about buildings that are not monitored?** Nothing changes for them. The signal exists for monitored buildings only, which is also why a subsidised-hardware model is attractive: it grows the monitored share of the book.
 - **How is the data delivered?** As a feed or a periodic export at building level, in the format the carrier's risk team already uses. The 30-minute call is where that gets specified.
+
+## The next step
 
 Pilots are running with owners in Germany and the US. For a carrier, the next step is one book of business, worked through together: which buildings, which data, which of the five models. See the [insurance page](/insurance/), or [book a 30-minute call](/book-a-call/?for=insurance).

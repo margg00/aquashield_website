@@ -43,8 +43,6 @@ Across two residential sites in California, 59 sensors went live in September 20
 
 After the first building, a portfolio's own team can clamp on the sensors. The positions come from the plan, the sensors come in a box, and the twin updates as they come online.
 
-## Start with one building
-
 ## What slows an install down, and what does not
 
 In practice three things add time, and three things people expect to add time do not.
@@ -54,5 +52,7 @@ In practice three things add time, and three things people expect to add time do
 **What does not:** the age of the pipes, the number of flats, and the tenants. The sensors clamp onto any accessible pipe, the number of measuring points follows the risers rather than the units, and the water never goes off, so nobody has to be told.
 
 Plan for a day per building, and for the first weeks of learning before the first alert.
+
+## Start with one building
 
 One building is a day. From there, roll out at your pace. See the deployment path on the [real estate page](/real-estate/), or [book a 30-minute call](/book-a-call/?for=real-estate).

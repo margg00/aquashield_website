@@ -1184,18 +1184,20 @@ body.nav-open { overflow: hidden; }
 .pb-area { fill: rgb(var(--anomaly-rgb) / 0.12); }
 .pb-dot { fill: var(--anomaly); }
 .pb-ring { fill: none; stroke: var(--anomaly); stroke-width: 1.5; opacity: 0.35; transform-box: fill-box; transform-origin: center; }
-.pb-strip { fill: rgba(255, 255, 255, 0.07); stroke: rgba(255, 255, 255, 0.2); stroke-width: 1.5; }
-.pb-stain { fill: rgb(var(--anomaly-rgb) / 0.26); }
-.pb-pipe { fill: none; stroke: rgba(255, 255, 255, 0.16); stroke-width: 1.5; stroke-dasharray: 3 4; stroke-linecap: round; }
-.pb-trail { fill: none; stroke: rgba(255, 255, 255, 0.4); stroke-width: 1.6; stroke-dasharray: 0 4.5; stroke-linecap: round; }
+.pb-strip { fill: rgba(255, 255, 255, 0.06); }
+.pb-edge { fill: none; stroke: rgba(255, 255, 255, 0.24); stroke-width: 1.5; }
+.pb-edge-low { stroke: rgba(255, 255, 255, 0.1); }
+.pb-stain { fill: rgb(var(--anomaly-rgb) / 0.16); stroke: rgb(var(--anomaly-rgb) / 0.3); stroke-width: 0.8; }
+.pb-trail { fill: none; stroke: rgba(255, 255, 255, 0.45); stroke-width: 1.6; stroke-dasharray: 0 4.2; stroke-linecap: round; }
+.pb-trail-m { fill: none; stroke: #fff; stroke-width: 6; stroke-dasharray: 1; stroke-dashoffset: 0; }
 .pb-hole { transform-box: fill-box; transform-origin: center; }
-.pb-hole rect { fill: #070707; stroke: rgba(255, 255, 255, 0.34); stroke-width: 1.5; }
-.pb-miss { fill: none; stroke: rgba(255, 255, 255, 0.4); stroke-width: 1.6; stroke-linecap: round; }
+.pb-hole rect { fill: #050505; stroke: rgba(255, 255, 255, 0.3); stroke-width: 1.5; }
+.pb-pipe { fill: none; stroke: rgba(255, 255, 255, 0.5); stroke-width: 3; stroke-dasharray: 7 4.5; }
+.pb-miss { fill: none; stroke: rgba(255, 255, 255, 0.32); stroke-width: 1.4; stroke-linecap: round; }
 .pb-hole-hit rect { stroke: var(--anomaly); stroke-width: 2; }
-.pb-seg { stroke: rgba(255, 255, 255, 0.72); stroke-width: 5; }
-.pb-glow { fill: rgb(var(--anomaly-rgb) / 0.3); }
-.pb-drop { fill: var(--anomaly); }
-.pb-hit-ring { fill: none; stroke: var(--anomaly); stroke-width: 1.5; opacity: 0.5; transform-box: fill-box; transform-origin: center; }
+.pb-glow { fill: rgb(var(--anomaly-rgb) / 0.18); }
+.pb-drop { fill: var(--anomaly); transform-box: fill-box; transform-origin: 50% 0; }
+.pb-ripple { fill: none; stroke: var(--anomaly); stroke-width: 1; opacity: 0.45; transform-box: fill-box; transform-origin: center; }
 .pb-nums text { fill: var(--text-muted); font-size: 11px; font-weight: 600; text-anchor: middle; font-variant-numeric: tabular-nums; }
 .pb-nums .pb-num-hit { fill: var(--anomaly); }
 .pb-bar { fill: rgba(255, 255, 255, 0.22); transform-box: fill-box; transform-origin: bottom; }
@@ -1207,15 +1209,15 @@ body.nav-open { overflow: hidden; }
   body.has-reveal .problem-tile .pb-line { stroke-dashoffset: 1; transition: stroke-dashoffset 1600ms cubic-bezier(0.45, 0, 0.2, 1) 200ms; }
   body.has-reveal .problem-tile .pb-area { opacity: 0; transition: opacity 700ms ease 1500ms; }
   body.has-reveal .problem-tile .pb-dot, body.has-reveal .problem-tile .pb-ring { opacity: 0; transition: opacity 300ms ease 1700ms; }
-  body.has-reveal .problem-tile .pb-hole { opacity: 0; transform: scale(0.2); transition: opacity 220ms ease, transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1); }
-  body.has-reveal .problem-tile .pb-trail, body.has-reveal .problem-tile .pb-nums text { opacity: 0; transition: opacity 300ms ease; }
-  body.has-reveal .problem-tile .pb-stain { opacity: 0; transition: opacity 400ms ease; }
-  body.has-reveal .problem-tile .pb-glow, body.has-reveal .problem-tile .pb-drop { opacity: 0; transition: opacity 300ms ease 2050ms; }
-  body.has-reveal .pb-hole:nth-child(1), body.has-reveal .pb-nums text:nth-child(1) { transition-delay: 250ms; }
-  body.has-reveal .pb-hole:nth-child(2), body.has-reveal .pb-nums text:nth-child(2) { transition-delay: 620ms; } body.has-reveal .pb-trail:nth-child(1) { transition-delay: 450ms; }
-  body.has-reveal .pb-hole:nth-child(3), body.has-reveal .pb-nums text:nth-child(3) { transition-delay: 990ms; } body.has-reveal .pb-trail:nth-child(2) { transition-delay: 820ms; }
-  body.has-reveal .pb-hole:nth-child(4), body.has-reveal .pb-nums text:nth-child(4) { transition-delay: 1360ms; } body.has-reveal .pb-trail:nth-child(3) { transition-delay: 1190ms; }
-  body.has-reveal .pb-hole:nth-child(5), body.has-reveal .pb-nums text:nth-child(5) { transition-delay: 1750ms; } body.has-reveal .pb-trail:nth-child(4) { transition-delay: 1560ms; }
+  body.has-reveal .problem-tile .pb-hole { opacity: 0; transform: scale(0.3); transition: opacity 200ms ease, transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  body.has-reveal .problem-tile .pb-nums text, body.has-reveal .problem-tile .pb-stain { opacity: 0; transition: opacity 300ms ease; }
+  body.has-reveal .problem-tile .pb-trail-m { stroke-dashoffset: 1; transition: stroke-dashoffset 260ms ease-out; }
+  body.has-reveal .problem-tile .pb-glow, body.has-reveal .problem-tile .pb-drop, body.has-reveal .problem-tile .pb-ripple { opacity: 0; transition: opacity 300ms ease 2150ms; }
+  body.has-reveal .pb-hole:nth-child(1), body.has-reveal .pb-nums text:nth-child(1) { transition-delay: 200ms; }
+  body.has-reveal .pb-hole:nth-child(2), body.has-reveal .pb-nums text:nth-child(2) { transition-delay: 620ms; } body.has-reveal #pbw-m1 .pb-trail-m { transition-delay: 360ms; }
+  body.has-reveal .pb-hole:nth-child(3), body.has-reveal .pb-nums text:nth-child(3) { transition-delay: 1040ms; } body.has-reveal #pbw-m2 .pb-trail-m { transition-delay: 780ms; }
+  body.has-reveal .pb-hole:nth-child(4), body.has-reveal .pb-nums text:nth-child(4) { transition-delay: 1460ms; } body.has-reveal #pbw-m3 .pb-trail-m { transition-delay: 1200ms; }
+  body.has-reveal .pb-hole:nth-child(5), body.has-reveal .pb-nums text:nth-child(5) { transition-delay: 1880ms; } body.has-reveal #pbw-m4 .pb-trail-m { transition-delay: 1620ms; }
   body.has-reveal .problem-tile .pb-bar { transform: scaleY(0); transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
   body.has-reveal .pb-bar:nth-child(2) { transition-delay: 60ms; } body.has-reveal .pb-bar:nth-child(3) { transition-delay: 120ms; } body.has-reveal .pb-bar:nth-child(4) { transition-delay: 180ms; }
   body.has-reveal .pb-bar:nth-child(5) { transition-delay: 240ms; } body.has-reveal .pb-bar:nth-child(6) { transition-delay: 300ms; } body.has-reveal .pb-bar:nth-child(7) { transition-delay: 360ms; }
@@ -1224,14 +1226,18 @@ body.nav-open { overflow: hidden; }
   body.has-reveal .problem-tile.is-visible .pb-line { stroke-dashoffset: 0; }
   body.has-reveal .problem-tile.is-visible .pb-area, body.has-reveal .problem-tile.is-visible .pb-dot { opacity: 1; }
   body.has-reveal .problem-tile.is-visible .pb-hole { opacity: 1; transform: none; }
-  body.has-reveal .problem-tile.is-visible .pb-trail, body.has-reveal .problem-tile.is-visible .pb-nums text, body.has-reveal .problem-tile.is-visible .pb-stain, body.has-reveal .problem-tile.is-visible .pb-glow, body.has-reveal .problem-tile.is-visible .pb-drop { opacity: 1; }
-  body.has-reveal .problem-tile.is-visible .pb-hit-ring { animation: pb-pulse 3s ease-out 2.4s infinite; }
+  body.has-reveal .problem-tile.is-visible .pb-nums text, body.has-reveal .problem-tile.is-visible .pb-stain, body.has-reveal .problem-tile.is-visible .pb-glow, body.has-reveal .problem-tile.is-visible .pb-drop { opacity: 1; } body.has-reveal .problem-tile.is-visible .pb-ripple { opacity: 0.45; }
+  body.has-reveal .problem-tile.is-visible .pb-trail-m { stroke-dashoffset: 0; }
+  body.has-reveal .problem-tile.is-visible .pb-drop { animation: pb-drip 2.6s ease-in-out 2.5s infinite; }
+  body.has-reveal .problem-tile.is-visible .pb-ripple { animation: pb-ripple 2.6s ease-out 2.5s infinite; }
   body.has-reveal .problem-tile.is-visible .pb-bar { transform: scaleY(1); }
   body.has-reveal .problem-tile.is-visible .pb-ring { opacity: 1; animation: pb-pulse 2.4s ease-out 1.9s infinite; }
   .problem-value { transition: color 240ms ease; }
 }
-@media (prefers-reduced-motion: reduce) { .pb-line { stroke-dashoffset: 0; transition: none; } .pb-area, .pb-dot { opacity: 1; transition: none; } .pb-bar { transform: scaleY(1); transition: none; } .pb-hole { opacity: 1; transform: none; transition: none; } .pb-ring, .pb-hit-ring { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .pb-line { stroke-dashoffset: 0; transition: none; } .pb-area, .pb-dot { opacity: 1; transition: none; } .pb-bar { transform: scaleY(1); transition: none; } .pb-hole { opacity: 1; transform: none; transition: none; } .pb-ring, .pb-drop, .pb-ripple { animation: none; } }
 @keyframes pb-pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3.2); opacity: 0; } }
+@keyframes pb-drip { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.12); opacity: 0.75; } }
+@keyframes pb-ripple { 0%, 40% { transform: scale(0.4); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: scale(2); opacity: 0; } }
 
 @media (prefers-reduced-motion: no-preference) {
   .live-dot { animation: live-dot 1.6s ease-in-out infinite; }

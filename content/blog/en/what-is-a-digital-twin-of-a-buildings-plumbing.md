@@ -47,8 +47,6 @@ The twin answers the question that follows every alert: where do we look first? 
 
 It also answers a question that comes up in planning: where would one more sensor help most? Because the twin knows which water each sensor sees, it can show which part of the network is still only seen from far away.
 
-## Where this goes next
-
 ## Twin, dashboard, model: who does what
 
 Three words come up together and are easy to mix.
@@ -58,5 +56,7 @@ Three words come up together and are easy to mix.
 - The **dashboard** is what the team sees: every measuring point against its baseline, the alert list ranked by severity, and for each alert the riser and floors from the twin.
 
 The model finds, the twin places, the dashboard tells. A portfolio with 22 buildings has 22 twins, 32 models and one dashboard.
+
+## Where this goes next
 
 The same twin that models a residential riser models a cooling loop in a data centre: supply, return, branches per rack, sensors per branch. The topology is different, the method is the same. See [how AquaShield works](/product/) or [book a 30-minute call](/book-a-call/).

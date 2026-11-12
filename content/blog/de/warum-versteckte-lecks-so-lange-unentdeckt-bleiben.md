@@ -53,4 +53,12 @@ Das ändert die Suche von fünf Terminen zu einem gezielten. Die Reparatur ände
 
 An den Standorten, an denen AquaShield live ist, passten drei gemeldete Schäden zu einem klaren Durchflussmuster in den Daten. Jeder Alarm wird mit der Haustechnik geprüft, und jedes Feedback fliesst zurück ins Modell, so wird es mit jedem Gebäude schärfer.
 
+## Was Sie diese Woche tun können
+
+Drei Dinge, die ein Portfolio tun kann, bevor ein einziger Sensor installiert ist.
+
+1. **Ziehen Sie die letzten fünf Wasserschäden heran** und notieren Sie, wo jedes Leck gefunden wurde und wie lange es lief. Das Muster ist meist dasselbe: gemeinsames Netz, Wochen, von einem Mieter gefunden.
+2. **Wählen Sie das Gebäude** mit den meisten Einheiten an den wenigsten Steigleitungen. Es ist der schnellste Nachweis dafür, was eine Live-Ansicht bringt.
+3. **Schicken Sie den Leitungsplan.** Die Sensorpositionen und der digitale Zwilling werden daraus geplant, bevor jemand vor Ort ist.
+
 Wenn Sie ein Portfolio mit eigener Haustechnik betreiben, [beginnen Sie mit einem Gebäude](/de/immobilien/) und sehen Sie, ob die Alarme etwas taugen. Der erste Schritt ist ein [30-minütiges Gespräch](/de/gespraech-buchen/?for=real-estate).
