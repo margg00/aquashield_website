@@ -152,7 +152,7 @@
     },
     "team": {
       "title": "Team | AquaShield",
-      "description": "Zwei Robotikforscher von MIT und Harvard, die jetzt Rohrnetze reparieren. AquaShield erkennt und ortet Lecks mit nicht-invasiven Sensoren und KI."
+      "description": "Lernen Sie das AquaShield-Team kennen: Robotikforscher und Ingenieure von MIT, Harvard, EPFL, RWTH Aachen und Tsinghua, die in Zürich und San Francisco KI-Leckageerkennung entwickeln. Werden Sie Teil des Teams."
     },
     "blog": {
       "title": "Blog | AquaShield",
@@ -209,7 +209,7 @@
         },
         {
           "name": "Lernen",
-          "text": "Ein Modell pro Messstelle lernt den normalen Durchfluss Ihres Gebäudes in 10-Minuten-Schritten."
+          "text": "Unser Modell lernt den normalen Durchfluss Ihres Gebäudes in 10-Minuten-Schritten."
         },
         {
           "name": "Erkennen",
@@ -432,12 +432,12 @@
         {
           "value": "89.000 $",
           "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
-          "source": "NAIOP"
+          "source": "NAIOP, US-Verband für Gewerbeimmobilien"
         },
         {
           "value": "4,91 Mrd. €",
           "label": "Leitungswasserschäden in Deutschland 2024",
-          "source": "GDV"
+          "source": "GDV, Gesamtverband der Deutschen Versicherer, 2024"
         }
       ],
       "line": "AquaShield wird pro Gebäude bepreist, ein Bruchteil eines Schadenfalls.",
@@ -456,7 +456,7 @@
         },
         {
           "name": "Lernen",
-          "text": "Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes."
+          "text": "Unser Modell lernt den normalen Durchfluss des Gebäudes."
         },
         {
           "name": "Erkennen",

@@ -152,7 +152,7 @@
     },
     "team": {
       "title": "Team | AquaShield",
-      "description": "Two robotics researchers from MIT and Harvard who left robotics to fix plumbing. AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and AI."
+      "description": "Meet the AquaShield team: robotics researchers and engineers from MIT, Harvard, EPFL, RWTH Aachen and Tsinghua, building AI leak detection in Zurich and San Francisco. Join us."
     },
     "blog": {
       "title": "Blog | AquaShield",
@@ -209,7 +209,7 @@
         },
         {
           "name": "Learn",
-          "text": "A model per measuring point learns your building's normal flow in 10-minute steps."
+          "text": "Our model learns your building's normal flow in 10-minute steps."
         },
         {
           "name": "Detect",
@@ -432,12 +432,12 @@
         {
           "value": "$89k",
           "label": "Average US commercial water claim",
-          "source": "NAIOP"
+          "source": "NAIOP, US commercial real estate association"
         },
         {
           "value": "€4.91bn",
           "label": "German tap-water damage in 2024",
-          "source": "GDV"
+          "source": "GDV, German Insurance Association, 2024"
         }
       ],
       "line": "AquaShield is priced per building, a fraction of one claim.",
@@ -456,7 +456,7 @@
         },
         {
           "name": "Learn",
-          "text": "A model per measuring point learns the building's normal flow."
+          "text": "Our model learns the building's normal flow."
         },
         {
           "name": "Detect",

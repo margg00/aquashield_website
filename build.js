@@ -399,8 +399,10 @@ function attachCovers(posts) {
 }
 
 // French puts a space before ? ! : ; Make it a narrow no-break space in visible
-// titles so the mark never wraps onto a line of its own.
+// titles so the mark never wraps onto a line of its own. A hyphen inside a word
+// ("met-elle", "Clamp-on") becomes a no-break hyphen so titles wrap whole words.
 function displayTitle(title, lang) {
+  title = title.replace(/(\p{L})-(?=\p{L})/gu, "$1\u2011");
   return lang === "fr" ? title.replace(/ ([?!:;»])/g, " $1").replace(/« /g, "« ") : title;
 }
 

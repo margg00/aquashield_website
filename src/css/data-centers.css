@@ -2,6 +2,9 @@
    Default styles are the finished state. Start states and keyframes live only inside
    prefers-reduced-motion: no-preference, keyed off body.has-reveal and .is-visible. */
 
+/* Hero headline: three lines in the copy column from 900px up (en, de) */
+@media (min-width: 900px) { .page-data-centers .hero-copy h1 { font-size: min(3.95rem, 5vw + 2px); } }
+
 /* Hero rack drawing: the drifting branch */
 .vi-flow-bad { fill: #ffb199; }
 

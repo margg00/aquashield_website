@@ -45,6 +45,26 @@
   .is-featured .post-card .link-arrow { margin-top: 8px; }
 }
 
+/* A last card alone in its row spans the row as a wide card, like the featured one.
+   From 1024px the featured first card fills row 1, so a lone last card is an even child.
+   Between 768 and 1023px every card sits in the 2-column grid, so it is an odd child. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .post-list > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .post-list > li:last-child:nth-child(odd) .post-card { flex-direction: row; }
+  .post-list > li:last-child:nth-child(odd) .post-card-media { flex: 0 0 50%; border-bottom: 0; border-right: 1px solid var(--border); }
+  .post-list > li:last-child:nth-child(odd) .post-card-body { justify-content: center; padding: 28px 28px; }
+}
+@media (min-width: 1024px) {
+  .post-list > li:last-child:nth-child(even):not(.is-featured) { grid-column: 1 / -1; }
+  .post-list > li:last-child:nth-child(even):not(.is-featured) .post-card { flex-direction: row; }
+  .post-list > li:last-child:nth-child(even):not(.is-featured) .post-card-media { flex: 0 0 58%; border-bottom: 0; border-right: 1px solid var(--border); }
+  .post-list > li:last-child:nth-child(even):not(.is-featured) .post-card-body { justify-content: center; gap: 16px; padding: 40px 44px; }
+  .post-list > li:last-child:nth-child(even):not(.is-featured) .post-card h2 { font-size: clamp(1.6rem, 1rem + 1vw, 2rem); line-height: 1.15; }
+}
+
+/* Post titles wrap whole words in every language, no automatic hyphenation */
+.post-card h2, .post-header h1 { hyphens: manual; overflow-wrap: break-word; }
+
 /* ---------- Post ---------- */
 .post { --col: min(720px, 100% - 2 * var(--gutter)); padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 8vw, 104px); }
 .post-header, .post-body { width: var(--col); margin-inline: auto; }

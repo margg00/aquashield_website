@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://aquashieldai.com/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/"/>
@@ -57,51 +57,63 @@
   <url>
     <loc>https://aquashieldai.com/blog/how-to-roll-out-leak-detection-across-a-portfolio/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-to-roll-out-leak-detection-across-a-portfolio/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/how-to-roll-out-leak-detection-across-a-portfolio.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/liquid-cooling-leak-detection-in-data-centres/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/liquid-cooling-leak-detection-in-data-centres/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/liquid-cooling-leak-detection-in-data-centres.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/how-can-insurers-use-building-water-data/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-can-insurers-use-building-water-data/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/how-can-insurers-use-building-water-data.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/what-does-riser-level-localisation-mean/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-does-riser-level-localisation-mean/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/what-does-riser-level-localisation-mean.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/why-do-most-leaks-go-unnoticed/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/why-do-most-leaks-go-unnoticed/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/why-do-most-leaks-go-unnoticed.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/what-is-a-digital-twin-of-a-buildings-plumbing/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-is-a-digital-twin-of-a-buildings-plumbing/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/what-is-a-digital-twin-of-a-buildings-plumbing.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/how-long-does-it-take-to-install-leak-sensors/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-long-does-it-take-to-install-leak-sensors/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/how-long-does-it-take-to-install-leak-sensors.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/what-is-a-flow-baseline/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/what-is-a-flow-baseline/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/what-is-a-flow-baseline.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/how-much-does-a-water-damage-claim-cost/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-much-does-a-water-damage-claim-cost/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/how-much-does-a-water-damage-claim-cost.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/smart-water-meters-vs-leak-detection/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/smart-water-meters-vs-leak-detection/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/smart-water-meters-vs-leak-detection.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/how-does-non-invasive-leak-detection-work/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/how-does-non-invasive-leak-detection-work/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/how-does-non-invasive-leak-detection-work.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://aquashieldai.com/blog/why-hidden-leaks-take-so-long/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquashieldai.com/blog/why-hidden-leaks-take-so-long/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://aquashieldai.com/de/blog/warum-versteckte-lecks-so-lange-unentdeckt-bleiben/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://aquashieldai.com/fr/blog/pourquoi-les-fuites-cachees-restent-si-longtemps-invisibles/"/>
+    <image:image><image:loc>https://aquashieldai.com/assets/img/blog/why-hidden-leaks-take-so-long.webp</image:loc></image:image>
   </url>
 </urlset>

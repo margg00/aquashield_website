@@ -152,7 +152,7 @@
     },
     "team": {
       "title": "Équipe | AquaShield",
-      "description": "Deux chercheurs en robotique, MIT et Harvard, passés de la robotique à la plomberie. Détection et localisation de fuites par capteurs non invasifs et IA."
+      "description": "Découvrez l'équipe AquaShield : chercheurs en robotique et ingénieurs issus du MIT, de Harvard, de l'EPFL, de la RWTH Aachen et de Tsinghua, qui développent la détection de fuites par IA à Zurich et San Francisco. Rejoignez-nous."
     },
     "blog": {
       "title": "Blog | AquaShield",
@@ -209,7 +209,7 @@
         },
         {
           "name": "Apprendre",
-          "text": "Un modèle par point de mesure apprend le débit normal de votre bâtiment par pas de 10 minutes."
+          "text": "Notre modèle apprend le débit normal de votre bâtiment par pas de 10 minutes."
         },
         {
           "name": "Détecter",
@@ -432,12 +432,12 @@
         {
           "value": "89 000 $",
           "label": "Sinistre eau commercial moyen aux États-Unis",
-          "source": "NAIOP"
+          "source": "NAIOP, association américaine de l'immobilier commercial"
         },
         {
           "value": "4,91 Md €",
           "label": "Dégâts d'eau du robinet en Allemagne en 2024",
-          "source": "GDV"
+          "source": "GDV, fédération des assureurs allemands, 2024"
         }
       ],
       "line": "AquaShield est facturé par bâtiment, une fraction d'un seul sinistre.",
@@ -456,7 +456,7 @@
         },
         {
           "name": "Apprendre",
-          "text": "Un modèle par point de mesure apprend le débit normal du bâtiment."
+          "text": "Notre modèle apprend le débit normal du bâtiment."
         },
         {
           "name": "Détecter",
