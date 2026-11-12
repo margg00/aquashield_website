@@ -573,51 +573,124 @@
   },
   "team": {
     "eyebrow": "Team",
-    "h1": "Two robotics researchers who left robotics to fix plumbing.",
-    "lead": "The first system went live at MIT, in building NW23. Today the same sensors and models watch risers in Germany and the US.",
-    "learn": {
-      "h2": "Clamp on. The building maps itself.",
-      "text": "Sensors clamp onto the risers in minutes. From their positions and the plumbing layout, AquaShield builds a digital twin of the building: which riser feeds which floors, which sensor sees which water. A model per measuring point learns the building's normal flow and flags what normal does not explain, down to the riser and the floors to check first. Specialised machine learning for hydraulic systems, built by robotics researchers."
+    "h1": "From an MIT hackathon to sensors on two continents.",
+    "lead": "We are robotics researchers and engineers who decided that the most neglected system in every building deserves real machine learning. We build it in Zurich and San Francisco, and we are looking for people who want to build it with us.",
+    "join": {
+      "title": "Join us",
+      "line": "Engineers, researchers and operators: write to the founders.",
+      "button": "Introduce yourself"
     },
-    "peopleTitle": "People",
+    "story": {
+      "h2": "How we got here",
+      "chapters": [
+        {
+          "place": "Cambridge, Massachusetts",
+          "title": "The hackathon",
+          "text": "Paul and Marguerite meet at an MIT hackathon and win it with AquaShield. The week after, they are inside a campus building, clamping sensors onto pipes. The first system goes live at MIT, built side by side with the facilities team.",
+          "alt": "Paul Beckers and Marguerite Benoist in front of the Great Dome at MIT."
+        },
+        {
+          "place": "San Francisco",
+          "title": "Y Combinator",
+          "text": "Spring 2026. Months of building at full speed, surrounded by people doing the same. That pace never left us, and San Francisco is still where a part of us lives.",
+          "alt": "Marguerite Benoist and Paul Beckers behind the Y Combinator sign in San Francisco."
+        },
+        {
+          "place": "Zurich",
+          "title": "The team",
+          "text": "Today we build from Zurich, one of Europe's strongest hubs for robotics and machine learning. Sensors on pipes in Germany and the US, a model that gets sharper with every building, and a team that grows with the people who want to build it.",
+          "alt": "The AquaShield team around a table of laptops in the Zurich office."
+        }
+      ]
+    },
+    "spirit": {
+      "h2": "How we work",
+      "items": [
+        {
+          "name": "Driven",
+          "text": "We move at a pace most teams find unreasonable. We like it that way."
+        },
+        {
+          "name": "Think big, ship fast",
+          "text": "US mentality in a European team. Decide today, ship this week, sell before it is perfect."
+        },
+        {
+          "name": "Loyal",
+          "text": "We back each other. On site, in the lab and when it gets hard."
+        },
+        {
+          "name": "Smart and efficient",
+          "text": "The best idea wins, whoever it comes from. Then we take the shortest path to it."
+        },
+        {
+          "name": "Open and transparent",
+          "text": "Problems go on the table early. Feedback is direct and goes both ways."
+        },
+        {
+          "name": "Out of the lab",
+          "text": "We deploy early, in real basements and plant rooms, next to the people who run the building."
+        }
+      ]
+    },
+    "work": {
+      "h2": "What you would work on",
+      "items": [
+        {
+          "name": "Hardware in the field",
+          "text": "Ultrasonic sensors, firmware and connectivity that survive real plant rooms."
+        },
+        {
+          "name": "Machine learning on physical signals",
+          "text": "Models that learn what normal looks like for each building and catch what normal does not explain."
+        },
+        {
+          "name": "Digital twins of real buildings",
+          "text": "A live model of the plumbing that turns a deviation into a place to check first."
+        }
+      ],
+      "line": "Your work is on a real pipe within weeks."
+    },
+    "peopleTitle": "The team",
     "people": [
       {
         "id": "paul-beckers",
         "name": "Paul Beckers",
-        "role": "CEO",
+        "role": "Co-Founder & CEO",
         "alumni": [
           "MIT",
           "RWTH Aachen",
           "Tsinghua"
         ],
-        "line": "Robotics researcher."
+        "line": "Robotics researcher. Built digital twins for robotic arms at MIT and a robotic glove for BMW assembly workers."
       },
       {
         "id": "marguerite-benoist",
         "name": "Marguerite Benoist",
-        "role": "CTO",
+        "role": "Co-Founder & CTO",
         "alumni": [
           "EPFL",
           "Harvard"
         ],
-        "line": "Robotics researcher."
+        "line": "Robotics and machine learning. Built anomaly detection for drones and an autonomous Mars rover from scratch."
       },
       {
         "id": "tim-baumeister",
         "name": "Tim Baumeister",
-        "role": "Co-founder, customers and operations",
+        "role": "Founding Engineer, Head of Hardware and Operations",
         "alumni": [
           "RWTH Aachen",
           "Tsinghua"
         ],
-        "line": ""
+        "line": "Runs hardware, installs and every site we go live on."
       },
       {
         "id": "neil-cecchi",
         "name": "Neil Cecchi",
-        "role": "Founding engineer",
-        "alumni": [],
-        "line": ""
+        "role": "Founding Engineer, Head of IoT",
+        "alumni": [
+          "EPFL"
+        ],
+        "line": "Owns the sensor network, from the pipe to the cloud."
       },
       {
         "id": "jacques-raffaeli",
@@ -634,32 +707,24 @@
         "line": "Intern."
       }
     ],
-    "peopleConfirm": "",
-    "photoAlt": "The AquaShield team at the Zurich office.",
     "backing": {
-      "h2": "Backing and research",
-      "items": [
-        "Y Combinator, spring 2026.",
-        "NVIDIA.",
-        "OpenAI.",
-        "EPFL Startup Launchpad AI grant.",
-        "Research collaborations with EPFL and ETH Zurich.",
-        "Developed with MIT Facilities."
-      ]
+      "line": "Research collaborations with EPFL and ETH Zurich. Developed with MIT Facilities."
     },
-    "offices": {
-      "h2": "Offices",
-      "items": [
-        {
-          "city": "Zurich HQ",
-          "line": "Technoparkstrasse 1, 8005 Zurich, Switzerland"
-        },
-        {
-          "city": "San Francisco",
-          "line": "500 Sansome Street, San Francisco, CA 94111"
-        }
-      ]
-    }
+    "final": {
+      "h2": "Build it with us.",
+      "line": "If you want your work on real pipes within weeks, not in a slide deck, write to us.",
+      "button": "Introduce yourself"
+    },
+    "offices": [
+      {
+        "city": "San Francisco",
+        "line": "500 Sansome Street, San Francisco, CA 94111"
+      },
+      {
+        "city": "Zurich",
+        "line": "Technoparkstrasse 1, 8005 Zurich, Switzerland"
+      }
+    ]
   },
   "blog": {
     "h1": "Blog",

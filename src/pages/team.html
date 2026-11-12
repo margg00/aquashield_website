@@ -1,28 +1,139 @@
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">{{team.eyebrow}}</p>
-        <h1>{{team.h1}}</h1>
-        <p class="lead">{{canonical}} {{team.lead}}</p>
+    <section class="page-hero team-hero" aria-labelledby="team-title">
+      <div class="team-hero-bg" aria-hidden="true"></div>
+      <div class="container team-hero-grid">
+        <div class="team-hero-copy">
+          <p class="eyebrow">{{team.eyebrow}}</p>
+          <h1 id="team-title">{{team.h1}}</h1>
+          <p class="lead">{{team.lead}}</p>
+        </div>
+        <aside class="join-card" aria-labelledby="join-title">
+          <p class="join-title" id="join-title"><span class="join-dot" aria-hidden="true"></span>{{team.join.title}}</p>
+          <p class="join-line">{{team.join.line}}</p>
+          <a class="btn btn-primary btn-block" href="mailto:{{cta.email}}?subject=Joining%20AquaShield">{{team.join.button}}</a>
+        </aside>
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="learn-title">
-      <div class="container split">
-        <div>
-          <div class="media media-3x4">
-            <img src="{{base}}assets/img/team.webp" srcset="{{base}}assets/img/team-600.webp 600w, {{base}}assets/img/team-900.webp 900w, {{base}}assets/img/team.webp 1200w" sizes="(min-width: 900px) 460px, 90vw" alt="{{team.photoAlt}}" width="1200" height="1600" loading="lazy" decoding="async">
-          </div>
+    <section class="section section-alt team-story" aria-labelledby="story-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="story-title">{{team.story.h2}}</h2>
         </div>
-        <div>
-          <div class="section-head">
-            <h2 id="learn-title">{{team.learn.h2}}</h2>
-            <p>{{team.learn.text}}</p>
-          </div>
-        </div>
+        <ol class="story">
+          <li class="chapter" data-reveal>
+            <span class="chapter-line" aria-hidden="true"></span>
+            <span class="chapter-node" aria-hidden="true"></span>
+            <figure class="chapter-media media">
+              <img src="{{base}}assets/img/team/founders-mit.webp" srcset="{{base}}assets/img/team/founders-mit-600.webp 600w, {{base}}assets/img/team/founders-mit.webp 900w" sizes="(min-width: 900px) 530px, calc(100vw - 72px)" alt="{{team.story.chapters.0.alt}}" width="900" height="1200" loading="lazy" decoding="async">
+            </figure>
+            <div class="chapter-copy">
+              <p class="chapter-place"><span class="chapter-num">01</span>{{team.story.chapters.0.place}}</p>
+              <h3 class="chapter-title">{{team.story.chapters.0.title}}</h3>
+              <p class="chapter-text">{{team.story.chapters.0.text}}</p>
+            </div>
+          </li>
+          <li class="chapter chapter-flip" data-reveal>
+            <span class="chapter-line" aria-hidden="true"></span>
+            <span class="chapter-node" aria-hidden="true"></span>
+            <figure class="chapter-media media">
+              <img src="{{base}}assets/img/team/founders-yc.webp" srcset="{{base}}assets/img/team/founders-yc-600.webp 600w, {{base}}assets/img/team/founders-yc.webp 1200w" sizes="(min-width: 900px) 530px, calc(100vw - 72px)" alt="{{team.story.chapters.1.alt}}" width="1200" height="1186" loading="lazy" decoding="async">
+            </figure>
+            <div class="chapter-copy">
+              <p class="chapter-place"><span class="chapter-num">02</span>{{team.story.chapters.1.place}}</p>
+              <h3 class="chapter-title">{{team.story.chapters.1.title}}</h3>
+              <p class="chapter-text">{{team.story.chapters.1.text}}</p>
+            </div>
+          </li>
+          <li class="chapter" data-reveal>
+            <span class="chapter-line" aria-hidden="true"></span>
+            <span class="chapter-node" aria-hidden="true"></span>
+            <figure class="chapter-media media">
+              <img src="{{base}}assets/img/team.webp" srcset="{{base}}assets/img/team-600.webp 600w, {{base}}assets/img/team-900.webp 900w, {{base}}assets/img/team.webp 1200w" sizes="(min-width: 900px) 530px, calc(100vw - 72px)" alt="{{team.story.chapters.2.alt}}" width="1200" height="1600" loading="lazy" decoding="async">
+            </figure>
+            <div class="chapter-copy">
+              <p class="chapter-place"><span class="chapter-num">03</span>{{team.story.chapters.2.place}}</p>
+              <h3 class="chapter-title">{{team.story.chapters.2.title}}</h3>
+              <p class="chapter-text">{{team.story.chapters.2.text}}</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="people-title">
+    <section class="section anchor-band team-spirit" aria-labelledby="spirit-title">
+      <div class="anchor-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="spirit-title">{{team.spirit.h2}}</h2>
+        </div>
+        <ul class="spirit-grid">
+          <li class="spirit-tile" data-reveal>
+            <span class="spirit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path pathLength="1" d="M13 2.5 4.5 13.5h6.5l-1 8 8.5-11h-6.5l1-8z"/></svg></span>
+            <h3>{{team.spirit.items.0.name}}</h3>
+            <p>{{team.spirit.items.0.text}}</p>
+          </li>
+          <li class="spirit-tile" data-reveal>
+            <span class="spirit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path pathLength="1" d="M4.5 19.5 19.5 4.5"/><path pathLength="1" d="M9.5 4.5h10v10"/><path pathLength="1" d="M4.5 13v6.5H11"/></svg></span>
+            <h3>{{team.spirit.items.1.name}}</h3>
+            <p>{{team.spirit.items.1.text}}</p>
+          </li>
+          <li class="spirit-tile" data-reveal>
+            <span class="spirit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path pathLength="1" d="M12 2.8 4.5 5.8v5.7c0 4.6 3.2 8.4 7.5 9.7 4.3-1.3 7.5-5.1 7.5-9.7V5.8L12 2.8z"/><path pathLength="1" d="m8.6 12.2 2.4 2.4 4.6-4.8"/></svg></span>
+            <h3>{{team.spirit.items.2.name}}</h3>
+            <p>{{team.spirit.items.2.text}}</p>
+          </li>
+          <li class="spirit-tile" data-reveal>
+            <span class="spirit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path class="spirit-faint" pathLength="1" d="M5 16.5V9a4 4 0 0 1 4-4h7.5"/><path pathLength="1" d="M6.4 17.6 17.6 6.4"/><circle pathLength="1" cx="5" cy="19" r="2.2"/><circle pathLength="1" cx="19" cy="5" r="2.2"/></svg></span>
+            <h3>{{team.spirit.items.3.name}}</h3>
+            <p>{{team.spirit.items.3.text}}</p>
+          </li>
+          <li class="spirit-tile" data-reveal>
+            <span class="spirit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path pathLength="1" d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle pathLength="1" cx="12" cy="12" r="3"/></svg></span>
+            <h3>{{team.spirit.items.4.name}}</h3>
+            <p>{{team.spirit.items.4.text}}</p>
+          </li>
+          <li class="spirit-tile" data-reveal>
+            <span class="spirit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path pathLength="1" d="M2.5 9h6.5M15 9h6.5M2.5 15h6.5M15 15h6.5"/><rect pathLength="1" x="9" y="6" width="6" height="12" rx="1.6"/><path pathLength="1" d="M12 6V3"/></svg></span>
+            <h3>{{team.spirit.items.5.name}}</h3>
+            <p>{{team.spirit.items.5.text}}</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section team-work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="work-title">{{team.work.h2}}</h2>
+        </div>
+        <div class="steps work-steps">
+          <div class="step work-card" data-reveal>
+            <div class="step-visual">
+              {{{installSvgCompact}}}
+            </div>
+            <h3 class="step-name">{{team.work.items.0.name}}</h3>
+            <p>{{team.work.items.0.text}}</p>
+          </div>
+          <div class="step work-card" data-reveal>
+            <div class="step-visual">
+              {{{mlSvg}}}
+            </div>
+            <h3 class="step-name">{{team.work.items.1.name}}</h3>
+            <p>{{team.work.items.1.text}}</p>
+          </div>
+          <div class="step work-card" data-reveal>
+            <div class="step-visual">
+              {{{twinSvg}}}
+            </div>
+            <h3 class="step-name">{{team.work.items.2.name}}</h3>
+            <p>{{team.work.items.2.text}}</p>
+          </div>
+        </div>
+        <p class="anchor-line work-line" data-reveal>{{team.work.line}}</p>
+      </div>
+    </section>
+
+    <section class="section section-alt team-people" aria-labelledby="people-title">
       <div class="container">
         <div class="section-head">
           <h2 id="people-title">{{team.peopleTitle}}</h2>
@@ -41,25 +152,20 @@
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="backing-title">
-      <div class="container split split-top">
-        <div>
-          <div class="section-head">
-            <h2 id="backing-title">{{team.backing.h2}}</h2>
-          </div>
-          <ul class="plain-list">
-{{#each team.backing.items}}            <li>{{this}}</li>
-{{/each}}          </ul>
-        </div>
-        <div>
-          <div class="section-head">
-            <h2 id="offices-title">{{team.offices.h2}}</h2>
-          </div>
-          <ul class="offices">
-{{#each team.offices.items}}            <li><strong>{{city}}</strong><span>{{line}}</span></li>
-{{/each}}          </ul>
-        </div>
+    <section class="section section-tight team-backing" aria-label="{{logos.backed}}">
+      <div class="container">
+{{> logo-strip}}
+        <p class="backing-line">{{team.backing.line}}</p>
       </div>
     </section>
 
-{{> cta}}
+    <section class="cta-band team-cta" aria-labelledby="team-cta-title">
+      <div class="container cta-inner">
+        <h2 id="team-cta-title">{{team.final.h2}}</h2>
+        <p class="cta-line">{{team.final.line}}</p>
+        <a class="btn btn-primary btn-lg" href="mailto:{{cta.email}}?subject=Joining%20AquaShield">{{team.final.button}}</a>
+        <ul class="team-offices">
+{{#each team.offices}}          <li><strong>{{city}}</strong><span>{{line}}</span></li>
+{{/each}}        </ul>
+      </div>
+    </section>

@@ -573,51 +573,124 @@
   },
   "team": {
     "eyebrow": "Équipe",
-    "h1": "Deux chercheurs en robotique qui ont quitté la robotique pour réparer la plomberie.",
-    "lead": "Le premier système a été mis en service au MIT, dans le bâtiment NW23. Aujourd'hui, les mêmes capteurs et modèles surveillent des colonnes montantes en Allemagne et aux États-Unis.",
-    "learn": {
-      "h2": "On clipse. Le bâtiment se cartographie lui-même.",
-      "text": "Les capteurs se fixent sur les colonnes montantes en quelques minutes. À partir de leurs positions et du plan de plomberie, AquaShield construit un jumeau numérique du bâtiment : quelle colonne alimente quels étages, quel capteur voit quelle eau. Un modèle par point de mesure apprend le débit normal du bâtiment et signale ce que la normale n'explique pas, jusqu'à la colonne et aux étages à vérifier en premier. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, conçu par des chercheurs en robotique."
+    "h1": "D'un hackathon au MIT à des capteurs sur deux continents.",
+    "lead": "Nous sommes des chercheurs en robotique et des ingénieurs qui ont décidé que le système le plus négligé de chaque bâtiment mérite un vrai apprentissage automatique. Nous le construisons à Zurich et à San Francisco, et nous cherchons des personnes qui veulent le construire avec nous.",
+    "join": {
+      "title": "Rejoignez-nous",
+      "line": "Ingénieurs, chercheurs et profils opérationnels : écrivez aux fondateurs.",
+      "button": "Présentez-vous"
+    },
+    "story": {
+      "h2": "Notre parcours",
+      "chapters": [
+        {
+          "place": "Cambridge, Massachusetts",
+          "title": "Le hackathon",
+          "text": "Paul et Marguerite se rencontrent lors d'un hackathon au MIT et le remportent avec AquaShield. La semaine suivante, ils sont dans un bâtiment du campus à fixer des capteurs sur des tuyaux. Le premier système est mis en service au MIT, construit main dans la main avec l'équipe technique du campus.",
+          "alt": "Paul Beckers et Marguerite Benoist devant le Great Dome du MIT."
+        },
+        {
+          "place": "San Francisco",
+          "title": "Y Combinator",
+          "text": "Printemps 2026. Des mois à construire à pleine vitesse, entourés de gens qui font de même. Ce rythme ne nous a jamais quittés, et une partie de nous vit toujours à San Francisco.",
+          "alt": "Marguerite Benoist et Paul Beckers derrière le panneau Y Combinator à San Francisco."
+        },
+        {
+          "place": "Zurich",
+          "title": "L'équipe",
+          "text": "Aujourd'hui, nous construisons depuis Zurich, l'un des pôles les plus forts d'Europe en robotique et en apprentissage automatique. Des capteurs sur des tuyaux en Allemagne et aux États-Unis, un modèle qui s'affine à chaque bâtiment, et une équipe qui grandit avec les personnes qui veulent le construire.",
+          "alt": "L'équipe AquaShield autour d'une table d'ordinateurs portables au bureau de Zurich."
+        }
+      ]
+    },
+    "spirit": {
+      "h2": "Notre façon de travailler",
+      "items": [
+        {
+          "name": "Motivés",
+          "text": "Nous avançons à un rythme que la plupart des équipes trouvent déraisonnable. C'est comme ça qu'on l'aime."
+        },
+        {
+          "name": "Voir grand, livrer vite",
+          "text": "Une mentalité américaine dans une équipe européenne. Décider aujourd'hui, livrer cette semaine, vendre avant que ce soit parfait."
+        },
+        {
+          "name": "Loyaux",
+          "text": "Nous nous soutenons. Sur site, au labo et quand ça devient difficile."
+        },
+        {
+          "name": "Intelligents et efficaces",
+          "text": "La meilleure idée gagne, peu importe d'où elle vient. Ensuite, nous prenons le chemin le plus court pour y arriver."
+        },
+        {
+          "name": "Ouverts et transparents",
+          "text": "Les problèmes sont mis sur la table tôt. Le feedback est direct et va dans les deux sens."
+        },
+        {
+          "name": "Hors du labo",
+          "text": "Nous déployons tôt, dans de vrais sous-sols et locaux techniques, aux côtés des personnes qui exploitent le bâtiment."
+        }
+      ]
+    },
+    "work": {
+      "h2": "Sur quoi vous travaillerez",
+      "items": [
+        {
+          "name": "Du matériel sur le terrain",
+          "text": "Capteurs à ultrasons, firmware et connectivité qui résistent aux vrais locaux techniques."
+        },
+        {
+          "name": "Apprentissage automatique sur signaux physiques",
+          "text": "Des modèles qui apprennent à quoi ressemble la normale pour chaque bâtiment et repèrent ce que la normale n'explique pas."
+        },
+        {
+          "name": "Jumeaux numériques de vrais bâtiments",
+          "text": "Un modèle vivant de la plomberie qui transforme un écart en un endroit à vérifier en premier."
+        }
+      ],
+      "line": "Votre travail est sur un vrai tuyau en quelques semaines."
     },
     "peopleTitle": "L'équipe",
     "people": [
       {
         "id": "paul-beckers",
         "name": "Paul Beckers",
-        "role": "CEO",
+        "role": "Cofondateur & CEO",
         "alumni": [
           "MIT",
           "RWTH Aachen",
           "Tsinghua"
         ],
-        "line": "Chercheur en robotique."
+        "line": "Chercheur en robotique. A construit des jumeaux numériques pour des bras robotiques au MIT et un gant robotique pour les opérateurs d'assemblage de BMW."
       },
       {
         "id": "marguerite-benoist",
         "name": "Marguerite Benoist",
-        "role": "CTO",
+        "role": "Cofondatrice & CTO",
         "alumni": [
           "EPFL",
           "Harvard"
         ],
-        "line": "Chercheuse en robotique."
+        "line": "Robotique et apprentissage automatique. A conçu de zéro une détection d'anomalies pour drones et un rover martien autonome."
       },
       {
         "id": "tim-baumeister",
         "name": "Tim Baumeister",
-        "role": "Cofondateur, clients et opérations",
+        "role": "Ingénieur fondateur, responsable hardware et opérations",
         "alumni": [
           "RWTH Aachen",
           "Tsinghua"
         ],
-        "line": ""
+        "line": "Pilote le hardware, les installations et chaque site que nous mettons en service."
       },
       {
         "id": "neil-cecchi",
         "name": "Neil Cecchi",
-        "role": "Ingénieur fondateur",
-        "alumni": [],
-        "line": ""
+        "role": "Ingénieur fondateur, responsable IoT",
+        "alumni": [
+          "EPFL"
+        ],
+        "line": "Responsable du réseau de capteurs, du tuyau jusqu'au cloud."
       },
       {
         "id": "jacques-raffaeli",
@@ -634,32 +707,24 @@
         "line": "Stagiaire."
       }
     ],
-    "peopleConfirm": "",
-    "photoAlt": "L'équipe AquaShield au bureau de Zurich.",
     "backing": {
-      "h2": "Soutiens et recherche",
-      "items": [
-        "Y Combinator, printemps 2026.",
-        "NVIDIA.",
-        "OpenAI.",
-        "Bourse IA du Startup Launchpad de l'EPFL.",
-        "Collaborations de recherche avec l'EPFL et l'ETH Zurich.",
-        "Développé avec MIT Facilities."
-      ]
+      "line": "Collaborations de recherche avec l'EPFL et l'ETH Zurich. Développé avec MIT Facilities."
     },
-    "offices": {
-      "h2": "Bureaux",
-      "items": [
-        {
-          "city": "Siège à Zurich",
-          "line": "Technoparkstrasse 1, 8005 Zurich, Suisse"
-        },
-        {
-          "city": "San Francisco",
-          "line": "500 Sansome Street, San Francisco, CA 94111"
-        }
-      ]
-    }
+    "final": {
+      "h2": "Construisez-le avec nous.",
+      "line": "Si vous voulez que votre travail soit sur de vrais tuyaux en quelques semaines, et non dans une présentation, écrivez-nous.",
+      "button": "Présentez-vous"
+    },
+    "offices": [
+      {
+        "city": "San Francisco",
+        "line": "500 Sansome Street, San Francisco, CA 94111"
+      },
+      {
+        "city": "Zurich",
+        "line": "Technoparkstrasse 1, 8005 Zurich, Suisse"
+      }
+    ]
   },
   "blog": {
     "h1": "Blog",

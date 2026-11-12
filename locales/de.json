@@ -573,51 +573,124 @@
   },
   "team": {
     "eyebrow": "Team",
-    "h1": "Zwei Robotikforscher, die die Robotik verlassen haben, um Rohrleitungen zu reparieren.",
-    "lead": "Das erste System ging am MIT live, im Gebäude NW23. Heute überwachen dieselben Sensoren und Modelle Steigleitungen in Deutschland und den USA.",
-    "learn": {
-      "h2": "Anklemmen. Das Gebäude kartiert sich selbst.",
-      "text": "Sensoren werden in Minuten an die Steigleitungen geklemmt. Aus ihren Positionen und dem Leitungsplan baut AquaShield einen digitalen Zwilling des Gebäudes: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes und meldet, was der Normalverlauf nicht erklärt, bis zur Steigleitung und den Stockwerken, die zuerst geprüft werden. Spezialisiertes maschinelles Lernen für hydraulische Systeme, entwickelt von Robotikforschenden."
+    "h1": "Von einem MIT-Hackathon zu Sensoren auf zwei Kontinenten.",
+    "lead": "Wir sind Robotikforschende und Ingenieure, die entschieden haben: Das am meisten vernachlässigte System in jedem Gebäude verdient echtes maschinelles Lernen. Wir bauen es in Zürich und San Francisco, und wir suchen Menschen, die es mit uns bauen wollen.",
+    "join": {
+      "title": "Kommen Sie zu uns",
+      "line": "Ingenieure, Forschende und Operations-Profis: Schreiben Sie den Gründern.",
+      "button": "Stellen Sie sich vor"
     },
-    "peopleTitle": "Personen",
+    "story": {
+      "h2": "Unser Weg hierher",
+      "chapters": [
+        {
+          "place": "Cambridge, Massachusetts",
+          "title": "Der Hackathon",
+          "text": "Paul und Marguerite lernen sich an einem MIT-Hackathon kennen und gewinnen ihn mit AquaShield. In der Woche danach stehen sie in einem Campusgebäude und klemmen Sensoren an Rohre. Das erste System geht am MIT live, Seite an Seite mit dem Facility-Team gebaut.",
+          "alt": "Paul Beckers und Marguerite Benoist vor dem Great Dome am MIT."
+        },
+        {
+          "place": "San Francisco",
+          "title": "Y Combinator",
+          "text": "Frühjahr 2026. Monate, in denen wir mit voller Geschwindigkeit gebaut haben, umgeben von Menschen, die dasselbe tun. Dieses Tempo ist geblieben, und ein Teil von uns lebt bis heute in San Francisco.",
+          "alt": "Marguerite Benoist und Paul Beckers hinter dem Y-Combinator-Schild in San Francisco."
+        },
+        {
+          "place": "Zürich",
+          "title": "Das Team",
+          "text": "Heute bauen wir von Zürich aus, einem der stärksten Zentren Europas für Robotik und maschinelles Lernen. Sensoren an Rohren in Deutschland und den USA, ein Modell, das mit jedem Gebäude schärfer wird, und ein Team, das mit den Menschen wächst, die es bauen wollen.",
+          "alt": "Das AquaShield-Team an einem Tisch mit Laptops im Zürcher Büro."
+        }
+      ]
+    },
+    "spirit": {
+      "h2": "Wie wir arbeiten",
+      "items": [
+        {
+          "name": "Angetrieben",
+          "text": "Wir arbeiten in einem Tempo, das die meisten Teams unvernünftig finden. Genau so mögen wir es."
+        },
+        {
+          "name": "Gross denken, schnell liefern",
+          "text": "US-Mentalität in einem europäischen Team. Heute entscheiden, diese Woche ausliefern, verkaufen, bevor es perfekt ist."
+        },
+        {
+          "name": "Loyal",
+          "text": "Wir stehen füreinander ein. Vor Ort, im Labor und wenn es schwierig wird."
+        },
+        {
+          "name": "Klug und effizient",
+          "text": "Die beste Idee gewinnt, egal von wem sie kommt. Dann nehmen wir den kürzesten Weg dorthin."
+        },
+        {
+          "name": "Offen und transparent",
+          "text": "Probleme kommen früh auf den Tisch. Feedback ist direkt und geht in beide Richtungen."
+        },
+        {
+          "name": "Raus aus dem Labor",
+          "text": "Wir gehen früh in den Einsatz, in echte Keller und Technikräume, neben den Menschen, die das Gebäude betreiben."
+        }
+      ]
+    },
+    "work": {
+      "h2": "Woran Sie arbeiten würden",
+      "items": [
+        {
+          "name": "Hardware im Feld",
+          "text": "Ultraschallsensoren, Firmware und Konnektivität, die echte Technikräume überstehen."
+        },
+        {
+          "name": "Maschinelles Lernen auf physikalischen Signalen",
+          "text": "Modelle, die für jedes Gebäude lernen, wie normal aussieht, und erkennen, was der Normalverlauf nicht erklärt."
+        },
+        {
+          "name": "Digitale Zwillinge echter Gebäude",
+          "text": "Ein lebendes Modell der Leitungen, das aus einer Abweichung einen Ort macht, den man zuerst prüft."
+        }
+      ],
+      "line": "Ihre Arbeit sitzt innerhalb weniger Wochen an einem echten Rohr."
+    },
+    "peopleTitle": "Das Team",
     "people": [
       {
         "id": "paul-beckers",
         "name": "Paul Beckers",
-        "role": "CEO",
+        "role": "Mitgründer & CEO",
         "alumni": [
           "MIT",
           "RWTH Aachen",
           "Tsinghua"
         ],
-        "line": "Robotikforscher."
+        "line": "Robotikforscher. Hat am MIT digitale Zwillinge für Roboterarme gebaut und einen Roboterhandschuh für Montagemitarbeitende bei BMW."
       },
       {
         "id": "marguerite-benoist",
         "name": "Marguerite Benoist",
-        "role": "CTO",
+        "role": "Mitgründerin & CTO",
         "alumni": [
           "EPFL",
           "Harvard"
         ],
-        "line": "Robotikforscherin."
+        "line": "Robotik und maschinelles Lernen. Hat Anomalieerkennung für Drohnen und einen autonomen Marsrover von Grund auf gebaut."
       },
       {
         "id": "tim-baumeister",
         "name": "Tim Baumeister",
-        "role": "Mitgründer, Kunden und Betrieb",
+        "role": "Founding Engineer, Leiter Hardware und Betrieb",
         "alumni": [
           "RWTH Aachen",
           "Tsinghua"
         ],
-        "line": ""
+        "line": "Verantwortet Hardware, Installationen und jeden Standort, den wir live schalten."
       },
       {
         "id": "neil-cecchi",
         "name": "Neil Cecchi",
-        "role": "Founding Engineer",
-        "alumni": [],
-        "line": ""
+        "role": "Founding Engineer, Leiter IoT",
+        "alumni": [
+          "EPFL"
+        ],
+        "line": "Verantwortet das Sensornetz, vom Rohr bis in die Cloud."
       },
       {
         "id": "jacques-raffaeli",
@@ -634,32 +707,24 @@
         "line": "Praktikum."
       }
     ],
-    "peopleConfirm": "",
-    "photoAlt": "Das AquaShield-Team im Zürcher Büro.",
     "backing": {
-      "h2": "Unterstützung und Forschung",
-      "items": [
-        "Y Combinator, Frühjahr 2026.",
-        "NVIDIA.",
-        "OpenAI.",
-        "EPFL Startup Launchpad AI Grant.",
-        "Forschungskooperationen mit EPFL und ETH Zürich.",
-        "Entwickelt mit MIT Facilities."
-      ]
+      "line": "Forschungskooperationen mit EPFL und ETH Zürich. Entwickelt mit MIT Facilities."
     },
-    "offices": {
-      "h2": "Standorte",
-      "items": [
-        {
-          "city": "Hauptsitz Zürich",
-          "line": "Technoparkstrasse 1, 8005 Zürich, Schweiz"
-        },
-        {
-          "city": "San Francisco",
-          "line": "500 Sansome Street, San Francisco, CA 94111"
-        }
-      ]
-    }
+    "final": {
+      "h2": "Bauen Sie es mit uns.",
+      "line": "Wenn Ihre Arbeit in wenigen Wochen an echten Rohren sitzen soll, nicht in einem Foliensatz, schreiben Sie uns.",
+      "button": "Stellen Sie sich vor"
+    },
+    "offices": [
+      {
+        "city": "San Francisco",
+        "line": "500 Sansome Street, San Francisco, CA 94111"
+      },
+      {
+        "city": "Zürich",
+        "line": "Technoparkstrasse 1, 8005 Zürich, Schweiz"
+      }
+    ]
   },
   "blog": {
     "h1": "Blog",
