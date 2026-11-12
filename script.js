@@ -4,6 +4,26 @@
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---------- Start a fresh page at the top ----------
+  // Back and forward keep the browser's own scroll restoration. A link click (or a typed URL)
+  // without a #hash always opens the new page at its top, also inside an auto-height preview
+  // iframe, where the host page would otherwise stay scrolled to where the click happened.
+  var navEntry = window.performance && performance.getEntriesByType ? performance.getEntriesByType("navigation")[0] : null;
+  var navType = navEntry ? navEntry.type : (window.performance && performance.navigation ? ["navigate", "reload", "back_forward"][performance.navigation.type] : "navigate");
+  var framed = false;
+  try { framed = window.self !== window.top; } catch (err) { framed = true; }
+  var fromOwnSite = false;
+  try { fromOwnSite = Boolean(document.referrer) && new URL(document.referrer).origin === window.location.origin; } catch (err) { fromOwnSite = false; }
+  var toTop = function () {
+    if (navType !== "navigate" || window.location.hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    if (framed && fromOwnSite && document.documentElement.scrollIntoView) {
+      document.documentElement.scrollIntoView({ block: "start", inline: "nearest", behavior: "instant" });
+    }
+  };
+  toTop();
+  window.addEventListener("pageshow", function (e) { if (!e.persisted) toTop(); });
+
   // ---------- Navigation ----------
   var toggle = document.querySelector("[data-nav-toggle]");
   var nav = document.querySelector("[data-nav]");
@@ -49,16 +69,24 @@
     var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
     var runCount = function (el, duration) {
       var text = el.textContent;
-      var m = text.match(/(\d[\d.,' ]*\d|\d)/);
+      // First number in the text, with its own group and decimal separators kept:
+      // "$89k", "€4.91bn", "89.000 $", "4,91 Mrd. €", "89 000 $", "4,91 Md €", "1'234".
+      var m = text.match(/\d(?:[\d.,'’   ]*\d)?/);
       if (!m) return;
-      var raw = m[1];
-      var lang = document.documentElement.lang || "en";
+      var raw = m[0];
+      var lang = (document.documentElement.lang || "en").slice(0, 2);
       var decSep = lang === "en" ? "." : ",";
       var parts = raw.split(decSep);
       var decimals = parts.length > 1 && parts[parts.length - 1].length <= 2 ? parts[parts.length - 1].length : 0;
       var num = parseFloat(raw.replace(/[^\d]/g, "")) / Math.pow(10, decimals);
       if (!isFinite(num)) return;
-      var fmt = new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      var intPart = decimals ? raw.slice(0, raw.lastIndexOf(decSep)) : raw;
+      var groupSep = (intPart.match(/[^\d]/) || [""])[0];
+      var fmt = { format: function (n) {
+        var fixed = n.toFixed(decimals).split(".");
+        var whole = groupSep ? fixed[0].replace(/\B(?=(\d{3})+(?!\d))/g, groupSep) : fixed[0];
+        return decimals ? whole + decSep + fixed[1] : whole;
+      } };
       var prefix = text.slice(0, m.index), suffix = text.slice(m.index + raw.length);
       var start = null, dur = duration || 2000;
       el.classList.add("is-counting");
@@ -99,6 +127,9 @@
           });
           return Math.floor(total);
         };
+        // Same number format as the ticking total (the build-time per-day figure may differ, e.g. fr-CH separators)
+        var perDayEl = counter.querySelector("[data-counter-perday]");
+        if (perDayEl) perDayEl.textContent = fmt.format(sites.reduce(function (n, s) { return n + s.points * 144; }, 0));
         var paint = function () { if (readingsEl.getAttribute("data-counting")) return; readingsEl.textContent = fmt.format(compute()); };
         paint();
         if (!reducedMotion) setInterval(paint, 1000);

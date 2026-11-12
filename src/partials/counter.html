@@ -2,21 +2,24 @@
       <script type="application/json" data-sites>{{{sitesJson}}}</script>
       <div class="container counter-grid">
         <div class="stat">
-          <p class="stat-value" data-counter-buildings>{{counter.buildings}}</p>
           <p class="stat-label">{{counter.buildingsLabel}}</p>
+          <p class="stat-value" data-counter-buildings>{{counter.buildings}}</p>
+          <p class="stat-sub">{{counter.buildingsSub}}</p>
         </div>
         <div class="stat">
-          <p class="stat-value" data-counter-points>{{counter.points}}</p>
           <p class="stat-label">{{counter.pointsLabel}}</p>
+          <p class="stat-value" data-counter-points>{{counter.points}}</p>
+          <p class="stat-sub">{{counter.pointsSub}}</p>
         </div>
         <div class="stat stat-wide">
-          <p class="stat-value" data-counter-readings data-lang="{{lang}}">{{counter.readings}}</p>
           <p class="stat-label"><span class="live-dot" aria-hidden="true"></span>{{counter.readingsLabel}}</p>
-          <p class="stat-sub"><span data-counter-perday>{{counter.perDay}}</span> {{counter.perDayLabel}}</p>
+          <p class="stat-value" data-counter-readings data-lang="{{lang}}">{{counter.readings}}</p>
+          <p class="stat-sub stat-rate">+<span data-counter-perday>{{counter.perDay}}</span> {{counter.perDayLabel}}</p>
         </div>
         <div class="stat">
+          <p class="stat-label">{{counter.leaksLabel}}</p>
           <p class="stat-value" data-counter-leaks>{{counter.leaks}}</p>
-          <p class="stat-label">{{counter.leaksLabel}} <button type="button" class="info" aria-label="{{counter.leaksNote}}" data-tooltip="{{counter.leaksNote}}">i</button></p>
+          <p class="stat-sub">{{counter.leaksSub}}</p>
         </div>
       </div>
     </section>
