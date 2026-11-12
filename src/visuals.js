@@ -204,12 +204,14 @@ function severitySvg(t) {
   const dx = X(ud), dy = Y(curve(ud)), fx = X(uf), fy = Y(curve(uf));
   s += `<line class="sv-drop sv-drop-good" x1="${f1(dx)}" y1="${f1(dy)}" x2="${f1(dx)}" y2="${y0}"/>`;
   s += `<circle class="sv-dot sv-dot-good" cx="${f1(dx)}" cy="${f1(dy)}" r="6"/>`;
-  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-good" x="${f1(dx - 4)}" y="${y0 + 22}" text-anchor="start">${esc(L.detected)}</text></g>`;
+  s += `<g class="vi-labels sv-early"><text class="vi-text sv-lbl sv-lbl-good" x="${f1(dx - 4)}" y="${y0 + 22}" text-anchor="start">${esc(L.detected)}</text></g>`;
   s += `<line class="sv-drop sv-drop-bad" x1="${f1(fx)}" y1="${f1(fy)}" x2="${f1(fx)}" y2="${y0}"/>`;
   s += `<circle class="sv-dot sv-dot-bad" cx="${f1(fx)}" cy="${f1(fy)}" r="6"/>`;
-  s += `<g class="vi-labels"><text class="vi-text sv-lbl sv-lbl-bad" x="${f1(fx + 4)}" y="${y0 + 22}" text-anchor="end">${esc(L.discovered)}</text></g>`;
+  // label sits on the dotted line itself: a dot on the line, a short leader, text ending 8px from the line
+  const ly = y0 - 22;
+  s += `<g class="vi-labels sv-late"><circle class="sv-tag" cx="${f1(fx)}" cy="${ly}" r="2.6"/><line class="sv-tag-leader" x1="${f1(fx - 2.6)}" y1="${ly}" x2="${f1(fx - 8)}" y2="${ly}"/><text class="vi-text sv-lbl sv-lbl-bad" x="${f1(fx - 11)}" y="${ly + 4.5}" text-anchor="end">${esc(L.discovered)}</text></g>`;
   // axes labels
-  s += `<g class="vi-labels"><text class="vi-text vi-text-muted" x="${x1}" y="30" text-anchor="end">${esc(L.axis)}</text>`;
+  s += `<g class="vi-labels sv-axes"><text class="vi-text vi-text-muted" x="${x1}" y="30" text-anchor="end">${esc(L.axis)}</text>`;
   s += `<text class="vi-text vi-text-muted" transform="translate(${x0 - 14} ${y1}) rotate(-90)" text-anchor="end">${esc(L.severity)}</text>`;
   s += `<text class="vi-text vi-text-strong" x="${x0}" y="30">${esc(L.title)}</text></g>`;
   return `<svg class="vis vis-severity" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(L.alt)}" focusable="false">${s}</svg>`;

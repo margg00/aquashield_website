@@ -490,7 +490,30 @@
     "lead": "Für Underwriter, Schaden- und Innovationsverantwortliche in der Sachversicherung, die in Schadenquote, Schadenhöhe und Risikodaten denken.",
     "story": {
       "h2": "Die Schadenhöhe hängt von der Zeit ab.",
-      "text": "Ein verstecktes Leck läuft, bis es jemand bemerkt. Jeder zusätzliche Tag bringt Folgeschäden: Unterböden, Trockenbau, Nachbarwohnungen, Betriebsunterbrechung. Frühere Erkennung verkürzt die Schadendauer, und das ist der Hebel für die Schadenhöhe. Live-Durchflussdaten pro Steigleitung bringen einen zweiten Wert: ein Risikosignal, das dem Underwriting heute fehlt, aus Gebäuden, die vom Eigentümer betrieben und bereits mit Sensoren ausgestattet sind."
+      "lead": "Ein verdecktes Leck läuft, bis es jemand bemerkt. Jeder weitere Tag bringt Folgeschäden: Unterböden, Trockenbau, Nachbarwohnungen, Betriebsunterbrechung.",
+      "timeline": {
+        "alt": "Zeitachse. Ohne Überwachung läuft ein verdecktes Leck wochenlang. Es erreicht Unterboden, Trockenbau, die Nachbarwohnung und den Betrieb, bevor ein Mieter es entdeckt. Mit AquaShield wird eine Durchflussabweichung früh gemeldet, die Steigleitung lokalisiert und der restliche Schaden vermieden.",
+        "ticks": [
+          "Leck beginnt",
+          "Tage",
+          "Wochen"
+        ],
+        "without": "Ohne Überwachung",
+        "with": "Mit AquaShield",
+        "flagged": "Durchflussabweichung gemeldet",
+        "located": "Steigleitung lokalisiert",
+        "avoided": "Vermiedener Schaden"
+      },
+      "levers": [
+        {
+          "name": "Hebel 1: kürzere Schadendauer",
+          "text": "Frühere Erkennung verkürzt den Schaden. Weniger Tage mit Wasser bedeuten weniger Folgeschäden und einen kleineren Schadenfall."
+        },
+        {
+          "name": "Hebel 2: ein Live-Risikosignal",
+          "text": "Durchflussdaten pro Steigleitung sind ein Risikosignal, das dem Underwriting heute fehlt. Sie stammen aus Gebäuden, die bereits ausgestattet sind."
+        }
+      ]
     },
     "ways": {
       "h2": "Fünf Wege der Zusammenarbeit",
@@ -516,17 +539,32 @@
           "text": "Ein Alarm startet den Schadenprozess, bevor der Mieter anruft."
         }
       ],
-      "line": "Welcher passt, hängt von Ihrem Bestand ab. Im 30-minütigen Gespräch finden wir es heraus."
+      "line": "Welcher passt, hängt von Ihrem Bestand ab. Wir klären das mit Ihnen im ersten Gespräch."
     },
-    "share": {
-      "h2": "Was wir teilen, und was beim Eigentümer bleibt",
-      "can": "Wir können: aggregierte Durchflussabweichungen pro Gebäude, Anzahl und Dauer der Alarme, Datenabdeckung, mit Zustimmung des Eigentümers.",
-      "cannot": "Bleibt beim Eigentümer: Verbrauch pro Einheit, Mieterdaten, alles, was der Eigentümer nicht freigegeben hat. Der Eigentümer behält die Kontrolle über seine Daten.",
-      "confirm": ""
-    },
-    "status": {
+    "book": {
       "h2": "Beginnen Sie mit einem Bestand.",
-      "text": "Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Der nächste Schritt ist ein Bestand, gemeinsam mit einem Versicherer durchgearbeitet: welche Gebäude, welche Daten, welches der fünf Modelle."
+      "steps": [
+        {
+          "name": "Bestand wählen",
+          "text": "Ein Bestand, ein Versicherer. Wir wählen die Gebäude gemeinsam aus."
+        },
+        {
+          "name": "Modell wählen",
+          "text": "Subvention, Rabatt, Zusatzbaustein, Risikodaten oder Schadenreaktion. Wir wählen, was zu Ihrem Bestand passt."
+        },
+        {
+          "name": "Live gehen",
+          "text": "Die Sensoren werden aufgeklemmt, die Daten fliessen, Alarme erreichen Ihr Schadenteam."
+        }
+      ],
+      "line": "Heute live bei Eigentümern in Deutschland und den USA.",
+      "visual": {
+        "alt": "Ein Bestand als 40 Gebäude. Ein Block von 12 wird ausgewählt und die Gebäude werden nacheinander überwacht. Eines zeigt ein Leck, das früh erkannt wird.",
+        "book": "Ein Bestand",
+        "selected": "Ausgewählte Gebäude",
+        "legendMonitored": "Überwacht",
+        "legendCaught": "Leck früh erkannt"
+      }
     },
     "visual": {
       "title": "Schadenhöhe über die Schadendauer",

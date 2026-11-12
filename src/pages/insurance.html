@@ -18,11 +18,26 @@
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="story-title">
-      <div class="container narrow">
-        <div class="section-head">
+    <section class="section anchor-band ins-time" aria-labelledby="story-title">
+      <div class="anchor-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head ins-time-head">
           <h2 id="story-title">{{insurance.story.h2}}</h2>
-          <p>{{insurance.story.text}}</p>
+          <p class="lead">{{insurance.story.lead}}</p>
+        </div>
+        <div class="ins-glass ins-timeline" data-reveal>
+          <div class="ins-timeline-wide">{{{lossTimelineSvg}}}</div>
+          <div class="ins-timeline-narrow">{{{lossTimelineSvgMobile}}}</div>
+        </div>
+        <div class="ins-levers">
+          <div class="ins-glass ins-lever" data-reveal>
+            <h3>{{insurance.story.levers.0.name}}</h3>
+            <p>{{insurance.story.levers.0.text}}</p>
+          </div>
+          <div class="ins-glass ins-lever" data-reveal>
+            <h3>{{insurance.story.levers.1.name}}</h3>
+            <p>{{insurance.story.levers.1.text}}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -32,33 +47,53 @@
         <div class="section-head">
           <h2 id="ways-title">{{insurance.ways.h2}}</h2>
         </div>
-        <ol class="ways">
-{{#each insurance.ways.items}}          <li data-reveal>
-            <h3>{{name}}</h3>
-            <p>{{text}}</p>
+        <ol class="ways ins-ways">
+          <li data-reveal>
+            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M9 2v20M15 2v20"/><rect x="5" y="8" width="14" height="8" rx="2"/><circle cx="12" cy="12" r="1.4"/></svg>
+            <h3>{{insurance.ways.items.0.name}}</h3>
+            <p>{{insurance.ways.items.0.text}}</p>
           </li>
-{{/each}}        </ol>
-        <p class="section-line" style="margin-top: 32px;">{{insurance.ways.line}}</p>
+          <li data-reveal>
+            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 12.5V4a1 1 0 0 1 1-1h8.5L21 11.5 12.5 20z"/><path d="M9 14l6-6"/><circle cx="9" cy="8.5" r="1.2"/><circle cx="14.5" cy="14" r="1.2"/></svg>
+            <h3>{{insurance.ways.items.1.name}}</h3>
+            <p>{{insurance.ways.items.1.text}}</p>
+          </li>
+          <li data-reveal>
+            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9 14h6"/></svg>
+            <h3>{{insurance.ways.items.2.name}}</h3>
+            <p>{{insurance.ways.items.2.text}}</p>
+          </li>
+          <li data-reveal>
+            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 21h18"/><rect x="5" y="12" width="3" height="6" rx="0.5"/><rect x="10.5" y="7" width="3" height="11" rx="0.5"/><rect x="16" y="3" width="3" height="15" rx="0.5"/></svg>
+            <h3>{{insurance.ways.items.3.name}}</h3>
+            <p>{{insurance.ways.items.3.text}}</p>
+          </li>
+          <li data-reveal>
+            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>
+            <h3>{{insurance.ways.items.4.name}}</h3>
+            <p>{{insurance.ways.items.4.text}}</p>
+          </li>
+        </ol>
+        <p class="section-line ins-ways-line">{{insurance.ways.line}}</p>
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="share-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="share-title">{{insurance.share.h2}}</h2>
+    <section class="section section-alt" aria-labelledby="book-title">
+      <div class="container ins-book">
+        <div class="ins-book-copy">
+          <h2 id="book-title">{{insurance.book.h2}}</h2>
+          <ol class="ins-steps">
+            <li><h3>{{insurance.book.steps.0.name}}</h3><p>{{insurance.book.steps.0.text}}</p></li>
+            <li><h3>{{insurance.book.steps.1.name}}</h3><p>{{insurance.book.steps.1.text}}</p></li>
+            <li><h3>{{insurance.book.steps.2.name}}</h3><p>{{insurance.book.steps.2.text}}</p></li>
+          </ol>
+          <p class="ins-book-line"><i class="live-dot" aria-hidden="true"></i> {{insurance.book.line}}</p>
         </div>
-        <div class="two-col">
-          <div>{{insurance.share.can}}</div>
-          <div>{{insurance.share.cannot}}</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="status-title">
-      <div class="container narrow">
-        <div class="status-box">
-          <h2 id="status-title">{{insurance.status.h2}}</h2>
-          <p>{{insurance.status.text}}</p>
+        <div class="ins-book-visual" data-reveal>
+          <div class="media media-vis media-chart ins-book-media">
+            {{{bookSvg}}}
+          </div>
+          <p class="chart-legend"><span class="chart-legend-item"><i class="dot-good"></i>{{insurance.book.visual.legendMonitored}}</span><span class="chart-legend-item"><i class="dot-bad"></i>{{insurance.book.visual.legendCaught}}</span></p>
         </div>
       </div>
     </section>

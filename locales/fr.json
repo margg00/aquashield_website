@@ -490,7 +490,30 @@
     "lead": "Pour les souscripteurs dommages, les responsables sinistres et innovation qui raisonnent en ratio de sinistralité, gravité et données de risque.",
     "story": {
       "h2": "La gravité dépend du temps.",
-      "text": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque. Chaque jour de plus ajoute des dommages secondaires : sous-planchers, cloisons, logements voisins, interruption d'activité. Une détection plus précoce raccourcit la durée du sinistre, et c'est là le levier sur la gravité. Les données de débit en direct par colonne montante ajoutent une seconde valeur : un signal de risque dont la souscription ne dispose pas aujourd'hui, issu de bâtiments exploités par leur propriétaire et déjà instrumentés."
+      "lead": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque. Chaque jour de plus ajoute des dommages secondaires : sous-planchers, cloisons, logements voisins, interruption d'activité.",
+      "timeline": {
+        "alt": "Frise chronologique. Sans surveillance, une fuite cachée coule pendant des semaines. Elle atteint le sous-plancher, les cloisons, le logement voisin et l'activité avant qu'un locataire ne la découvre. Avec AquaShield, un écart de débit est signalé tôt, la colonne est localisée et le reste du sinistre est évité.",
+        "ticks": [
+          "Début de la fuite",
+          "Jours",
+          "Semaines"
+        ],
+        "without": "Sans surveillance",
+        "with": "Avec AquaShield",
+        "flagged": "Écart de débit signalé",
+        "located": "Colonne localisée",
+        "avoided": "Sinistre évité"
+      },
+      "levers": [
+        {
+          "name": "Levier 1 : une durée de sinistre plus courte",
+          "text": "Une détection plus précoce raccourcit le sinistre. Moins de jours d'eau, c'est moins de dommages secondaires et un sinistre plus petit."
+        },
+        {
+          "name": "Levier 2 : un signal de risque en direct",
+          "text": "Les données de débit par colonne sont un signal de risque dont la souscription ne dispose pas aujourd'hui. Elles viennent de bâtiments déjà équipés."
+        }
+      ]
     },
     "ways": {
       "h2": "Cinq façons de travailler ensemble",
@@ -516,17 +539,32 @@
           "text": "Une alerte déclenche le processus de sinistre avant l'appel du locataire."
         }
       ],
-      "line": "Laquelle convient dépend de votre portefeuille. L'appel de 30 minutes sert à le découvrir."
+      "line": "Laquelle convient dépend de votre portefeuille. Nous la définissons avec vous lors du premier appel."
     },
-    "share": {
-      "h2": "Ce que nous partageons, et ce qui reste chez le propriétaire",
-      "can": "Nous pouvons : les écarts de débit agrégés par bâtiment, le nombre et la durée des alertes, la couverture de données, avec l'accord du propriétaire.",
-      "cannot": "Reste chez le propriétaire : la consommation par logement, les données des locataires, toute donnée non libérée par le propriétaire. Le propriétaire garde le contrôle de ses données.",
-      "confirm": ""
-    },
-    "status": {
+    "book": {
       "h2": "Commencez par un portefeuille.",
-      "text": "Des pilotes sont en cours avec des propriétaires en Allemagne et aux États-Unis. L'étape suivante : un portefeuille, travaillé avec un assureur. Quels bâtiments, quelles données, lequel des cinq modèles."
+      "steps": [
+        {
+          "name": "Choisir le portefeuille",
+          "text": "Un portefeuille, un assureur. Nous sélectionnons les bâtiments ensemble."
+        },
+        {
+          "name": "Choisir le modèle",
+          "text": "Subvention, remise, avenant, données de risque ou réponse sinistre. Nous choisissons ce qui convient à votre portefeuille."
+        },
+        {
+          "name": "Démarrer",
+          "text": "Les capteurs se fixent sur les conduites, les données circulent, les alertes parviennent à votre équipe sinistres."
+        }
+      ],
+      "line": "En service aujourd'hui chez des propriétaires en Allemagne et aux États-Unis.",
+      "visual": {
+        "alt": "Un portefeuille représenté par 40 bâtiments. Un bloc de 12 est sélectionné et les bâtiments sont surveillés l'un après l'autre. L'un d'eux présente une fuite, détectée tôt.",
+        "book": "Un portefeuille",
+        "selected": "Bâtiments sélectionnés",
+        "legendMonitored": "Surveillé",
+        "legendCaught": "Fuite détectée tôt"
+      }
     },
     "visual": {
       "title": "Gravité du sinistre selon la durée",
