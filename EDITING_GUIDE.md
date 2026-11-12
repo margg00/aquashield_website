@@ -64,6 +64,10 @@ To change a label inside a drawing, edit the `building`, `product.install.labels
 
 `theme.css` holds the tokens (`--accent`, `--bg-primary`, text colours, radii). `styles.css` holds the components. Both are inlined into every page by the build, so run `node build.js` after any change.
 
+## Styles and drawings for one page
+
+Styles for a single page go in `src/css/<page>.css`. Drawings for a single page go in `src/visuals/<page>.js`. One file per page means two people never edit the same file. The build picks them up on its own. Run `node build.js` after any change.
+
 ## Change the layout of a page
 
 Templates are in `src/pages/`, one per page. Shared pieces in `src/partials/`. The page shell in `src/layout.html`. Templates use `{{key}}` for a string from the locale file, `{{> name}}` for a partial, `{{#each list}} ... {{/each}}` for a list.

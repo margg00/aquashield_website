@@ -212,6 +212,29 @@ function parseFrontMatter(src) {
 const heroBuildingSvg = require("./src/hero.js");
 const visuals = require("./src/visuals.js");
 
+// Files in a src/ subfolder with the given extension, in filename order. Empty if the folder is missing.
+function listDir(dir, ext) {
+  if (!exists(dir)) return [];
+  return fs.readdirSync(path.join(ROOT, dir)).filter((f) => f.endsWith(ext)).sort();
+}
+
+// Page-specific SVG generators in src/visuals/*.js. Every exported function fooSvg(t)
+// becomes {{{fooSvg}}} in templates. Explicit entries in the render context win.
+const extraVisuals = listDir("src/visuals", ".js").map((f) => ({ file: f, mod: require(path.join(ROOT, "src", "visuals", f)) }));
+function addExtraVisuals(ctx, t) {
+  extraVisuals.forEach(({ file, mod }) => {
+    Object.entries(mod).forEach(([name, fn]) => {
+      if (typeof fn !== "function" || Object.prototype.hasOwnProperty.call(ctx, name)) return;
+      try {
+        ctx[name] = fn(t);
+      } catch (err) {
+        throw new Error(`src/visuals/${file}: ${name}(t) failed: ${err.message}`, { cause: err });
+      }
+    });
+  });
+  return ctx;
+}
+
 // --- Counter numbers computed at build time (the browser keeps them ticking) --
 function counterSnapshot(sites) {
   const now = Date.now();
@@ -355,9 +378,11 @@ function loadPosts(lang) {
 }
 
 // theme.css and styles.css are inlined into every page so nothing render-blocking
-// is fetched. Comments and runs of whitespace are stripped.
+// is fetched. Comments and runs of whitespace are stripped. Page-specific files in
+// src/css/*.css are appended after styles.css in filename order.
 function inlineCss() {
-  return (read("theme.css") + "\n" + read("styles.css"))
+  const extra = listDir("src/css", ".css").map((f) => "\n" + read(`src/css/${f}`)).join("");
+  return (read("theme.css") + "\n" + read("styles.css") + extra)
     .replace(/\/\*[\s\S]*?\*\//g, "")
     .replace(/\s*\n\s*/g, "\n")
     .replace(/\n+/g, "\n")
@@ -407,6 +432,7 @@ function build() {
       logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),
       team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name) })) }
     };
+    addExtraVisuals(base, t);
 
     const CTA_KEY = { "real-estate": "realEstate", insurance: "insurance", "data-centers": "dataCenters" };
 
