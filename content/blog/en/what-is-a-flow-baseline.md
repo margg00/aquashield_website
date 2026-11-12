@@ -9,6 +9,7 @@ author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product
 segmentLabel: Product
+coverAlt: A luminous band of normal daily water flow with a live reading line riding inside it, ending in one bright point.
 answer: A flow baseline is the pattern of water flow a measuring point shows when everything is working: low at night, a peak in the morning, a weekly rhythm. AquaShield learns it per measuring point from readings every 10 minutes. A deviation is flow that the baseline does not explain, which is what a leak looks like in the data.
 statValue: 144
 statLabel: readings per measuring point per day, one every 10 minutes, at every AquaShield site.
@@ -18,7 +19,7 @@ definition: A baseline is not a single number. It is the expected flow for every
 faq1q: Why one model per measuring point?
 faq1a: Because every riser has its own rhythm. A riser serving family flats peaks at different times from one serving offices. One model for the whole building would blur them together and miss the small, slow deviations that matter.
 faq2q: What makes it specific to hydraulic systems?
-faq2a: Water in pipes follows physical rules: flow, pressure and topology are linked. The model and the digital twin use those links, which a generic anomaly detector does not know about.
+faq2a: Water in pipes follows physical rules: flow and topology are linked, and the water entering a riser has to leave through its branches. The model and the digital twin use those links, which a generic anomaly detector does not know about.
 faq3q: Does the model keep learning?
 faq3a: Yes. Normal shifts with seasons and occupancy, and the model follows it. Feedback from the maintenance team on each alert goes back into the model.
 ---
@@ -34,11 +35,11 @@ The model is specific to its measuring point. A riser serving family flats and a
 
 ## What a deviation is
 
-A deviation is flow that the baseline does not explain, for long enough to matter. Not a single high reading, because showers happen. A pattern: night flow that stays elevated, a branch that runs when its neighbours are still, a pressure that drifts with no change in demand. The model ranks deviations by severity, and the digital twin places them on the riser and the floors to check first.
+A deviation is flow that the baseline does not explain, for long enough to matter. Not a single high reading, because showers happen. A pattern: night flow that stays elevated, a branch that runs when its neighbours are still, a riser whose flow no longer adds up to the flow of its branches. The model ranks deviations by severity, and the digital twin places them on the riser and the floors to check first.
 
 ## Why hydraulic systems need their own machine learning
 
-Generic anomaly detection treats every signal as a series of numbers. Water in pipes is not just numbers. Flow and pressure are physically linked, and the topology of the network says which sensors must agree with each other. AquaShield's models use those links: a deviation on a riser is checked against the branches it feeds, and a pressure change is checked against the flows that should explain it. That is what lets the system tell a leak from a long shower.
+Generic anomaly detection treats every signal as a series of numbers. Water in pipes is not just numbers. Flow is physically linked across the network, and the topology says which sensors must agree with each other. AquaShield's models use those links: a deviation on a riser is checked against the branches it feeds, and a change on a branch is checked against the riser flow that should explain it. That is what lets the system tell a leak from a long shower.
 
 ## Learning from the team
 

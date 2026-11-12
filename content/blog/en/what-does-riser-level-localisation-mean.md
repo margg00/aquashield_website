@@ -9,6 +9,7 @@ author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product
 segmentLabel: Product
+coverAlt: Vertical water risers receding in depth, with one segment between two floors lit up.
 answer: Riser-level localisation means the alert names the riser, and the floors on it, where the deviation sits. Detection says that water is going where it should not. Localisation says which vertical pipe and which part of the building, so the search starts there instead of behind the first wet wall.
 statValue: 32 measuring points
 statLabel: across 22 buildings at the first AquaShield portfolio, live since March 2026.

@@ -1,16 +1,24 @@
-    <article class="section">
-      <div class="container article">
-        <header>
-          <p class="eyebrow"><a href="{{urls.blog}}" style="color: inherit;">{{nav.blog}}</a></p>
-          <h1>{{page.post.title}}</h1>
-          <div class="post-meta">
-            <span class="post-tag">{{page.post.segmentLabel}}</span>
-            <span>{{page.post.date}}</span>
-            {{#if page.post.updated}}<span>{{common.updated}} {{page.post.updated}}</span>{{/if}}
-            <span>{{common.by}} <a href="{{urls.team}}#{{page.post.authorId}}">{{page.post.author}}</a></span>
-          </div>
-          <p class="direct-answer">{{page.post.answer}}</p>
-        </header>
+    <article class="post">
+      <header class="post-header">
+        <nav class="post-crumbs" aria-label="{{blog.crumbsLabel}}">
+          <a href="{{urls.blog}}">{{nav.blog}}</a>
+          <svg class="post-crumbs-chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>{{page.post.segmentLabel}}</span>
+        </nav>
+        <div class="post-meta">
+          <span class="post-tag">{{page.post.segmentLabel}}</span>
+          <time datetime="{{page.post.dateIso}}">{{page.post.date}}</time>
+          {{#if page.post.updated}}<span>{{common.updated}} <time datetime="{{page.post.updatedIso}}">{{page.post.updated}}</time></span>{{/if}}
+          <span>{{page.post.minutes}} {{common.minutes}}</span>
+        </div>
+        <h1>{{page.post.displayTitle}}</h1>
+        <p class="direct-answer">{{page.post.answer}}</p>
+        <p class="post-byline">{{common.by}} <a href="{{urls.team}}#{{page.post.authorId}}">{{page.post.author}}</a></p>
+      </header>
+      {{#if page.post.cover}}<figure class="post-cover">
+        <img src="{{page.post.cover.src}}" srcset="{{page.post.cover.src800}} 800w, {{page.post.cover.src}} 1600w" sizes="(min-width: 980px) 920px, calc(100vw - 32px)" width="1600" height="900" alt="{{page.post.cover.alt}}" fetchpriority="high" decoding="async">
+      </figure>{{/if}}
+      <div class="post-body">
         {{#if page.post.statValue}}<div class="stat-callout">
           <p class="stat-value">{{page.post.statValue}}</p>
           <p>{{page.post.statLabel}} <span class="muted">({{common.source}}: {{page.post.statSource}}, {{page.post.statDate}})</span></p>
@@ -25,7 +33,7 @@
 {{#each page.post.faq}}            <details class="faq-item"><summary>{{q}}</summary><p>{{a}}</p></details>
 {{/each}}          </div>
         </div>{{/if}}
-        <p style="margin-top: 40px;"><a class="link-arrow" href="{{urls.blog}}">{{blog.allPosts}}</a></p>
+        <p class="post-back"><a class="link-arrow" href="{{urls.blog}}">{{blog.allPosts}}</a></p>
       </div>
     </article>
 

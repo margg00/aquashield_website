@@ -9,8 +9,9 @@ author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
+coverAlt: Cutaway of a wall with a concealed water riser, a faint warm glow where one joint is weeping and drops running down inside the cavity.
 answer: Because nobody is watching the water. A hidden leak is discovered when a tenant calls, a ceiling stains or water reaches a basement floor. By then it has run for days or weeks. Finding it can take up to five site visits.
-statValue: EUR 4.91bn
+statValue: €4.91bn
 statLabel: paid by German insurers for tap-water damage in 2024.
 statSource: GDV
 statDate: 2024

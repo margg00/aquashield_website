@@ -291,7 +291,19 @@ function jsonLdFor(pageKey, t, lang, url, extra) {
   }
   if (extra && extra.article) {
     const a = extra.article;
-    graph.push({ "@type": "Article", headline: a.title, datePublished: a.date, dateModified: a.updated || a.date, inLanguage: lang, author: { "@type": "Person", name: a.author, url: a.authorUrl }, publisher: { "@id": `${SITE_URL}/#organization` }, mainEntityOfPage: url, image: `${SITE_URL}/assets/img/og-default.png` });
+    // A post's breadcrumb is Home > Blog > post, not Home > post.
+    const crumbs = graph.find((g) => g["@type"] === "BreadcrumbList");
+    if (crumbs) {
+      crumbs.itemListElement = [
+        crumbs.itemListElement[0],
+        { "@type": "ListItem", position: 2, name: t.nav.blog, item: SITE_URL + urlFor("blog", lang) },
+        { "@type": "ListItem", position: 3, name: a.title, item: url }
+      ];
+    }
+    const image = a.coverImages
+      ? a.coverImages.map((im) => ({ "@type": "ImageObject", url: im.url, width: im.width, height: im.height }))
+      : `${SITE_URL}/assets/img/og-default.png`;
+    graph.push({ "@type": "Article", "@id": `${url}#article`, headline: a.title, description: a.description, datePublished: a.date, dateModified: a.updated || a.date, inLanguage: lang, articleSection: a.segmentLabel, wordCount: a.words, author: { "@type": "Person", name: a.author, url: a.authorUrl }, publisher: { "@id": `${SITE_URL}/#organization` }, mainEntityOfPage: url, image });
   }
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 }
@@ -362,6 +374,60 @@ function formatDate(iso, lang) {
 const written = [];
 const sitemapEntries = {};
 
+// --- Blog covers -------------------------------------------------------
+// Covers live in assets/img/blog/<cover>.webp (1600x900), <cover>-800.webp and
+// <cover>-og.jpg (1200x630), made by tools/blog-covers.js. A translation uses the
+// cover of the English post with the same id unless its front matter sets `cover`.
+const COVER_DIR = "/assets/img/blog/";
+function attachCovers(posts) {
+  const enById = {};
+  (posts[DEFAULT_LANG] || []).forEach((p) => { enById[p.id] = p.slug; });
+  Object.values(posts).forEach((list) => list.forEach((p) => {
+    const name = p.cover || enById[p.id] || p.slug;
+    if (!exists(`assets/img/blog/${name}.webp`)) return;
+    p.cover = {
+      src: `${COVER_DIR}${name}.webp`,
+      src800: `${COVER_DIR}${name}-800.webp`,
+      og: `${COVER_DIR}${name}-og.jpg`,
+      alt: p.coverAlt || p.title
+    };
+    p.coverImages = [
+      { url: SITE_URL + p.cover.og, width: 1200, height: 630 },
+      { url: SITE_URL + p.cover.src, width: 1600, height: 900 }
+    ];
+  }));
+}
+
+// French puts a space before ? ! : ; Make it a narrow no-break space in visible
+// titles so the mark never wraps onto a line of its own.
+function displayTitle(title, lang) {
+  return lang === "fr" ? title.replace(/ ([?!:;»])/g, " $1").replace(/« /g, "« ") : title;
+}
+
+function readingMinutes(words) {
+  return Math.max(1, Math.round(words / 220));
+}
+
+// Per-post head tags: the layout carries the site defaults, posts swap in their own.
+function postHeadMeta(html, post) {
+  if (!post.cover) return html;
+  const abs = (p) => SITE_URL + p;
+  const alt = escapeHtml(post.cover.alt);
+  const tags = [
+    `<meta property="og:image" content="${abs(post.cover.og)}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta property="og:image:alt" content="${alt}">`,
+    `<meta property="article:published_time" content="${post.dateIso}">`,
+    `<meta property="article:modified_time" content="${post.updatedIso}">`,
+    `<meta name="twitter:image" content="${abs(post.cover.og)}">`,
+    `<meta name="twitter:image:alt" content="${alt}">`
+  ].join("\n  ");
+  return html
+    .replace('<meta property="og:type" content="website">', '<meta property="og:type" content="article">')
+    .replace(/<meta property="og:image" content="[^"]*">/, tags);
+}
+
 function loadPosts(lang) {
   const dir = path.join(ROOT, "content", "blog", lang);
   if (!fs.existsSync(dir)) return [];
@@ -401,6 +467,7 @@ function build() {
   const langsBuilt = Object.keys(locales);
   const posts = {};
   langsBuilt.forEach((l) => { posts[l] = loadPosts(l); });
+  attachCovers(posts);
 
   const pageFiles = fs.readdirSync(path.join(ROOT, "src", "pages")).filter((f) => f.endsWith(".html"));
 
@@ -427,7 +494,7 @@ function build() {
       portfolioSvg: visuals.portfolioSvg(t),
       productHeroSvg: visuals.productHeroSvg(t),
       sensorSvg: visuals.sensorSvg(t),
-      posts: posts[lang].map((p) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "" })),
+      posts: posts[lang].map((p, i) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), dateIso: p.date, updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "", updatedIso: p.updated || p.date, displayTitle: displayTitle(p.title, lang), minutes: readingMinutes(p.words), featured: i === 0 })),
       sitesList: sites.sites,
       logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),
       team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name) })) }
@@ -468,12 +535,13 @@ function build() {
       const trace = `${lang}/${pageKey}${slugOverride ? "/" + slugOverride : ""}`;
       const content = render(read(`src/pages/${templateName}.html`), [ctx], trace);
       let html = render(layout, [{ ...ctx, content }], trace);
+      if (pageVars.isPost) html = postHeadMeta(html, pageVars.post);
       const outRel = outPathFor(pageKey, lang, slugOverride);
       if (PREVIEW) html = relativize(html, outRel);
       writeOut(outRel, html);
       if (pageKey !== "404") {
         sitemapEntries[lang] = sitemapEntries[lang] || [];
-        sitemapEntries[lang].push({ url, alternates });
+        sitemapEntries[lang].push({ url, alternates, image: pageVars.isPost && pageVars.post.cover ? SITE_URL + pageVars.post.cover.src : "" });
       }
     };
 
@@ -506,9 +574,10 @@ function build() {
   langsBuilt.forEach((l) => {
     const urls = (sitemapEntries[l] || []).map((e) => {
       const alts = e.alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.lang}" href="${a.url}"/>`).join("\n");
-      return `  <url>\n    <loc>${e.url}</loc>\n${alts}\n  </url>`;
+      const img = e.image ? `\n    <image:image><image:loc>${e.image}</image:loc></image:image>` : "";
+      return `  <url>\n    <loc>${e.url}</loc>\n${alts}${img}\n  </url>`;
     }).join("\n");
-    writeOut(`sitemap-${l}.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`);
+    writeOut(`sitemap-${l}.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls}\n</urlset>\n`);
   });
 
   if (PREVIEW) copyStatic();
