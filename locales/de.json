@@ -762,7 +762,7 @@
           "text": "Ein lebendes Modell der Leitungen, das aus einer Abweichung einen Ort macht, den man zuerst prüft."
         }
       ],
-      "line": "Ihre Arbeit sitzt innerhalb weniger Wochen an einem echten Rohr."
+      "line": "Keine Tickets, keine Übergaben. Sie verantworten es vom ersten Commit bis zu den Live-Daten aus einem echten Gebäude."
     },
     "peopleTitle": "Das Team",
     "people": [
@@ -807,6 +807,15 @@
         "line": "Verantwortet das Sensornetz, vom Rohr bis in die Cloud."
       },
       {
+        "id": "rithvik-golthi",
+        "name": "Rithvik Golthi",
+        "role": "Founding Software Engineer, Leiter Datenplattform",
+        "alumni": [
+          "University of Texas"
+        ],
+        "line": "Baut die Datenpipeline und die Cloud-Plattform hinter jedem Alarm."
+      },
+      {
         "id": "jacques-raffaeli",
         "name": "Jacques Raffaeli",
         "role": "Prüfstand",
@@ -822,11 +831,11 @@
       }
     ],
     "backing": {
-      "line": "Forschungskooperationen mit EPFL und ETH Zürich. Entwickelt mit MIT Facilities."
+      "line": "Forschungskooperation mit der EPFL. Entwickelt mit MIT Facilities."
     },
     "final": {
       "h2": "Bauen Sie es mit uns.",
-      "line": "Wenn Ihre Arbeit in wenigen Wochen an echten Rohren sitzen soll, nicht in einem Foliensatz, schreiben Sie uns.",
+      "line": "Wenn Sie lieber für echte Gebäude ausliefern, als Folien zu polieren, schreiben Sie uns.",
       "button": "Stellen Sie sich vor"
     },
     "offices": [

@@ -168,6 +168,19 @@
   body.has-reveal .person:nth-child(3n + 2) { transition-delay: 90ms; }
   body.has-reveal .person:nth-child(3n) { transition-delay: 180ms; }
 }
+/* three tiers that mirror the team: co-founders, founding engineers, interns. Every row fills the width */
+@media (min-width: 640px) { .page-team .people { grid-auto-rows: auto; } }
+@media (min-width: 640px) and (max-width: 1023px) { .page-team .person:nth-child(5) { grid-column: 1 / -1; } }
+@media (min-width: 1024px) {
+  .page-team .people { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
+  .page-team .person { grid-column: span 2; }
+  .page-team .person:nth-child(-n + 2), .page-team .person:nth-child(n + 6) { grid-column: span 3; }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  body.has-reveal .person:nth-child(n) { transition-delay: 0ms; }
+  body.has-reveal .person:nth-child(2), body.has-reveal .person:nth-child(4), body.has-reveal .person:nth-child(7) { transition-delay: 90ms; }
+  body.has-reveal .person:nth-child(5) { transition-delay: 180ms; }
+}
 
 /* ---------- Backing ---------- */
 .page-team .team-backing .logo-strip { margin-top: 0; padding-top: 0; border-top: 0; }

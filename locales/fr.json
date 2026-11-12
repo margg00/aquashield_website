@@ -762,7 +762,7 @@
           "text": "Un modèle vivant de la plomberie qui transforme un écart en un endroit à vérifier en premier."
         }
       ],
-      "line": "Votre travail est sur un vrai tuyau en quelques semaines."
+      "line": "Pas de tickets, pas de passations. Vous en êtes responsable, du premier commit aux données en direct d'un vrai bâtiment."
     },
     "peopleTitle": "L'équipe",
     "people": [
@@ -807,6 +807,15 @@
         "line": "Responsable du réseau de capteurs, du tuyau jusqu'au cloud."
       },
       {
+        "id": "rithvik-golthi",
+        "name": "Rithvik Golthi",
+        "role": "Ingénieur logiciel fondateur, responsable plateforme de données",
+        "alumni": [
+          "University of Texas"
+        ],
+        "line": "Construit le pipeline de données et la plateforme cloud derrière chaque alerte."
+      },
+      {
         "id": "jacques-raffaeli",
         "name": "Jacques Raffaeli",
         "role": "Banc d'essai",
@@ -822,11 +831,11 @@
       }
     ],
     "backing": {
-      "line": "Collaborations de recherche avec l'EPFL et l'ETH Zurich. Développé avec MIT Facilities."
+      "line": "Collaboration de recherche avec l'EPFL. Développé avec MIT Facilities."
     },
     "final": {
       "h2": "Construisez-le avec nous.",
-      "line": "Si vous voulez que votre travail soit sur de vrais tuyaux en quelques semaines, et non dans une présentation, écrivez-nous.",
+      "line": "Si vous préférez livrer pour de vrais bâtiments plutôt que peaufiner des présentations, écrivez-nous.",
       "button": "Présentez-vous"
     },
     "offices": [

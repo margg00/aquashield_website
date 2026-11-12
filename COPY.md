@@ -343,7 +343,7 @@ Neil Cecchi, Founding engineer.
 ### Backing and research (40 words)
 
 H2: Backing and research
-Y Combinator, spring 2026. OpenAI [TO CONFIRM: basis, Felix]. EPFL Startup Launchpad AI grant. Research collaborations with EPFL and ETH Zurich [TO CONFIRM: wording per partner, Felix]. Developed with MIT Facilities.
+Y Combinator, spring 2026. OpenAI [TO CONFIRM: basis, Felix]. EPFL Startup Launchpad AI grant. Research collaboration with EPFL [TO CONFIRM: wording, Felix]. Developed with MIT Facilities.
 
 ### Offices (22 words)
 

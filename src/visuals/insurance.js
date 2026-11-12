@@ -39,7 +39,7 @@ function text(cls, x, y, label, opts) {
 /* Timing shared by both compositions (seconds after the card is revealed). */
 const T = { bar1: 0.3, bar1Len: 3.4, bar2: 0.3, flagged: 0.9, located: 1.3 };
 const DAMAGE = [0.2, 0.4, 0.61, 0.82];       // where each damage lands on track 1 (0..1)
-const EARLY = 0.12, LOCATED = 0.165;         // where track 2 stops, where the riser is located
+const EARLY = 0.12, LOCATED = 0.18;          // where the deviation is flagged, where the riser is located
 const TICKS = [0, 0.36, 0.78];
 const at = (u) => T.bar1 + T.bar1Len * u;     // track 1 grows linearly, so damage appears as it is reached
 
@@ -81,8 +81,11 @@ function lossTimelineSvg(t) {
   // track 2: with AquaShield
   const ex = X(EARLY), lx = X(LOCATED);
   s += text("vi-text vi-text-strong lt-track lt-track-good", 0, y2 + 5, L.with);
-  s += `<rect class="lt-avoid lt-pop" ${d(at(1) + 0.4)} x="${f1(lx + 12)}" y="${y2 - 15}" width="${f1(xb - lx - 12)}" height="30" rx="15"/>`;
-  s += `<g class="lt-pop" ${d(at(1) + 0.55)}>` + text("vi-text lt-avoid-text", (lx + 12 + xb) / 2, y2 + 5, L.avoided, { anchor: "middle" }) + `</g>`;
+  // the loss-avoided outline starts flush where the riser is located
+  s += `<rect class="lt-avoid lt-pop" ${d(at(1) + 0.4)} x="${f1(lx)}" y="${y2 - 15}" width="${f1(xb - lx)}" height="30" rx="15"/>`;
+  s += `<g class="lt-pop" ${d(at(1) + 0.55)}>` + text("vi-text lt-avoid-text", (lx + xb) / 2, y2 + 5, L.avoided, { anchor: "middle" }) + `</g>`;
+  // second step of the response: a lighter segment from the flag on to the riser, tucked under the end of the first bar
+  s += `<rect class="lt-seg2 lt-bar-short lt-grow" ${d(T.flagged)} x="${f1(ex - bh)}" y="${y2 - bh / 2}" width="${f1(lx - ex + bh)}" height="${bh}" rx="${bh / 2}"/>`;
   s += `<rect class="lt-bar lt-bar-short lt-grow" ${d(T.bar2)} x="${xa}" y="${y2 - bh / 2}" width="${f1(ex - xa)}" height="${bh}" rx="${bh / 2}" fill="url(#lt-good)"/>`;
   s += `<g class="lt-pop" ${d(T.flagged)}>`;
   s += `<line class="lt-pole lt-pole-good" x1="${f1(ex)}" y1="${y2 - 8}" x2="${f1(ex)}" y2="${y2 - 62}"/><path class="lt-flag-good" d="M${f1(ex)} ${y2 - 62} L${f1(ex + 18)} ${y2 - 56} L${f1(ex)} ${y2 - 50} Z"/>`;
@@ -124,8 +127,9 @@ function lossTimelineSvgMobile(t) {
   s += text("vi-text lt-flag-text lt-flag-text-bad", ca + 24, yb + 28, t.insurance.visual.discovered, { max: 18 }) + `</g>`;
   // track 2
   const ey = Y(0.1), ly = Y(0.2); // a little more room than the wide layout so the labels can stack
-  s += `<rect class="lt-avoid lt-pop" ${d(at(1) + 0.4)} x="${cb - bw / 2}" y="${f1(ly + 30)}" width="${bw}" height="${f1(yb - ly - 30)}" rx="${bw / 2}"/>`;
+  s += `<rect class="lt-avoid lt-pop" ${d(at(1) + 0.4)} x="${cb - bw / 2}" y="${f1(ly)}" width="${bw}" height="${f1(yb - ly)}" rx="${bw / 2}"/>`;
   s += `<g class="lt-pop" ${d(at(1) + 0.55)}>` + text("vi-text lt-avoid-text", cb + 18, Y(0.6) + 4.5, L.avoided, { max: 18 }) + `</g>`;
+  s += `<rect class="lt-seg2 lt-bar-short lt-grow lt-grow-v" ${d(T.flagged)} x="${cb - bw / 2}" y="${f1(ey - bw)}" width="${bw}" height="${f1(ly - ey + bw)}" rx="${bw / 2}"/>`;
   s += `<rect class="lt-bar lt-bar-short lt-grow lt-grow-v" ${d(T.bar2)} x="${cb - bw / 2}" y="${ya}" width="${bw}" height="${f1(ey - ya)}" rx="${bw / 2}" fill="url(#ltm-good)"/>`;
   s += `<g class="lt-pop" ${d(T.flagged)}><line class="lt-pole lt-pole-good" x1="${cb + 6}" y1="${f1(ey)}" x2="${cb + 12}" y2="${f1(ey)}"/><path class="lt-flag-good" d="M${cb + 12} ${f1(ey - 5)} L${cb + 24} ${f1(ey)} L${cb + 12} ${f1(ey + 5)} Z"/>`;
   s += text("vi-text lt-flag-text lt-flag-text-good", cb + 30, ey + 4.5, L.flagged, { max: 16 }) + `</g>`;

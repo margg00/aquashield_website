@@ -83,7 +83,7 @@ Status legend: **safe** = may go live as written. **confirm** = may appear in th
 | Life Time Fitness, battery-sensor install planned Q1 2027 | Tim | As stated |
 | Logo use rights: Y Combinator, OpenAI, MIT, Harvard, EPFL | Felix | Logos shown in draft. Harvard has no file in the repo, shown as a wordmark until a file and permission arrive. |
 | Basis of the OpenAI logo | Felix | "Backed by" line |
-| Research collaboration wording for EPFL and ETH Zurich | Felix | "Research collaborations with EPFL and ETH Zurich" |
+| Research collaboration wording for EPFL (no collaboration with ETH Zurich, do not claim one) | Felix | "Research collaboration with EPFL" |
 | Dashboard screens from customer sites | Tim, customer | Not used. The site shows an anonymised sample alert built in HTML, not a screenshot. |
 | Market numbers: USD 13bn US non-weather water damage a year, USD 89k average US commercial water claim (NAIOP), claims above USD 1M tripled since 2015, EUR 4.91bn German tap-water claims 2024 (GDV), USD 100k deductible per incident | Felix, against each primary source | Each cited inline with its source name |
 | Legal address for AquaShield AI Inc. | Felix | "[TO CONFIRM: legal address]" in footer legal line and Imprint |

@@ -762,7 +762,7 @@
           "text": "A live model of the plumbing that turns a deviation into a place to check first."
         }
       ],
-      "line": "Your work is on a real pipe within weeks."
+      "line": "No tickets, no handoffs. You own it from the first commit to live data from a real building."
     },
     "peopleTitle": "The team",
     "people": [
@@ -807,6 +807,15 @@
         "line": "Owns the sensor network, from the pipe to the cloud."
       },
       {
+        "id": "rithvik-golthi",
+        "name": "Rithvik Golthi",
+        "role": "Founding Software Engineer, Head of Data Platform",
+        "alumni": [
+          "University of Texas"
+        ],
+        "line": "Builds the data pipeline and cloud platform behind every alert."
+      },
+      {
         "id": "jacques-raffaeli",
         "name": "Jacques Raffaeli",
         "role": "Test bench",
@@ -822,11 +831,11 @@
       }
     ],
     "backing": {
-      "line": "Research collaborations with EPFL and ETH Zurich. Developed with MIT Facilities."
+      "line": "Research collaboration with EPFL. Developed with MIT Facilities."
     },
     "final": {
       "h2": "Build it with us.",
-      "line": "If you want your work on real pipes within weeks, not in a slide deck, write to us.",
+      "line": "If you would rather ship to real buildings than polish slide decks, write to us.",
       "button": "Introduce yourself"
     },
     "offices": [

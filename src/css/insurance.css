@@ -81,6 +81,7 @@
 .lt-flag-good { fill: var(--accent-bright); }
 .lt-tickmark { stroke: var(--accent-light); stroke-width: 2; stroke-linecap: round; }
 .lt-loc { fill: var(--accent-light); }
+.lt-seg2 { fill: rgb(var(--accent-light-rgb) / 0.78); }
 .lt-avoid { fill: rgb(var(--accent-rgb) / 0.04); stroke: rgb(var(--accent-rgb) / 0.55); stroke-width: 1.2; stroke-dasharray: 5 5; }
 .lt-avoid-text { fill: var(--accent-light); font-weight: 600; }
 
