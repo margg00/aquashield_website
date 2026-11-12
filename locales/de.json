@@ -26,10 +26,10 @@
   },
   "cta": {
     "label": "30-min Erstgespräch buchen",
-    "home": "Wir prüfen, ob wir Ihr Wasserproblem lösen können.",
-    "realEstate": "Wir prüfen, ob wir Ihr Wasserschadenproblem lösen können.",
-    "insurance": "Wir prüfen, ob wir die Schadenhöhe Ihrer Wasserschäden senken können.",
-    "dataCenters": "Wir prüfen, ob wir Lecks in Ihrem Kühlkreislauf erkennen können.",
+    "home": "Finden wir gemeinsam Ihre ideale Lösung.",
+    "realEstate": "Finden wir gemeinsam das ideale Setup für Ihr Portfolio.",
+    "insurance": "Erarbeiten wir gemeinsam, wie sich Leitungswasserschäden senken lassen.",
+    "dataCenters": "Finden wir gemeinsam das richtige Setup für Ihren Kühlkreislauf.",
     "fallback": "Oder per E-Mail",
     "email": "founders@aquashieldai.com",
     "titles": {
@@ -55,26 +55,34 @@
     "and": "und"
   },
   "footer": {
-    "offices": "Hauptsitz Zürich, Technoparkstrasse 1, 8005 Zürich. San Francisco.",
+    "about": "AquaShield erkennt und ortet Lecks in komplexen Rohrnetzen mit nicht-invasiven Sensoren und eigenen, selbst trainierten Machine-Learning-Modellen.",
+    "locations": [
+      {
+        "city": "San Francisco",
+        "address": "500 Sansome Street, San Francisco, CA 94111, USA"
+      },
+      {
+        "city": "Zürich",
+        "address": "Technoparkstrasse 1, 8005 Zürich, Schweiz"
+      }
+    ],
     "legal": "AquaShield AI Inc.",
     "legalNote": "",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "linkedin": "LinkedIn",
     "email": "founders@aquashieldai.com",
-    "rights": "Alle Rechte vorbehalten.",
-    "hqLabel": "Hauptsitz",
-    "hq": "Technoparkstrasse 1, 8005 Zürich, Schweiz",
-    "officeLabel": "Büro",
-    "office": "500 Sansome Street, San Francisco, CA 94111, USA"
+    "rights": "Alle Rechte vorbehalten."
   },
   "counter": {
     "title": "Live, berechnet aus echten Standorten",
     "buildingsLabel": "Gebäude live",
+    "buildingsSub": "in Deutschland und den USA",
     "pointsLabel": "Messstellen",
+    "pointsSub": "Clamp-on-Sensoren an Rohren",
     "readingsLabel": "Messwerte analysiert",
     "leaksLabel": "Lecks gefunden",
-    "leaksNote": "Drei gemeldete Schäden passten an Live-Standorten zu einem klaren Durchflussmuster.",
+    "leaksSub": "gemeldete Schäden in den Daten wiedergefunden",
     "perDay": "pro Tag"
   },
   "alert": {
@@ -128,7 +136,7 @@
     },
     "product": {
       "title": "AquaShield erklärt: Sensoren, KI, digitaler Zwilling",
-      "description": "Clamp-on-Ultraschall- und Drucksensoren, ein Modell pro Messstelle lernt den Normalverlauf, ein digitaler Zwilling grenzt das Leck auf eine Steigleitung ein."
+      "description": "Clamp-on-Ultraschall-Durchflusssensoren, ein Modell, das den Normalverlauf lernt, und ein digitaler Zwilling, der das Leck auf eine Steigleitung eingrenzt."
     },
     "real-estate": {
       "title": "Leckageerkennung für Immobilienportfolios | AquaShield",
@@ -140,7 +148,7 @@
     },
     "data-centers": {
       "title": "Kühlkreislauf-Lecks in Rechenzentren erkennen | AquaShield",
-      "description": "Vernetzte Durchfluss- und Druckmessung pro Rack für flüssigkeitsgekühlte Rechenzentren. Das Leck im Kühlkreislauf erkennen, bevor der Ausfall kommt. Erste Standorte in der Schweiz."
+      "description": "Vernetzte Durchflussmessung pro Rack für flüssigkeitsgekühlte Rechenzentren. Das Leck im Kühlkreislauf erkennen, bevor der Ausfall kommt. Erste Standorte in der Schweiz."
     },
     "team": {
       "title": "Team | AquaShield",
@@ -152,7 +160,7 @@
     },
     "book-a-call": {
       "title": "30-min Erstgespräch buchen | AquaShield",
-      "description": "Buchen Sie 30 Minuten mit den AquaShield-Gründern. Wir prüfen, ob wir Ihr Wasserproblem lösen können. Kein Pilotformular, keine Verpflichtung."
+      "description": "Buchen Sie 30 Minuten mit den AquaShield-Gründern. Finden wir gemeinsam Ihre ideale Lösung. Kein Pilotformular, keine Verpflichtung."
     },
     "imprint": {
       "title": "Impressum | AquaShield",
@@ -162,7 +170,7 @@
   "home": {
     "hero": {
       "eyebrow": "KI-Leckageerkennung für Gebäude",
-      "h1": "<span class=\"h1-bracket\">[</span>TBD catchy title<span class=\"h1-bracket\">]</span>",
+      "h1": "Kein Leck bleibt unbemerkt.",
       "proof": "Live in Deutschland und den USA. Unterstützt von Y Combinator.",
       "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss.",
       "live": "Live in Deutschland und den USA."
@@ -172,7 +180,7 @@
       "h2": "Wasser ist das eine Gebäudesystem, <br>das Sie nicht sehen können.",
       "stats": [
         {
-          "value": "USD 89k",
+          "value": "89.000 $",
           "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
           "source": "NAIOP, US-Verband für Gewerbeimmobilien",
           "confirm": false
@@ -183,7 +191,7 @@
           "confirm": false
         },
         {
-          "value": "EUR 4,91 Mrd.",
+          "value": "4,91 Mrd. €",
           "label": "Leitungswasserschäden in Deutschland 2024",
           "source": "GDV, Gesamtverband der Deutschen Versicherer, 2024",
           "confirm": false
@@ -231,7 +239,7 @@
         },
         {
           "name": "Rechenzentren",
-          "text": "Durchfluss- und Druckmessung pro Rack bei Flüssigkeitskühlung.",
+          "text": "Durchflussmessung pro Rack bei Flüssigkeitskühlung.",
           "link": "Für Rechenzentren",
           "key": "data-centers"
         }
@@ -249,7 +257,7 @@
   },
   "product": {
     "h1": "So funktioniert AquaShield",
-    "lead": "Clamp-on-Sensoren kommen auf bestehende Rohre. Ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes. Ein digitaler Zwilling der Rohrinstallation grenzt eine Abweichung auf eine Steigleitung oder einen Gebäudeabschnitt ein. Alarme werden mit Ihrer Haustechnik geprüft.",
+    "lead": "Clamp-on-Sensoren kommen auf bestehende Rohre. Unser Modell lernt den normalen Durchfluss des Gebäudes. Ein digitaler Zwilling der Rohrinstallation grenzt eine Abweichung auf eine Steigleitung oder einen Gebäudeabschnitt ein. Alarme werden mit Ihrer Haustechnik geprüft.",
     "hero": {
       "visual": {
         "sensor": "Clamp-on-Sensor",
@@ -264,12 +272,12 @@
     },
     "install": {
       "h2": "Wie läuft eine Installation ab?",
-      "text": "Ultraschall-Durchflusssensoren werden aussen an bestehende Rohre geklemmt, Drucksensoren an bestehende Zapfstellen. Unter 15 Minuten pro Sensor, kein Rohrschnitt, keine Abschaltung der Wasserversorgung. Aus den Sensorpositionen und dem Leitungsplan baut AquaShield einen digitalen Zwilling des Gebäudes: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Von dort lernt das Modell den normalen Durchfluss des Gebäudes. Ihr eigenes Team kann die Sensoren anklemmen.",
-      "visualAlt": "Diagramm: ein Clamp-on-Ultraschall-Durchflusssensor an einer Steigleitung und ein Drucksensor an einer Zapfstelle.",
+      "text": "Ultraschall-Durchflusssensoren werden aussen an bestehende Rohre geklemmt. Unter 15 Minuten pro Sensor, kein Rohrschnitt, keine Abschaltung der Wasserversorgung. Aus den Sensorpositionen und dem Leitungsplan baut AquaShield einen digitalen Zwilling des Gebäudes: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Von dort lernt das Modell den normalen Durchfluss des Gebäudes. Ihr eigenes Team kann die Sensoren anklemmen.",
+      "visualAlt": "Diagramm: Clamp-on-Ultraschall-Durchflusssensoren an einer Steigleitung und an der Versorgungsleitung, die sie speist.",
       "labels": {
         "riser": "Steigleitung",
         "ultrasonic": "Clamp-on-Ultraschall-Durchflusssensor",
-        "pressure": "Drucksensor an einer bestehenden Zapfstelle",
+        "supply": "Versorgungsleitung",
         "time": "Unter 15 Minuten pro Sensor",
         "cut": "Kein Rohrschnitt"
       }
@@ -307,10 +315,10 @@
     },
     "sensors": {
       "h2": "Die Sensoren",
-      "intro": "Zwei Sensortypen, beide auf bestehenden Leitungen. Nichts wird geschnitten.",
+      "intro": "Ein Sensortyp, auf bestehenden Leitungen. Nichts wird geschnitten.",
       "specs": [
         "Clamp-on-Ultraschall-Durchflusssensoren an Strängen und Versorgungsleitungen",
-        "Drucksensoren an bestehenden Zapfstellen",
+        "Unter 15 Minuten pro Sensor, kein Rohrschnitt, keine Abschaltung",
         "Alle 10 Minuten ein Messwert von jeder Messstelle",
         "Abdeckung wird gemeldet, das Dashboard zeigt, wenn ein Sensor offline ist"
       ],
@@ -422,12 +430,12 @@
       "h2": "Ein Schadenfall bezahlt die Überwachung.",
       "items": [
         {
-          "value": "USD 89k",
+          "value": "89.000 $",
           "label": "Durchschnittlicher gewerblicher Wasserschaden in den USA",
           "source": "NAIOP"
         },
         {
-          "value": "EUR 4,91 Mrd.",
+          "value": "4,91 Mrd. €",
           "label": "Leitungswasserschäden in Deutschland 2024",
           "source": "GDV"
         }
@@ -774,7 +782,7 @@
         "title": "AquaShield AI Inc.",
         "lines": [
           "Delaware, USA",
-          "Büro: 500 Sansome Street, San Francisco, CA 94111, USA"
+          "500 Sansome Street, San Francisco, CA 94111, USA"
         ]
       },
       {

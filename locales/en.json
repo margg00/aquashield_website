@@ -26,10 +26,10 @@
   },
   "cta": {
     "label": "Book a 30-min discovery call",
-    "home": "We check whether we can fix your water problem.",
-    "realEstate": "We check whether we can fix your water-damage problem.",
-    "insurance": "We check whether we can cut your water-claim severity.",
-    "dataCenters": "We check whether we can catch your cooling-loop leaks.",
+    "home": "Let's find your ideal solution together.",
+    "realEstate": "Let's find the ideal setup for your portfolio together.",
+    "insurance": "Let's work out how we can cut water claims together.",
+    "dataCenters": "Let's find the right setup for your cooling loop together.",
     "fallback": "Or email",
     "email": "founders@aquashieldai.com",
     "titles": {
@@ -55,26 +55,34 @@
     "and": "and"
   },
   "footer": {
-    "offices": "Zurich HQ, Technoparkstrasse 1, 8005 Zurich. San Francisco.",
+    "about": "AquaShield detects and localises leaks in complex pipe networks using non-invasive sensors and our own trained machine learning models.",
+    "locations": [
+      {
+        "city": "San Francisco",
+        "address": "500 Sansome Street, San Francisco, CA 94111, United States"
+      },
+      {
+        "city": "Zurich",
+        "address": "Technoparkstrasse 1, 8005 Zurich, Switzerland"
+      }
+    ],
     "legal": "AquaShield AI Inc.",
     "legalNote": "",
     "imprint": "Imprint",
     "privacy": "Privacy",
     "linkedin": "LinkedIn",
     "email": "founders@aquashieldai.com",
-    "rights": "All rights reserved.",
-    "hqLabel": "Headquarters",
-    "hq": "Technoparkstrasse 1, 8005 Zurich, Switzerland",
-    "officeLabel": "Office",
-    "office": "500 Sansome Street, San Francisco, CA 94111, United States"
+    "rights": "All rights reserved."
   },
   "counter": {
     "title": "Live, computed from real sites",
     "buildingsLabel": "Buildings live",
+    "buildingsSub": "across Germany and the US",
     "pointsLabel": "Measuring points",
+    "pointsSub": "clamp-on sensors on pipes",
     "readingsLabel": "Readings analysed",
     "leaksLabel": "Leaks found",
-    "leaksNote": "Three reported damages matched to a clear flow signature at live sites.",
+    "leaksSub": "reported damages matched in the data",
     "perDay": "per day"
   },
   "alert": {
@@ -128,7 +136,7 @@
     },
     "product": {
       "title": "How AquaShield works: sensors, AI, digital twin",
-      "description": "Clamp-on ultrasonic and pressure sensors, a model per measuring point that learns normal flow, and a digital twin that narrows a leak to a riser."
+      "description": "Clamp-on ultrasonic flow sensors, a model that learns the building's normal flow, and a digital twin that narrows a leak to a riser."
     },
     "real-estate": {
       "title": "Leak detection for real estate portfolios | AquaShield",
@@ -140,7 +148,7 @@
     },
     "data-centers": {
       "title": "Cooling-loop leak detection for data centres | AquaShield",
-      "description": "Networked flow and pressure sensing per rack for liquid-cooled data centres. Catch the cooling-loop leak before the outage. First sites in Switzerland."
+      "description": "Networked flow sensing per rack for liquid-cooled data centres. Catch the cooling-loop leak before the outage. First sites in Switzerland."
     },
     "team": {
       "title": "Team | AquaShield",
@@ -152,7 +160,7 @@
     },
     "book-a-call": {
       "title": "Book a 30-min discovery call | AquaShield",
-      "description": "Book a 30-minute call with the AquaShield founders. We check whether we can fix your water problem. No pilot form, no commitment."
+      "description": "Book a 30-minute call with the AquaShield founders. Let's find your ideal solution together. No pilot form, no commitment."
     },
     "imprint": {
       "title": "Imprint | AquaShield",
@@ -162,7 +170,7 @@
   "home": {
     "hero": {
       "eyebrow": "AI leak detection for buildings",
-      "h1": "<span class=\"h1-bracket\">[</span>TBD catchy title<span class=\"h1-bracket\">]</span>",
+      "h1": "No leak goes unnoticed.",
       "proof": "Live in Germany and the US. Backed by Y Combinator.",
       "visualAlt": "Wireframe building with five floors and three risers. One riser glows red at the deviation on floor three.",
       "live": "Live in Germany and the US."
@@ -172,7 +180,7 @@
       "h2": "Water is the one building system <br>you cannot see.",
       "stats": [
         {
-          "value": "USD 89k",
+          "value": "$89k",
           "label": "Average US commercial water claim",
           "source": "NAIOP, US commercial real estate association",
           "confirm": false
@@ -183,7 +191,7 @@
           "confirm": false
         },
         {
-          "value": "EUR 4.91bn",
+          "value": "€4.91bn",
           "label": "German tap-water claims in 2024",
           "source": "GDV, German Insurance Association, 2024",
           "confirm": false
@@ -231,7 +239,7 @@
         },
         {
           "name": "Data centres",
-          "text": "Flow and pressure sensing per rack for liquid cooling.",
+          "text": "Flow sensing per rack for liquid cooling.",
           "link": "For data centres",
           "key": "data-centers"
         }
@@ -249,7 +257,7 @@
   },
   "product": {
     "h1": "How AquaShield works",
-    "lead": "Clamp-on sensors go onto existing pipes. A model per measuring point learns the building's normal flow. A digital twin of the plumbing narrows a deviation to a riser or a building section. Alerts are reviewed with your maintenance team.",
+    "lead": "Clamp-on sensors go onto existing pipes. Our model learns the building's normal flow. A digital twin of the plumbing narrows a deviation to a riser or a building section. Alerts are reviewed with your maintenance team.",
     "hero": {
       "visual": {
         "sensor": "Clamp-on sensor",
@@ -264,12 +272,12 @@
     },
     "install": {
       "h2": "What does an install look like?",
-      "text": "Ultrasonic flow sensors clamp onto the outside of existing pipes, pressure sensors onto existing taps. Under 15 minutes each, no pipe cutting, no shutdown of the water supply. From the sensor positions and the plumbing layout, AquaShield builds a digital twin of the building: which riser feeds which floors, which sensor sees which water. The model learns the building's normal flow from there. Your own team can clamp on the sensors.",
-      "visualAlt": "Diagram: a clamp-on ultrasonic flow sensor on a riser and a pressure sensor on a tap.",
+      "text": "Ultrasonic flow sensors clamp onto the outside of existing pipes. Under 15 minutes each, no pipe cutting, no shutdown of the water supply. From the sensor positions and the plumbing layout, AquaShield builds a digital twin of the building: which riser feeds which floors, which sensor sees which water. The model learns the building's normal flow from there. Your own team can clamp on the sensors.",
+      "visualAlt": "Diagram: clamp-on ultrasonic flow sensors on a riser and on the supply line that feeds it.",
       "labels": {
         "riser": "Riser",
         "ultrasonic": "Clamp-on ultrasonic flow sensor",
-        "pressure": "Pressure sensor on an existing tap",
+        "supply": "Supply line",
         "time": "Under 15 minutes each",
         "cut": "No pipe cutting"
       }
@@ -307,10 +315,10 @@
     },
     "sensors": {
       "h2": "The sensors",
-      "intro": "Two sensor types, both on existing pipework. Nothing is cut.",
+      "intro": "One sensor type, on existing pipework. Nothing is cut.",
       "specs": [
         "Clamp-on ultrasonic flow sensors on risers and supply lines",
-        "Pressure sensors on existing taps",
+        "Under 15 minutes per sensor, no pipe cutting, no shutdown",
         "A reading every 10 minutes from every measuring point",
         "Coverage reported, so the dashboard shows when a sensor is offline"
       ],
@@ -422,12 +430,12 @@
       "h2": "One claim pays for the monitoring.",
       "items": [
         {
-          "value": "USD 89k",
+          "value": "$89k",
           "label": "Average US commercial water claim",
           "source": "NAIOP"
         },
         {
-          "value": "EUR 4.91bn",
+          "value": "€4.91bn",
           "label": "German tap-water damage in 2024",
           "source": "GDV"
         }
@@ -774,7 +782,7 @@
         "title": "AquaShield AI Inc.",
         "lines": [
           "Delaware, USA",
-          "Office: 500 Sansome Street, San Francisco, CA 94111, United States"
+          "500 Sansome Street, San Francisco, CA 94111, United States"
         ]
       },
       {

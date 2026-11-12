@@ -2,7 +2,7 @@
   Vector product visuals, sharp at any size. Strings come from the locale.
   CSS for these lives in styles.css under "Product visuals".
 
-    installSvg(t)  clamp-on ultrasonic sensor on a riser, pressure sensor on a tap
+    installSvg(t)  clamp-on ultrasonic flow sensors on a riser and on the supply line feeding it
     rackSvg(t)     liquid-cooled rack row with a cooling loop and per-rack sensing
     portfolioSvg(t) row of six isometric buildings, one riser deviation and an alert
     productHeroSvg(t) signal chain: clamp-on sensor, learned baseline chart, building twin alert
@@ -29,8 +29,22 @@ function installSvg(t, opts) {
     <linearGradient id="vi-clamp" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0" stop-color="#8e9ba6"/><stop offset="0.5" stop-color="#d7dee4"/><stop offset="1" stop-color="#7a8792"/>
     </linearGradient>
+    <linearGradient id="vi-pipe-h" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#1b2a36"/><stop offset="0.35" stop-color="#3a5366"/><stop offset="0.6" stop-color="#22343f"/><stop offset="1" stop-color="#101b22"/>
+    </linearGradient>
+    <linearGradient id="vi-clamp-h" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#8e9ba6"/><stop offset="0.5" stop-color="#d7dee4"/><stop offset="1" stop-color="#7a8792"/>
+    </linearGradient>
   </defs>`;
   s += `<rect class="vi-grid" x="0" y="0" width="400" height="300"/>`;
+  // supply line: horizontal pipe from the left into the foot of the riser, drawn first so the
+  // riser insulation covers the joint
+  const sy = 244, sh = 22, scx = 122;
+  s += `<rect class="vi-pipe" x="0" y="${sy}" width="${px + 4}" height="${sh}" fill="url(#vi-pipe-h)"/>`;
+  s += `<line class="vi-pipe-hl" x1="0" y1="${sy + 7}" x2="${px - 12}" y2="${sy + 7}"/>`;
+  for (let i = 0; i < 3; i++) {
+    s += `<circle class="vi-flow" r="2" style="offset-path: path('M0 ${sy + sh / 2 + (i % 2 ? 4 : -4)} L${px} ${sy + sh / 2 + (i % 2 ? 4 : -4)}'); animation-delay: ${(-i * 1.2).toFixed(1)}s"/>`;
+  }
   // pipe body with insulation cut away in the middle
   s += `<rect class="vi-pipe" x="${px}" y="${top}" width="${pw}" height="${bottom}" fill="url(#vi-pipe)"/>`;
   s += `<rect class="vi-insul" x="${px - 9}" y="${top}" width="${pw + 18}" height="78"/>`;
@@ -66,18 +80,29 @@ function installSvg(t, opts) {
   s += `<path class="vi-cable" d="M${px + pw + 84} 150 C ${px + pw + 110} 150, ${px + pw + 100} 60, ${px + pw + 92} 0"/>`;
   s += `<line class="vi-bridge" x1="${px + pw}" y1="130" x2="${px + pw + 10}" y2="130"/>`;
   s += `<line class="vi-bridge" x1="${px + pw}" y1="170" x2="${px + pw + 10}" y2="170"/>`;
-  // pressure sensor on a tap, lower left
-  s += `<line class="vi-tap-pipe" x1="60" y1="300" x2="60" y2="236"/>`;
-  s += `<rect class="vi-tap" x="48" y="222" width="24" height="16" rx="3"/>`;
-  s += `<circle class="vi-gauge" cx="60" cy="204" r="16"/>`;
-  s += `<circle class="vi-gauge-dot" cx="60" cy="204" r="3"/>`;
-  s += `<line class="vi-gauge-needle" x1="60" y1="204" x2="70" y2="194"/>`;
+  // second clamp-on ultrasonic sensor on the supply line: two bands, a rail with two transducers
+  // on top of the pipe, the V-path through the water, and a smaller body above
+  [scx - 22, scx + 22].forEach((x) => {
+    s += `<rect class="vi-band" x="${x - 5}" y="${sy - 6}" width="10" height="${sh + 12}" rx="4" fill="url(#vi-clamp-h)"/>`;
+  });
+  s += `<rect class="vi-rail" x="${scx - 32}" y="${sy - 18}" width="64" height="16" rx="5" fill="url(#vi-body)"/>`;
+  s += `<rect class="vi-tx" x="${scx - 26}" y="${sy - 14}" width="12" height="10" rx="2"/>`;
+  s += `<rect class="vi-tx" x="${scx + 14}" y="${sy - 14}" width="12" height="10" rx="2"/>`;
+  const vpath = `M${scx - 20} ${sy} L${scx} ${sy + sh} L${scx + 20} ${sy}`;
+  s += `<path class="vi-beam" d="${vpath}" pathLength="1"/>`;
+  s += `<circle class="vi-beam-dot" r="2" style="offset-path: path('${vpath}')"/>`;
+  s += `<rect class="vi-body" x="${scx - 34}" y="${sy - 70}" width="68" height="44" rx="9" fill="url(#vi-body)"/>`;
+  s += `<rect class="vi-body-line" x="${scx - 24}" y="${sy - 58}" width="40" height="2" rx="1"/>`;
+  s += `<rect class="vi-body-line" x="${scx - 24}" y="${sy - 50}" width="26" height="2" rx="1"/>`;
+  s += `<circle class="vi-led" cx="${scx - 22}" cy="${sy - 37}" r="3" style="animation-delay: -1.2s"/>`;
+  s += `<line class="vi-bridge" x1="${scx - 16}" y1="${sy - 26}" x2="${scx - 16}" y2="${sy - 18}"/>`;
+  s += `<line class="vi-bridge" x1="${scx + 16}" y1="${sy - 26}" x2="${scx + 16}" y2="${sy - 18}"/>`;
+  s += `<path class="vi-cable" d="M${scx - 34} ${sy - 48} C ${scx - 64} ${sy - 48}, ${scx - 70} ${sy - 96}, ${scx - 122} ${sy - 104}"/>`;
   // labels (hidden at small sizes by CSS)
   s += `<g class="vi-labels">`;
   s += `<line class="vi-leader" x1="${px - 32}" y1="150" x2="150" y2="96"/><circle class="vi-leader-end" cx="150" cy="96" r="2.5"/>`;
   s += `<text class="vi-text" x="24" y="76"><tspan class="vi-text-strong" x="24" dy="0">${esc(L.ultrasonic)}</tspan><tspan x="24" dy="16">${esc(L.time)}. ${esc(L.cut)}.</tspan></text>`;
-  s += `<line class="vi-leader" x1="78" y1="204" x2="118" y2="252"/><circle class="vi-leader-end" cx="118" cy="252" r="2.5"/>`;
-  s += `<text class="vi-text" x="126" y="256">${esc(L.pressure)}</text>`;
+  s += `<text class="vi-text vi-text-muted" x="24" y="${sy + sh + 22}">${esc(L.supply)}</text>`;
   s += `<text class="vi-text vi-text-muted" x="${px + pw + 47}" y="214" text-anchor="middle">${esc(L.riser)}</text>`;
   s += `</g>`;
   const vb = compact ? "30 40 340 255" : "0 0 400 300";
