@@ -1,0 +1,240 @@
+/* ---------- Data centres page (src/pages/data-centers.html, drawings in src/visuals/data-centers.js) ----------
+   Default styles are the finished state. Start states and keyframes live only inside
+   prefers-reduced-motion: no-preference, keyed off body.has-reveal and .is-visible. */
+
+/* Hero rack drawing: the drifting branch */
+.vi-flow-bad { fill: #ffb199; }
+
+/* ---------- Leak cable vs AquaShield band ---------- */
+.dc-head-wide { max-width: none; display: grid; gap: 16px; }
+.dc-head-wide .lead { margin-top: 0; max-width: 52ch; }
+@media (min-width: 900px) {
+  .dc-head-wide { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); column-gap: 56px; align-items: end; }
+}
+
+.dc-compare { display: grid; gap: 20px; }
+@media (min-width: 768px) { .dc-compare { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
+
+.dc-seq {
+  --tone: var(--accent);
+  --tone-rgb: var(--accent-rgb);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 26px 22px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  background: rgba(13, 13, 13, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.dc-seq-bad { --tone: var(--anomaly); --tone-rgb: var(--anomaly-rgb); }
+@media (min-width: 768px) { .dc-seq { padding: 32px 32px 34px; } }
+
+/* how the card ends: red and dark for the cable, lit and calm for AquaShield */
+.dc-seq::after { content: ""; position: absolute; inset: auto 0 0 0; height: 60%; pointer-events: none; }
+.dc-seq-bad::after { background: radial-gradient(90% 90% at 20% 100%, rgb(var(--anomaly-rgb) / 0.16), transparent 70%), linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.45)); }
+.dc-seq-good::after { background: radial-gradient(90% 90% at 20% 100%, rgb(var(--accent-rgb) / 0.16), transparent 70%); }
+
+.dc-seq-head { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 26px; padding-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.dc-seq-head h3 { font-size: 1.4rem; }
+.dc-tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border: 1px solid rgb(var(--tone-rgb) / 0.35); border-radius: 999px; background: rgb(var(--tone-rgb) / 0.1); color: var(--tone); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+.dc-tag::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+.dc-seq-bad .dc-tag { color: #ff9a80; }
+
+.dc-steps { position: relative; z-index: 1; display: grid; grid-auto-rows: 1fr; row-gap: 14px; flex: 1; margin: 0; padding: 0; list-style: none; }
+.dc-steps li { --step-tone: var(--tone); --step-rgb: var(--tone-rgb); position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 48px; }
+.dc-steps p { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.45; }
+/* the cable does not see the first two steps */
+.dc-seq-bad .dc-steps li:nth-child(-n+2) { --step-tone: rgba(255, 255, 255, 0.55); --step-rgb: 255 255 255; }
+
+.dc-node { position: relative; z-index: 1; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px; background: #121314; color: var(--step-tone); }
+.dc-node::after { content: ""; position: absolute; inset: -1px; border: 1px solid rgb(var(--step-rgb) / 0.6); border-radius: inherit; box-shadow: 0 0 0 4px rgb(var(--step-rgb) / 0.08), 0 0 20px rgb(var(--step-rgb) / 0.22); }
+.dc-seq-bad .dc-steps li:nth-child(-n+2) .dc-node::after { border-style: dashed; border-color: rgba(255, 255, 255, 0.3); box-shadow: none; }
+.dc-icon { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* progress rail: one segment from each node to the next */
+.dc-steps li:not(:last-child)::before,
+.dc-steps li:not(:last-child)::after { content: ""; position: absolute; left: 23px; top: calc(50% + 24px); width: 2px; height: calc(100% + 14px - 48px); border-radius: 2px; }
+.dc-steps li:not(:last-child)::before { background: rgba(255, 255, 255, 0.1); }
+.dc-steps li:not(:last-child)::after { background: linear-gradient(180deg, var(--step-tone), rgb(var(--step-rgb) / 0.5)); transform-origin: 50% 0; }
+.dc-seq-bad .dc-steps li:nth-child(-n+2)::after { background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0 4px, transparent 4px 8px); }
+
+/* step 4 lands */
+.dc-step-end::before { content: ""; position: absolute; inset: -8px -10px; z-index: 0; border: 1px solid rgb(var(--tone-rgb) / 0.28); border-radius: 18px; background: rgb(var(--tone-rgb) / 0.09); }
+.dc-step-end .dc-node { border-color: transparent; }
+.dc-step-end p { position: relative; color: var(--text-primary); font-weight: 600; }
+.dc-seq-good .dc-step-end .dc-node { background: var(--accent); color: var(--accent-ink); }
+.dc-seq-good .dc-step-end .dc-node::after { border-color: rgb(var(--accent-rgb) / 0.9); box-shadow: 0 0 0 5px rgb(var(--accent-rgb) / 0.16), 0 0 28px rgb(var(--accent-rgb) / 0.5); }
+.dc-seq-bad .dc-step-end::before { background: linear-gradient(90deg, rgb(var(--anomaly-rgb) / 0.16), rgba(0, 0, 0, 0.35)); }
+.dc-seq-bad .dc-step-end .dc-node { background: #2a0f09; color: var(--anomaly); }
+.dc-seq-bad .dc-step-end .dc-node::after { border-color: var(--anomaly); box-shadow: 0 0 0 5px rgb(var(--anomaly-rgb) / 0.14), 0 0 26px rgb(var(--anomaly-rgb) / 0.4); }
+.dc-seq-bad .dc-step-end p { color: #ffb199; }
+
+/* hidden states carry no transition, so adding has-reveal on load hides them at once.
+   The visible state carries the transitions and the step delays. */
+@media (prefers-reduced-motion: no-preference) {
+  body.has-reveal .dc-seq .dc-steps li { opacity: 0.25; }
+  body.has-reveal .dc-seq .dc-node::after { opacity: 0; }
+  body.has-reveal .dc-seq .dc-steps li::after { transform: scaleY(0); }
+  body.has-reveal .dc-seq .dc-step-end::before { opacity: 0; }
+  body.has-reveal .dc-seq .dc-step-end .dc-node { transform: scale(0.82); }
+  body.has-reveal .dc-seq::after { opacity: 0; }
+
+  body.has-reveal .dc-seq.is-visible .dc-steps li,
+  body.has-reveal .dc-seq.is-visible .dc-node::after,
+  body.has-reveal .dc-seq.is-visible .dc-step-end::before,
+  body.has-reveal .dc-seq.is-visible::after { opacity: 1; transition: opacity 500ms ease; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li::after { transform: none; transition: transform 520ms cubic-bezier(0.45, 0, 0.2, 1); }
+  body.has-reveal .dc-seq.is-visible .dc-step-end .dc-node { transform: none; transition: transform 600ms cubic-bezier(0.3, 1.6, 0.5, 1); }
+
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(1), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(1) .dc-node::after { transition-delay: 350ms; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(2), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(2) .dc-node::after { transition-delay: 1050ms; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(3), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(3) .dc-node::after { transition-delay: 1750ms; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(4), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(4) .dc-node::after { transition-delay: 2450ms; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(1)::after { transition-delay: 600ms; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(2)::after { transition-delay: 1300ms; }
+  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(3)::after { transition-delay: 2000ms; }
+  body.has-reveal .dc-seq.is-visible .dc-step-end::before, body.has-reveal .dc-seq.is-visible .dc-step-end .dc-node { transition-delay: 2450ms; }
+  body.has-reveal .dc-seq.is-visible::after { transition-duration: 1000ms; transition-delay: 2600ms; }
+}
+
+/* ---------- How it works: three step drawings ---------- */
+@media (min-width: 640px) and (max-width: 767px) { .steps.cols-3 { grid-template-columns: minmax(0, 1fr); } }
+@media (min-width: 768px) { .steps.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.dc-vis { background: radial-gradient(70% 60% at 50% 45%, #141a1f 0%, #10141a 55%, #0f1113 100%); }
+.dc-frame-bg { fill: none; }
+.dc-liquid { fill: rgb(var(--accent-rgb) / 0.1); }
+.dc-shell { fill: none; stroke: rgba(255, 255, 255, 0.36); stroke-width: 1.4; }
+.dc-wall { fill: none; stroke: rgba(255, 255, 255, 0.12); stroke-width: 1; }
+.dc-pipe-hl { stroke: rgba(255, 255, 255, 0.08); stroke-width: 3; }
+.dc-chevron { fill: none; stroke: rgb(var(--accent-rgb) / 0.3); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dc-strap { fill: rgba(215, 222, 228, 0.7); stroke: rgba(0, 0, 0, 0.45); stroke-width: 0.8; }
+.dc-beam { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.dc-ripple { fill: none; stroke: rgb(var(--accent-rgb) / 0.7); stroke-width: 1.2; opacity: 0.4; transform-box: fill-box; transform-origin: 50% 100%; }
+.dc-beam-dot { fill: #e6f7ff; opacity: 0; offset-distance: 0%; }
+.dc-tx { fill: rgb(var(--accent-rgb) / 0.22); stroke: var(--accent); stroke-width: 1.2; }
+.dc-tx-face { stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; }
+.dc-cable { fill: none; stroke: rgba(255, 255, 255, 0.3); stroke-width: 2.2; stroke-linecap: round; }
+.dc-box { fill: #1b1f23; stroke: rgba(255, 255, 255, 0.2); stroke-width: 1; }
+.dc-box-line { fill: rgba(255, 255, 255, 0.14); }
+.dc-led { fill: var(--ok); }
+
+.dc-lane { fill: none; stroke: rgba(255, 255, 255, 0.9); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.dc-lane-bad { stroke: var(--anomaly); stroke-width: 2.4; }
+.dc-lane-glow { fill: none; stroke: rgb(var(--anomaly-rgb) / 0.22); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.dc-band-bad { fill: rgb(var(--accent-rgb) / 0.08); }
+.dc-lane-dot { fill: #bfe9ff; opacity: 0; offset-distance: 0%; }
+.dc-lane-no-bad, .dc-text-bad { fill: #ffb199; }
+.dc-flag { fill: var(--anomaly); transform-box: fill-box; transform-origin: center; }
+.dc-flag-ring { fill: none; stroke: var(--anomaly); stroke-width: 1.5; opacity: 0.35; transform-box: fill-box; transform-origin: center; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .dc-chevron { animation: dc-march 1.6s linear infinite; }
+  .dc-beam-dot { animation: dc-travel 1.8s linear infinite; }
+  .dc-ripple { animation: dc-ripple 1.8s ease-out infinite; }
+  .dc-led { animation: dc-blink 2.4s ease-in-out infinite; }
+  .dc-lane-dot { animation: dc-travel 4.8s linear infinite; }
+  .dc-flag-ring { animation: dc-ring 2.4s ease-out infinite; }
+
+  body.has-reveal .step .dc-beam,
+  body.has-reveal .step .dc-lane,
+  body.has-reveal .step .dc-lane-glow { stroke-dashoffset: 1; }
+  body.has-reveal .step .dc-flag { opacity: 0; transform: scale(0.3); }
+  body.has-reveal .step.is-visible .dc-beam { stroke-dashoffset: 0; transition: stroke-dashoffset 1000ms cubic-bezier(0.45, 0, 0.2, 1) 350ms; }
+  body.has-reveal .step.is-visible .dc-lane { stroke-dashoffset: 0; transition: stroke-dashoffset 1500ms cubic-bezier(0.45, 0, 0.2, 1) 300ms; }
+  body.has-reveal .step.is-visible .dc-lane-bad,
+  body.has-reveal .step.is-visible .dc-lane-glow { stroke-dashoffset: 0; transition: stroke-dashoffset 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 1300ms; }
+  body.has-reveal .step.is-visible .dc-flag { opacity: 1; transform: none; transition: opacity 300ms ease 2100ms, transform 500ms cubic-bezier(0.3, 1.6, 0.5, 1) 2100ms; }
+}
+@keyframes dc-march { from { transform: translateX(0); } to { transform: translateX(40px); } }
+@keyframes dc-travel { 0% { offset-distance: 0%; opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes dc-ripple { 0%, 40% { transform: scale(0.4); opacity: 0; } 50% { opacity: 0.9; } 100% { transform: scale(1.8); opacity: 0; } }
+@keyframes dc-blink { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+@keyframes dc-ring { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3); opacity: 0; } }
+
+/* ---------- Residential risers to liquid cooling ---------- */
+.dc-bridge-copy { min-width: 0; }
+.dc-bridge-copy .lead { margin-top: 18px; }
+.dc-proof { margin-top: 32px; padding: 22px 24px; border: 1px solid var(--border); border-radius: var(--radius-md); background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)), var(--bg-card); }
+.dc-proof-live { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: var(--fs-small); font-weight: 500; }
+.dc-proof-live .live-dot { flex: none; margin: 0; }
+.dc-proof-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.dc-figure { min-width: 0; }
+.dc-figure + .dc-figure { padding-left: 24px; border-left: 1px solid rgba(255, 255, 255, 0.08); }
+.dc-figure-value { font-size: clamp(2.4rem, 1.8rem + 2vw, 3.2rem); line-height: 1; letter-spacing: -0.04em; }
+.dc-figure-label { margin-top: 8px; color: var(--text-secondary); font-size: 0.95rem; }
+.dc-bridge-visual { min-width: 0; }
+
+.br-ground { stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }
+.br-shell { fill: rgb(var(--accent-rgb) / 0.04); stroke: rgba(255, 255, 255, 0.42); stroke-width: 1.2; }
+.br-floor { fill: none; stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }
+.br-win { fill: rgb(var(--accent-rgb) / 0.06); stroke: rgba(255, 255, 255, 0.12); stroke-width: 0.8; }
+.br-riser { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+.br-clamp { fill: #0a0a0a; stroke: var(--accent); stroke-width: 1.2; }
+.br-ring { fill: none; stroke: var(--accent); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.br-loop { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+.br-loop-return { stroke: rgb(var(--accent-rgb) / 0.45); }
+.br-branch { stroke: rgb(var(--accent-rgb) / 0.75); stroke-width: 2.2; stroke-linecap: round; }
+.br-branch-return { stroke: rgb(var(--accent-rgb) / 0.4); }
+.br-rack { fill: #15191d; stroke: rgba(255, 255, 255, 0.22); stroke-width: 1; }
+.br-unit { fill: #1f252b; stroke: rgba(255, 255, 255, 0.08); stroke-width: 0.6; }
+.br-cool { fill: #bfe9ff; opacity: 0; offset-distance: 0%; }
+.br-data { fill: none; stroke: rgb(var(--accent-rgb) / 0.4); stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 0.012 0.012; }
+.br-port { fill: var(--accent); }
+.br-pulse { fill: #dff4ff; opacity: 0; offset-distance: 0%; }
+.br-pulse-glow { fill: rgb(var(--accent-rgb) / 0.28); opacity: 0; offset-distance: 0%; }
+.br-model-ring { fill: rgb(var(--accent-rgb) / 0.06); stroke: rgb(var(--accent-rgb) / 0.6); stroke-width: 1.2; }
+.br-model-halo { fill: none; stroke: rgb(var(--accent-rgb) / 0.5); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.br-model-core { fill: #0d0f11; stroke: var(--accent); stroke-width: 1.6; }
+.br-model-band { fill: rgb(var(--accent-rgb) / 0.22); }
+.br-model-line { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .br-ring { animation: dc-ring-soft 3.2s ease-out infinite; }
+  .br-cool { animation: dc-travel 5s linear infinite; }
+  .br-cool-2 { animation-delay: -2.5s; }
+  .br-pulse, .br-pulse-glow { animation: dc-travel 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  .br-model-halo { animation: dc-ring-soft 1.6s ease-out infinite; }
+}
+@keyframes dc-ring-soft { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.2); opacity: 0; } }
+
+/* ---------- Let us try it together: three-step path ---------- */
+.dc-path { gap: 16px; padding-left: 48px; }
+.dc-path li { display: flex; flex-direction: column; padding: 24px; }
+.dc-path li::before { top: 20px; left: -48px; z-index: 1; border: 1px solid rgb(var(--accent-rgb) / 0.4); background: #0e1a22; }
+/* rail: one segment from each number to the next (li::after belongs to the hover spotlight) */
+.dc-path-rail { position: absolute; left: -34px; top: 35px; width: 2px; height: calc(100% + 16px); border-radius: 2px; background: linear-gradient(180deg, rgb(var(--accent-rgb) / 0.45), var(--accent)); transform-origin: 50% 0; }
+.dc-path h3 { margin-bottom: 8px; }
+.dc-path-icon { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px; border: 1px solid rgb(var(--accent-rgb) / 0.25); border-radius: var(--radius-sm); background: rgb(var(--accent-rgb) / 0.08); color: var(--accent); }
+.dc-path li.dc-path-end { border-color: rgb(var(--accent-rgb) / 0.45); background: radial-gradient(120% 90% at 0% 0%, rgb(var(--accent-rgb) / 0.14), transparent 60%), var(--bg-card); box-shadow: 0 0 0 1px rgb(var(--accent-rgb) / 0.12), 0 24px 60px rgb(var(--accent-rgb) / 0.08); }
+.dc-path li.dc-path-end::before { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 5px rgb(var(--accent-rgb) / 0.16); }
+.dc-path-end .dc-path-icon { background: var(--accent); border-color: transparent; color: var(--accent-ink); }
+
+@media (min-width: 900px) {
+  .dc-path { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-left: 0; padding-top: 54px; }
+  .dc-path li { padding: 28px; }
+  .dc-path li::before { top: -54px; left: 20px; }
+  .dc-path-rail { left: 35px; top: -39px; width: calc(100% + 24px); height: 2px; background: linear-gradient(90deg, rgb(var(--accent-rgb) / 0.45), var(--accent)); transform-origin: 0 50%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.has-reveal .dc-path li::before { opacity: 0.3; transform: scale(0.7); }
+  body.has-reveal .dc-path-rail { transform: scaleY(0); }
+  body.has-reveal .dc-path.is-visible li::before { opacity: 1; transform: none; transition: opacity 400ms ease, transform 500ms cubic-bezier(0.3, 1.6, 0.5, 1); }
+  body.has-reveal .dc-path.is-visible .dc-path-rail { transform: none; transition: transform 600ms cubic-bezier(0.45, 0, 0.2, 1); }
+  body.has-reveal .dc-path.is-visible li:nth-child(1)::before { transition-delay: 200ms; }
+  body.has-reveal .dc-path.is-visible li:nth-child(2)::before { transition-delay: 900ms; }
+  body.has-reveal .dc-path.is-visible li:nth-child(3)::before { transition-delay: 1600ms; }
+  body.has-reveal .dc-path.is-visible li:nth-child(1) .dc-path-rail { transition-delay: 400ms; }
+  body.has-reveal .dc-path.is-visible li:nth-child(2) .dc-path-rail { transition-delay: 1100ms; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 900px) {
+  body.has-reveal .dc-path-rail { transform: scaleX(0); }
+}
+
+/* hero rack drawing: the leader has no label on phones */
+@media (max-width: 639px) { .vis-rack .vi-labels { display: none; } }

@@ -547,28 +547,96 @@
   },
   "dataCenters": {
     "eyebrow": "Rechenzentren",
-    "h1": "Das Leck im Kühlkreislauf erkennen, bevor es zum Ausfall kommt.",
+    "h1": "Das Leck erkennen, bevor der Ausfall eintritt.",
     "lead": "Für Facility- und Betriebsverantwortliche mit Flüssigkeitskühlung, bei denen nicht das Wasser das Problem ist. Sondern der Ausfall.",
+    "visual": {
+      "alt": "Diagramm: eine Reihe flüssigkeitsgekühlter Racks an einem Kühlkreislauf, ein Clamp-on-Durchflusssensor an jedem Rack-Abzweig, ein Abzweig mit einer Durchflussabweichung.",
+      "supply": "Vorlauf",
+      "returnLine": "Rücklauf",
+      "deviation": "Durchflussabweichung, Rack 3",
+      "sensor": "Durchflussmessung pro Rack"
+    },
     "story": {
       "h2": "Leckagekabel am Boden melden sich erst hinterher.",
-      "text": "Ein Leckagekabel schlägt an, wenn Wasser den Boden erreicht. Bis dahin hat ein Rack seine Kühlung verloren. Vernetzte Durchfluss- und Druckmessung pro Rack sieht die Abweichung im Kreislauf selbst: einen Druckabfall, einen Durchfluss, der nicht zu den Nachbarn passt. Clamp-on, nicht-invasiv, kein Eingriff in den Kühlkreislauf. Dasselbe Modell, das den normalen Durchfluss eines Gebäudes lernt, lernt den eines Kühlkreislaufs."
+      "lead": "Ein Leckagekabel schlägt an, wenn Wasser den Boden erreicht. Bis dahin hat ein Rack seine Kühlung verloren. AquaShield überwacht den Kreislauf selbst.",
+      "cable": {
+        "title": "Leckagekabel",
+        "tag": "Erst hinterher",
+        "steps": [
+          "Im Kreislauf beginnt ein Leck.",
+          "Kühlmittel tritt aus, unbemerkt.",
+          "Wasser erreicht den Boden. Das Kabel schlägt an.",
+          "Das Rack hat seine Kühlung schon verloren."
+        ]
+      },
+      "aqua": {
+        "title": "AquaShield",
+        "tag": "Im Kreislauf",
+        "steps": [
+          "Im Kreislauf beginnt ein Leck.",
+          "Der Durchfluss eines Abzweigs passt nicht mehr zu seinen Nachbarn.",
+          "Der Alarm nennt das Rack und den Abzweig.",
+          "Sie handeln, bevor das Rack seine Kühlung verliert."
+        ]
+      }
+    },
+    "how": {
+      "h2": "So funktioniert es am Kühlkreislauf.",
+      "steps": [
+        {
+          "name": "Anklemmen",
+          "text": "Ultraschall-Durchflusssensoren werden an jeden Rack-Abzweig geklemmt. Kein Eingriff in den Kühlkreislauf, keine Ausfallzeit."
+        },
+        {
+          "name": "Den Kreislauf lernen",
+          "text": "Das Modell lernt den normalen Durchfluss jedes Abzweigs und wie sich die Abzweige gemeinsam verhalten."
+        },
+        {
+          "name": "Den Abzweig melden",
+          "text": "Ein Abzweig weicht von seinen Nachbarn ab. Der Alarm nennt das Rack, bevor Wasser den Boden erreicht."
+        }
+      ],
+      "visual": {
+        "learned": "Gelernter Normalzustand, vier Abzweige"
+      }
     },
     "status": {
       "h2": "Von der Steigleitung zur Flüssigkühlung.",
       "text": "Die Sensoren und das Modell, die heute Steigleitungen in Wohngebäuden überwachen, kommen auf Ihren Kühlkreislauf. Erste Standorte in der Schweiz.",
-      "proof": "Nachweis aus dem Immobilienbereich: live in einem grossen Wohnungsportfolio in Deutschland seit März 2026, 22 Gebäude und 32 Messstellen."
+      "live": "Live in Wohngebäuden in Deutschland seit März 2026",
+      "figures": [
+        {
+          "value": "22",
+          "label": "Gebäude"
+        },
+        {
+          "value": "32",
+          "label": "Messstellen"
+        }
+      ],
+      "visual": {
+        "alt": "Diagramm: ein Wohngebäude mit Durchflusssensoren an den Steigleitungen und eine Rack-Reihe an einem Kühlkreislauf, beide speisen ein gemeinsames Modell.",
+        "residential": "Steigleitungen im Wohnbau",
+        "loop": "Kühlkreislauf",
+        "model": "Ein Modell"
+      }
     },
     "together": {
       "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
-      "text": "Ein Kühlkreislauf, eine Rack-Reihe. Sensoren werden angeklemmt, der Zwilling kartiert den Kreislauf, das Modell lernt seinen Normalzustand. Sie sehen die ersten Alarme auf Ihren eigenen Racks."
-    },
-    "visual": {
-      "alt": "Diagramm: eine Reihe flüssigkeitsgekühlter Racks an einem Kühlkreislauf, ein Clamp-on-Sensor an jedem Rack-Abzweig, ein Abzweig mit Druckabfall.",
-      "supply": "Vorlauf",
-      "returnLine": "Rücklauf",
-      "deviation": "Druckabfall, Rack 3",
-      "sensor": "Durchfluss und Druck pro Rack",
-      "caption": "Vernetzte Durchfluss- und Druckmessung pro Rack. Clamp-on, kein Eingriff in den Kreislauf."
+      "steps": [
+        {
+          "name": "Ein Kreislauf, eine Rack-Reihe",
+          "text": "Wir wählen mit Ihnen einen Kühlkreislauf und eine Rack-Reihe aus."
+        },
+        {
+          "name": "Sensoren montiert, Zwilling erstellt",
+          "text": "Sensoren werden angeklemmt, der Zwilling kartiert den Kreislauf, das Modell lernt seinen Normalzustand."
+        },
+        {
+          "name": "Erste Alarme",
+          "text": "Sie sehen die ersten Alarme auf Ihren eigenen Racks."
+        }
+      ]
     }
   },
   "team": {

@@ -547,28 +547,96 @@
   },
   "dataCenters": {
     "eyebrow": "Centres de données",
-    "h1": "Détectez la fuite de la boucle de refroidissement avant la panne.",
+    "h1": "Détectez la fuite avant la panne.",
     "lead": "Pour les responsables d'exploitation et d'installations qui gèrent du refroidissement liquide, où l'eau n'est pas le problème. La panne, oui.",
+    "visual": {
+      "alt": "Schéma : une rangée de racks à refroidissement liquide sur une boucle, un capteur de débit à pince sur chaque dérivation, une dérivation avec un écart de débit.",
+      "supply": "Aller",
+      "returnLine": "Retour",
+      "deviation": "Écart de débit, rack 3",
+      "sensor": "Mesure du débit par rack"
+    },
     "story": {
       "h2": "Les câbles détecteurs de fuite au sol vous préviennent après coup.",
-      "text": "Un câble détecteur se déclenche quand l'eau atteint le sol. À ce moment-là, un rack a déjà perdu son refroidissement. La mesure en réseau du débit et de la pression par rack voit l'écart dans la boucle elle-même : une chute de pression, un débit qui ne correspond pas à ses voisins. À pince, non invasif, sans découpe de la boucle de refroidissement. Le modèle qui apprend le débit normal d'un bâtiment apprend aussi celui d'une boucle de refroidissement."
+      "lead": "Un câble détecteur se déclenche quand l'eau atteint le sol. À ce moment-là, un rack a déjà perdu son refroidissement. AquaShield surveille la boucle elle-même.",
+      "cable": {
+        "title": "Câble détecteur",
+        "tag": "Après coup",
+        "steps": [
+          "Une fuite commence dans la boucle.",
+          "Le liquide s'écoule, sans être vu.",
+          "L'eau atteint le sol. Le câble se déclenche.",
+          "Le rack a déjà perdu son refroidissement."
+        ]
+      },
+      "aqua": {
+        "title": "AquaShield",
+        "tag": "Dans la boucle",
+        "steps": [
+          "Une fuite commence dans la boucle.",
+          "Le débit d'une dérivation ne correspond plus à ses voisines.",
+          "L'alerte indique le rack et la dérivation.",
+          "Vous agissez avant que le rack ne perde son refroidissement."
+        ]
+      }
+    },
+    "how": {
+      "h2": "Comment cela fonctionne sur une boucle de refroidissement.",
+      "steps": [
+        {
+          "name": "Fixer",
+          "text": "Des capteurs de débit à ultrasons se fixent à pince sur chaque dérivation de rack. Aucune découpe de la boucle, aucune interruption."
+        },
+        {
+          "name": "Apprendre la boucle",
+          "text": "Le modèle apprend le débit normal de chaque dérivation et la façon dont les dérivations évoluent ensemble."
+        },
+        {
+          "name": "Signaler la dérivation",
+          "text": "Une dérivation s'écarte de ses voisines. L'alerte indique le rack avant que l'eau n'atteigne le sol."
+        }
+      ],
+      "visual": {
+        "learned": "Normale apprise, quatre dérivations"
+      }
     },
     "status": {
       "h2": "De la colonne montante au refroidissement liquide.",
       "text": "Les capteurs et le modèle qui surveillent aujourd'hui les colonnes montantes résidentielles passent sur votre boucle de refroidissement. Premiers sites en Suisse.",
-      "proof": "Preuve venue de l'immobilier : en service dans un grand parc résidentiel en Allemagne depuis mars 2026, 22 bâtiments et 32 points de mesure."
+      "live": "En service dans des bâtiments résidentiels en Allemagne depuis mars 2026",
+      "figures": [
+        {
+          "value": "22",
+          "label": "bâtiments"
+        },
+        {
+          "value": "32",
+          "label": "points de mesure"
+        }
+      ],
+      "visual": {
+        "alt": "Schéma : un bâtiment résidentiel avec des capteurs de débit sur ses colonnes montantes et une rangée de racks sur une boucle de refroidissement, reliés à un seul modèle.",
+        "residential": "Colonnes montantes",
+        "loop": "Boucle de refroidissement",
+        "model": "Un seul modèle"
+      }
     },
     "together": {
       "h2": "Essayons ensemble sur votre site.",
-      "text": "Une boucle de refroidissement, une rangée de racks. Les capteurs se fixent, le jumeau cartographie la boucle, le modèle apprend sa normale. Vous voyez les premières alertes sur vos propres racks."
-    },
-    "visual": {
-      "alt": "Schéma : une rangée de racks à refroidissement liquide sur une boucle, un capteur à pince sur chaque dérivation, une dérivation avec chute de pression.",
-      "supply": "Aller",
-      "returnLine": "Retour",
-      "deviation": "Chute de pression, rack 3",
-      "sensor": "Débit et pression par rack",
-      "caption": "Mesure de débit et de pression par rack, en réseau. À pince, sans intervention sur la boucle."
+      "steps": [
+        {
+          "name": "Une boucle, une rangée de racks",
+          "text": "Nous choisissons avec vous une boucle de refroidissement et une rangée de racks."
+        },
+        {
+          "name": "Capteurs posés, jumeau construit",
+          "text": "Les capteurs se fixent, le jumeau cartographie la boucle, le modèle apprend sa normale."
+        },
+        {
+          "name": "Premières alertes",
+          "text": "Vous voyez les premières alertes sur vos propres racks."
+        }
+      ]
     }
   },
   "team": {

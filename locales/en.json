@@ -547,28 +547,96 @@
   },
   "dataCenters": {
     "eyebrow": "Data centres",
-    "h1": "Catch the cooling‑loop leak before the outage.",
+    "h1": "Detect the leak before the outage happens.",
     "lead": "For facility and operations leads running liquid cooling, where water is not the pain. The outage is.",
+    "visual": {
+      "alt": "Diagram: a row of liquid-cooled racks on one cooling loop, a clamp-on flow sensor on every rack branch, one branch showing a flow deviation.",
+      "supply": "Supply",
+      "returnLine": "Return",
+      "deviation": "Flow deviation, rack 3",
+      "sensor": "Flow sensing per rack"
+    },
     "story": {
       "h2": "Floor leak cables tell you after the fact.",
-      "text": "A leak cable fires when water reaches the floor. By then a rack has lost cooling. Networked flow and pressure sensing per rack sees the deviation in the loop itself: a drop in pressure, a flow that does not match its neighbours. Clamp-on, non-invasive, no cutting into the cooling loop. The same model that learns a building's normal flow learns a cooling loop's."
+      "lead": "A leak cable fires when water reaches the floor. By then a rack has lost cooling. AquaShield watches the loop itself.",
+      "cable": {
+        "title": "Leak cable",
+        "tag": "After the fact",
+        "steps": [
+          "A leak starts in the loop.",
+          "Coolant travels, unseen.",
+          "Water reaches the floor. The cable fires.",
+          "The rack has already lost cooling."
+        ]
+      },
+      "aqua": {
+        "title": "AquaShield",
+        "tag": "In the loop",
+        "steps": [
+          "A leak starts in the loop.",
+          "Flow on one branch stops matching its neighbours.",
+          "The alert names the rack and the branch.",
+          "You act before the rack loses cooling."
+        ]
+      }
+    },
+    "how": {
+      "h2": "How it works on a cooling loop.",
+      "steps": [
+        {
+          "name": "Clamp on",
+          "text": "Ultrasonic flow sensors clamp onto every rack branch. No cutting into the cooling loop, no downtime."
+        },
+        {
+          "name": "Learn the loop",
+          "text": "The model learns the normal flow of every branch and how the branches move together."
+        },
+        {
+          "name": "Flag the branch",
+          "text": "One branch drifts from its neighbours. The alert names the rack before water reaches the floor."
+        }
+      ],
+      "visual": {
+        "learned": "Learned normal, four branches"
+      }
     },
     "status": {
       "h2": "From residential risers to liquid cooling.",
       "text": "The sensors and the model that watch residential risers today go onto your cooling loop. First sites in Switzerland.",
-      "proof": "Proof from real estate: live at a large residential portfolio in Germany since March 2026, 22 buildings and 32 measuring points."
+      "live": "Live in residential buildings in Germany since March 2026",
+      "figures": [
+        {
+          "value": "22",
+          "label": "buildings"
+        },
+        {
+          "value": "32",
+          "label": "measuring points"
+        }
+      ],
+      "visual": {
+        "alt": "Diagram: a residential building with flow sensors on its risers and a rack row on a cooling loop, both feeding one model.",
+        "residential": "Residential risers",
+        "loop": "Cooling loop",
+        "model": "One model"
+      }
     },
     "together": {
       "h2": "Let us try it together at your site.",
-      "text": "One cooling loop, one rack row. Sensors clamp on, the twin maps the loop, the model learns its normal. You see the first alerts on your own racks."
-    },
-    "visual": {
-      "alt": "Diagram: a row of liquid-cooled racks on one cooling loop, a clamp-on sensor on every rack branch, one branch showing a pressure drop.",
-      "supply": "Supply",
-      "returnLine": "Return",
-      "deviation": "Pressure drop, rack 3",
-      "sensor": "Flow and pressure per rack",
-      "caption": "Networked flow and pressure sensing per rack. Clamp-on, no cutting into the loop."
+      "steps": [
+        {
+          "name": "One loop, one rack row",
+          "text": "We pick a cooling loop and a rack row with you."
+        },
+        {
+          "name": "Sensors on, twin built",
+          "text": "Sensors clamp on, the twin maps the loop, the model learns its normal."
+        },
+        {
+          "name": "First alerts",
+          "text": "You see the first alerts on your own racks."
+        }
+      ]
     }
   },
   "team": {
