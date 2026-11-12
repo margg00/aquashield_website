@@ -818,16 +818,21 @@
       {
         "id": "jacques-raffaeli",
         "name": "Jacques Raffaeli",
-        "role": "Banc d'essai",
-        "alumni": [],
-        "line": "Stagiaire."
+        "role": "Stagiaire en génie mécanique",
+        "alumni": [
+          "EPFL"
+        ],
+        "line": "Construit le banc d'essai hydraulique."
       },
       {
         "id": "felix-leupold",
         "name": "Felix Leupold",
         "role": "Founder's Associate",
-        "alumni": [],
-        "line": "Stagiaire."
+        "alumni": [
+          "Zeppelin University",
+          "Peking University"
+        ],
+        "line": "Pilote le go-to-market et la démarche commerciale."
       }
     ],
     "backing": {

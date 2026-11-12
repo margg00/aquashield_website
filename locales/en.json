@@ -818,16 +818,21 @@
       {
         "id": "jacques-raffaeli",
         "name": "Jacques Raffaeli",
-        "role": "Test bench",
-        "alumni": [],
-        "line": "Intern."
+        "role": "Mechanical Engineering Intern",
+        "alumni": [
+          "EPFL"
+        ],
+        "line": "Builds the hydraulic test bench."
       },
       {
         "id": "felix-leupold",
         "name": "Felix Leupold",
         "role": "Founder's Associate",
-        "alumni": [],
-        "line": "Intern."
+        "alumni": [
+          "Zeppelin University",
+          "Peking University"
+        ],
+        "line": "Drives go-to-market and the sales motion."
       }
     ],
     "backing": {

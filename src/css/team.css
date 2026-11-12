@@ -190,3 +190,4 @@
 }
 .page-team .team-offices li { display: flex; flex-direction: column; gap: 2px; color: var(--text-muted); font-size: var(--fs-small); }
 .page-team .team-offices strong { color: var(--text-secondary); font-weight: 600; }
+@media (min-width: 1024px) and (max-width: 1199px) { .page-team .person-alumni { gap: 5px; } .page-team .person-alumni li { padding-inline: 8px; font-size: 0.72rem; } }
