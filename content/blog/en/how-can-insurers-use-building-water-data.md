@@ -9,8 +9,9 @@ author: Paul Beckers
 authorId: paul-beckers
 segment: insurance
 segmentLabel: Insurance
+coverAlt: A shield outline drawn from individual data points, with a soft field of data inside it.
 answer: Live water data from monitored buildings gives an insurer two things it does not have today: shorter loss duration on the claims that happen, and a risk signal per building for underwriting and renewal. AquaShield works with carriers in five models, from subsidised hardware to a claims-response trigger.
-statValue: USD 89k
+statValue: $89k
 statLabel: average US commercial water damage claim.
 statSource: NAIOP
 statDate: 2024

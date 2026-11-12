@@ -9,12 +9,13 @@ author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
+coverAlt: A still water meter dial on the left and a living flow waveform moving out of it to the right.
 answer: A smart meter counts how much water a unit used, for billing. Leak detection watches how water flows through the risers and supply lines, every 10 minutes, and learns what normal looks like. A leak in a riser or a supply line belongs to no unit, so it shows up in no meter.
-statValue: EUR 4.91bn
+statValue: €4.91bn
 statLabel: paid by German insurers for tap-water damage in 2024.
 statSource: GDV
 statDate: 2024
-definition: A measuring point is a position on the plumbing where AquaShield reads flow or pressure. Unlike a meter, it sits on the shared network, upstream of the units, where hidden leaks live.
+definition: A measuring point is a position on the plumbing where a clamp-on ultrasonic sensor reads flow. Unlike a meter, it sits on the shared network, upstream of the units, where hidden leaks live.
 faq1q: We already have smart meters. Do we still need this?
 faq1a: Meters answer who used how much. Leak detection answers whether water is going where it should not. They do different jobs, and a hidden leak in the shared network is invisible to the first.
 faq2q: Can you use our meter data?
@@ -32,7 +33,7 @@ The confusion is understandable. Both involve water, sensors and a dashboard. Bu
 
 Picture a riser feeding ten flats. A joint on the riser between floors 3 and 4 starts weeping. The water runs down inside the shaft. It passes no meter, because it never reaches a flat. The building's main meter sees a small increase, but the main meter sees everything, and everything swings by far more from day to day than a weeping joint adds. The leak is inside the noise.
 
-This is the pattern behind most of the damage that German insurers paid EUR 4.91bn for in 2024: not a burst pipe that floods a flat in an hour, but a slow leak that ran for weeks before anyone saw a stain.
+This is the pattern behind most of the damage that German insurers paid €4.91bn for in 2024: not a burst pipe that floods a flat in an hour, but a slow leak that ran for weeks before anyone saw a stain.
 
 ## What leak detection does differently
 

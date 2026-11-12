@@ -9,7 +9,8 @@ author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product
 segmentLabel: Product
-answer: Non-invasive leak detection reads the water from outside the pipe. An ultrasonic sensor clamps onto the riser and measures flow through the pipe wall, a pressure sensor sits on an existing tap, and a model per measuring point learns the building's normal flow. A leak shows up as a pattern that normal does not explain.
+coverAlt: Two clamp-on sensors on the outside of a pipe with an ultrasonic V-shaped path reflecting off the far pipe wall.
+answer: Non-invasive leak detection reads the water from outside the pipe. A clamp-on ultrasonic flow sensor sits on the outside of the riser and measures flow through the pipe wall, and a model per measuring point learns the building's normal flow. A leak shows up as a pattern that normal does not explain.
 statValue: Under 15 min
 statLabel: per sensor, clamp-on, no pipe cutting, the water stays on at the AquaShield sites live today.
 statSource: AquaShield installs
@@ -28,14 +29,14 @@ The oldest way to measure flow is to cut the pipe and put a meter in it. That me
 
 The sensor is strapped to the pipe with a bracket. Installation takes under 15 minutes. The water stays on the whole time, and the tenants never notice.
 
-## Two kinds of sensor
+## One sensor, two views
 
-AquaShield uses two measurements that complement each other.
+AquaShield uses one measurement, flow, and reads it in two ways that complement each other.
 
-- **Flow**, from clamp-on ultrasonic sensors on risers and supply lines. Flow tells you how much water is moving and when.
-- **Pressure**, from sensors on existing taps. Pressure tells you about the state of the network as a whole, and it reacts to changes that a single flow sensor may not see.
+- **Flow per riser**, from clamp-on ultrasonic sensors on risers and supply lines. Flow tells you how much water is moving and when.
+- **Flow across the network**, from comparing measuring points. A riser's flow has to match the branches it feeds, so the network as a whole shows changes that a single flow sensor may not see.
 
-Both report a reading every 10 minutes. With 32 measuring points at one portfolio, that is 4,608 readings a day from a single customer.
+Every sensor reports a reading every 10 minutes. With 32 measuring points at one portfolio, that is 4,608 readings a day from a single customer.
 
 ## The model learns normal first
 

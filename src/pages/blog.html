@@ -1,20 +1,22 @@
-    <section class="page-hero">
-      <div class="container narrow">
-        <p class="eyebrow">{{nav.blog}}</p>
+    <section class="blog-hero">
+      <div class="container">
         <h1>{{blog.h1}}</h1>
         <p class="lead">{{blog.lead}}</p>
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="blog-index">
       <div class="container">
         {{#if posts}}<ul class="post-list">
-{{#each posts}}          <li>
+{{#each posts}}          <li{{#if featured}} class="is-featured"{{/if}}>
             <a class="post-card" href="{{url}}">
-              <div class="post-meta"><span class="post-tag">{{segmentLabel}}</span><span>{{date}}</span><span>{{author}}</span></div>
-              <h2>{{title}}</h2>
-              <p>{{description}}</p>
-              <span class="link-arrow">{{common.readMore}}</span>
+              {{#if cover}}<span class="post-card-media"><img src="{{cover.src800}}" srcset="{{cover.src800}} 800w, {{cover.src}} 1600w" sizes="{{#if featured}}(min-width: 1024px) 660px, {{/if}}(min-width: 1180px) 560px, (min-width: 768px) 46vw, calc(100vw - 32px)" width="800" height="450" alt="{{cover.alt}}" loading="lazy" decoding="async"></span>{{/if}}
+              <span class="post-card-body">
+                <span class="post-meta"><span class="post-tag">{{segmentLabel}}</span><time datetime="{{dateIso}}">{{date}}</time><span>{{minutes}} {{common.minutes}}</span></span>
+                <h2>{{displayTitle}}</h2>
+                <span class="post-card-text">{{description}}</span>
+                <span class="link-arrow">{{common.readMore}}</span>
+              </span>
             </a>
           </li>
 {{/each}}        </ul>{{/if}}

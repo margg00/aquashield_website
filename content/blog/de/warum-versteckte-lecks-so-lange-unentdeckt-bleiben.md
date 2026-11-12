@@ -9,8 +9,9 @@ author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Immobilien
+coverAlt: Schnitt durch eine Wand mit verdeckter Steigleitung, an einer Verbindung leuchtet eine undichte Stelle warm auf, Tropfen laufen im Hohlraum nach unten.
 answer: Weil niemand das Wasser beobachtet. Ein verstecktes Leck wird entdeckt, wenn ein Mieter anruft, eine Decke einen Fleck bekommt oder Wasser den Kellerboden erreicht. Bis dahin läuft es seit Tagen oder Wochen. Es zu finden kann bis zu fünf Vor-Ort-Termine kosten.
-statValue: EUR 4,91 Mrd.
+statValue: 4,91 Mrd. €
 statLabel: zahlten deutsche Versicherer 2024 für Leitungswasserschäden.
 statSource: GDV
 statDate: 2024

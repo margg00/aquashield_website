@@ -737,7 +737,8 @@
     },
     "faqTitle": "Questions",
     "definitionLabel": "Définition",
-    "allPosts": "Tous les articles"
+    "allPosts": "Tous les articles",
+    "crumbsLabel": "Fil d’Ariane"
   },
   "book": {
     "h1": "Réserver un appel découverte de 30 min",

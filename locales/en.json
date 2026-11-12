@@ -737,7 +737,8 @@
     },
     "faqTitle": "Questions",
     "definitionLabel": "Definition",
-    "allPosts": "All posts"
+    "allPosts": "All posts",
+    "crumbsLabel": "Breadcrumb"
   },
   "book": {
     "h1": "Book a 30-min discovery call",

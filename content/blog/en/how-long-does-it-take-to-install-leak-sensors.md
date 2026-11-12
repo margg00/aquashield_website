@@ -9,6 +9,7 @@ author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
+coverAlt: A water pipe with a clamp-on sensor, framed by a stopwatch arc that sweeps a quarter of an hour.
 answer: Under 15 minutes per sensor. The sensors clamp onto the outside of existing pipes, so there is no pipe cutting and no shutdown of the water supply. A typical building is done in a day, the digital twin is built the same day, and the model learns the building's normal flow over the first weeks.
 statValue: 59 sensors
 statLabel: across two residential sites in California, live with AquaShield since September 2026.
@@ -28,7 +29,7 @@ Under 15 minutes per sensor. That number is the reason non-invasive monitoring w
 
 ## What a day looks like
 
-**Morning.** The sensor positions are already known, because the digital twin was planned from the plumbing plan. The installer goes riser by riser: open the access panel, open a short section of insulation if there is one, strap the sensor on, connect it, close up. Pressure sensors go onto existing taps in the plant room.
+**Morning.** The sensor positions are already known, because the digital twin was planned from the plumbing plan. The installer goes riser by riser: open the access panel, open a short section of insulation if there is one, strap the sensor on, connect it, close up. The sensors on the main supply lines go on in the plant room.
 
 **Afternoon.** The last sensors come online, the twin is checked against what was found on site, and every measuring point starts reporting every 10 minutes.
 

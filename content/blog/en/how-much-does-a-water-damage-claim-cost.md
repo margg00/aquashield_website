@@ -2,15 +2,16 @@
 id: claim-cost
 slug: how-much-does-a-water-damage-claim-cost
 title: How much does a water damage claim cost a commercial building?
-description: The average US commercial water claim is about USD 89k. What drives the number, why time is the lever, and what that means for monitoring.
+description: The average US commercial water claim is about $89k. What drives the number, why time is the lever, and what that means for monitoring.
 date: 2026-07-30
 updated: 2026-07-30
 author: Paul Beckers
 authorId: paul-beckers
 segment: insurance
 segmentLabel: Insurance
-answer: The average US commercial water damage claim is about USD 89,000 according to NAIOP. The number is driven less by the water than by the time it runs. Every extra day adds subfloors, drywall, neighbouring units and business interruption to the bill.
-statValue: USD 89k
+coverAlt: A cost curve climbing steeply from blue to warm red above a faint floor plan.
+answer: The average US commercial water damage claim is about $89,000 according to NAIOP. The number is driven less by the water than by the time it runs. Every extra day adds subfloors, drywall, neighbouring units and business interruption to the bill.
+statValue: $89k
 statLabel: average US commercial water damage claim.
 statSource: NAIOP
 statDate: 2024
@@ -24,7 +25,7 @@ faq3a: Monitoring shortens the loss duration. A leak that is found in days inste
 ---
 ## The number
 
-NAIOP puts the average US commercial water damage claim at about USD 89,000. That is one claim, one building, one event. Across a portfolio, the question is not whether a claim happens but how many, and how big each one gets before it is stopped.
+NAIOP puts the average US commercial water damage claim at about $89,000. That is one claim, one building, one event. Across a portfolio, the question is not whether a claim happens but how many, and how big each one gets before it is stopped.
 
 ## What the money is spent on
 

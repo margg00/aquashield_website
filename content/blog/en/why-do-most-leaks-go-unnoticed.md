@@ -9,6 +9,7 @@ author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
+coverAlt: A dark, still water surface with a single ripple spreading out from one point.
 answer: Because a hidden leak makes no sound, no stain and no bill until it has run for a while. It starts in a shaft or a ceiling, in the shared part of the network, and its small extra flow disappears inside the normal swings of a building's consumption. Nobody is watching the water, so nobody sees it.
 statValue: 91 to 100%
 statLabel: data coverage per site at the first AquaShield portfolio, 22 buildings, since March 2026.

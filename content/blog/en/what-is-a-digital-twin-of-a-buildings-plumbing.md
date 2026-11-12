@@ -9,6 +9,7 @@ author: Marguerite Benoist
 authorId: marguerite-benoist
 segment: product
 segmentLabel: Product
+coverAlt: Isometric wireframe of a multi-storey building with three glowing water risers and one highlighted measuring point.
 answer: A digital twin of a building's plumbing is a model of the risers, branches and measuring points, and of which sensor sees which water. AquaShield builds it from the sensor positions and the plumbing plan. Its job is to turn a deviation at a sensor into the riser and the floors to check first.
 statValue: 23 sensors on 10 risers
 statLabel: at one new seven-storey residential building live with AquaShield in California.
@@ -31,7 +32,7 @@ A sensor sees the water that passes it. A riser sensor on floor 0 sees the water
 Three things.
 
 1. **Topology.** Risers, branches, supply lines, and which feeds which. This comes from the plumbing plan and from the sensor positions.
-2. **Measuring points.** Where each flow and pressure sensor sits on the topology, and so which water it sees.
+2. **Measuring points.** Where each clamp-on flow sensor sits on the topology, and so which water it sees.
 3. **State.** The live readings and the learned normal for every measuring point, updated every 10 minutes.
 
 The twin is not a 3D rendering, though it can be drawn as one. It is a graph with numbers on it.

@@ -9,8 +9,9 @@ author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Immobilier
+coverAlt: Coupe d'un mur avec une colonne montante cachée, une lueur chaude là où un raccord fuit et des gouttes qui descendent dans la cavité.
 answer: Parce que personne ne surveille l'eau. Une fuite cachée est découverte quand un locataire appelle, qu'un plafond se tache ou que l'eau atteint le sol d'un sous-sol. À ce moment-là, elle coule depuis des jours ou des semaines. La trouver peut demander jusqu'à cinq visites sur site.
-statValue: 4,91 mrd EUR
+statValue: 4,91 Md €
 statLabel: versés par les assureurs allemands pour des dégâts d'eau du robinet en 2024.
 statSource: GDV
 statDate: 2024

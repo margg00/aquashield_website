@@ -737,7 +737,8 @@
     },
     "faqTitle": "Fragen",
     "definitionLabel": "Definition",
-    "allPosts": "Alle Beiträge"
+    "allPosts": "Alle Beiträge",
+    "crumbsLabel": "Brotkrümelnavigation"
   },
   "book": {
     "h1": "30-min Erstgespräch buchen",
