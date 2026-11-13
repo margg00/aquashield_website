@@ -347,7 +347,7 @@ function relativize(html, outRel) {
 }
 
 function copyStatic() {
-  const items = ["theme.css", "styles.css", "script.js", "favicon.png", "privacy-policy.html", "terms.html", "robots.txt", "llms.txt", "assets/img", "assets/video", "logos", "animations"];
+  const items = ["theme.css", "styles.css", "script.js", "favicon.png", "favicon.ico", "favicon-32.png", "apple-touch-icon.png", "privacy-policy.html", "terms.html", "robots.txt", "llms.txt", "assets/img", "assets/video", "logos", "animations"];
   items.forEach((item) => {
     const from = path.join(ROOT, item);
     if (!fs.existsSync(from)) return;
