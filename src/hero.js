@@ -184,7 +184,7 @@ module.exports = function heroBuildingSvg(t, opts) {
   s += `<circle class="hb-model-ring hb-model-ring-2" cx="${mx}" cy="${my}" r="14"/>`;
   s += `<circle class="hb-model-core" cx="${mx}" cy="${my}" r="11"/>`;
   s += `<circle class="hb-model-dot" cx="${mx}" cy="${my}" r="3.2"/>`;
-  s += `<text class="hb-model-label" x="${mx}" y="${my + 30}" text-anchor="middle">${escapeHtml(b.model)}</text>`;
+  s += `<text class="hb-model-label" x="${mx + 52}" y="${my + 30}" text-anchor="end">${escapeHtml(b.model)}</text>`;
   s += `</g>`;
   }
 
