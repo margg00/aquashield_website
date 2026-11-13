@@ -18,12 +18,14 @@
 
 {{> counter}}
 
+    <div class="pin-track" data-pin>
     <section class="section anchor-band problem-band" aria-labelledby="problem-title">
       <div class="anchor-bg" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">{{home.problem.eyebrow}}</p>
           <h2 id="problem-title">{{{home.problem.h2}}}</h2>
+          <div class="pin-rail" aria-hidden="true"><span></span></div>
         </div>
         <div class="problem-grid" data-scrub-row>
           <div class="problem-tile" data-reveal data-scrub>
@@ -69,6 +71,7 @@
         <p class="anchor-line problem-line" data-reveal data-scrub="85 45" data-scrub-words>{{home.problem.line}}</p>
       </div>
     </section>
+    </div>
 
     <section class="section section-alt" aria-labelledby="how-title">
       <div class="container">

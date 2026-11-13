@@ -410,12 +410,57 @@
       scrubs.push(it);
     });
 
+    // Pinned mode: [data-pin] is a tall wrapper around the band, the band is sticky inside it, so the page holds
+    // while the visitor scrolls through the wrapper's extra height (native scroll, nothing is intercepted).
+    // One progress P (0 to 1) runs the tiles first, then the closing line, then a short hold before release.
+    // Desktop and tablet: tiles in one row, staggered. Phones: the tiles slide sideways, one in focus at a time.
+    // Used only when the pinned band fits the small viewport height (100svh, so the address bar never moves it),
+    // re-checked when the width or that height changes. Otherwise the per-element scrub above applies.
+    var pinEl = document.querySelector("[data-pin]");
+    var band = pinEl && pinEl.querySelector(".problem-band");
+    var grid = band && band.querySelector("[data-scrub-row]");
+    var headerEl = document.querySelector(".site-header");
+    var pin = null, pinW = -1, pinSvh = -1, pinP = -1, slideNow = -1;
+    var probe = document.createElement("div");
+    probe.setAttribute("aria-hidden", "true");
+    probe.style.cssText = "position:fixed;top:0;left:0;width:0;height:100vh;visibility:hidden;pointer-events:none";
+    probe.style.height = "100svh";
+    document.body.appendChild(probe);
+    var phone = window.matchMedia("(max-width: 767px)");
+    var evaluatePin = function (force) {
+      if (!band || !grid) return;
+      var w = window.innerWidth, svh = probe.offsetHeight;
+      if (!force && w === pinW && svh === pinSvh) return;
+      pinW = w; pinSvh = svh;
+      var top = headerEl ? headerEl.offsetHeight : 0;
+      pinEl.style.setProperty("--pin-top", top + "px");
+      pinEl.style.height = "";
+      pinEl.classList.add("pin-on");
+      var cs = window.getComputedStyle(band);
+      var need = band.querySelector(".container").offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+      var fits = need <= svh - top;
+      if (fits) {
+        var track = phone.matches;
+        var dist = Math.round(svh * (track ? 2 : 1.3));
+        pinEl.style.height = (band.offsetHeight + dist) + "px";
+        pin = { top: top, dist: dist, track: track, docTop: 0 };
+      } else {
+        pinEl.classList.remove("pin-on");
+        pinEl.style.removeProperty("--pp");
+        grid.style.removeProperty("--slide");
+        pin = null;
+      }
+      pinP = -1; slideNow = -1;
+      scrubs.forEach(function (it) { it.p = -1; });
+    };
+
     // Layout cache: page positions from the offset parent and offsets (so no transform counts), refreshed on
     // resize, load, font swap and any change of the page height. A scroll frame then reads only scrollY.
     var vh = window.innerHeight;
     var measure = function () {
       vh = window.innerHeight;
       var y = window.pageYOffset;
+      if (pin) pin.docTop = pinEl.getBoundingClientRect().top + y;
       scrubs.forEach(function (it) {
         var op = it.el.offsetParent || document.documentElement;
         var base = op.getBoundingClientRect().top + op.clientTop + y;
@@ -428,8 +473,38 @@
       });
     };
     var clamp01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+    var apply = function (it, p) {
+      p = Math.round(p * 10000) / 10000;
+      if (p === it.p) return;
+      it.p = p;
+      it.el.style.setProperty("--p", String(p));
+      var done = p >= 1;
+      if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
+      it.nums.forEach(function (n) {
+        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * ease(p));
+        if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
+      });
+    };
     var update = function () {
       var y = window.pageYOffset;
+      if (pin) {
+        var P = Math.round(clamp01((y - pin.docTop + pin.top) / pin.dist) * 10000) / 10000;
+        if (P !== pinP) { pinP = P; pinEl.style.setProperty("--pp", String(P)); }
+        // tiles, then the closing line, then a hold
+        var tilesEnd = pin.track ? 0.74 : 0.66, lineFrom = tilesEnd + 0.02, lineTo = pin.track ? 0.94 : 0.92;
+        var T = clamp01(P / tilesEnd), seg = T * 3, slide = 0;
+        if (pin.track) {
+          slide = clamp01((seg - 0.75) / 0.25) + clamp01((seg - 1.75) / 0.25);
+          slide = Math.round(slide * 10000) / 10000;
+          if (slide !== slideNow) { slideNow = slide; grid.style.setProperty("--slide", String(slide)); }
+        }
+        scrubs.forEach(function (it) {
+          if (!it.row) apply(it, clamp01((P - lineFrom) / (lineTo - lineFrom)));
+          else if (pin.track) apply(it, clamp01((seg - it.index) / 0.75));
+          else apply(it, clamp01((T - it.index * 0.2) / 0.6));
+        });
+        return;
+      }
       scrubs.forEach(function (it) {
         var top = it.docTop - y;
         var p = clamp01((it.from * vh - top) / ((it.from - it.to) * vh));
@@ -437,29 +512,20 @@
           var span = 0.6, step = (1 - span) / (it.mates.length - 1);
           p = clamp01((p - it.index * step) / span);
         }
-        p = Math.round(p * 10000) / 10000;
-        if (p === it.p) return;
-        it.p = p;
-        it.el.style.setProperty("--p", String(p));
-        var done = p >= 1;
-        if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
-        it.nums.forEach(function (n) {
-          var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * ease(p));
-          if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
-        });
+        apply(it, p);
       });
     };
     var scrubQueued = false;
     var frame = function () { scrubQueued = false; update(); };
     var onScroll = function () { if (!scrubQueued) { scrubQueued = true; requestAnimationFrame(frame); } };
-    var onResize = function () { measure(); onScroll(); };
+    var onResize = function () { evaluatePin(false); measure(); onScroll(); };
+    var onReflow = function () { evaluatePin(true); measure(); onScroll(); };
     var listening = false, nearCount = 0;
     var listen = function (on) {
       if (on === listening) return;
       listening = on;
       var fn = on ? "addEventListener" : "removeEventListener";
       window[fn]("scroll", onScroll, { passive: true });
-      window[fn]("resize", onResize, { passive: true });
     };
     var so = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -473,11 +539,13 @@
       onScroll();
     }, { rootMargin: "50% 0px" });
     scrubEls.forEach(function (el) { so.observe(el); });
+    evaluatePin(true);
     measure();
     update();
-    window.addEventListener("load", onResize);
+    window.addEventListener("resize", onResize, { passive: true });
+    window.addEventListener("load", onReflow);
     if ("ResizeObserver" in window) new ResizeObserver(function () { measure(); onScroll(); }).observe(document.body);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(onResize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(onReflow);
   }
 
   // ---------- Reveal ----------

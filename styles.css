@@ -1239,6 +1239,18 @@ body.nav-open { overflow: hidden; }
   .problem-value { transition: color 240ms ease; }
 }
 @media (prefers-reduced-motion: reduce) { .pb-line { stroke-dashoffset: 0; transition: none; } .pb-area, .pb-dot { opacity: 1; transition: none; } .pb-bar { transform: scaleY(1); transition: none; } .pb-hole { opacity: 1; transform: none; transition: none; } .pb-ring, .pb-drop, .pb-ripple { animation: none; } }
+/* pinned band (home): the page holds while the band plays, see "Pinned mode" in script.js. Only with JS (.pin-on). */
+.pin-rail { display: none; }
+.pin-on .problem-band { position: sticky; top: var(--pin-top, 72px); display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - var(--pin-top, 72px)); min-height: calc(100svh - var(--pin-top, 72px)); padding-block: clamp(20px, 4svh, 48px); }
+.pin-on .problem-band .section-head { margin-bottom: clamp(16px, 3.4svh, 36px); }
+.pin-on .pin-rail { display: block; height: 2px; margin-top: clamp(12px, 2.6svh, 24px); border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.pin-on .pin-rail span { display: block; height: 100%; background: var(--accent); transform: scaleX(var(--pp, 0)); transform-origin: 0 50%; }
+.pin-on .problem-line { margin-top: clamp(16px, 3.4svh, 40px); }
+body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: none; transition: none; }
+@media (max-width: 767px) {
+  .pin-on .problem-grid { display: flex; gap: 14px; transform: translateX(calc(var(--slide, 0) * -1 * (86% + 14px))); }
+  .pin-on .problem-tile { flex: 0 0 86%; }
+}
 @keyframes pb-drip { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.12); opacity: 0.75; } }
 @keyframes pb-ripple { 0%, 40% { transform: scale(0.4); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: scale(2); opacity: 0; } }
 
