@@ -252,7 +252,7 @@
     },
     "final": {
       "h2": "Das nächste Leck früh erkennen.",
-      "line": "Dreissig Minuten mit einem Gründer. Sie bringen Ihre Gebäude und Ihren letzten Wasserschaden mit. Wir bringen den Plan: wo die Sensoren hinkommen, wie Ihr erster Alarm aussieht, wie schnell Sie live sind."
+      "line": "Dreissig Minuten mit einem Gründer. Erzählen Sie uns, wo Wasser Ihnen heute Sorgen macht. Wir zeigen Ihnen, wie AquaShield funktioniert, und loten gemeinsam aus, wo es passt."
     }
   },
   "product": {
@@ -345,7 +345,7 @@
       },
       {
         "q": "Wie lange dauert ein Rollout?",
-        "a": "Ein Gebäude: ein Tag Installation, der digitale Zwilling am selben Tag, das Modell lernt den Normalverlauf in den ersten Wochen. Ein Portfolio: Gebäude für Gebäude, in Ihrem Tempo."
+        "a": "Schnell, und es skaliert. Jeder Sensor ist in unter 15 Minuten aufgeklemmt, ohne Rohrschnitt und ohne Abstellen des Wassers. Ein Gebäude ist so an einem Tag live. Ihr eigenes Team kann die Sensoren montieren, deshalb gehen viele Gebäude parallel live. Der digitale Zwilling entsteht am selben Tag, und das Modell beginnt sofort zu lernen."
       },
       {
         "q": "Funktioniert es mit alten Rohren?",
@@ -870,12 +870,12 @@
   },
   "book": {
     "h1": "30-min Erstgespräch buchen",
-    "lead": "Dreissig Minuten mit einem Gründer. Sie bringen Ihre Gebäude und Ihren letzten Wasserschaden mit. Wir bringen den Plan: wo die Sensoren hinkommen, wie Ihr erster Alarm aussieht, wie schnell Sie live sind.",
+    "lead": "Dreissig Minuten mit einem Gründer. Erzählen Sie uns, wo Wasser Ihnen heute Sorgen macht. Wir zeigen Ihnen, wie AquaShield funktioniert, und loten gemeinsam aus, wo es passt.",
     "outcomesIntro": "Das nehmen Sie mit",
     "outcomes": [
-      "Einen Sensorplan für Ihre ersten Gebäude",
-      "So sieht Ihr erster Alarm aus",
-      "Den Zeitplan bis zum Go-live"
+      "Ein Live-Einblick, wie AquaShield funktioniert",
+      "Wo es in Ihre Gebäude oder Ihren Bestand passt",
+      "Ein klarer nächster Schritt"
     ],
     "pick": "Termin wählen",
     "pickNote": "Öffnet den Kalender. Lädt ein Terminbuchungs-Widget von Calendly.",

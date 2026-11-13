@@ -252,7 +252,7 @@
     },
     "final": {
       "h2": "Détectez la prochaine fuite à temps.",
-      "line": "Trente minutes avec un fondateur. Vous apportez vos bâtiments et votre dernier dégât des eaux. Nous apportons le plan : où vont les capteurs, à quoi ressemble votre première alerte, à quelle vitesse vous êtes en service."
+      "line": "Trente minutes avec un fondateur. Dites-nous où l'eau vous préoccupe aujourd'hui. Nous vous montrons comment fonctionne AquaShield et explorons ensemble où il a sa place."
     }
   },
   "product": {
@@ -345,7 +345,7 @@
       },
       {
         "q": "Combien de temps prend un déploiement ?",
-        "a": "Un bâtiment : une journée de pose, le jumeau numérique le jour même, le modèle apprend la normale au fil des premières semaines. Un parc : bâtiment par bâtiment, à votre rythme."
+        "a": "Vite, et à grande échelle. Chaque capteur se fixe en moins de 15 minutes, sans découpe de tuyau et sans coupure d'eau. Un bâtiment est en service en une journée. Votre propre équipe peut poser les capteurs, ce qui permet de mettre de nombreux bâtiments en service en parallèle. Le jumeau numérique est construit le jour même et le modèle commence à apprendre aussitôt."
       },
       {
         "q": "Est-ce que ça fonctionne avec de vieilles canalisations ?",
@@ -870,12 +870,12 @@
   },
   "book": {
     "h1": "Réserver un appel découverte de 30 min",
-    "lead": "Trente minutes avec un fondateur. Vous apportez vos bâtiments et votre dernier dégât des eaux. Nous apportons le plan : où vont les capteurs, à quoi ressemble votre première alerte, à quelle vitesse vous êtes en service.",
+    "lead": "Trente minutes avec un fondateur. Dites-nous où l'eau vous préoccupe aujourd'hui. Nous vous montrons comment fonctionne AquaShield et explorons ensemble où il a sa place.",
     "outcomesIntro": "Vous repartez avec",
     "outcomes": [
-      "Un plan de capteurs pour vos premiers bâtiments",
-      "À quoi ressemble votre première alerte",
-      "Le calendrier jusqu'à la mise en service"
+      "Un aperçu en direct du fonctionnement d'AquaShield",
+      "Où il a sa place dans vos bâtiments ou votre portefeuille",
+      "Une prochaine étape claire"
     ],
     "pick": "Choisir un créneau",
     "pickNote": "Ouvre le calendrier. Charge un outil de planification de Calendly.",

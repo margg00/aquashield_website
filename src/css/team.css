@@ -81,8 +81,8 @@
 @media (prefers-reduced-motion: no-preference) {
   body.has-reveal .chapter .chapter-line { transform: scaleY(0); transition: transform 1400ms cubic-bezier(0.45, 0, 0.2, 1) 250ms; }
   body.has-reveal .chapter .chapter-node { opacity: 0; transform: scale(0.4); transition: opacity 400ms ease 150ms, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1.4) 150ms; }
-  body.has-reveal .chapter.is-visible .chapter-line { transform: scaleY(1); }
-  body.has-reveal .chapter.is-visible .chapter-node { opacity: 1; transform: none; }
+  body.has-reveal .chapter.is-playing .chapter-line { transform: scaleY(1); }
+  body.has-reveal .chapter.is-playing .chapter-node { opacity: 1; transform: none; }
 }
 
 /* ---------- Spirit: six glass tiles ---------- */
@@ -117,7 +117,7 @@
   body.has-reveal .spirit-tile:nth-child(5) { transition-delay: 360ms; }
   body.has-reveal .spirit-tile:nth-child(6) { transition-delay: 450ms; }
   body.has-reveal .spirit-icon svg > * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 900ms cubic-bezier(0.45, 0, 0.2, 1) 350ms; }
-  body.has-reveal .spirit-tile.is-visible .spirit-icon svg > * { stroke-dashoffset: 0; }
+  body.has-reveal .spirit-tile.is-playing .spirit-icon svg > * { stroke-dashoffset: 0; }
 }
 
 /* ---------- What you would work on ---------- */

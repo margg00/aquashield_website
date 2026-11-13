@@ -89,10 +89,10 @@
   body.has-reveal .ins-timeline .lt-grow { transform: scaleX(0); }
   body.has-reveal .ins-timeline .lt-grow-v { transform: scaleY(0); }
   body.has-reveal .ins-timeline .lt-pop { opacity: 0; }
-  body.has-reveal .ins-timeline.is-visible .lt-grow { animation: ins-grow-x 3.4s linear var(--d) 1 both; }
-  body.has-reveal .ins-timeline.is-visible .lt-grow-v { animation-name: ins-grow-y; }
-  body.has-reveal .ins-timeline.is-visible .lt-bar-short { animation-duration: 0.45s; animation-timing-function: ease-out; }
-  body.has-reveal .ins-timeline.is-visible .lt-pop { animation: ins-pop 0.45s ease-out var(--d) 1 both; }
+  body.has-reveal .ins-timeline.is-playing .lt-grow { animation: ins-grow-x 3.4s linear var(--d) 1 both; }
+  body.has-reveal .ins-timeline.is-playing .lt-grow-v { animation-name: ins-grow-y; }
+  body.has-reveal .ins-timeline.is-playing .lt-bar-short { animation-duration: 0.45s; animation-timing-function: ease-out; }
+  body.has-reveal .ins-timeline.is-playing .lt-pop { animation: ins-pop 0.45s ease-out var(--d) 1 both; }
 }
 @keyframes ins-grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes ins-grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
@@ -142,12 +142,12 @@
   body.has-reveal .ins-book-visual .bk-frame { stroke-dashoffset: 1; }
   body.has-reveal .ins-book-visual .bk-on, body.has-reveal .ins-book-visual .bk-caught, body.has-reveal .ins-book-visual .bk-halo { opacity: 0; }
   body.has-reveal .ins-book-visual .bk-check { stroke-dashoffset: 1; }
-  body.has-reveal .ins-book-visual.is-visible .bk-frame { animation: ins-dash 1s cubic-bezier(0.4, 0.1, 0.3, 1) var(--d) 1 both; }
-  body.has-reveal .ins-book-visual.is-visible .bk-on { animation: ins-pop 0.45s ease-out var(--d) 1 both; }
-  body.has-reveal .ins-book-visual.is-visible .bk-flash { animation: ins-flash 1.1s ease-in-out var(--d) 1 both; }
-  body.has-reveal .ins-book-visual.is-visible .bk-caught { animation: ins-pop 0.35s ease-out var(--d) 1 both; }
-  body.has-reveal .ins-book-visual.is-visible .bk-check { animation: ins-dash 0.4s ease-out calc(var(--d) + 0.2s) 1 both; }
-  body.has-reveal .ins-book-visual.is-visible .bk-halo { animation: ins-halo 2.8s ease-out calc(var(--d) + 0.9s) infinite; }
+  body.has-reveal .ins-book-visual.is-playing .bk-frame { animation: ins-dash 1s cubic-bezier(0.4, 0.1, 0.3, 1) var(--d) 1 both; }
+  body.has-reveal .ins-book-visual.is-playing .bk-on { animation: ins-pop 0.45s ease-out var(--d) 1 both; }
+  body.has-reveal .ins-book-visual.is-playing .bk-flash { animation: ins-flash 1.1s ease-in-out var(--d) 1 both; }
+  body.has-reveal .ins-book-visual.is-playing .bk-caught { animation: ins-pop 0.35s ease-out var(--d) 1 both; }
+  body.has-reveal .ins-book-visual.is-playing .bk-check { animation: ins-dash 0.4s ease-out calc(var(--d) + 0.2s) 1 both; }
+  body.has-reveal .ins-book-visual.is-playing .bk-halo { animation: ins-halo 2.8s ease-out calc(var(--d) + 0.9s) infinite; }
 }
 @keyframes ins-dash { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes ins-flash { 0% { opacity: 0; } 15% { opacity: 1; } 35% { opacity: 0.25; } 55% { opacity: 1; } 100% { opacity: 0; } }

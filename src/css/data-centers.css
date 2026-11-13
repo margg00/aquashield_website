@@ -1,6 +1,6 @@
 /* ---------- Data centres page (src/pages/data-centers.html, drawings in src/visuals/data-centers.js) ----------
    Default styles are the finished state. Start states and keyframes live only inside
-   prefers-reduced-motion: no-preference, keyed off body.has-reveal and .is-visible. */
+   prefers-reduced-motion: no-preference, keyed off body.has-reveal and .is-playing. */
 
 /* Hero headline: three lines in the copy column from 900px up (en, de) */
 @media (min-width: 900px) { .page-data-centers .hero-copy h1 { font-size: min(3.95rem, 5vw + 2px); } }
@@ -86,22 +86,22 @@
   body.has-reveal .dc-seq .dc-step-end .dc-node { transform: scale(0.82); }
   body.has-reveal .dc-seq::after { opacity: 0; }
 
-  body.has-reveal .dc-seq.is-visible .dc-steps li,
-  body.has-reveal .dc-seq.is-visible .dc-node::after,
-  body.has-reveal .dc-seq.is-visible .dc-step-end::before,
-  body.has-reveal .dc-seq.is-visible::after { opacity: 1; transition: opacity 500ms ease; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li::after { transform: none; transition: transform 520ms cubic-bezier(0.45, 0, 0.2, 1); }
-  body.has-reveal .dc-seq.is-visible .dc-step-end .dc-node { transform: none; transition: transform 600ms cubic-bezier(0.3, 1.6, 0.5, 1); }
+  body.has-reveal .dc-seq.is-playing .dc-steps li,
+  body.has-reveal .dc-seq.is-playing .dc-node::after,
+  body.has-reveal .dc-seq.is-playing .dc-step-end::before,
+  body.has-reveal .dc-seq.is-playing::after { opacity: 1; transition: opacity 500ms ease; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li::after { transform: none; transition: transform 520ms cubic-bezier(0.45, 0, 0.2, 1); }
+  body.has-reveal .dc-seq.is-playing .dc-step-end .dc-node { transform: none; transition: transform 600ms cubic-bezier(0.3, 1.6, 0.5, 1); }
 
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(1), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(1) .dc-node::after { transition-delay: 350ms; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(2), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(2) .dc-node::after { transition-delay: 1050ms; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(3), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(3) .dc-node::after { transition-delay: 1750ms; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(4), body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(4) .dc-node::after { transition-delay: 2450ms; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(1)::after { transition-delay: 600ms; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(2)::after { transition-delay: 1300ms; }
-  body.has-reveal .dc-seq.is-visible .dc-steps li:nth-child(3)::after { transition-delay: 2000ms; }
-  body.has-reveal .dc-seq.is-visible .dc-step-end::before, body.has-reveal .dc-seq.is-visible .dc-step-end .dc-node { transition-delay: 2450ms; }
-  body.has-reveal .dc-seq.is-visible::after { transition-duration: 1000ms; transition-delay: 2600ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(1), body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(1) .dc-node::after { transition-delay: 350ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(2), body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(2) .dc-node::after { transition-delay: 1050ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(3), body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(3) .dc-node::after { transition-delay: 1750ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(4), body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(4) .dc-node::after { transition-delay: 2450ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(1)::after { transition-delay: 600ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(2)::after { transition-delay: 1300ms; }
+  body.has-reveal .dc-seq.is-playing .dc-steps li:nth-child(3)::after { transition-delay: 2000ms; }
+  body.has-reveal .dc-seq.is-playing .dc-step-end::before, body.has-reveal .dc-seq.is-playing .dc-step-end .dc-node { transition-delay: 2450ms; }
+  body.has-reveal .dc-seq.is-playing::after { transition-duration: 1000ms; transition-delay: 2600ms; }
 }
 
 /* ---------- How it works: three step drawings ---------- */
@@ -147,11 +147,11 @@
   body.has-reveal .step .dc-lane,
   body.has-reveal .step .dc-lane-glow { stroke-dashoffset: 1; }
   body.has-reveal .step .dc-flag { opacity: 0; transform: scale(0.3); }
-  body.has-reveal .step.is-visible .dc-beam { stroke-dashoffset: 0; transition: stroke-dashoffset 1000ms cubic-bezier(0.45, 0, 0.2, 1) 350ms; }
-  body.has-reveal .step.is-visible .dc-lane { stroke-dashoffset: 0; transition: stroke-dashoffset 1500ms cubic-bezier(0.45, 0, 0.2, 1) 300ms; }
-  body.has-reveal .step.is-visible .dc-lane-bad,
-  body.has-reveal .step.is-visible .dc-lane-glow { stroke-dashoffset: 0; transition: stroke-dashoffset 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 1300ms; }
-  body.has-reveal .step.is-visible .dc-flag { opacity: 1; transform: none; transition: opacity 300ms ease 2100ms, transform 500ms cubic-bezier(0.3, 1.6, 0.5, 1) 2100ms; }
+  body.has-reveal .step.is-playing .dc-beam { stroke-dashoffset: 0; transition: stroke-dashoffset 1000ms cubic-bezier(0.45, 0, 0.2, 1) 350ms; }
+  body.has-reveal .step.is-playing .dc-lane { stroke-dashoffset: 0; transition: stroke-dashoffset 1500ms cubic-bezier(0.45, 0, 0.2, 1) 300ms; }
+  body.has-reveal .step.is-playing .dc-lane-bad,
+  body.has-reveal .step.is-playing .dc-lane-glow { stroke-dashoffset: 0; transition: stroke-dashoffset 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 1300ms; }
+  body.has-reveal .step.is-playing .dc-flag { opacity: 1; transform: none; transition: opacity 300ms ease 2100ms, transform 500ms cubic-bezier(0.3, 1.6, 0.5, 1) 2100ms; }
 }
 @keyframes dc-march { from { transform: translateX(0); } to { transform: translateX(40px); } }
 @keyframes dc-travel { 0% { offset-distance: 0%; opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
@@ -227,13 +227,13 @@
 @media (prefers-reduced-motion: no-preference) {
   body.has-reveal .dc-path li::before { opacity: 0.3; transform: scale(0.7); }
   body.has-reveal .dc-path-rail { transform: scaleY(0); }
-  body.has-reveal .dc-path.is-visible li::before { opacity: 1; transform: none; transition: opacity 400ms ease, transform 500ms cubic-bezier(0.3, 1.6, 0.5, 1); }
-  body.has-reveal .dc-path.is-visible .dc-path-rail { transform: none; transition: transform 600ms cubic-bezier(0.45, 0, 0.2, 1); }
-  body.has-reveal .dc-path.is-visible li:nth-child(1)::before { transition-delay: 200ms; }
-  body.has-reveal .dc-path.is-visible li:nth-child(2)::before { transition-delay: 900ms; }
-  body.has-reveal .dc-path.is-visible li:nth-child(3)::before { transition-delay: 1600ms; }
-  body.has-reveal .dc-path.is-visible li:nth-child(1) .dc-path-rail { transition-delay: 400ms; }
-  body.has-reveal .dc-path.is-visible li:nth-child(2) .dc-path-rail { transition-delay: 1100ms; }
+  body.has-reveal .dc-path.is-playing li::before { opacity: 1; transform: none; transition: opacity 400ms ease, transform 500ms cubic-bezier(0.3, 1.6, 0.5, 1); }
+  body.has-reveal .dc-path.is-playing .dc-path-rail { transform: none; transition: transform 600ms cubic-bezier(0.45, 0, 0.2, 1); }
+  body.has-reveal .dc-path.is-playing li:nth-child(1)::before { transition-delay: 200ms; }
+  body.has-reveal .dc-path.is-playing li:nth-child(2)::before { transition-delay: 900ms; }
+  body.has-reveal .dc-path.is-playing li:nth-child(3)::before { transition-delay: 1600ms; }
+  body.has-reveal .dc-path.is-playing li:nth-child(1) .dc-path-rail { transition-delay: 400ms; }
+  body.has-reveal .dc-path.is-playing li:nth-child(2) .dc-path-rail { transition-delay: 1100ms; }
 }
 @media (prefers-reduced-motion: no-preference) and (min-width: 900px) {
   body.has-reveal .dc-path-rail { transform: scaleX(0); }

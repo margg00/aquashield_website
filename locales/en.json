@@ -252,7 +252,7 @@
     },
     "final": {
       "h2": "Catch the next leak early.",
-      "line": "Thirty minutes with a founder. Bring your buildings and your last water damage. We bring the plan: where the sensors go, what your first alert looks like, how fast you are live."
+      "line": "Thirty minutes with a founder. Tell us where water worries you today. We show you how AquaShield works and explore together where it fits."
     }
   },
   "product": {
@@ -345,7 +345,7 @@
       },
       {
         "q": "How long does a rollout take?",
-        "a": "One building: one day of installs, the digital twin the same day, the model learns normal over the first weeks. A portfolio: building by building, at your pace."
+        "a": "Fast, and it scales. Each sensor clamps on in under 15 minutes, with no pipe cutting and no shutdown, so a building is live in a day. Your own team can install the sensors, which means many buildings go live in parallel. The digital twin is built the same day and the model starts learning straight away."
       },
       {
         "q": "Does it work with old pipes?",
@@ -870,12 +870,12 @@
   },
   "book": {
     "h1": "Book a 30-min discovery call",
-    "lead": "Thirty minutes with a founder. Bring your buildings and your last water damage. We bring the plan: where the sensors go, what your first alert looks like, how fast you are live.",
+    "lead": "Thirty minutes with a founder. Tell us where water worries you today. We show you how AquaShield works and explore together where it fits.",
     "outcomesIntro": "You leave with",
     "outcomes": [
-      "A sensor plan for your first buildings",
-      "What your first alert looks like",
-      "The timeline to go live"
+      "A live look at how AquaShield works",
+      "Where it fits in your buildings or your book",
+      "A clear next step"
     ],
     "pick": "Pick a time",
     "pickNote": "Opens the calendar. Loads a scheduling widget from Calendly.",
