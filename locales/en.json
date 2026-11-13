@@ -809,11 +809,11 @@
       {
         "id": "rithvik-golthi",
         "name": "Rithvik Golthi",
-        "role": "Founding Software Engineer, Head of Data Platform",
+        "role": "Founding Software Engineer",
         "alumni": [
           "University of Texas"
         ],
-        "line": "Builds the data pipeline and cloud platform behind every alert."
+        "line": "Builds AquaShield’s software end to end, from sensor data and cloud systems to AI-powered insights and alerts."
       },
       {
         "id": "jacques-raffaeli",

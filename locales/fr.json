@@ -809,11 +809,11 @@
       {
         "id": "rithvik-golthi",
         "name": "Rithvik Golthi",
-        "role": "Ingénieur logiciel fondateur, responsable plateforme de données",
+        "role": "Ingénieur logiciel fondateur",
         "alumni": [
           "University of Texas"
         ],
-        "line": "Construit le pipeline de données et la plateforme cloud derrière chaque alerte."
+        "line": "Construit le logiciel d’AquaShield de bout en bout, des données des capteurs et des systèmes cloud aux analyses et alertes basées sur l’IA."
       },
       {
         "id": "jacques-raffaeli",
