@@ -338,14 +338,19 @@
       for (var i = 0; i < it.parts.length; i++) { if (it.parts[i].getClientRects().length && it.parts[i].offsetHeight !== 0) return it.parts[i]; }
       return it.parts[0];
     };
+    // Layout is read when the check is queued (scroll event, observer callback: layout is clean there) and the
+    // classes are written in the next frame, so no frame forces a style or layout pass.
     var check = function () {
       queued = false;
-      var vh = window.innerHeight;
-      var hits = near.map(function (it) { return seen(boxOf(visualOf(it)), vh); });
-      near.forEach(function (it, i) { if (hits[i]) start(it); });
+      near.forEach(function (it) { if (it.hit) start(it); });
       near = near.filter(function (it) { return !it.done && !it.running; });
     };
-    var queue = function () { if (!queued && near.length) { queued = true; requestAnimationFrame(check); } };
+    var queue = function () {
+      if (!near.length) return;
+      var vh = window.innerHeight;
+      near.forEach(function (it) { it.hit = seen(boxOf(visualOf(it)), vh); });
+      if (!queued) { queued = true; requestAnimationFrame(check); }
+    };
     var po = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         var it = null;
@@ -438,7 +443,10 @@
       pinEl.classList.add("pin-on");
       var cs = window.getComputedStyle(band);
       var need = band.querySelector(".container").offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-      var fits = need <= svh - top;
+      // Inside a frame that is as tall as its whole page (no scrolling of its own) the viewport is taller
+      // than the physical screen: pinning would have nothing to hold against, so stay unpinned there.
+      var tallEmbed = window.self !== window.top && window.screen && window.screen.height && svh > window.screen.height * 1.25;
+      var fits = need <= svh - top && !tallEmbed;
       if (fits) {
         var track = phone.matches;
         var dist = Math.round(svh * (track ? 2 : 1.3));
@@ -485,8 +493,10 @@
         if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
       });
     };
+    var scrollAt = null;
     var update = function () {
-      var y = window.pageYOffset;
+      var y = scrollAt === null ? window.pageYOffset : scrollAt;
+      scrollAt = null;
       if (pin) {
         var P = Math.round(clamp01((y - pin.docTop + pin.top) / pin.dist) * 10000) / 10000;
         if (P !== pinP) { pinP = P; pinEl.style.setProperty("--pp", String(P)); }
@@ -517,7 +527,8 @@
     };
     var scrubQueued = false;
     var frame = function () { scrubQueued = false; update(); };
-    var onScroll = function () { if (!scrubQueued) { scrubQueued = true; requestAnimationFrame(frame); } };
+    // read the position when the frame is queued (scroll event, observers: layout is clean there), not in the frame
+    var onScroll = function () { scrollAt = window.pageYOffset; if (!scrubQueued) { scrubQueued = true; requestAnimationFrame(frame); } };
     var onResize = function () { evaluatePin(false); measure(); onScroll(); };
     var onReflow = function () { evaluatePin(true); measure(); onScroll(); };
     var listening = false, nearCount = 0;
