@@ -349,6 +349,7 @@ body.nav-open { overflow: hidden; }
 .hero-copy h1 { max-width: 12ch; }
 .hero-copy .tagline { margin-top: 20px; font-size: var(--fs-lead); color: var(--text-secondary); }
 .hero-copy .hero-actions { margin-top: 32px; }
+.hero .hero-copy h1 + .hero-actions { margin-top: 40px; }
 /* Two groups split by a hairline. The row is shifted left by the divider and its spacing and clipped,
    so a group that wraps to a new line starts flush left and its divider falls outside the clip. */
 .hero-proof { margin-top: 28px; overflow: hidden; color: var(--text-muted); font-size: var(--fs-small); line-height: 1.5; }
