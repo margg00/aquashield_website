@@ -346,7 +346,8 @@ body.nav-open { overflow: hidden; }
   pointer-events: none;
 }
 .hero-grid { display: grid; gap: 40px; align-items: center; }
-.hero-copy h1 { max-width: 12ch; }
+.hero-copy h1 { max-width: 14ch; }
+:lang(fr) .hero .hero-copy h1 { max-width: 18ch; font-size: clamp(2.75rem, 5vw, 3.75rem); }
 .hero-copy .tagline { margin-top: 20px; font-size: var(--fs-lead); color: var(--text-secondary); }
 .hero-copy .hero-actions { margin-top: 32px; }
 .hero .hero-copy h1 + .hero-actions { margin-top: 40px; }
