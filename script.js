@@ -425,7 +425,7 @@
     var band = pinEl && pinEl.querySelector(".problem-band");
     var grid = band && band.querySelector("[data-scrub-row]");
     var headerEl = document.querySelector(".site-header");
-    var pin = null, pinW = -1, pinSvh = -1, pinP = -1, slideNow = -1;
+    var pin = null, pinW = -1, pinSvh = -1;
     var probe = document.createElement("div");
     probe.setAttribute("aria-hidden", "true");
     probe.style.cssText = "position:fixed;top:0;left:0;width:0;height:100vh;visibility:hidden;pointer-events:none";
@@ -451,15 +451,17 @@
         var track = phone.matches;
         var dist = Math.round(svh * (track ? 2 : 1.3));
         pinEl.style.height = (band.offsetHeight + dist) + "px";
-        pin = { top: top, dist: dist, track: track, docTop: 0 };
+        var tiles = grid.children;
+        pin = { top: top, dist: dist, track: track, docTop: 0, pitch: tiles.length > 1 ? tiles[1].offsetLeft - tiles[0].offsetLeft : 0 };
       } else {
         pinEl.classList.remove("pin-on");
-        pinEl.style.removeProperty("--pp");
-        grid.style.removeProperty("--slide");
         pin = null;
       }
-      pinP = -1; slideNow = -1;
-      scrubs.forEach(function (it) { it.p = -1; });
+      // pinned mode writes inline styles, the scrub without pinning uses --p: start each mode clean
+      clearPut();
+      parts = null;
+      scrubs.forEach(function (it) { it.p = -1; it.done = null; it.el.style.removeProperty("--p"); });
+      pinS = -1;
     };
 
     // Layout cache: page positions from the offset parent and offsets (so no transform counts), refreshed on
@@ -493,26 +495,143 @@
         if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
       });
     };
+    // ---- Pinned choreography ----
+    // The scroll gives a target T. The value on screen S follows it with a time-based damping (a scrub with a
+    // smoothing time): S += (T - S) * (1 - exp(-dt / tau)). A wheel notch plays as a short glide, a direction
+    // change eases. The loop runs only while S still moves. Every frame writes transform, opacity or
+    // stroke-dashoffset straight onto the few elements that change, and only when the value changed.
+    // Story: a spotlight moves from tile 1 to tile 2 to tile 3, the tile in focus draws and counts across its
+    // whole share, then all three return to full strength while the closing line lights up word by word, a hold.
+    var TAU = 0.16;
+    var smooth = function (a, b, v) { var t = (v - a) / (b - a); t = t < 0 ? 0 : t > 1 ? 1 : t; return t * t * (3 - 2 * t); };
+    var r4 = function (v) { return Math.round(v * 10000) / 10000; };
+    // opacities and scales in steps of 1/200, too fine to see, so a slow glide skips frames with no visible change
+    var r2 = function (v) { return Math.round(v * 200) / 200; };
+    var written = [];
+    var put = function (el, prop, val) {
+      if (!el) return;
+      var s = el.__put || (el.__put = {});
+      if (s[prop] === val) return;
+      if (!(prop in s)) written.push([el, prop]);
+      s[prop] = val;
+      el.style[prop] = val;
+    };
+    var clearPut = function () {
+      written.forEach(function (w) { w[0].style[w[1]] = ""; w[0].__put = null; });
+      written = [];
+    };
+    var parts = null;
+    var collect = function () {
+      var q = function (root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
+      parts = { tiles: [], words: [], rail: pinEl.querySelector(".pin-rail span") };
+      scrubs.forEach(function (it) {
+        if (!it.row) { parts.line = it; parts.words = q(it.el, ".scrub-word"); return; }
+        var t = it.el;
+        parts.tiles[it.index] = { it: it, el: t, focus: t.querySelector(".pb-focus"), line: t.querySelector(".pb-line"), area: t.querySelector(".pb-area"), tip: t.querySelector(".pb-tip"), dot: t.querySelector(".pb-dot"), ring: t.querySelector(".pb-ring"), holes: q(t, ".pb-hole"), marks: q(t, ".pb-nums > g"), trails: q(t, ".pb-trail"), stain: t.querySelector(".pb-stain"), leaks: q(t, ".pb-leak"), bars: q(t, ".pb-bar") };
+      });
+    };
+    var drawTile = function (t, q) {
+      q = r4(q);
+      if (q === t.q) return;
+      t.q = q;
+      var i, r;
+      if (t.line) {
+        // the curve draws at an even pace, its end dot rides the tip (cubic of the curve, reparameterised by length)
+        var s = q, u = 0.9598 * s + 0.0583 * s * s - 0.0181 * s * s * s;
+        put(t.line, "strokeDashoffset", String(r4(1 - s)));
+        put(t.area, "opacity", String(r2(smooth(0.45, 1, q))));
+        put(t.dot, "opacity", String(r2(smooth(0, 0.04, q))));
+        put(t.ring, "opacity", String(r2(0.35 * smooth(0.8, 1, q))));
+        var dx = 246 * u - 6 * u * u - 16 * u * u * u - 224, dy = 68 - 6 * u - 48 * u * u - 14 * u * u * u;
+        put(t.tip, "transform", q >= 1 ? "none" : "translate(" + r4(dx) + "px, " + r4(dy) + "px)");
+      }
+      if (t.holes.length) {
+        // five openings fade in on overlapping eased ramps, the fifth (the leak) last (opacity only: no SVG layout)
+        for (i = 0; i < t.holes.length; i++) {
+          r = smooth(i * 0.15, i * 0.15 + 0.32, q);
+          put(t.holes[i], "opacity", String(r2(r)));
+          // the small numbers under the openings are SVG text: any style change there costs a text layout, so they
+          // fade in steps of 1/20 (still smooth at 11px) instead of every frame
+          put(t.marks[i], "opacity", String(Math.round(r * 20) / 20));
+        }
+        // the dotted path from one opening to the next fades in (opacity on the path, the mask stays drawn)
+        for (i = 0; i < t.trails.length; i++) put(t.trails[i], "opacity", String(r2(smooth(i * 0.15 + 0.14, i * 0.15 + 0.3, q))));
+        put(t.stain, "opacity", String(r2(smooth(0, 0.15, q))));
+        r = smooth(0.84, 1, q);
+        t.leaks.forEach(function (l) { put(l, "opacity", String(r2(r))); });
+      }
+      // twelve bars rise as one wave
+      for (i = 0; i < t.bars.length; i++) { r = smooth(i * 0.055, i * 0.055 + 0.4, q); put(t.bars[i], "strokeDashoffset", String(r4(1 - r))); }
+      var done = q >= 1, it = t.it;
+      if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
+      it.nums.forEach(function (n) {
+        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * smooth(0, 1, q));
+        if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
+      });
+    };
+    var render = function (S) {
+      if (!parts) collect();
+      var track = pin.track;
+      var tilesEnd = track ? 0.76 : 0.7, share = tilesEnd / 3;
+      var lineFrom = track ? 0.8 : 0.74, lineTo = track ? 0.95 : 0.94;
+      var slide = 0, focusAt;
+      if (track) {
+        for (var k = 0; k < 2; k++) slide += smooth(0.74, 1, (S - k * share) / share);
+        focusAt = slide;
+        put(grid, "transform", "translate3d(" + r4(-slide * pin.pitch) + "px, 0, 0)");
+      } else {
+        focusAt = Math.min(2, Math.max(0, S / share - 0.5));
+      }
+      var all = smooth(tilesEnd, tilesEnd + 0.06, S);
+      parts.tiles.forEach(function (t, i) {
+        var local = (S - i * share) / share;
+        drawTile(t, clamp01(track ? local / 0.78 : local));
+        var f = 1 - smooth(0.3, 0.7, Math.abs(focusAt - i));
+        var op = 0.55 + 0.45 * f;
+        op = op + (1 - op) * all;
+        var sc = 1 + 0.02 * f * (1 - all);
+        put(t.el, "opacity", String(r2(op)));
+        sc = Math.round(sc * 2000) / 2000;
+        put(t.el, "transform", sc === 1 ? "none" : "scale(" + sc + ")");
+        put(t.focus, "opacity", String(r2(f * (1 - all))));
+      });
+      // closing line: each word fades in over the span of about three words
+      var n = parts.words.length, W = Math.min(1, 3 / Math.max(1, n)), wp = clamp01((S - lineFrom) / (lineTo - lineFrom));
+      parts.words.forEach(function (w, i) {
+        var a = n > 1 ? i / (n - 1) * (1 - W) : 0;
+        put(w, "opacity", String(r2(0.28 + 0.72 * smooth(a, a + W, wp))));
+      });
+      if (parts.line) {
+        var lineDone = wp >= 1;
+        if (lineDone !== parts.line.done) { parts.line.done = lineDone; parts.line.el.classList.toggle("is-done", lineDone); }
+      }
+      put(parts.rail, "transform", "scaleX(" + r4(S) + ")");
+    };
+    var pinS = -1, pinT = 0, pinLast = 0, pinRunning = false;
+    var pinTick = function (now) {
+      if (!pin) { pinRunning = false; return; }
+      // a slow frame counts as at most two: after a hiccup the glide resumes instead of jumping ahead
+      var dt = Math.min(0.034, Math.max(0, (now - pinLast) / 1000));
+      pinLast = now;
+      var d = pinT - pinS;
+      // first frame: run the frame code once through a mid state (never painted) so its first real glide frame
+      // does not pay for script compilation, then show the true state
+      if (pinS < 0) { render(0.5); render(0.9); }
+      if (pinS < 0 || Math.abs(d) < 0.0005) pinS = pinT;
+      else pinS += d * (1 - Math.exp(-dt / TAU));
+      render(pinS);
+      if (pinS !== pinT) requestAnimationFrame(pinTick);
+      else pinRunning = false;
+    };
+    var pinKick = function () { if (!pinRunning) { pinRunning = true; pinLast = window.performance.now(); requestAnimationFrame(pinTick); } };
+
     var scrollAt = null;
     var update = function () {
       var y = scrollAt === null ? window.pageYOffset : scrollAt;
       scrollAt = null;
       if (pin) {
-        var P = Math.round(clamp01((y - pin.docTop + pin.top) / pin.dist) * 10000) / 10000;
-        if (P !== pinP) { pinP = P; pinEl.style.setProperty("--pp", String(P)); }
-        // tiles, then the closing line, then a hold
-        var tilesEnd = pin.track ? 0.74 : 0.66, lineFrom = tilesEnd + 0.02, lineTo = pin.track ? 0.94 : 0.92;
-        var T = clamp01(P / tilesEnd), seg = T * 3, slide = 0;
-        if (pin.track) {
-          slide = clamp01((seg - 0.75) / 0.25) + clamp01((seg - 1.75) / 0.25);
-          slide = Math.round(slide * 10000) / 10000;
-          if (slide !== slideNow) { slideNow = slide; grid.style.setProperty("--slide", String(slide)); }
-        }
-        scrubs.forEach(function (it) {
-          if (!it.row) apply(it, clamp01((P - lineFrom) / (lineTo - lineFrom)));
-          else if (pin.track) apply(it, clamp01((seg - it.index) / 0.75));
-          else apply(it, clamp01((T - it.index * 0.2) / 0.6));
-        });
+        pinT = r4(clamp01((y - pin.docTop + pin.top) / pin.dist));
+        if (pinT !== pinS) pinKick();
         return;
       }
       scrubs.forEach(function (it) {
@@ -537,6 +656,7 @@
       listening = on;
       var fn = on ? "addEventListener" : "removeEventListener";
       window[fn]("scroll", onScroll, { passive: true });
+      if (pinEl) pinEl.classList.toggle("pin-live", on);
     };
     var so = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

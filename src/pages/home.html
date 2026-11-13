@@ -29,6 +29,7 @@
         </div>
         <div class="problem-grid" data-scrub-row>
           <div class="problem-tile" data-reveal data-scrub>
+            <span class="pb-focus" aria-hidden="true"></span>
             <div class="problem-pic" aria-hidden="true">
               <svg viewBox="0 0 240 96" width="100%" height="96" preserveAspectRatio="xMinYMid meet" focusable="false">
                 <path class="pb-area" d="M8 82 C90 80 170 62 232 14 L232 90 L8 90 Z"/>
@@ -41,6 +42,7 @@
             {{#if home.problem.stats.0.source}}<p class="stat-source">{{common.source}}: {{home.problem.stats.0.source}}</p>{{/if}}
           </div>
           <div class="problem-tile" data-reveal data-scrub>
+            <span class="pb-focus" aria-hidden="true"></span>
             <div class="problem-pic" aria-hidden="true">
               <svg viewBox="0 0 240 96" width="100%" height="96" preserveAspectRatio="xMinYMid meet" focusable="false">
                 <rect class="pb-strip" x="1" y="12" width="238" height="58" rx="3"/>
@@ -49,7 +51,7 @@
                 <defs><clipPath id="pbw-c1"><rect x="11" y="22" width="34" height="40" rx="7"/></clipPath><clipPath id="pbw-c2"><rect x="57" y="22" width="34" height="40" rx="7"/></clipPath><clipPath id="pbw-c3"><rect x="103" y="22" width="34" height="40" rx="7"/></clipPath><clipPath id="pbw-c4"><rect x="149" y="22" width="34" height="40" rx="7"/></clipPath><clipPath id="pbw-c5"><rect x="195" y="22" width="34" height="40" rx="7"/></clipPath><mask id="pbw-m1" maskUnits="userSpaceOnUse" x="0" y="-10" width="240" height="40"><path class="pb-trail-m" pathLength="1" d="M34 19 Q51 -4 68 19"/></mask><mask id="pbw-m2" maskUnits="userSpaceOnUse" x="0" y="-10" width="240" height="40"><path class="pb-trail-m" pathLength="1" d="M80 19 Q97 -4 114 19"/></mask><mask id="pbw-m3" maskUnits="userSpaceOnUse" x="0" y="-10" width="240" height="40"><path class="pb-trail-m" pathLength="1" d="M126 19 Q143 -4 160 19"/></mask><mask id="pbw-m4" maskUnits="userSpaceOnUse" x="0" y="-10" width="240" height="40"><path class="pb-trail-m" pathLength="1" d="M172 19 Q189 -4 206 19"/></mask></defs>
                 <g><path class="pb-trail" d="M34 19 Q51 -4 68 19" mask="url(#pbw-m1)"/><path class="pb-trail" d="M80 19 Q97 -4 114 19" mask="url(#pbw-m2)"/><path class="pb-trail" d="M126 19 Q143 -4 160 19" mask="url(#pbw-m3)"/><path class="pb-trail" d="M172 19 Q189 -4 206 19" mask="url(#pbw-m4)"/></g>
                 <g><g class="pb-hole"><rect x="11" y="22" width="34" height="40" rx="7"/><path class="pb-pipe" d="M11 42 H45" clip-path="url(#pbw-c1)"/><path class="pb-miss" d="M34 27 l5 5 m0 -5 l-5 5"/></g><g class="pb-hole"><rect x="57" y="22" width="34" height="40" rx="7"/><path class="pb-pipe" d="M57 42 H91" clip-path="url(#pbw-c2)"/><path class="pb-miss" d="M80 27 l5 5 m0 -5 l-5 5"/></g><g class="pb-hole"><rect x="103" y="22" width="34" height="40" rx="7"/><path class="pb-pipe" d="M103 42 H137" clip-path="url(#pbw-c3)"/><path class="pb-miss" d="M126 27 l5 5 m0 -5 l-5 5"/></g><g class="pb-hole"><rect x="149" y="22" width="34" height="40" rx="7"/><path class="pb-pipe" d="M149 42 H183" clip-path="url(#pbw-c4)"/><path class="pb-miss" d="M172 27 l5 5 m0 -5 l-5 5"/></g><g class="pb-hole pb-hole-hit"><rect x="195" y="22" width="34" height="40" rx="7"/><g clip-path="url(#pbw-c5)"><path class="pb-pipe" d="M195 42 H204 M220 42 H229"/><g class="pb-leak"><circle class="pb-glow" cx="212" cy="53" r="11"/><ellipse class="pb-ripple" cx="212" cy="59" rx="5" ry="1.6"/></g></g><g class="pb-leak"><path class="pb-drop" d="M212 45 C209.6 48.6 206.6 51.6 206.6 54.6 A5.4 5.4 0 0 0 217.4 54.6 C217.4 51.6 214.4 48.6 212 45 Z"/></g></g></g>
-                <g class="pb-nums"><text x="28" y="86">1</text><text x="74" y="86">2</text><text x="120" y="86">3</text><text x="166" y="86">4</text><text x="212" y="86" class="pb-num-hit">5</text></g>
+                <g class="pb-nums"><g><text x="28" y="86">1</text></g><g><text x="74" y="86">2</text></g><g><text x="120" y="86">3</text></g><g><text x="166" y="86">4</text></g><g><text x="212" y="86" class="pb-num-hit">5</text></g></g>
               </svg>
             </div>
             <p class="stat-value problem-value">{{home.problem.stats.1.value}}</p>
@@ -57,10 +59,11 @@
             {{#if home.problem.stats.1.source}}<p class="stat-source">{{common.source}}: {{home.problem.stats.1.source}}</p>{{/if}}
           </div>
           <div class="problem-tile" data-reveal data-scrub>
+            <span class="pb-focus" aria-hidden="true"></span>
             <div class="problem-pic" aria-hidden="true">
               <svg viewBox="0 0 240 96" width="100%" height="96" preserveAspectRatio="xMinYMid meet" focusable="false">
                 <line class="pb-base" x1="4" y1="86.5" x2="236" y2="86.5"/>
-                <g><rect class="pb-bar" x="10" y="68" width="12" height="18" rx="2"/><rect class="pb-bar" x="29" y="62" width="12" height="24" rx="2"/><rect class="pb-bar" x="48" y="64" width="12" height="22" rx="2"/><rect class="pb-bar" x="67" y="56" width="12" height="30" rx="2"/><rect class="pb-bar" x="86" y="52" width="12" height="34" rx="2"/><rect class="pb-bar" x="105" y="55" width="12" height="31" rx="2"/><rect class="pb-bar" x="124" y="46" width="12" height="40" rx="2"/><rect class="pb-bar" x="143" y="40" width="12" height="46" rx="2"/><rect class="pb-bar" x="162" y="42" width="12" height="44" rx="2"/><rect class="pb-bar" x="181" y="32" width="12" height="54" rx="2"/><rect class="pb-bar pb-bar-hot" x="200" y="24" width="12" height="62" rx="2"/><rect class="pb-bar pb-bar-hot" x="219" y="16" width="12" height="70" rx="2"/></g>
+                <g><path class="pb-bar" pathLength="1" d="M16 86 V68"/><path class="pb-bar" pathLength="1" d="M35 86 V62"/><path class="pb-bar" pathLength="1" d="M54 86 V64"/><path class="pb-bar" pathLength="1" d="M73 86 V56"/><path class="pb-bar" pathLength="1" d="M92 86 V52"/><path class="pb-bar" pathLength="1" d="M111 86 V55"/><path class="pb-bar" pathLength="1" d="M130 86 V46"/><path class="pb-bar" pathLength="1" d="M149 86 V40"/><path class="pb-bar" pathLength="1" d="M168 86 V42"/><path class="pb-bar" pathLength="1" d="M187 86 V32"/><path class="pb-bar pb-bar-hot" pathLength="1" d="M206 86 V24"/><path class="pb-bar pb-bar-hot" pathLength="1" d="M225 86 V16"/></g>
               </svg>
             </div>
             <p class="stat-value problem-value">{{home.problem.stats.2.value}}</p>

@@ -1205,37 +1205,39 @@ body.nav-open { overflow: hidden; }
 .pb-ripple { fill: none; stroke: var(--anomaly); stroke-width: 1; opacity: 0.45; transform-box: fill-box; transform-origin: center; }
 .pb-nums text { fill: var(--text-muted); font-size: 11px; font-weight: 600; text-anchor: middle; font-variant-numeric: tabular-nums; }
 .pb-nums .pb-num-hit { fill: var(--anomaly); }
-.pb-bar { fill: rgba(255, 255, 255, 0.22); transform-box: fill-box; transform-origin: bottom; }
-.pb-bar-hot { fill: var(--anomaly); }
+/* bars are 12px strokes drawn bottom up (stroke-dashoffset), so growing them repaints without an SVG layout */
+.pb-bar { fill: none; stroke: rgba(255, 255, 255, 0.22); stroke-width: 12; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.pb-bar-hot { stroke: var(--anomaly); }
 .pb-base { stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }
 @media (min-width: 768px) { .problem-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } .problem-tile { padding: 32px; } }
 @media (min-width: 1024px) { .problem-grid { gap: 24px; } }
 .problem-tile, .problem-line { --p: 1; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-/* scrubbed by scroll (see "Scroll-scrubbed band" in script.js): every value below is the finished state at --p: 1 */
+/* scrubbed by scroll (see "Scroll-scrubbed band" in script.js): every value below is the finished state at --p: 1.
+   Not while pinned: the pinned band writes its values straight onto the elements (no custom properties to inherit). */
 @media (prefers-reduced-motion: no-preference) {
-  .problem-tile .pb-line { stroke-dashoffset: calc(1 - clamp(0, var(--p) / 0.8, 1)); }
-  .problem-tile .pb-area { opacity: clamp(0, (var(--p) - 0.55) / 0.45, 1); }
-  .problem-tile .pb-dot { opacity: clamp(0, var(--p) / 0.04, 1); }
-  .problem-tile .pb-ring { opacity: calc(0.35 * clamp(0, (var(--p) - 0.8) / 0.2, 1)); }
+  .pin-track:not(.pin-on) .problem-tile .pb-line { stroke-dashoffset: calc(1 - clamp(0, var(--p) / 0.8, 1)); }
+  .pin-track:not(.pin-on) .problem-tile .pb-area { opacity: clamp(0, (var(--p) - 0.55) / 0.45, 1); }
+  .pin-track:not(.pin-on) .problem-tile .pb-dot { opacity: clamp(0, var(--p) / 0.04, 1); }
+  .pin-track:not(.pin-on) .problem-tile .pb-ring { opacity: calc(0.35 * clamp(0, (var(--p) - 0.8) / 0.2, 1)); }
   /* the end dot rides the tip of the curve: --t is the curve parameter at drawn length --s, x(t) and y(t) its cubic */
-  .problem-tile .pb-tip { --s: clamp(0, var(--p) / 0.8, 1); --t: calc(0.9598 * var(--s) + 0.0583 * var(--s) * var(--s) - 0.0181 * var(--s) * var(--s) * var(--s)); transform: translate(calc((246 * var(--t) - 6 * var(--t) * var(--t) - 16 * var(--t) * var(--t) * var(--t) - 224) * 1px), calc((68 - 6 * var(--t) - 48 * var(--t) * var(--t) - 14 * var(--t) * var(--t) * var(--t)) * 1px)); }
-  .problem-tile .pb-stain { opacity: clamp(0, var(--p) / 0.12, 1); }
-  .problem-tile .pb-hole, .problem-tile .pb-nums text { --k: 0; --q: clamp(0, (var(--p) - var(--k) * 0.17) / 0.2, 1); opacity: var(--q); }
-  .problem-tile .pb-hole { transform: scale(calc(0.3 + 0.7 * var(--q))); }
-  .problem-tile .pb-hole:nth-child(2), .problem-tile .pb-nums text:nth-child(2) { --k: 1; } .problem-tile .pb-hole:nth-child(3), .problem-tile .pb-nums text:nth-child(3) { --k: 2; }
-  .problem-tile .pb-hole:nth-child(4), .problem-tile .pb-nums text:nth-child(4) { --k: 3; } .problem-tile .pb-hole:nth-child(5), .problem-tile .pb-nums text:nth-child(5) { --k: 4; }
-  .problem-tile .pb-trail-m { --k: 0; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - var(--k) * 0.17 - 0.1) / 0.11, 1)); }
-  .problem-tile #pbw-m2 .pb-trail-m { --k: 1; } .problem-tile #pbw-m3 .pb-trail-m { --k: 2; } .problem-tile #pbw-m4 .pb-trail-m { --k: 3; }
-  .problem-tile .pb-leak { opacity: clamp(0, (var(--p) - 0.86) / 0.14, 1); }
+  .pin-track:not(.pin-on) .problem-tile .pb-tip { --s: clamp(0, var(--p) / 0.8, 1); --t: calc(0.9598 * var(--s) + 0.0583 * var(--s) * var(--s) - 0.0181 * var(--s) * var(--s) * var(--s)); transform: translate(calc((246 * var(--t) - 6 * var(--t) * var(--t) - 16 * var(--t) * var(--t) * var(--t) - 224) * 1px), calc((68 - 6 * var(--t) - 48 * var(--t) * var(--t) - 14 * var(--t) * var(--t) * var(--t)) * 1px)); }
+  .pin-track:not(.pin-on) .problem-tile .pb-stain { opacity: clamp(0, var(--p) / 0.12, 1); }
+  .pin-track:not(.pin-on) .problem-tile .pb-hole, .pin-track:not(.pin-on) .problem-tile .pb-nums > g { --k: 0; --q: clamp(0, (var(--p) - var(--k) * 0.17) / 0.2, 1); opacity: var(--q); }
+  .pin-track:not(.pin-on) .problem-tile .pb-hole { transform: scale(calc(0.3 + 0.7 * var(--q))); }
+  .pin-track:not(.pin-on) .problem-tile .pb-hole:nth-child(2), .pin-track:not(.pin-on) .problem-tile .pb-nums > g:nth-child(2) { --k: 1; } .pin-track:not(.pin-on) .problem-tile .pb-hole:nth-child(3), .pin-track:not(.pin-on) .problem-tile .pb-nums > g:nth-child(3) { --k: 2; }
+  .pin-track:not(.pin-on) .problem-tile .pb-hole:nth-child(4), .pin-track:not(.pin-on) .problem-tile .pb-nums > g:nth-child(4) { --k: 3; } .pin-track:not(.pin-on) .problem-tile .pb-hole:nth-child(5), .pin-track:not(.pin-on) .problem-tile .pb-nums > g:nth-child(5) { --k: 4; }
+  .pin-track:not(.pin-on) .problem-tile .pb-trail-m { --k: 0; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - var(--k) * 0.17 - 0.1) / 0.11, 1)); }
+  .pin-track:not(.pin-on) .problem-tile #pbw-m2 .pb-trail-m { --k: 1; } .pin-track:not(.pin-on) .problem-tile #pbw-m3 .pb-trail-m { --k: 2; } .pin-track:not(.pin-on) .problem-tile #pbw-m4 .pb-trail-m { --k: 3; }
+  .pin-track:not(.pin-on) .problem-tile .pb-leak { opacity: clamp(0, (var(--p) - 0.86) / 0.14, 1); }
   body.has-scrub .problem-tile .pb-drop { animation: pb-drip 2.6s ease-in-out infinite paused; }
   body.has-scrub .problem-tile .pb-ripple { animation: pb-ripple 2.6s ease-out infinite paused; }
   body.has-scrub .problem-tile.is-done.is-near .pb-drop, body.has-scrub .problem-tile.is-done.is-near .pb-ripple { animation-play-state: running; }
-  .problem-tile .pb-bar { --k: 0; transform: scaleY(clamp(0, (var(--p) - var(--k) * 0.06) / 0.34, 1)); }
-  .problem-tile .pb-bar:nth-child(2) { --k: 1; } .problem-tile .pb-bar:nth-child(3) { --k: 2; } .problem-tile .pb-bar:nth-child(4) { --k: 3; } .problem-tile .pb-bar:nth-child(5) { --k: 4; }
-  .problem-tile .pb-bar:nth-child(6) { --k: 5; } .problem-tile .pb-bar:nth-child(7) { --k: 6; } .problem-tile .pb-bar:nth-child(8) { --k: 7; } .problem-tile .pb-bar:nth-child(9) { --k: 8; }
-  .problem-tile .pb-bar:nth-child(10) { --k: 9; } .problem-tile .pb-bar:nth-child(11) { --k: 10; } .problem-tile .pb-bar:nth-child(12) { --k: 11; }
-  .problem-line .scrub-word { opacity: calc(0.28 + 0.72 * clamp(0, (var(--p) - var(--a)) / 0.2, 1)); }
+  .pin-track:not(.pin-on) .problem-tile .pb-bar { --k: 0; stroke-dashoffset: calc(1 - clamp(0, (var(--p) - var(--k) * 0.06) / 0.34, 1)); }
+  .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(2) { --k: 1; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(3) { --k: 2; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(4) { --k: 3; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(5) { --k: 4; }
+  .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(6) { --k: 5; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(7) { --k: 6; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(8) { --k: 7; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(9) { --k: 8; }
+  .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(10) { --k: 9; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(11) { --k: 10; } .pin-track:not(.pin-on) .problem-tile .pb-bar:nth-child(12) { --k: 11; }
+  .pin-track:not(.pin-on) .problem-line .scrub-word { opacity: calc(0.28 + 0.72 * clamp(0, (var(--p) - var(--a)) / 0.2, 1)); }
   .problem-value { transition: color 240ms ease; }
 }
 @media (prefers-reduced-motion: reduce) { .pb-line { stroke-dashoffset: 0; transition: none; } .pb-area, .pb-dot { opacity: 1; transition: none; } .pb-bar { transform: scaleY(1); transition: none; } .pb-hole { opacity: 1; transform: none; transition: none; } .pb-ring, .pb-drop, .pb-ripple { animation: none; } }
@@ -1244,18 +1246,23 @@ body.nav-open { overflow: hidden; }
 .pin-on .problem-band { position: sticky; top: var(--pin-top, 72px); display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - var(--pin-top, 72px)); min-height: calc(100svh - var(--pin-top, 72px)); padding-block: clamp(16px, 3.4svh, 48px); }
 .pin-on .problem-band .section-head { margin-bottom: clamp(14px, 2.6svh, 36px); }
 .pin-on .pin-rail { display: block; height: 2px; margin-top: clamp(12px, 2svh, 24px); border-radius: 2px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
-.pin-on .pin-rail span { display: block; height: 100%; background: var(--accent); transform: scaleX(var(--pp, 0)); transform-origin: 0 50%; }
+.pin-on .pin-rail span { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; }
 .pin-on .problem-line { margin-top: clamp(16px, 3.4svh, 40px); }
-.pin-on .problem-tile { padding-block: clamp(18px, 3svh, 32px); }
+.pin-on .problem-tile { position: relative; contain: layout style; padding-block: clamp(18px, 3svh, 32px); -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(13, 13, 13, 0.86); }
+.pb-focus { display: none; }
+.pin-on .pb-focus { display: block; position: absolute; inset: -1px; border: 1px solid rgb(var(--accent-rgb) / 0.5); border-radius: inherit; box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35); opacity: 0; pointer-events: none; }
+.pin-on.pin-live .problem-tile, .pin-on.pin-live .problem-pic, .pin-on.pin-live .pb-focus, .pin-on.pin-live .pin-rail span, .pin-on.pin-live .problem-line { will-change: transform, opacity; }
 .pin-on .problem-pic svg { height: clamp(72px, 11svh, 96px); }
 .pin-on .problem-value { margin-top: clamp(10px, 2svh, 18px); }
 body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: none; transition: none; }
 @media (max-width: 767px) {
-  .pin-on .problem-grid { display: flex; gap: 14px; transform: translateX(calc(var(--slide, 0) * -1 * (86% + 14px))); }
+  .pin-on .problem-grid { display: flex; gap: 14px; }
+  .pin-on.pin-live .problem-grid { will-change: transform; }
   .pin-on .problem-tile { flex: 0 0 86%; }
 }
-@keyframes pb-drip { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.12); opacity: 0.75; } }
-@keyframes pb-ripple { 0%, 40% { transform: scale(0.4); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: scale(2); opacity: 0; } }
+/* idle pulse of the leak: opacity only, so it never asks for an SVG layout */
+@keyframes pb-drip { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+@keyframes pb-ripple { 0%, 40% { opacity: 0; } 55% { opacity: 0.55; } 100% { opacity: 0; } }
 
 @media (prefers-reduced-motion: no-preference) {
   .live-dot { animation: live-dot 1.6s ease-in-out infinite; }
