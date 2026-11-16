@@ -4,6 +4,7 @@
         <div class="hero-copy">
           <p class="eyebrow">{{home.hero.eyebrow}}</p>
           <h1>{{home.hero.h1}}</h1>
+          <p class="lead hero-sub">{{home.hero.sub}}</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}">{{cta.label}}</a>
             <p class="cta-line">{{cta.home}}</p>
@@ -82,51 +83,27 @@
           <p class="eyebrow">{{home.how.eyebrow}}</p>
           <h2 id="how-title">{{home.how.h2}}</h2>
         </div>
-        <div class="steps cols-4">
+        <div class="steps hm-steps">
           <div class="step" data-reveal>
-            <div class="step-visual">
-              {{{installSvgCompact}}}
+            <div class="step-visual hm-vis">
+              <div class="hm-play dc-path">{{{homeClampSvg}}}</div>
             </div>
             <h3 class="step-name">{{home.how.steps.0.name}}</h3>
             <p>{{home.how.steps.0.text}}</p>
           </div>
           <div class="step" data-reveal>
-            <div class="step-visual">
-              <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
-                <g class="chart-grid"><line x1="30" y1="70" x2="380" y2="70"/><line x1="30" y1="130" x2="380" y2="130"/><line x1="30" y1="190" x2="380" y2="190"/><line x1="30" y1="250" x2="380" y2="250"/></g>
-                <path class="chart-band" d="M30 200 C70 196 90 120 130 118 C170 116 190 170 230 172 C270 174 290 110 330 112 C350 113 365 150 380 150 L380 176 C365 176 350 139 330 138 C290 136 270 200 230 198 C190 196 170 142 130 144 C90 146 70 222 30 226 Z"/>
-                <path class="chart-base" d="M30 213 C70 211 90 133 130 131 C170 129 190 185 230 185 C270 185 290 123 330 125 C350 126 365 163 380 163"/>
-                <path class="chart-live" d="M30 216 C70 212 90 136 130 134 C170 132 190 188 230 186 C270 184 290 126 330 128 C350 129 365 160 380 161"/>
-                <text class="chart-text-strong" x="30" y="40">{{product.data.chart.baseline}}</text>
-                <text class="chart-text" x="30" y="280">{{product.data.chart.days.0}}</text>
-                <text class="chart-text" x="355" y="280">{{product.data.chart.days.6}}</text>
-              </svg>
+            <div class="step-visual hm-vis">
+              <div class="hm-play dc-path">{{{homeLearnSvg}}}</div>
             </div>
             <h3 class="step-name">{{home.how.steps.1.name}}</h3>
             <p>{{home.how.steps.1.text}}</p>
           </div>
           <div class="step" data-reveal>
-            <div class="step-visual">
-              <svg viewBox="0 0 400 300" aria-hidden="true" focusable="false">
-                <g class="chart-grid"><line x1="30" y1="70" x2="380" y2="70"/><line x1="30" y1="130" x2="380" y2="130"/><line x1="30" y1="190" x2="380" y2="190"/><line x1="30" y1="250" x2="380" y2="250"/></g>
-                <path class="chart-band" d="M30 200 C70 196 90 196 130 198 C170 200 190 196 230 198 C270 200 290 196 330 198 C350 199 365 196 380 198 L380 226 C365 224 350 227 330 226 C290 224 270 228 230 226 C190 224 170 228 130 226 C90 224 70 224 30 228 Z"/>
-                <path class="chart-base" d="M30 214 C70 210 90 210 130 212 C170 214 190 210 230 212 C270 214 290 210 330 212 C350 213 365 210 380 212"/>
-                <path class="chart-live chart-live-anomaly" d="M30 216 C70 212 90 212 130 214 C170 216 190 212 220 210 C250 206 270 150 300 120 C320 100 350 86 380 80"/>
-                <circle class="chart-flag" cx="380" cy="80" r="5"/>
-                <text class="chart-text-strong" x="30" y="40">{{product.data.chart.deviation}}</text>
-                <text class="chart-text" x="30" y="280">{{product.data.chart.days.0}}</text>
-                <text class="chart-text" x="355" y="280">{{product.data.chart.days.6}}</text>
-              </svg>
+            <div class="step-visual hm-vis">
+              <div class="hm-play dc-path">{{{homeLocateSvg}}}</div>
             </div>
             <h3 class="step-name">{{home.how.steps.2.name}}</h3>
             <p>{{home.how.steps.2.text}}</p>
-          </div>
-          <div class="step" data-reveal>
-            <div class="step-visual">
-              {{{twinSvg}}}
-            </div>
-            <h3 class="step-name">{{home.how.steps.3.name}}</h3>
-            <p>{{home.how.steps.3.text}}</p>
           </div>
         </div>
         <p class="steps-cta"><a class="link-arrow" href="{{urls.product}}">{{common.learnMore}}</a></p>
@@ -155,6 +132,19 @@
             <p>{{home.who.cards.2.text}}</p>
             <span class="link-arrow">{{home.who.cards.2.link}}</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pf-section" aria-labelledby="pf-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{home.portfolio.eyebrow}}</p>
+          <h2 id="pf-title">{{home.portfolio.h2}}</h2>
+          <p class="lead pf-line">{{home.portfolio.line}}</p>
+        </div>
+        <div class="pf-stage dc-path">
+          {{{portfolioStageSvg}}}
         </div>
       </div>
     </section>

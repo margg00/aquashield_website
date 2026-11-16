@@ -118,17 +118,10 @@
   "building": {
     "riser": "Steigleitung B",
     "floor": "3. OG",
-    "flag": "Abweichung erkannt",
-    "normal": "Normaler Durchfluss",
-    "learning": "Lernt den normalen Durchfluss",
-    "deviation": "Abweichung erkannt",
-    "localised": "Geortet: Steigleitung B, 3. OG",
-    "reviewed": "Mit der Haustechnik geprüft",
-    "model": "KI-gestützte Modelle",
-    "chartTitle": "Steigleitung B, 7 Tage",
-    "chartBase": "Normal",
-    "chartLive": "Live",
-    "sensors": "Clamp-on-Sensoren"
+    "sensor": "Clamp-on-Sensor",
+    "listening": "Hört ins Rohr hinein",
+    "located": "Leck geortet: Steigleitung B, 3. OG",
+    "portfolio": "Jedes Gebäude im Blick"
   },
   "logos": {
     "backed": "Unterstützt von",
@@ -187,10 +180,10 @@
   "home": {
     "hero": {
       "eyebrow": "KI-Leckageerkennung für Gebäude",
-      "h1": "Lecks orten, bevor Schaden entsteht.",
-      "proof": "Live in Deutschland und den USA. Unterstützt von Y Combinator.",
-      "visualAlt": "Drahtgitter-Gebäude mit fünf Stockwerken und drei Steigleitungen. Eine Steigleitung leuchtet rot an der Abweichung im dritten Obergeschoss.",
-      "live": "Live in Deutschland und den USA."
+      "h1": "Die erste Leckageerkennung für grosse Portfolios.",
+      "visualAlt": "Im Inneren eines Wasserrohrs sendet ein Clamp-on-Sensor Schallwellen durch die Strömung. Die Ansicht zoomt auf ein Glasgebäude, in dem Steigleitung B im 3. OG aufleuchtet, und dann auf einen Häuserblock mit überwachten Gebäuden.",
+      "live": "Live in Europa und den USA.",
+      "sub": "Lecks orten, bevor Schaden entsteht."
     },
     "problem": {
       "eyebrow": "Das Problem",
@@ -218,23 +211,22 @@
     },
     "how": {
       "eyebrow": "So funktioniert es",
-      "h2": "Vier Schritte vom Rohr zum Alarm.",
+      "h2": "Vom Rohr zum Alarm in drei Schritten.",
       "steps": [
         {
-          "name": "Installieren",
-          "text": "Clamp-on-Sensoren kommen in unter 15 Minuten pro Stück auf bestehende Rohre. Kein Rohrschnitt."
+          "name": "Anklemmen",
+          "text": "Sensoren werden in Sekunden an Ihre Rohre geklemmt. Nichts wird aufgeschnitten.",
+          "alt": "Ein Sensor wird an ein Rohr geklemmt und sendet Wellen durch das Wasser."
         },
         {
           "name": "Lernen",
-          "text": "Unser Modell lernt den normalen Durchfluss Ihres Gebäudes in 10-Minuten-Schritten."
-        },
-        {
-          "name": "Erkennen",
-          "text": "Abweichungen vom Normalverlauf werden markiert und nach Schweregrad sortiert."
+          "text": "Unsere Modelle lernen den normalen Durchfluss jedes Gebäudes.",
+          "alt": "Eine ruhige Welle bewegt sich in einem weichen Band: der normale Rhythmus des Gebäudes."
         },
         {
           "name": "Orten",
-          "text": "Ein digitaler Zwilling der Rohrinstallation grenzt das Leck auf eine Steigleitung oder einen Gebäudeabschnitt ein."
+          "text": "Aus einer Abweichung wird ein Ort: die Steigleitung und die zu prüfenden Stockwerke.",
+          "alt": "Ein Gebäudeumriss. Ein Abschnitt einer Steigleitung leuchtet auf und eine Markierung fällt darauf."
         }
       ]
     },
@@ -244,7 +236,7 @@
       "cards": [
         {
           "name": "Immobilien",
-          "text": "Portfolios mit eigener Haustechnik. Jeder Strang kartiert, jedes Leck geortet, bevor der Mieter anruft.",
+          "text": "Jeder Strang kartiert, jedes Leck geortet, bevor der Mieter anruft.",
           "link": "Für Immobilien",
           "key": "real-estate"
         },
@@ -262,10 +254,19 @@
         }
       ]
     },
+    "portfolio": {
+      "eyebrow": "Portfolio",
+      "h2": "Eine Ansicht für Ihr ganzes Portfolio.",
+      "line": "Jedes Gebäude, jede Steigleitung, ein Bildschirm. Starten Sie mit einem Standort und wachsen Sie bis zum ganzen Portfolio.",
+      "building": "Gebäude 14",
+      "detail": "Steigleitung B · 3. bis 5. OG prüfen",
+      "done": "Früh erkannt",
+      "alt": "Ein Häuserblock mit überwachten Gebäuden. Ein Gebäude meldet ein Leck, eine Alarmkarte nennt Steigleitung B und das 3. bis 5. OG, dann wird die Markierung zu einem Häkchen."
+    },
     "proof": {
       "eyebrow": "Nachweis",
       "h2": "So sieht ein echter Alarm aus.",
-      "line": "Live in Deutschland und den USA seit März 2026. Forschungspiloten mit den Facility-Teams von MIT und EPFL."
+      "line": "Live in Europa und den USA. Forschung mit den Facility-Teams von MIT und EPFL."
     },
     "final": {
       "h2": "Das nächste Leck früh erkennen.",

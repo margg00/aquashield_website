@@ -118,17 +118,10 @@
   "building": {
     "riser": "Colonne B",
     "floor": "3e étage",
-    "flag": "Écart détecté",
-    "normal": "Débit normal",
-    "learning": "Apprend le débit normal",
-    "deviation": "Écart détecté",
-    "localised": "Localisé : colonne B, 3e étage",
-    "reviewed": "Vérifié avec l'équipe de maintenance",
-    "model": "Modèles basés sur l’IA",
-    "chartTitle": "Colonne B, 7 jours",
-    "chartBase": "Normal",
-    "chartLive": "En direct",
-    "sensors": "Capteurs à pince"
+    "sensor": "Capteur à pince",
+    "listening": "À l'écoute dans la canalisation",
+    "located": "Fuite localisée : colonne B, 3e étage",
+    "portfolio": "Chaque bâtiment en vue"
   },
   "logos": {
     "backed": "Soutenu par",
@@ -187,10 +180,10 @@
   "home": {
     "hero": {
       "eyebrow": "Détection de fuites par IA pour bâtiments",
-      "h1": "Localisez les fuites avant les dégâts.",
-      "proof": "En service en Allemagne et aux États-Unis. Soutenu par Y Combinator.",
-      "visualAlt": "Bâtiment en fil de fer avec cinq étages et trois colonnes montantes. Une colonne montante s'allume en rouge à l'écart détecté au troisième étage.",
-      "live": "En service en Allemagne et aux États-Unis."
+      "h1": "La première détection de fuites pour les grands parcs immobiliers.",
+      "visualAlt": "À l'intérieur d'une canalisation, un capteur à pince envoie des ondes sonores à travers l'écoulement. La vue recule vers un bâtiment de verre où la colonne B s'allume au 3e étage, puis vers un îlot de bâtiments surveillés.",
+      "live": "En service en Europe et aux États-Unis.",
+      "sub": "Localisez les fuites avant les dégâts."
     },
     "problem": {
       "eyebrow": "Le problème",
@@ -218,23 +211,22 @@
     },
     "how": {
       "eyebrow": "Comment ça marche",
-      "h2": "Quatre étapes de la canalisation à l'alerte.",
+      "h2": "De la canalisation à l'alerte en trois étapes.",
       "steps": [
         {
-          "name": "Installer",
-          "text": "Les capteurs à pince se posent sur les canalisations existantes en moins de 15 minutes chacun. Sans découpe de tuyau."
+          "name": "Fixer",
+          "text": "Les capteurs se fixent sur vos canalisations en quelques secondes. Rien n'est coupé.",
+          "alt": "Un capteur se fixe sur une canalisation et envoie des ondes à travers l'eau."
         },
         {
           "name": "Apprendre",
-          "text": "Notre modèle apprend le débit normal de votre bâtiment par pas de 10 minutes."
-        },
-        {
-          "name": "Détecter",
-          "text": "Les écarts par rapport au normal sont signalés et classés par gravité."
+          "text": "Nos modèles apprennent le débit normal de chaque bâtiment.",
+          "alt": "Une onde calme avance dans une bande douce : le rythme normal du bâtiment."
         },
         {
           "name": "Localiser",
-          "text": "Un jumeau numérique de la plomberie ramène la fuite à une colonne montante ou à une section du bâtiment."
+          "text": "Un écart devient un lieu : la colonne et les étages à vérifier.",
+          "alt": "Le contour d'un bâtiment. Un tronçon de colonne s'allume et un repère tombe dessus."
         }
       ]
     },
@@ -244,7 +236,7 @@
       "cards": [
         {
           "name": "Immobilier",
-          "text": "Parcs immobiliers avec maintenance interne. Chaque colonne cartographiée, chaque fuite localisée avant l'appel du locataire.",
+          "text": "Chaque colonne cartographiée, chaque fuite localisée avant l'appel du locataire.",
           "link": "Pour l'immobilier",
           "key": "real-estate"
         },
@@ -262,10 +254,19 @@
         }
       ]
     },
+    "portfolio": {
+      "eyebrow": "Parc immobilier",
+      "h2": "Une seule vue de tout votre parc.",
+      "line": "Chaque bâtiment, chaque colonne, un seul écran. Commencez par un site, étendez à tout le parc.",
+      "building": "Bâtiment 14",
+      "detail": "Colonne B · vérifier les étages 3 à 5",
+      "done": "Détectée à temps",
+      "alt": "Un îlot de bâtiments surveillés. Un bâtiment signale une fuite, une carte d'alerte indique la colonne B et les étages 3 à 5, puis le signal devient une coche."
+    },
     "proof": {
       "eyebrow": "Preuve",
       "h2": "À quoi ressemble une vraie alerte.",
-      "line": "En service en Allemagne et aux États-Unis depuis mars 2026. Pilotes de recherche avec les services techniques du MIT et de l'EPFL."
+      "line": "En service en Europe et aux États-Unis. Recherche avec les services techniques du MIT et de l'EPFL."
     },
     "final": {
       "h2": "Détectez la prochaine fuite à temps.",
