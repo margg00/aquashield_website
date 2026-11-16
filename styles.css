@@ -1475,10 +1475,12 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
 /* ---------- Product: the sensor close-up and the real twin model ---------- */
 .sensor-head { max-width: 640px; margin-inline: auto; text-align: center; }
 .sensor-section .media-sensor { max-width: 960px; margin-inline: auto; }
-.twin-model-title { max-width: 720px; margin-bottom: clamp(24px, 4vw, 40px); }
-.twin-model-figure { max-width: 1000px; }
-.twin-model-figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; background: #0f1113; }
-.twin-model-figure figcaption { margin-top: 14px; color: var(--text-muted); font-size: var(--fs-small); }
+.twin-model-grid { display: grid; gap: 32px; align-items: center; }
+.twin-model-copy h2 { max-width: 16ch; }
+.twin-model-copy p { margin-top: 16px; max-width: 44ch; color: var(--text-secondary); font-size: var(--fs-lead); line-height: 1.55; }
+.twin-model-figure { margin: 0; justify-self: center; width: 100%; max-width: 440px; }
+.twin-model-figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; background: #000; }
+@media (min-width: 900px) { .twin-model-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 64px; } }
 
 /* ---------- Real estate: the live line under the sample alert, the four steps as a timeline ---------- */
 .live-line { display: flex; align-items: baseline; margin-top: 18px; color: var(--text-secondary); font-size: var(--fs-small); }

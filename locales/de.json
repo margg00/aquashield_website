@@ -353,9 +353,9 @@
       }
     ],
     "twinModel": {
-      "h2": "Ein echtes Gebäude in unserem digitalen Zwilling",
-      "caption": "Leitungen, Abzweige und Sensoren eines Standorts, so wie unser Modell sie sieht.",
-      "alt": "3D-Ansicht der Rohrinstallation eines Gebäudes im digitalen Zwilling von AquaShield: Steigleitungen und Abzweige als Rohre, Sensoren als blaue Markierungen."
+      "h2": "Der digitale Zwilling, in 3D",
+      "caption": "Steigleitungen, Abzweige und Sensoren eines Gebäudes, so wie unser Modell sie sieht. Ein Klick auf einen Sensor zeigt seinen Durchfluss.",
+      "alt": "3D-Modell eines zehnstöckigen Gebäudes mit vier Steigleitungen, Abzweigen auf jedem Stockwerk und Clamp-on-Sensoren an den Steigleitungen."
     }
   },
   "realEstate": {

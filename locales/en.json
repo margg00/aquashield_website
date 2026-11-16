@@ -353,9 +353,9 @@
       }
     ],
     "twinModel": {
-      "h2": "A real building in our digital twin",
-      "caption": "Pipes, branches and sensors of one site, as our model sees them.",
-      "alt": "3D view of one building's plumbing in the AquaShield digital twin: risers and branches as pipes, sensors as blue markers."
+      "h2": "The digital twin, in 3D",
+      "caption": "Risers, branches and sensors of a building, as our model sees them. Click a sensor and you see its flow.",
+      "alt": "3D model of a ten-floor building with four risers, branches on every floor and clamp-on sensors on the risers."
     }
   },
   "realEstate": {

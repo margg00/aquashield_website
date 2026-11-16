@@ -353,9 +353,9 @@
       }
     ],
     "twinModel": {
-      "h2": "Un vrai bâtiment dans notre jumeau numérique",
-      "caption": "Conduites, dérivations et capteurs d'un site, tels que notre modèle les voit.",
-      "alt": "Vue 3D de la plomberie d'un bâtiment dans le jumeau numérique AquaShield : colonnes et dérivations en conduites, capteurs en repères bleus."
+      "h2": "Le jumeau numérique, en 3D",
+      "caption": "Colonnes montantes, dérivations et capteurs d’un bâtiment, tels que notre modèle les voit. Un clic sur un capteur affiche son débit.",
+      "alt": "Modèle 3D d’un bâtiment de dix étages avec quatre colonnes montantes, des dérivations à chaque étage et des capteurs à pince sur les colonnes."
     }
   },
   "realEstate": {

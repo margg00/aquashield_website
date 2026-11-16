@@ -64,11 +64,13 @@
     </section>
 
     <section class="section twin-model" aria-labelledby="twin-model-title">
-      <div class="container">
-        <h2 id="twin-model-title" class="twin-model-title">{{product.twinModel.h2}}</h2>
-        <figure class="twin-model-figure">
-          <img src="{{base}}assets/img/product/twin-model.webp" srcset="{{base}}assets/img/product/twin-model-700.webp 700w, {{base}}assets/img/product/twin-model.webp 1071w" sizes="(min-width: 1100px) 1000px, calc(100vw - 32px)" width="1071" height="660" alt="{{product.twinModel.alt}}" loading="lazy" decoding="async">
-          <figcaption>{{product.twinModel.caption}}</figcaption>
+      <div class="container twin-model-grid">
+        <div class="twin-model-copy">
+          <h2 id="twin-model-title">{{product.twinModel.h2}}</h2>
+          <p>{{product.twinModel.caption}}</p>
+        </div>
+        <figure class="twin-model-figure" data-reveal>
+          <img src="{{base}}assets/img/product/twin-model.webp" srcset="{{base}}assets/img/product/twin-model-700.webp 560w, {{base}}assets/img/product/twin-model.webp 900w" sizes="(min-width: 900px) 440px, calc(100vw - 32px)" width="900" height="1210" alt="{{product.twinModel.alt}}" loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
