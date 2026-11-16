@@ -96,8 +96,8 @@
         "line": "Clamp-on-Montage, kein Rohrschnitt"
       },
       {
-        "value": "Stunden",
-        "label": "Bis ein Leck geortet ist",
+        "value": "Am selben Tag",
+        "label": "Zeit bis zur Ortung eines Lecks",
         "line": "statt Wochen oder Monaten"
       },
       {

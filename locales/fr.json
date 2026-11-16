@@ -96,8 +96,8 @@
         "line": "pose à pince, sans découpe"
       },
       {
-        "value": "Heures",
-        "label": "Pour localiser une fuite",
+        "value": "Le jour même",
+        "label": "Délai pour localiser une fuite",
         "line": "au lieu de semaines ou de mois"
       },
       {
