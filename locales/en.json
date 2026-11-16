@@ -101,17 +101,10 @@
   "building": {
     "riser": "Riser B",
     "floor": "floor 3",
-    "flag": "Deviation flagged",
-    "normal": "Normal flow",
-    "learning": "Learning normal flow",
-    "deviation": "Deviation flagged",
-    "localised": "Localised: riser B, floor 3",
-    "reviewed": "Reviewed with the maintenance team",
-    "model": "AI-powered models",
-    "chartTitle": "Riser B, seven days",
-    "chartBase": "Normal",
-    "chartLive": "Live",
-    "sensors": "Clamp-on sensors"
+    "sensor": "Clamp-on sensor",
+    "listening": "Listening inside the pipe",
+    "located": "Leak located: riser B, floor 3",
+    "portfolio": "Every building in view"
   },
   "logos": {
     "backed": "Backed by",
@@ -170,10 +163,10 @@
   "home": {
     "hero": {
       "eyebrow": "AI leak detection for buildings",
-      "h1": "Localise leaks before damage happens.",
-      "proof": "Live in Germany and the US. Backed by Y Combinator.",
-      "visualAlt": "Wireframe building with five floors and three risers. One riser glows red at the deviation on floor three.",
-      "live": "Live in Germany and the US."
+      "h1": "The first leak detection for large portfolios.",
+      "visualAlt": "Inside a water pipe, a clamp-on sensor sends sound waves across the flow. The view pulls back to a glass building where riser B lights up at floor 3, then to a city block of monitored buildings.",
+      "live": "Live in Europe and the US.",
+      "sub": "Localize leaks before damage happens."
     },
     "problem": {
       "eyebrow": "The problem",
@@ -201,23 +194,22 @@
     },
     "how": {
       "eyebrow": "How it works",
-      "h2": "Four steps from pipe to alert.",
+      "h2": "From pipe to alert in three steps.",
       "steps": [
         {
-          "name": "Install",
-          "text": "Clamp-on sensors go onto existing pipes in under 15 minutes each. No pipe cutting."
+          "name": "Clamp on",
+          "text": "Sensors clamp onto your pipes in seconds. Nothing is cut.",
+          "alt": "A sensor clamps onto a pipe and starts sending waves through the water."
         },
         {
           "name": "Learn",
-          "text": "Our model learns your building's normal flow in 10-minute steps."
+          "text": "Our models learn each building's normal flow.",
+          "alt": "A calm waveform moves inside a soft band: the building's normal rhythm."
         },
         {
-          "name": "Detect",
-          "text": "Deviations from normal are flagged and ranked by severity."
-        },
-        {
-          "name": "Localise",
-          "text": "A digital twin of the plumbing narrows the leak to a riser or a building section."
+          "name": "Locate",
+          "text": "A deviation becomes a place: the riser and the floors to check.",
+          "alt": "A building outline. One riser segment lights up and a pin drops on it."
         }
       ]
     },
@@ -227,7 +219,7 @@
       "cards": [
         {
           "name": "Real estate",
-          "text": "Portfolios with in-house maintenance. Every riser mapped, every leak located before the tenant calls.",
+          "text": "Every riser mapped, every leak located before the tenant calls.",
           "link": "For real estate",
           "key": "real-estate"
         },
@@ -238,17 +230,26 @@
           "key": "insurance"
         },
         {
-          "name": "Data centres",
+          "name": "Data centers",
           "text": "Flow sensing per rack for liquid cooling.",
-          "link": "For data centres",
+          "link": "For data centers",
           "key": "data-centers"
         }
       ]
     },
+    "portfolio": {
+      "eyebrow": "Portfolio",
+      "h2": "One view of your whole portfolio.",
+      "line": "Every building, every riser, one screen. Start with one site, scale to the full portfolio.",
+      "building": "Building 14",
+      "detail": "Riser B · check floors 3 to 5",
+      "done": "Caught early",
+      "alt": "A city block of monitored buildings. One building flags a leak, an alert card names riser B and floors 3 to 5, then the flag turns into a check mark."
+    },
     "proof": {
       "eyebrow": "Proof",
       "h2": "What a real alert looks like.",
-      "line": "Live in Germany and the US since March 2026. Research pilots with MIT and EPFL facilities."
+      "line": "Live in Europe and the US. Research with MIT and EPFL facilities."
     },
     "final": {
       "h2": "Catch the next leak early.",
