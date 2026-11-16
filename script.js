@@ -4,6 +4,54 @@
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---------- Language by browser ----------
+  // There is no language switch in the header. On a visitor's first page view (no stored choice), an English
+  // page with a German or French translation (its own hreflang alternate links) sends a visitor whose browser
+  // prefers German or French there once, with location.replace. The choice is stored, so it never happens
+  // again, and a click on a footer language link stores that language, so a manual choice always wins.
+  // Never for crawlers, never when the visit came from another page of this site (that includes the other
+  // language versions), and only ever from English, so a redirect cannot loop.
+  var LANG_KEY = "aquashield-lang";
+  var readLang = function () { try { return window.localStorage.getItem(LANG_KEY); } catch (err) { return null; } };
+  var saveLang = function (v) { try { window.localStorage.setItem(LANG_KEY, v); } catch (err) { /* storage blocked: no memory */ } };
+  document.querySelectorAll(".lang-switch-footer a[hreflang]").forEach(function (a) {
+    a.addEventListener("click", function () { saveLang(a.getAttribute("hreflang")); });
+  });
+  var langTarget = (function () {
+    var pageLang = (document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+    if (readLang()) return null;
+    var ua = navigator.userAgent || "";
+    if (/bot|crawl|spider|slurp|mediapartners|lighthouse|headless|preview|facebookexternalhit|embedly|pinterest|vkshare|w3c_validator|ia_archiver/i.test(ua)) return null;
+    var fromSite = false;
+    try { fromSite = Boolean(document.referrer) && new URL(document.referrer).origin === window.location.origin; } catch (err) { fromSite = false; }
+    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+    var want = String(prefs[0] || "").slice(0, 2).toLowerCase();
+    saveLang(pageLang);
+    if (fromSite || pageLang !== "en" || (want !== "de" && want !== "fr")) return null;
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + want + '"]');
+    var own = document.querySelector('link[rel="alternate"][hreflang="en"]');
+    if (!alt || !own) return null;
+    var altUrl, ownUrl;
+    try { altUrl = new URL(alt.href); ownUrl = new URL(own.href); } catch (err) { return null; }
+    // The same page in the other language, on whatever host and folder this copy of the site is served from
+    // (the alternates name the live domain, a local preview lives elsewhere).
+    var here = window.location.pathname;
+    var hereDir = here.replace(/index\.html$/, "");
+    var target;
+    if (hereDir.slice(-ownUrl.pathname.length) === ownUrl.pathname) {
+      target = hereDir.slice(0, hereDir.length - ownUrl.pathname.length) + altUrl.pathname;
+      if (here !== hereDir && /\/$/.test(target)) target += "index.html";
+      target = window.location.protocol === "file:" ? "file://" + target : window.location.origin + target;
+    } else if (altUrl.origin === window.location.origin) {
+      target = altUrl.href.split("#")[0].split("?")[0];
+    } else {
+      return null;
+    }
+    saveLang(want);
+    return target + window.location.search + window.location.hash;
+  })();
+  if (langTarget) { window.location.replace(langTarget); return; }
+
   // ---------- Start a fresh page at the top ----------
   // Back and forward keep the browser's own scroll restoration. A link click (or a typed URL)
   // without a #hash always opens the new page at its top, also inside an auto-height preview
@@ -102,35 +150,6 @@
     };
     requestAnimationFrame(step);
   };
-
-  // ---------- Live counter ----------
-  var counter = document.querySelector("[data-counter]");
-  if (counter) {
-    var dataEl = counter.querySelector("[data-sites]");
-    var readingsEl = counter.querySelector("[data-counter-readings]");
-    if (dataEl && readingsEl) {
-      try {
-        var sites = JSON.parse(dataEl.textContent).sites;
-        var lang = readingsEl.getAttribute("data-lang") || "en";
-        var fmt = new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US");
-        var compute = function () {
-          var now = Date.now();
-          var total = 0;
-          sites.forEach(function (s) {
-            var days = Math.max(0, (now - Date.parse(s.liveSince)) / 86400000);
-            total += s.points * 144 * days;
-          });
-          return Math.floor(total);
-        };
-        // Same number format as the ticking total (the build-time per-day figure may differ, e.g. fr-CH separators)
-        var perDayEl = counter.querySelector("[data-counter-perday]");
-        if (perDayEl) perDayEl.textContent = fmt.format(sites.reduce(function (n, s) { return n + s.points * 144; }, 0));
-        var paint = function () { if (readingsEl.getAttribute("data-counting")) return; readingsEl.textContent = fmt.format(compute()); };
-        paint();
-        if (!reducedMotion) setInterval(paint, 1000);
-      } catch (err) { /* keep the build-time number */ }
-    }
-  }
 
   // ---------- Tooltips on touch ----------
   document.querySelectorAll(".info[data-tooltip]").forEach(function (btn) {
@@ -265,7 +284,8 @@
     [".ins-timeline", "svg"],
     [".ins-book-visual", ".media"],
     [".chapter", ".chapter-line, .chapter-node"],
-    [".spirit-tile", ".spirit-icon"]
+    [".spirit-tile", ".spirit-icon"],
+    [".proof-strip", ".proof-cells"]
   ];
   var LOOPS = ".hero-visual, .media-vis, .media-twin, .step-visual, .alert-card";
   var mainEl = document.querySelector("main");
@@ -287,6 +307,8 @@
     return (Math.min(b.bottom, vh) - Math.max(b.top, 0)) / b.height >= 0.45;
   };
   if ("IntersectionObserver" in window) {
+    // Proof strip: its values stay hidden until it plays (CSS keys on is-armed), so only when the play can run.
+    if (!reducedMotion) document.querySelectorAll(".proof-strip").forEach(function (el) { el.classList.add("is-armed"); });
     var items = [];
     PLAYS.forEach(function (pair) {
       document.querySelectorAll(pair[0]).forEach(function (el) {
@@ -298,10 +320,10 @@
     });
     var heroCounts = [];
     if (!reducedMotion) {
-      document.querySelectorAll(".stat-value").forEach(function (el) {
+      document.querySelectorAll(".stat-value, [data-count]").forEach(function (el) {
         if (el.closest("[data-scrub]")) return;
         if (inHero(el)) heroCounts.push(el);
-        else items.push({ el: el, parts: [el], kind: "count", dur: el.closest("[data-counter]") ? 1600 : 2000 });
+        else items.push({ el: el, parts: [el], kind: "count", dur: el.closest("[data-proof]") ? 1400 : 2000 });
       });
     }
     var heroLoops = [];

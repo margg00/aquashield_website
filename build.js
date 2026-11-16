@@ -3,7 +3,6 @@
   AquaShield site builder. No dependencies. Run: node build.js
 
   Reads  locales/<lang>.json   (every string on the site)
-         data/sites.json       (live-counter inputs)
          src/layout.html       (page shell)
          src/pages/*.html      (one template per page)
          src/partials/*.html   (shared pieces)
@@ -235,23 +234,6 @@ function addExtraVisuals(ctx, t) {
   return ctx;
 }
 
-// --- Counter numbers computed at build time (the browser keeps them ticking) --
-function counterSnapshot(sites) {
-  const now = Date.now();
-  let buildings = 0, points = 0, readings = 0;
-  sites.sites.forEach((s) => {
-    buildings += s.buildings;
-    points += s.points;
-    const days = Math.max(0, (now - Date.parse(s.liveSince)) / 86400000);
-    readings += s.points * 144 * days;
-  });
-  return { buildings, points, readings: Math.floor(readings), leaks: sites.leaksFound };
-}
-
-function formatNumber(n, lang) {
-  return new Intl.NumberFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US").format(n);
-}
-
 // --- JSON-LD -----------------------------------------------------------
 function organizationLd(t) {
   return {
@@ -361,6 +343,11 @@ function pascal(key) {
   return key.replace(/(^|-)([a-z])/g, (_, __, c) => c.toUpperCase());
 }
 
+// Team and advisor cards: initials, plus a photo when assets/img/team/people/<id>.webp exists.
+function withAvatar(p) {
+  return { ...p, initials: initials(p.name), photo: fs.existsSync(path.join(ROOT, "assets", "img", "team", "people", `${p.id}.webp`)) };
+}
+
 function initials(name) {
   return name.split(/\s+/).map((n) => n[0]).join("").slice(0, 2).toUpperCase();
 }
@@ -368,7 +355,7 @@ function initials(name) {
 function formatDate(iso, lang) {
   if (!iso) return "";
   const d = new Date(iso + "T00:00:00Z");
-  return new Intl.DateTimeFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(d);
+  return new Intl.DateTimeFormat(lang === "de" ? "de-DE" : lang === "fr" ? "fr-CH" : "en-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(d);
 }
 
 const written = [];
@@ -462,7 +449,6 @@ function inlineCss() {
 function build() {
   const layout = read("src/layout.html");
   const css = inlineCss();
-  const sites = JSON.parse(read("data/sites.json"));
   const partners = JSON.parse(read("data/partners.json")).groups;
   const locales = {};
   LANGS.forEach((l) => { if (exists(`locales/${l}.json`)) locales[l] = JSON.parse(read(`locales/${l}.json`)); });
@@ -475,7 +461,6 @@ function build() {
 
   langsBuilt.forEach((lang) => {
     const t = locales[lang];
-    const counter = counterSnapshot(sites);
     const base = {
       ...t,
       lang,
@@ -484,8 +469,6 @@ function build() {
       site: { url: SITE_URL, year: new Date().getFullYear(), buildDate: new Date().toISOString().slice(0, 10) },
       root: lang === DEFAULT_LANG ? "/" : `/${lang}/`,
       urls: Object.fromEntries(Object.keys(ROUTES).map((k) => [k, urlFor(k, lang)])),
-      counter: { ...t.counter, perDayLabel: t.counter.perDay, perDay: formatNumber(counter.points * 144, lang), buildings: formatNumber(counter.buildings, lang), points: formatNumber(counter.points, lang), readings: formatNumber(counter.readings, lang), leaks: formatNumber(counter.leaks, lang) },
-      sitesJson: JSON.stringify({ leaksFound: sites.leaksFound, sites: sites.sites.map((s) => ({ buildings: s.buildings, points: s.points, liveSince: s.liveSince })) }),
       heroBuilding: heroBuildingSvg(t),
       twinSvg: heroBuildingSvg(t, { twin: true }),
       installSvg: visuals.installSvg(t),
@@ -497,9 +480,8 @@ function build() {
       productHeroSvg: visuals.productHeroSvg(t),
       sensorSvg: visuals.sensorSvg(t),
       posts: posts[lang].map((p, i) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), dateIso: p.date, updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "", updatedIso: p.updated || p.date, displayTitle: displayTitle(p.title, lang), minutes: readingMinutes(p.words), featured: i === 0 })),
-      sitesList: sites.sites,
       logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),
-      team: { ...t.team, people: t.team.people.map((p) => ({ ...p, initials: initials(p.name), photo: fs.existsSync(path.join(ROOT, "assets", "img", "team", "people", `${p.id}.webp`)) })) }
+      team: { ...t.team, people: t.team.people.map(withAvatar), advisors: (t.team.advisors || []).map(withAvatar) }
     };
     addExtraVisuals(base, t);
 

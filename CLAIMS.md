@@ -6,6 +6,17 @@
 
 **5 Nov, later:** at Felix's request the rendered site carries no `[TO CONFIRM]` chips any more, so it can be published in one step. The open items below are unchanged and still need a yes from the named person before merge. Two unsourced figures (the USD 100k deductible and "claims above USD 1M tripled") were taken off the page rather than shown without a source. Placeholder lines in the Imprint (registered address, register number, responsible person) were removed, the entities and the Zurich address stay.
 
+**13 Nov 2026 (team review meeting), claims introduced in this round:**
+
+| Claim | Where | Basis |
+| --- | --- | --- |
+| "25+ buildings" live, "in Europe and the US" | Home proof strip, Data centers, llms.txt | Team meeting, 13 Nov 2026: agreed as the safe figure. Replaces the live counter (buildings, measuring points, readings, "leaks found"), the 22 buildings and 32 measuring points, and "Germany and the US since March 2026". |
+| "30 seconds per sensor" | Home proof strip, Product, Real estate, llms.txt | Stated in the same meeting. To be confirmed by the hardware lead. Replaces "under 15 minutes per sensor" (blog posts unchanged). |
+| "Hours instead of weeks or months" to localize a leak | Home proof strip, llms.txt | Stated in the meeting. |
+| "$89k to $2k per leak event, in simulations" | Home proof strip, llms.txt | Meeting notes say $89K to about $2K. The spoken figure was $100K to below $2K. Always shown with "in our simulations". |
+
+Removed in the same round: the Real estate block "What the first eight months show" (data coverage, 3 reported damages, 5 anomalies), the measuring-point, sensor and riser counts in "Where it runs today", and the measurement interval and model count on the Product page.
+
 Every claim on the current site (read from `main`, 5 Nov 2026) and every claim planned for the rebuild, with its status. Nothing marked **remove** survives into the new site. Nothing marked **confirm** goes live until the named person has confirmed it in writing. The source for every "safe" line is the master prompt, section 2 (Felix, 5 Nov 2026).
 
 Status legend: **safe** = may go live as written. **confirm** = may appear in the draft, needs confirmation before merge. **remove** = must not appear.

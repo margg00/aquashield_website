@@ -165,11 +165,6 @@
 .dc-proof { margin-top: 32px; padding: 22px 24px; border: 1px solid var(--border); border-radius: var(--radius-md); background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)), var(--bg-card); }
 .dc-proof-live { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: var(--fs-small); font-weight: 500; }
 .dc-proof-live .live-dot { flex: none; margin: 0; }
-.dc-proof-figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
-.dc-figure { min-width: 0; }
-.dc-figure + .dc-figure { padding-left: 24px; border-left: 1px solid rgba(255, 255, 255, 0.08); }
-.dc-figure-value { font-size: clamp(2.4rem, 1.8rem + 2vw, 3.2rem); line-height: 1; letter-spacing: -0.04em; }
-.dc-figure-label { margin-top: 8px; color: var(--text-secondary); font-size: 0.95rem; }
 .dc-bridge-visual { min-width: 0; }
 
 .br-ground { stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }

@@ -35,7 +35,7 @@ The model is specific to its measuring point. A riser serving family flats and a
 
 ## What a deviation is
 
-A deviation is flow that the baseline does not explain, for long enough to matter. Not a single high reading, because showers happen. A pattern: night flow that stays elevated, a branch that runs when its neighbours are still, a riser whose flow no longer adds up to the flow of its branches. The model ranks deviations by severity, and the digital twin places them on the riser and the floors to check first.
+A deviation is flow that the baseline does not explain, for long enough to matter. Not a single high reading, because showers happen. A pattern: night flow that stays elevated, a branch that runs when its neighbors are still, a riser whose flow no longer adds up to the flow of its branches. The model ranks deviations by severity, and the digital twin places them on the riser and the floors to check first.
 
 ## Why hydraulic systems need their own machine learning
 
@@ -49,7 +49,7 @@ Every alert is reviewed with the maintenance team, and the outcome goes back int
 
 Two things are often mistaken for a baseline.
 
-- **A threshold.** A rule like "alert above 500 litres an hour" ignores the time of day. At 7 a.m. that is normal, at 3 a.m. it is a leak. A baseline is a threshold that moves with the rhythm.
+- **A threshold.** A rule like "alert above 500 liters an hour" ignores the time of day. At 7 a.m. that is normal, at 3 a.m. it is a leak. A baseline is a threshold that moves with the rhythm.
 - **An average.** The average flow of a riser is a single number that it almost never shows. The baseline holds the expected flow for every slot of the week, with the spread around it, so a quiet Sunday morning is not mistaken for a stuck valve.
 
 Getting this right is why the first weeks are spent learning rather than alerting. A system that alerts from day one is using a threshold, whatever it calls it.

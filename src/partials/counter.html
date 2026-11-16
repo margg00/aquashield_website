@@ -1,25 +1,11 @@
-    <section class="counter" aria-label="{{counter.title}}" data-counter>
-      <script type="application/json" data-sites>{{{sitesJson}}}</script>
-      <div class="container counter-grid">
-        <div class="stat">
-          <p class="stat-label">{{counter.buildingsLabel}}</p>
-          <p class="stat-value" data-counter-buildings>{{counter.buildings}}</p>
-          <p class="stat-sub">{{counter.buildingsSub}}</p>
-        </div>
-        <div class="stat">
-          <p class="stat-label">{{counter.pointsLabel}}</p>
-          <p class="stat-value" data-counter-points>{{counter.points}}</p>
-          <p class="stat-sub">{{counter.pointsSub}}</p>
-        </div>
-        <div class="stat stat-wide">
-          <p class="stat-label"><span class="live-dot" aria-hidden="true"></span>{{counter.readingsLabel}}</p>
-          <p class="stat-value" data-counter-readings data-lang="{{lang}}">{{counter.readings}}</p>
-          <p class="stat-sub stat-rate">+<span data-counter-perday>{{counter.perDay}}</span> {{counter.perDayLabel}}</p>
-        </div>
-        <div class="stat">
-          <p class="stat-label">{{counter.leaksLabel}}</p>
-          <p class="stat-value" data-counter-leaks>{{counter.leaks}}</p>
-          <p class="stat-sub">{{counter.leaksSub}}</p>
-        </div>
+    <section class="proof-strip" aria-label="{{proofStrip.title}}" data-proof>
+      <div class="container">
+      <ul class="proof-cells">
+{{#each proofStrip.items}}        <li class="proof-cell">
+          <p class="proof-label">{{label}}</p>
+          {{#if to}}<p class="proof-value"><span class="proof-pair"><span class="proof-from">{{from}}</span><span class="proof-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="sr-only"> {{proofStrip.to}} </span><span class="proof-to">{{to}}</span></span></p>{{/if}}{{#unless to}}<p class="proof-value"{{#if count}} data-count{{/if}}>{{value}}</p>{{/unless}}
+          <p class="proof-line">{{line}}</p>
+        </li>
+{{/each}}      </ul>
       </div>
     </section>

@@ -498,24 +498,36 @@ body.nav-open { overflow: hidden; }
 @keyframes hb-pulse { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(2.6); opacity: 0; } }
 @keyframes hb-flow { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
 
-/* ---------- Counter ---------- */
-
-.counter {
+/* ---------- Proof strip (home, under the hero) ----------
+   Four claims we can prove. Hairline dividers, mono label on top, large white value, one line under it.
+   2 by 2 on phones, one row from 900px. Values fade and rise in one after another once the strip is in
+   view (.is-armed is set by script.js, .is-playing when seen), nothing loops. */
+.proof-strip {
+  position: relative;
   padding: 0;
   background: #0b0b0b;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.counter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.counter .stat { display: flex; flex-direction: column; min-width: 0; padding: 24px 0 24px 16px; }
-.counter .stat:nth-child(odd) { padding-left: 0; padding-right: 16px; }
-.counter .stat:nth-child(even) { border-left: 1px solid rgba(255, 255, 255, 0.08); }
-.counter .stat:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.08); }
-.counter .stat-label { margin: 0; color: var(--text-muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
-.counter .stat-value { margin-top: 14px; color: #fff; font-size: clamp(2.4rem, 1.4rem + 3vw, 4rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.counter .stat-sub { margin-top: 12px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.4; }
-.counter .stat-rate { color: var(--accent); font-variant-numeric: tabular-nums; }
-@media (max-width: 639px) { .counter .stat-value { font-size: clamp(1.7rem, 0.9rem + 3.6vw, 2.4rem); } .counter .stat-label { font-size: 0.68rem; letter-spacing: 0.08em; } }
+.proof-cells { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; }
+.proof-cell { display: flex; flex-direction: column; min-width: 0; padding: 24px 0 24px 16px; }
+.proof-cell:nth-child(odd) { padding-left: 0; padding-right: 16px; }
+.proof-cell:nth-child(even) { border-left: 1px solid rgba(255, 255, 255, 0.08); }
+.proof-cell:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.proof-label { margin: 0; color: var(--text-muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
+.proof-value { margin-top: 14px; color: #fff; font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.6rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.proof-value.is-counting { color: var(--accent-light); }
+.proof-pair { display: flex; flex-wrap: wrap; align-items: center; gap: 0.12em 0.2em; font-size: 0.78em; line-height: 1.1; }
+.proof-from { color: rgba(255, 255, 255, 0.5); }
+.proof-arrow { display: inline-flex; color: var(--accent); }
+.proof-arrow svg { display: block; width: 0.8em; height: 0.8em; }
+.proof-line { margin-top: 12px; color: var(--text-muted); font-size: 0.9rem; line-height: 1.4; }
+@media (max-width: 639px) { .proof-value { font-size: clamp(1.7rem, 0.9rem + 3.6vw, 2.4rem); } .proof-label { font-size: 0.68rem; letter-spacing: 0.08em; } }
+.proof-strip.is-armed .proof-value { opacity: 0; transform: translateY(14px); }
+.proof-strip.is-armed.is-playing .proof-value { opacity: 1; transform: none; transition: opacity 700ms ease, transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.proof-strip.is-playing .proof-cell:nth-child(2) .proof-value { transition-delay: 160ms; }
+.proof-strip.is-playing .proof-cell:nth-child(3) .proof-value { transition-delay: 320ms; }
+.proof-strip.is-playing .proof-cell:nth-child(4) .proof-value { transition-delay: 480ms; }
 .stat-value {
   font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
   font-weight: 700;
@@ -570,10 +582,10 @@ body.nav-open { overflow: hidden; }
 .stat:last-child .info::after { left: auto; right: 0; transform: none; }
 
 @media (min-width: 900px) {
-  .counter-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.45fr) minmax(0, 1fr); }
-  .counter .stat:nth-child(n) { padding: 32px 28px; border-top: 0; border-left: 1px solid rgba(255, 255, 255, 0.08); }
-  .counter .stat:first-child { padding-left: 0; border-left: 0; }
-  .counter .stat:last-child { padding-right: 0; }
+  .proof-cells { grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 1.1fr) minmax(0, 1.3fr); }
+  .proof-cell:nth-child(n) { padding: 32px 28px; border-top: 0; border-left: 1px solid rgba(255, 255, 255, 0.08); }
+  .proof-cell:first-child { padding-left: 0; border-left: 0; }
+  .proof-cell:last-child { padding-right: 0; }
 }
 
 /* ---------- Stat boxes (problem, anchors, facts) ---------- */
@@ -1142,10 +1154,8 @@ body.nav-open { overflow: hidden; }
 @keyframes vi-led { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
 
 
-/* ---------- Counter band motion ---------- */
-.counter { position: relative; overflow: hidden; }
+/* ---------- Live dot (insurance, data centers) ---------- */
 .live-dot { display: inline-block; width: 7px; height: 7px; margin: 0 8px 0 1px; vertical-align: 0.05em; border-radius: 999px; background: var(--ok); box-shadow: 0 0 0 3px rgb(61 220 151 / 0.18); }
-.stat-sub { margin-top: 4px; color: var(--text-muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
 .stat-value.is-counting { color: var(--accent-light); }
 
 /* ---------- One-claim band (real estate) ---------- */

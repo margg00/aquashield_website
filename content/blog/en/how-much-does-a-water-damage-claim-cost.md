@@ -10,7 +10,7 @@ authorId: paul-beckers
 segment: insurance
 segmentLabel: Insurance
 coverAlt: A cost curve climbing steeply from blue to warm red above a faint floor plan.
-answer: The average US commercial water damage claim is about $89,000 according to NAIOP. The number is driven less by the water than by the time it runs. Every extra day adds subfloors, drywall, neighbouring units and business interruption to the bill.
+answer: The average US commercial water damage claim is about $89,000 according to NAIOP. The number is driven less by the water than by the time it runs. Every extra day adds subfloors, drywall, neighboring units and business interruption to the bill.
 statValue: $89k
 statLabel: average US commercial water damage claim.
 statSource: NAIOP
@@ -33,7 +33,7 @@ A water claim is rarely about the pipe. The pipe repair is a plumber and a part.
 
 - Subfloors and screeds that have to dry or be replaced.
 - Drywall and insulation that have to come out.
-- Neighbouring units below and beside the source.
+- Neighboring units below and beside the source.
 - Business interruption or loss of rent while the work is done.
 - The search itself: site visits and walls opened to find the source.
 
@@ -58,4 +58,4 @@ Take a building where a riser joint begins to weep on a Monday.
 
 Same joint, same trickle. The difference between the two bills is the time the water ran, and that is the only variable monitoring changes. It does not make pipes stronger. It makes the clock shorter.
 
-AquaShield works with insurers in five ways, from subsidised hardware to a claims-response trigger. See the [insurance page](/insurance/), or [book a 30-minute call](/book-a-call/?for=insurance).
+AquaShield works with insurers in five ways, from subsidized hardware to a claims-response trigger. See the [insurance page](/insurance/), or [book a 30-minute call](/book-a-call/?for=insurance).

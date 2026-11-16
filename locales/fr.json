@@ -74,16 +74,33 @@
     "email": "founders@aquashieldai.com",
     "rights": "Tous droits réservés."
   },
-  "counter": {
-    "title": "En direct, calculé à partir de sites réels",
-    "buildingsLabel": "Bâtiments en service",
-    "buildingsSub": "en Allemagne et aux États-Unis",
-    "pointsLabel": "Points de mesure",
-    "pointsSub": "capteurs clamp-on sur les conduites",
-    "readingsLabel": "Mesures analysées",
-    "leaksLabel": "Fuites trouvées",
-    "leaksSub": "sinistres déclarés retrouvés dans les données",
-    "perDay": "par jour"
+  "proofStrip": {
+    "title": "Preuves",
+    "to": "à",
+    "items": [
+      {
+        "value": "25+",
+        "label": "Bâtiments en service",
+        "line": "en Europe et aux États-Unis",
+        "count": true
+      },
+      {
+        "value": "30 s",
+        "label": "Par capteur",
+        "line": "pose à pince, sans découpe"
+      },
+      {
+        "value": "Heures",
+        "label": "Pour localiser une fuite",
+        "line": "au lieu de semaines ou de mois"
+      },
+      {
+        "from": "89 000 $",
+        "to": "2 000 $",
+        "label": "Coût par fuite",
+        "line": "dans nos simulations"
+      }
+    ]
   },
   "alert": {
     "label": "Exemple d'alerte, anonymisé",
@@ -136,11 +153,11 @@
     },
     "product": {
       "title": "AquaShield : capteurs, IA et jumeau numérique",
-      "description": "Capteurs de débit ultrasoniques à pince, un modèle qui apprend le débit normal, un jumeau numérique qui ramène la fuite à une colonne montante."
+      "description": "Des capteurs à pince propriétaires, nos propres modèles d'apprentissage automatique et un jumeau numérique qui ramène une fuite à une colonne montante."
     },
     "real-estate": {
       "title": "Détection de fuites pour parcs immobiliers | AquaShield",
-      "description": "Détection de fuites par IA pour l'immobilier résidentiel et de bureaux. Capteurs à pince, sans découpe. En service depuis mars 2026."
+      "description": "Détection de fuites par IA pour l'immobilier résidentiel et de bureaux. Capteurs à pince, sans découpe. En service en Europe et aux États-Unis."
     },
     "insurance": {
       "title": "Sinistres eau : gravité et données de risque | AquaShield",
@@ -257,7 +274,7 @@
   },
   "product": {
     "h1": "Comment AquaShield fonctionne",
-    "lead": "Les capteurs à pince se posent sur les canalisations existantes. Notre modèle apprend le débit normal du bâtiment. Un jumeau numérique de la plomberie ramène un écart à une colonne montante ou à une section du bâtiment. Les alertes sont examinées avec votre équipe de maintenance.",
+    "lead": "Des capteurs à pince, nos propres modèles d'apprentissage automatique et un jumeau numérique de votre plomberie. Installés en quelques secondes, déployés sur tout votre parc.",
     "hero": {
       "visual": {
         "sensor": "Capteur clamp-on",
@@ -272,19 +289,19 @@
     },
     "install": {
       "h2": "À quoi ressemble une installation ?",
-      "text": "Les capteurs de débit ultrasoniques se fixent à l'extérieur des canalisations existantes. Moins de 15 minutes par capteur, sans découpe, sans coupure d'eau. À partir des positions des capteurs et du plan de plomberie, AquaShield construit un jumeau numérique du bâtiment : quelle colonne alimente quels étages, quel capteur voit quelle eau. Le modèle apprend ensuite le débit normal du bâtiment. Votre propre équipe peut poser les capteurs.",
+      "text": "Nos capteurs propriétaires se fixent sur les canalisations existantes en 30 secondes chacun, sans découpe ni coupure d'eau. Votre propre équipe peut les poser.",
       "visualAlt": "Schéma : des capteurs de débit ultrasoniques à pince sur une colonne montante et sur la conduite d'alimentation qui la dessert.",
       "labels": {
         "riser": "Colonne montante",
         "ultrasonic": "Capteur de débit ultrasonique à pince",
         "supply": "Conduite d'alimentation",
-        "time": "Moins de 15 minutes chacun",
+        "time": "30 secondes par capteur",
         "cut": "Sans découpe de tuyau"
       }
     },
     "data": {
       "h2": "Quelles données vais-je obtenir ?",
-      "text": "Un tableau de bord avec chaque point de mesure, son débit en direct comparé à son profil normal appris, et la liste des alertes classées par gravité. Chaque alerte nomme le bâtiment, la colonne montante ou la section, l'ampleur et la durée de l'écart par rapport au normal, et ce qu'il faut vérifier en premier. La couverture de données par site est affichée pour que vous sachiez quand un capteur est hors ligne. Les alertes vont aux personnes que vous désignez. Rien n'est envoyé avant d'avoir été examiné.",
+      "text": "Un tableau de bord avec le débit en direct de chaque point de mesure et les alertes classées par gravité. Chaque alerte indique le bâtiment, la colonne montante et ce qu'il faut vérifier en premier.",
       "confirm": "",
       "visualAlt": "Exemple de graphique : un point de mesure sur sept jours, la bande du profil normal appris et un écart sur les deux derniers jours.",
       "chart": {
@@ -305,22 +322,22 @@
     },
     "precision": {
       "h2": "Quelle est la précision de la localisation ?",
-      "text": "À la colonne montante ou à la section du bâtiment. Le jumeau numérique ramène un écart à l'endroit à vérifier en premier : la recherche commence à la bonne colonne et aux bons étages, pas derrière le premier mur humide. La précision augmente avec chaque point de mesure et chaque incident dont le modèle apprend.",
+      "text": "À la colonne montante ou à la section du bâtiment. La recherche commence aux bons étages, pas derrière le premier mur humide.",
       "confirm": ""
     },
     "ml": {
       "h2": "L'apprentissage automatique",
-      "text": "Chaque point de mesure a son propre modèle. Il apprend le débit normal de ce bâtiment par pas de 10 minutes : profil normal de nuit, pic du matin, semaine contre week-end. Un écart est un schéma de débit que le normal n'explique pas. Le jumeau numérique indique quels capteurs voient la même eau, pour que l'écart puisse être placé dans le réseau. Les retours de votre équipe reviennent directement dans le modèle. Un apprentissage automatique spécialisé pour les systèmes hydrauliques, pas un détecteur d'anomalies générique.",
-      "visualAlt": "Six points de mesure, chacun avec son profil normal appris et son débit en direct. Une colonne s'écarte de son profil et est signalée."
+      "text": "Notre apprentissage automatique propriétaire, conçu pour les réseaux hydrauliques, apprend le débit normal de chaque bâtiment et signale ce que le normal n'explique pas. Les retours de votre équipe l'affinent à chaque bâtiment.",
+      "visualAlt": "Des points de mesure, chacun avec son profil normal appris et son débit en direct. Une colonne s'écarte de son profil et est signalée."
     },
     "sensors": {
       "h2": "Les capteurs",
-      "intro": "Un seul type de capteur, sur la tuyauterie existante. Rien n'est coupé.",
+      "intro": "Des capteurs à pince propriétaires, sur la tuyauterie existante. Rien n'est coupé.",
       "specs": [
-        "Capteurs de débit à ultrasons clamp-on sur les colonnes et les conduites d'alimentation",
-        "Moins de 15 minutes par capteur, sans découpe, sans coupure d'eau",
-        "Une mesure toutes les 10 minutes depuis chaque point de mesure",
-        "Couverture remontée, le tableau de bord montre quand un capteur est hors ligne"
+        "Capteurs de débit à ultrasons à pince, propriétaires",
+        "30 secondes par capteur",
+        "Sans découpe, sans coupure d'eau",
+        "Tuyaux anciens ou récents"
       ],
       "visual": {
         "pipe": "Conduite existante",
@@ -335,17 +352,17 @@
     },
     "twin": {
       "h2": "Le jumeau numérique",
-      "text": "Un modèle de la plomberie du bâtiment : colonnes montantes, dérivations, quel capteur voit quelle eau. C'est lui qui transforme un écart en un endroit à vérifier en premier."
+      "text": "Un modèle de la plomberie du bâtiment qui transforme un écart en endroit à vérifier en premier."
     },
     "faqTitle": "Les questions qu'on nous pose toujours",
     "faq": [
       {
         "q": "L'installation interrompt-elle l'alimentation en eau ?",
-        "a": "Non. Les capteurs se fixent à pince sur l'extérieur du tuyau. L'eau reste ouverte."
+        "a": "Non. Les capteurs se fixent sur l'extérieur du tuyau et l'eau reste ouverte."
       },
       {
         "q": "Combien de temps prend un déploiement ?",
-        "a": "Vite, et à grande échelle. Chaque capteur se fixe en moins de 15 minutes, sans découpe de tuyau et sans coupure d'eau. Un bâtiment est en service en une journée. Votre propre équipe peut poser les capteurs, ce qui permet de mettre de nombreux bâtiments en service en parallèle. Le jumeau numérique est construit le jour même et le modèle commence à apprendre aussitôt."
+        "a": "Vite, et à grande échelle. Chaque capteur se fixe en 30 secondes, votre propre équipe peut donc mettre de nombreux bâtiments en service en parallèle."
       },
       {
         "q": "Est-ce que ça fonctionne avec de vieilles canalisations ?",
@@ -353,11 +370,11 @@
       },
       {
         "q": "Comment les alertes restent-elles pertinentes ?",
-        "a": "Les alertes sont classées par gravité et vérifiées avec votre équipe avant de remonter. Vos retours reviennent dans le modèle, qui s'affine à chaque bâtiment."
+        "a": "Les alertes sont classées par gravité et vérifiées avec votre équipe. Vos retours affinent les modèles à chaque bâtiment."
       },
       {
         "q": "Qui voit les données ?",
-        "a": "Vous et les personnes que vous désignez. Nous ne vendons pas de données. Voir la politique de confidentialité."
+        "a": "Vous et les personnes que vous désignez. Nous ne vendons pas de données, voir la politique de confidentialité."
       },
       {
         "q": "Combien ça coûte ?",
@@ -376,7 +393,7 @@
     },
     "story": {
       "h2": "Les fuites sont découvertes, pas détectées.",
-      "text": "Un locataire appelle. Un plafond se tache. De l'eau apparaît sur le sol d'un sous-sol. À ce moment-là, la fuite coule depuis des jours ou des semaines. La trouver peut demander jusqu'à cinq visites sur site, avec un mur ouvert à chaque fois. L'occupation, l'énergie et la CVC ont toutes une vue en direct. L'eau, non. AquaShield donne cette vue à votre équipe de maintenance : chaque colonne montante surveillée, les écarts classés par gravité, et un endroit à vérifier en premier."
+      "text": "La plupart des fuites sont découvertes par l'appel d'un locataire ou une tache au plafond, des jours ou des semaines après leur début. AquaShield surveille chaque colonne montante et indique à votre équipe où vérifier en premier."
     },
     "customers": {
       "h2": "Où le système tourne aujourd'hui",
@@ -385,9 +402,9 @@
         {
           "label": "En service",
           "items": [
-            "Un grand parc résidentiel en Allemagne. 22 bâtiments, 32 points de mesure, depuis mars 2026.",
-            "Deux sites résidentiels en Californie. 59 capteurs, depuis septembre 2026.",
-            "Un immeuble résidentiel neuf de sept étages en Californie. 23 capteurs sur 10 colonnes montantes."
+            "Un grand parc résidentiel en Allemagne.",
+            "Deux sites résidentiels en Californie.",
+            "Un immeuble résidentiel neuf de sept étages en Californie."
           ]
         },
         {
@@ -400,31 +417,13 @@
         {
           "label": "En planification",
           "items": [
-            "Un exploitant de clubs de fitness en Californie. Un club, T1 2027.",
-            "Trois tours de bureaux à Detroit. Lettre d'intention signée.",
-            "Deux bâtiments à Berlin. Visite de site effectuée.",
-            "Un campus universitaire en Belgique. Trois bâtiments."
+            "Un exploitant de clubs de fitness en Californie, T1 2027.",
+            "Des tours de bureaux à Detroit. Lettre d'intention signée.",
+            "Des bâtiments à Berlin. Visite de site effectuée.",
+            "Un campus universitaire en Belgique."
           ]
         }
       ]
-    },
-    "facts": {
-      "h2": "Ce que montrent les huit premiers mois",
-      "items": [
-        {
-          "value": "91 à 100 %",
-          "label": "Couverture de données par site"
-        },
-        {
-          "value": "3",
-          "label": "Dégâts signalés associés à une signature de débit claire"
-        },
-        {
-          "value": "5",
-          "label": "Anomalies en cours d'examen avec l'équipe de maintenance"
-        }
-      ],
-      "confirm": ""
     },
     "anchor": {
       "h2": "Un seul sinistre paie la surveillance.",
@@ -448,11 +447,11 @@
       "steps": [
         {
           "name": "Cartographier",
-          "text": "Envoyez-nous le plan de plomberie, ou faites-nous visiter une fois. AquaShield place les capteurs et construit le jumeau numérique du bâtiment."
+          "text": "Envoyez-nous le plan de plomberie ou faites-nous visiter une fois. Nous plaçons les capteurs et construisons le jumeau numérique."
         },
         {
           "name": "Installer",
-          "text": "Moins de 15 minutes par capteur. Sans découpe. L'eau reste ouverte."
+          "text": "30 secondes par capteur. Sans découpe, l'eau reste ouverte."
         },
         {
           "name": "Apprendre",
@@ -468,7 +467,7 @@
     "faq": [
       {
         "q": "Nous avons des compteurs d'eau intelligents. Est-ce la même chose ?",
-        "a": "Non. Les compteurs comptent la consommation par logement. AquaShield surveille le débit à la colonne montante et apprend à quoi ressemble le normal, donc il voit une fuite qu'aucun compteur seul ne verrait."
+        "a": "Non. Les compteurs mesurent la consommation par logement, alors qu'AquaShield apprend le débit normal à la colonne montante et repère des fuites qu'aucun compteur ne voit."
       },
       {
         "q": "Devons-nous ouvrir des murs ?",
@@ -488,14 +487,14 @@
       },
       {
         "q": "Notre assureur peut-il voir les données ?",
-        "a": "Seulement si vous le décidez. Certains parcs les partagent pour négocier leurs conditions. Voir la page Assurance."
+        "a": "Seulement si vous le décidez. Certains propriétaires les partagent pour négocier de meilleures conditions."
       }
     ]
   },
   "insurance": {
     "eyebrow": "Assurance",
     "h1": "Durée du sinistre plus courte. Gravité des sinistres plus faible.",
-    "lead": "Pour les souscripteurs dommages, les responsables sinistres et innovation qui raisonnent en ratio de sinistralité, gravité et données de risque.",
+    "lead": "Pour les souscripteurs dommages et les responsables sinistres et innovation.",
     "story": {
       "h2": "La gravité dépend du temps.",
       "lead": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque. Chaque jour de plus ajoute des dommages secondaires : sous-planchers, cloisons, logements voisins, interruption d'activité.",
@@ -565,7 +564,7 @@
           "text": "Les capteurs se fixent sur les conduites, les données circulent, les alertes parviennent à votre équipe sinistres."
         }
       ],
-      "line": "En service aujourd'hui chez des propriétaires en Allemagne et aux États-Unis.",
+      "line": "En service aujourd'hui chez des propriétaires en Europe et aux États-Unis.",
       "visual": {
         "alt": "Un portefeuille représenté par 40 bâtiments. Un bloc de 12 est sélectionné et les bâtiments sont surveillés l'un après l'autre. L'un d'eux présente une fuite, détectée tôt.",
         "book": "Un portefeuille",
@@ -594,7 +593,7 @@
   "dataCenters": {
     "eyebrow": "Centres de données",
     "h1": "Détectez la fuite avant la panne.",
-    "lead": "Pour les responsables d'exploitation et d'installations qui gèrent du refroidissement liquide, où l'eau n'est pas le problème. La panne, oui.",
+    "lead": "Pour les responsables d'exploitation en refroidissement liquide, où le vrai coût est la panne.",
     "visual": {
       "alt": "Schéma : une rangée de racks à refroidissement liquide sur une boucle, un capteur de débit à pince sur chaque dérivation, une dérivation avec un écart de débit.",
       "supply": "Aller",
@@ -604,7 +603,7 @@
     },
     "story": {
       "h2": "Les câbles détecteurs de fuite au sol vous préviennent après coup.",
-      "lead": "Un câble détecteur se déclenche quand l'eau atteint le sol. À ce moment-là, un rack a déjà perdu son refroidissement. AquaShield surveille la boucle elle-même.",
+      "lead": "Un câble détecteur se déclenche quand l'eau atteint le sol et qu'un rack a déjà perdu son refroidissement. AquaShield surveille la boucle elle-même.",
       "cable": {
         "title": "Câble détecteur",
         "tag": "Après coup",
@@ -649,17 +648,7 @@
     "status": {
       "h2": "De la colonne montante au refroidissement liquide.",
       "text": "Les capteurs et le modèle qui surveillent aujourd'hui les colonnes montantes résidentielles passent sur votre boucle de refroidissement. Premiers sites en Suisse.",
-      "live": "En service dans des bâtiments résidentiels en Allemagne depuis mars 2026",
-      "figures": [
-        {
-          "value": "22",
-          "label": "bâtiments"
-        },
-        {
-          "value": "32",
-          "label": "points de mesure"
-        }
-      ],
+      "live": "En service dans plus de 25 bâtiments en Europe et aux États-Unis.",
       "visual": {
         "alt": "Schéma : un bâtiment résidentiel avec des capteurs de débit sur ses colonnes montantes et une rangée de racks sur une boucle de refroidissement, reliés à un seul modèle.",
         "residential": "Colonnes montantes",
@@ -687,8 +676,8 @@
   },
   "team": {
     "eyebrow": "Équipe",
-    "h1": "D'un hackathon au MIT à des capteurs sur deux continents.",
-    "lead": "Nous sommes des chercheurs en robotique et des ingénieurs qui ont décidé que le système le plus négligé de chaque bâtiment mérite un vrai apprentissage automatique. Nous le construisons à Zurich et à San Francisco, et nous cherchons des personnes qui veulent le construire avec nous.",
+    "h1": "Des chercheurs et des ingénieurs qui construisent la deep tech de l'eau.",
+    "lead": "Nous appliquons la recherche en robotique et en apprentissage automatique au système le plus négligé de chaque bâtiment, depuis Zurich et San Francisco.",
     "join": {
       "title": "Rejoignez-nous",
       "line": "Ingénieurs, chercheurs et profils opérationnels : écrivez aux fondateurs.",
@@ -700,19 +689,19 @@
         {
           "place": "Cambridge, Massachusetts",
           "title": "Le hackathon",
-          "text": "Paul et Marguerite se rencontrent lors d'un hackathon au MIT et le remportent avec AquaShield. La semaine suivante, ils sont dans un bâtiment du campus à fixer des capteurs sur des tuyaux. Le premier système est mis en service au MIT, construit main dans la main avec l'équipe technique du campus.",
+          "text": "Paul et Marguerite se rencontrent lors d'un hackathon au MIT et le remportent avec AquaShield. La semaine suivante, ils fixent les premiers capteurs sur les tuyaux d'un bâtiment du campus.",
           "alt": "Paul Beckers et Marguerite Benoist devant le Great Dome du MIT."
         },
         {
           "place": "San Francisco",
           "title": "Y Combinator",
-          "text": "Printemps 2026. Des mois à construire à pleine vitesse, entourés de gens qui font de même. Ce rythme ne nous a jamais quittés, et une partie de nous vit toujours à San Francisco.",
+          "text": "Printemps 2026, des mois à construire à pleine vitesse, entourés de gens qui font de même. Ce rythme ne nous a jamais quittés, et une partie de nous vit toujours à San Francisco.",
           "alt": "Marguerite Benoist et Paul Beckers derrière le panneau Y Combinator à San Francisco."
         },
         {
           "place": "Zurich",
           "title": "L'équipe",
-          "text": "Aujourd'hui, nous construisons depuis Zurich, l'un des pôles les plus forts d'Europe en robotique et en apprentissage automatique. Des capteurs sur des tuyaux en Allemagne et aux États-Unis, un modèle qui s'affine à chaque bâtiment, et une équipe qui grandit avec les personnes qui veulent le construire.",
+          "text": "Aujourd'hui, nous construisons depuis Zurich, l'un des pôles les plus forts d'Europe en robotique et en apprentissage automatique. Nos modèles s'affinent à chaque bâtiment, et l'équipe grandit avec celles et ceux qui veulent les construire.",
           "alt": "L'équipe AquaShield autour d'une table d'ordinateurs portables au bureau de Zurich."
         }
       ]
@@ -835,6 +824,8 @@
         "line": "Pilote le go-to-market et la démarche commerciale."
       }
     ],
+    "advisorsTitle": "Conseillers",
+    "advisors": [],
     "backing": {
       "line": "Collaboration de recherche avec l'EPFL. Développé avec MIT Facilities."
     },

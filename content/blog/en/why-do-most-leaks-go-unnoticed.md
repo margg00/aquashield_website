@@ -27,7 +27,7 @@ faq3a: Usually the night baseline. When taps are closed and flow still does not 
 
 **They start where nobody looks.** Risers run in shafts. Supply lines run above ceilings and under floors. The parts of a building that carry the most water are the parts no one walks past.
 
-**They are small at first.** A weeping joint adds a trickle to a riser that moves thousands of litres a day. On the building's main meter, that trickle is a rounding error. Normal consumption swings by far more between a Tuesday and a Sunday than the leak adds.
+**They are small at first.** A weeping joint adds a trickle to a riser that moves thousands of liters a day. On the building's main meter, that trickle is a rounding error. Normal consumption swings by far more between a Tuesday and a Sunday than the leak adds.
 
 **Nothing is watching.** Occupancy has a dashboard. Energy has a dashboard. HVAC has a dashboard. Water, in most buildings, waits for a phone call.
 

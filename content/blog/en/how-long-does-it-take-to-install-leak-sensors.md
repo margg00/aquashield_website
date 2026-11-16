@@ -35,7 +35,7 @@ Under 15 minutes per sensor. That number is the reason non-invasive monitoring w
 
 **The first weeks.** The model learns normal for each measuring point: the night baseline, the morning peak, weekday against weekend. It does not alert during this time, because an alert before normal is known would be a guess.
 
-**After that.** Detection runs. Deviations are ranked by severity and localised to the riser, and the maintenance team gets the place to check first.
+**After that.** Detection runs. Deviations are ranked by severity and localized to the riser, and the maintenance team gets the place to check first.
 
 ## Scaling to a portfolio
 

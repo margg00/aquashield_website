@@ -2,7 +2,7 @@
 id: insurer-data
 slug: how-can-insurers-use-building-water-data
 title: How can property insurers use live building water data?
-description: Five ways a carrier can work with leak detection, from subsidised hardware to a claims-response trigger, and what the data can and cannot be used for.
+description: Five ways a carrier can work with leak detection, from subsidized hardware to a claims-response trigger, and what the data can and cannot be used for.
 date: 2026-10-22
 updated: 2026-10-22
 author: Paul Beckers
@@ -10,7 +10,7 @@ authorId: paul-beckers
 segment: insurance
 segmentLabel: Insurance
 coverAlt: A shield outline drawn from individual data points, with a soft field of data inside it.
-answer: Live water data from monitored buildings gives an insurer two things it does not have today: shorter loss duration on the claims that happen, and a risk signal per building for underwriting and renewal. AquaShield works with carriers in five models, from subsidised hardware to a claims-response trigger.
+answer: Live water data from monitored buildings gives an insurer two things it does not have today: shorter loss duration on the claims that happen, and a risk signal per building for underwriting and renewal. AquaShield works with carriers in five models, from subsidized hardware to a claims-response trigger.
 statValue: $89k
 statLabel: average US commercial water damage claim.
 statSource: NAIOP
@@ -25,13 +25,13 @@ faq3a: Pilots are running with owners in Germany and the US. The next step is on
 ---
 ## Two values in one dataset
 
-Water damage severity is driven by time. A leak that runs for three weeks costs more than the same leak stopped in three days, because subfloors, drywall and neighbouring units are added day by day. So the first value of live building data to an insurer is simple: the claims that happen get shorter.
+Water damage severity is driven by time. A leak that runs for three weeks costs more than the same leak stopped in three days, because subfloors, drywall and neighboring units are added day by day. So the first value of live building data to an insurer is simple: the claims that happen get shorter.
 
 The second value is newer. Today, water risk is underwritten from the building's age, construction and claims history. Live flow data per riser is a signal that does not exist in that file: how often a building deviates from its normal, and for how long before it is fixed. For monitored buildings, that signal is available now.
 
 ## Five ways to work together
 
-1. **Insurer-subsidised hardware.** The carrier funds sensors in the insured portfolio. The owner gets monitoring, the carrier gets shorter loss duration across the book.
+1. **Insurer-subsidized hardware.** The carrier funds sensors in the insured portfolio. The owner gets monitoring, the carrier gets shorter loss duration across the book.
 2. **Premium discount.** Monitored buildings earn a lower rate, the way a monitored alarm does for fire.
 3. **Bundled rider.** Monitoring is sold with the policy as a rider.
 4. **Risk data.** Aggregated deviation data feeds risk scoring and renewal.
@@ -47,7 +47,7 @@ With the owner's consent, AquaShield can share aggregated flow deviations per bu
 
 - **Is the data auditable?** Yes. Every alert has a timestamp, a measuring point, a deviation size and duration, and a review outcome. Data coverage per site is reported, so gaps are visible.
 - **Who owns it?** The building owner. Sharing with a carrier is by the owner's consent and in aggregate.
-- **What about buildings that are not monitored?** Nothing changes for them. The signal exists for monitored buildings only, which is also why a subsidised-hardware model is attractive: it grows the monitored share of the book.
+- **What about buildings that are not monitored?** Nothing changes for them. The signal exists for monitored buildings only, which is also why a subsidized-hardware model is attractive: it grows the monitored share of the book.
 - **How is the data delivered?** As a feed or a periodic export at building level, in the format the carrier's risk team already uses. The 30-minute call is where that gets specified.
 
 ## The next step

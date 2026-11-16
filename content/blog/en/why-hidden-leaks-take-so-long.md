@@ -15,7 +15,7 @@ statValue: €4.91bn
 statLabel: paid by German insurers for tap-water damage in 2024.
 statSource: GDV
 statDate: 2024
-definition: Leak localisation is the step after detection. It narrows the source of a flow deviation to a riser or a building section, so the maintenance team knows where to look first.
+definition: Leak localization is the step after detection. It narrows the source of a flow deviation to a riser or a building section, so the maintenance team knows where to look first.
 faq1q: Is a smart water meter enough?
 faq1a: No. A meter counts consumption per unit. A leak in a riser or a supply line shows up in no single meter, or only as a small increase that looks like normal use.
 faq2q: Do you have to open walls to find a leak?
@@ -31,7 +31,7 @@ That delay is the whole problem. Water damage is not expensive because water is 
 
 ## The five-visit problem
 
-Once a leak is known, finding it is the next job. A typical search in a multi-storey building: a first visit to confirm the damage, a second to open a wall where the stain is, a third when the water turns out to come from a floor higher up, a fourth with a plumber, a fifth to repair. Up to five site visits, and a wall opened each time, for one leak.
+Once a leak is known, finding it is the next job. A typical search in a multi-story building: a first visit to confirm the damage, a second to open a wall where the stain is, a third when the water turns out to come from a floor higher up, a fourth with a plumber, a fifth to repair. Up to five site visits, and a wall opened each time, for one leak.
 
 The reason is simple. Water travels. The stain is rarely under the source. Without a view of where flow is abnormal, the search follows the water backwards, one opened wall at a time.
 

@@ -10,7 +10,7 @@ authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
 coverAlt: Isometric skyline of building blocks with connected nodes lighting up across the portfolio.
-answer: In four steps per building. Map: send the plumbing plan, AquaShield places the sensors and builds the digital twin. Install: under 15 minutes per sensor, no pipe cutting. Learn: the model learns the building's normal flow over the first weeks. Detect: deviations are ranked and localised to the riser. Start with one building and roll out at your pace.
+answer: In four steps per building. Map: send the plumbing plan, AquaShield places the sensors and builds the digital twin. Install: under 15 minutes per sensor, no pipe cutting. Learn: the model learns the building's normal flow over the first weeks. Detect: deviations are ranked and localized to the riser. Start with one building and roll out at your pace.
 statValue: 22 buildings
 statLabel: at the first AquaShield portfolio in Germany, 32 measuring points, live since March 2026.
 statSource: AquaShield sites
@@ -41,7 +41,7 @@ Each measuring point gets its own model, and it spends the first weeks learning 
 
 ## Step 4: Detect
 
-Detection runs every 10 minutes. Deviations are ranked by severity and localised by the twin to the riser and the floors to check first. The maintenance team gets a place to go. Every alert is reviewed with the team and the outcome goes back into the model.
+Detection runs every 10 minutes. Deviations are ranked by severity and localized by the twin to the riser and the floors to check first. The maintenance team gets a place to go. Every alert is reviewed with the team and the outcome goes back into the model.
 
 ## Then roll out
 
