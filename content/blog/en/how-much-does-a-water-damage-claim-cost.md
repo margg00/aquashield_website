@@ -54,7 +54,7 @@ For an owner, the comparison is simple: the monitoring of a building against a f
 Take a building where a riser joint begins to weep on a Monday.
 
 - **Found on day 3** by a flow deviation at night: a plumber, a part, one dried subfloor section behind an access panel.
-- **Found on day 24** by a stain in the flat below: two flats with wet drywall, a subfloor to replace, a ceiling to open and close, a tenant moved out for the works, and three site visits to find the source before any of it.
+- **Found on day 24** by a stain in the apartment below: two apartments with wet drywall, a subfloor to replace, a ceiling to open and close, a tenant moved out for the works, and three site visits to find the source before any of it.
 
 Same joint, same trickle. The difference between the two bills is the time the water ran, and that is the only variable monitoring changes. It does not make pipes stronger. It makes the clock shorter.
 

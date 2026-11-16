@@ -11,7 +11,7 @@ segment: product
 segmentLabel: Produkt
 coverAlt: Zwei Clamp-on-Sensoren aussen an einem Rohr, ein V-förmiger Ultraschallpfad wird an der gegenüberliegenden Rohrwand reflektiert.
 answer: Nicht-invasive Leckageerkennung misst das Wasser von ausserhalb des Rohrs. Ein Clamp-on-Ultraschall-Durchflusssensor sitzt aussen an der Steigleitung und misst den Durchfluss durch die Rohrwand, und ein Modell pro Messstelle lernt den normalen Durchfluss des Gebäudes. Ein Leck zeigt sich als Muster, das der Normalverlauf nicht erklärt.
-statValue: Unter 15 Min.
+statValue: Etwa 30 s
 statLabel: pro Sensor, Clamp-on, kein Rohrschnitt, das Wasser bleibt an, an den AquaShield-Standorten, die heute live sind.
 statSource: AquaShield-Installationen
 statDate: 2026
@@ -27,7 +27,7 @@ faq3a: Die Sensoren lassen sich an jedes zugängliche Rohr klemmen, ob alt oder 
 
 Der älteste Weg, Durchfluss zu messen: das Rohr aufschneiden und einen Zähler einsetzen. Das bedeutet einen Installateur, eine Abschaltung und eine Verbindung, die eines Tages selbst undicht werden kann. Die Ultraschall-Durchflussmessung vermeidet all das. Zwei Wandler sitzen aussen am Rohr, in einem leichten Winkel zueinander. Einer sendet einen Impuls durch die Rohrwand und das Wasser, der andere empfängt ihn. Wasser, das mit dem Impuls fliesst, beschleunigt ihn, Wasser, das dagegen fliesst, bremst ihn. Der Unterschied in der Laufzeit ergibt den Durchfluss.
 
-Der Sensor wird mit einer Halterung am Rohr befestigt. Die Installation dauert unter 15 Minuten. Das Wasser bleibt die ganze Zeit an, und die Mieter merken nichts.
+Der Sensor wird mit einer Halterung am Rohr befestigt. Jeder Sensor ist in etwa 30 Sekunden angeklemmt. Das Wasser bleibt die ganze Zeit an, und die Mieter merken nichts.
 
 ## Ein Sensor, zwei Sichten
 
@@ -36,7 +36,7 @@ AquaShield nutzt eine Messgrösse, den Durchfluss, und liest sie auf zwei Arten,
 - **Durchfluss pro Steigleitung**, von Clamp-on-Ultraschallsensoren an Steigleitungen und Versorgungsleitungen. Der Durchfluss zeigt, wie viel Wasser fliesst und wann.
 - **Durchfluss im ganzen Netz**, aus dem Vergleich der Messstellen. Der Durchfluss einer Steigleitung muss zu den Abzweigen passen, die sie versorgt. Das Netz als Ganzes zeigt deshalb Veränderungen, die ein einzelner Durchflusssensor nicht unbedingt sieht.
 
-Jeder Sensor liefert alle 10 Minuten einen Messwert. Mit 32 Messstellen in einem Portfolio sind das 4.608 Messwerte pro Tag von einem einzigen Kunden.
+Jeder Sensor liefert alle 10 Minuten einen Messwert, Tag und Nacht, von jeder Messstelle im Portfolio.
 
 ## Das Modell lernt zuerst den Normalverlauf
 

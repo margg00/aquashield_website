@@ -11,8 +11,8 @@ segment: real-estate
 segmentLabel: Real estate
 coverAlt: A dark, still water surface with a single ripple spreading out from one point.
 answer: Because a hidden leak makes no sound, no stain and no bill until it has run for a while. It starts in a shaft or a ceiling, in the shared part of the network, and its small extra flow disappears inside the normal swings of a building's consumption. Nobody is watching the water, so nobody sees it.
-statValue: 91 to 100%
-statLabel: data coverage per site at the first AquaShield portfolio, 22 buildings, since March 2026.
+statValue: 25+ buildings
+statLabel: live with AquaShield in Europe and the US.
 statSource: AquaShield sites
 statDate: 2026
 definition: A night baseline is the flow a riser settles to when every tap in the building is closed. A healthy riser returns to it every night. A leaking one does not.
@@ -39,7 +39,7 @@ By the time a leak is discovered, it has usually announced itself three times. F
 
 A clamp-on sensor on the riser reads the flow every 10 minutes. A model learns that riser's normal: the night baseline, the morning peak, the weekly rhythm. The night baseline is the tell. When every tap is closed and the flow still does not return to its usual level, water is moving where it should not. The model flags it, and the digital twin names the riser and the floors to check first.
 
-At the first portfolio where AquaShield is live, 22 buildings and 32 measuring points have been reporting since March 2026 with 91 to 100 percent data coverage per site. Three reported damages there matched a clear flow signature in the data.
+AquaShield is live in 25+ buildings in Europe and the US, and each of them reports around the clock.
 
 ## The difference in practice
 

@@ -21,7 +21,7 @@ faq1a: Non. Ils se fixent à pince sur l'extérieur des tuyaux de la boucle et m
 faq2q: Est-ce compatible avec la supervision propre de la boucle ?
 faq2a: Oui. Le contrôleur de la boucle surveille les températures et l'état des pompes. AquaShield surveille le débit par dérivation et apprend à quoi ressemble le normal pour chacune, ce qui est un signal différent.
 faq3q: Où cela fonctionne-t-il aujourd'hui ?
-faq3a: Les capteurs et le modèle surveillent aujourd'hui des colonnes montantes résidentielles, en Allemagne et aux États-Unis. Premiers sites de centres de données en Suisse.
+faq3a: Les capteurs et le modèle surveillent aujourd'hui des colonnes montantes résidentielles, en Europe et aux États-Unis. Premiers sites de centres de données en Suisse.
 ---
 ## Le problème du sol
 
@@ -41,7 +41,7 @@ Un câble détecteur vous dit que la salle a une fuite. La mesure par dérivatio
 
 ## Des colonnes montantes résidentielles au refroidissement liquide
 
-Les capteurs et le modèle sont ceux qui surveillent aujourd'hui des colonnes montantes résidentielles, dans un parc de 22 bâtiments en Allemagne et sur des sites en Californie. La topologie diffère dans un centre de données, la méthode est la même. Premiers sites en Suisse.
+Les capteurs et le modèle sont ceux qui surveillent aujourd'hui des colonnes montantes résidentielles, dans plus de 25 bâtiments en Europe et aux États-Unis. La topologie diffère dans un centre de données, la méthode est la même. Premiers sites en Suisse.
 
 ## À quoi ressemble un premier site ?
 

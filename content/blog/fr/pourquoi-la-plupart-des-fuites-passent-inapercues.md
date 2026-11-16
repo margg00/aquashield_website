@@ -11,8 +11,8 @@ segment: real-estate
 segmentLabel: Immobilier
 coverAlt: Une surface d'eau sombre et immobile, avec une seule onde qui s'étend à partir d'un point.
 answer: Parce qu'une fuite cachée ne fait ni bruit, ni tache, ni facture tant qu'elle n'a pas coulé un certain temps. Elle commence dans une gaine ou un plafond, dans la partie commune du réseau, et son petit débit supplémentaire disparaît dans les variations normales de la consommation du bâtiment. Personne ne surveille l'eau, donc personne ne la voit.
-statValue: 91 à 100 %
-statLabel: couverture de données par site dans le premier parc AquaShield, 22 bâtiments, depuis mars 2026.
+statValue: 25+ bâtiments
+statLabel: en service avec AquaShield en Europe et aux États-Unis.
 statSource: Sites AquaShield
 statDate: 2026
 definition: Le profil normal de nuit est le débit auquel une colonne montante redescend quand tous les robinets du bâtiment sont fermés. Une colonne montante saine y revient chaque nuit. Une colonne montante qui fuit, non.
@@ -39,7 +39,7 @@ Quand une fuite est découverte, elle s'est en général déjà manifestée troi
 
 Un capteur à pince sur la colonne montante mesure le débit toutes les 10 minutes. Un modèle apprend le normal de cette colonne montante : le profil normal de nuit, le pic du matin, le rythme de la semaine. Le profil de nuit est le révélateur. Quand tous les robinets sont fermés et que le débit ne redescend toujours pas à son niveau habituel, l'eau circule là où elle ne devrait pas. Le modèle le signale, et le jumeau numérique nomme la colonne montante et les étages à vérifier en premier.
 
-Dans le premier parc où AquaShield est en service, 22 bâtiments et 32 points de mesure envoient des données depuis mars 2026, avec une couverture de données de 91 à 100 % par site. Trois dégâts signalés y correspondaient à une signature de débit claire dans les données.
+AquaShield est en service dans plus de 25 bâtiments en Europe et aux États-Unis, et chacun envoie ses données jour et nuit.
 
 ## La différence en pratique
 

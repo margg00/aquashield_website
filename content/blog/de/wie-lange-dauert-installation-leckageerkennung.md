@@ -2,17 +2,17 @@
 id: install-time
 slug: wie-lange-dauert-installation-leckageerkennung
 title: Wie lange dauert die Installation einer Leckageerkennung im Gebäude?
-description: Unter 15 Minuten pro Sensor, kein Rohrschnitt, das Wasser bleibt an. Ein Tag pro Gebäude, der digitale Zwilling am selben Tag und ein Modell, das in den ersten Wochen den Normalverlauf lernt.
+description: Etwa 30 Sekunden pro Sensor, kein Rohrschnitt, das Wasser bleibt an. Ein Tag pro Gebäude, der digitale Zwilling am selben Tag und ein Modell, das in den ersten Wochen den Normalverlauf lernt.
 date: 2026-08-27
 updated: 2026-08-27
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Immobilien
-coverAlt: Ein Wasserrohr mit einem Clamp-on-Sensor, eingerahmt von einem Stoppuhr-Bogen, der eine Viertelstunde überstreicht.
-answer: Unter 15 Minuten pro Sensor. Die Sensoren werden aussen an bestehende Rohre geklemmt, es gibt also keinen Rohrschnitt und keine Abschaltung der Wasserversorgung. Ein typisches Gebäude ist an einem Tag fertig, der digitale Zwilling entsteht am selben Tag, und das Modell lernt den normalen Durchfluss des Gebäudes in den ersten Wochen.
-statValue: 59 Sensoren
-statLabel: an zwei Wohnstandorten in Kalifornien, live mit AquaShield seit September 2026.
+coverAlt: Ein Wasserrohr mit einem Clamp-on-Sensor, eingerahmt von einem Stoppuhr-Bogen.
+answer: Etwa 30 Sekunden pro Sensor. Die Sensoren werden aussen an bestehende Rohre geklemmt, es gibt also keinen Rohrschnitt und keine Abschaltung der Wasserversorgung. Ein typisches Gebäude ist an einem Tag fertig, der digitale Zwilling entsteht am selben Tag, und das Modell lernt den normalen Durchfluss des Gebäudes in den ersten Wochen.
+statValue: 25+ Gebäude
+statLabel: live mit AquaShield in Europa und den USA.
 statSource: AquaShield-Standorte
 statDate: 2026
 definition: Clamp-on heisst, dass der Sensor mit einer Halterung aussen am Rohr befestigt wird und den Durchfluss durch die Rohrwand misst. Das Rohr wird nie geöffnet, also braucht es pro Sensor keinen Installateur, keine neue Verbindung und keine Ausfallzeit.
@@ -25,7 +25,7 @@ faq3a: Sobald das Modell den Normalverlauf gelernt hat, also nach den ersten Woc
 ---
 ## Die kurze Antwort
 
-Unter 15 Minuten pro Sensor. Diese Zahl ist der Grund, warum nicht-invasive Überwachung im Portfoliomassstab funktioniert. Ein Durchflusssensor, für den es einen Installateur, eine Abschaltung und ein aufgeschnittenes Rohr braucht, würde ein Gebäude pro Steigleitung einen Tag Störung kosten. Ein Clamp-on-Sensor kostet eine Halterung und eine Viertelstunde.
+Etwa 30 Sekunden pro Sensor. Diese Zahl ist der Grund, warum nicht-invasive Überwachung im Portfoliomassstab funktioniert. Ein Durchflusssensor, für den es einen Installateur, eine Abschaltung und ein aufgeschnittenes Rohr braucht, würde ein Gebäude pro Steigleitung einen Tag Störung kosten. Ein Clamp-on-Sensor kostet eine Halterung und eine halbe Minute.
 
 ## So sieht ein Installationstag aus
 
@@ -39,7 +39,7 @@ Unter 15 Minuten pro Sensor. Diese Zahl ist der Grund, warum nicht-invasive Übe
 
 ## Skalierung auf ein Portfolio
 
-Im September 2026 gingen an zwei Wohnstandorten in Kalifornien 59 Sensoren live. Das erste Portfolio in Deutschland umfasst 22 Gebäude mit 32 Messstellen. Keines brauchte einen Installateur pro Sensor, und bei keinem wurde das Wasser abgestellt.
+AquaShield ist in über 25 Gebäuden in Europa und den USA live. Keines davon brauchte einen Installateur pro Sensor, und bei keinem wurde das Wasser abgestellt.
 
 Nach dem ersten Gebäude kann das eigene Team des Portfolios die Sensoren anklemmen. Die Positionen stammen aus dem Plan, die Sensoren kommen in einer Kiste, und der Zwilling aktualisiert sich, sobald sie online gehen.
 

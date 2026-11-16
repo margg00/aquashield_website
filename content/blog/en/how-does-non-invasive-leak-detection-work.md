@@ -2,7 +2,7 @@
 id: non-invasive
 slug: how-does-non-invasive-leak-detection-work
 title: How does non-invasive leak detection work in a building?
-description: Clamp-on ultrasonic sensors read flow through the pipe wall, a model learns what normal looks like, and a digital twin places the deviation. No pipe cutting.
+description: Clamp-on ultrasonic sensors read flow through the pipe wall, a model learns what normal looks like, and a digital twin places the deviation.
 date: 2026-07-02
 updated: 2026-07-02
 author: Marguerite Benoist
@@ -11,7 +11,7 @@ segment: product
 segmentLabel: Product
 coverAlt: Two clamp-on sensors on the outside of a pipe with an ultrasonic V-shaped path reflecting off the far pipe wall.
 answer: Non-invasive leak detection reads the water from outside the pipe. A clamp-on ultrasonic flow sensor sits on the outside of the riser and measures flow through the pipe wall, and a model per measuring point learns the building's normal flow. A leak shows up as a pattern that normal does not explain.
-statValue: Under 15 min
+statValue: About 30 s
 statLabel: per sensor, clamp-on, no pipe cutting, the water stays on at the AquaShield sites live today.
 statSource: AquaShield installs
 statDate: 2026
@@ -27,7 +27,7 @@ faq3a: The sensors clamp onto any accessible pipe, old or new. The digital twin 
 
 The oldest way to measure flow is to cut the pipe and put a meter in it. That means a plumber, a shutdown, and a joint that can itself leak one day. Ultrasonic flow sensing avoids all of that. Two transducers sit on the outside of the pipe at a slight angle to each other. One sends a pulse through the pipe wall and the water, the other receives it. Water moving with the pulse speeds it up, water moving against it slows it down. The difference in travel time is the flow.
 
-The sensor is strapped to the pipe with a bracket. Installation takes under 15 minutes. The water stays on the whole time, and the tenants never notice.
+The sensor is strapped to the pipe with a bracket. Each sensor clamps on in about 30 seconds. The water stays on the whole time, and the tenants never notice.
 
 ## One sensor, two views
 
@@ -36,7 +36,7 @@ AquaShield uses one measurement, flow, and reads it in two ways that complement 
 - **Flow per riser**, from clamp-on ultrasonic sensors on risers and supply lines. Flow tells you how much water is moving and when.
 - **Flow across the network**, from comparing measuring points. A riser's flow has to match the branches it feeds, so the network as a whole shows changes that a single flow sensor may not see.
 
-Every sensor reports a reading every 10 minutes. With 32 measuring points at one portfolio, that is 4,608 readings a day from a single customer.
+Every sensor reports a reading every 10 minutes, day and night, from every measuring point in the portfolio.
 
 ## The model learns normal first
 

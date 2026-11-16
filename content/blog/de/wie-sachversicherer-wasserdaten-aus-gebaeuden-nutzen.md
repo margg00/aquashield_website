@@ -21,7 +21,7 @@ faq1a: Nein. Teilen lassen sich, mit Zustimmung des Eigentümers, nur aggregiert
 faq2q: Welches der fünf Modelle ist am häufigsten?
 faq2a: Das hängt vom Bestand ab. Ein Prämienrabatt ist für Versicherungsnehmer am einfachsten zu verstehen. Ein Auslöser für die Schadenreaktion wirkt am direktesten auf die Schadenhöhe. Das entscheidet sich im 30-minütigen Gespräch.
 faq3q: Arbeitet AquaShield heute schon mit Versicherern?
-faq3a: Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Der nächste Schritt ist ein Bestand, gemeinsam mit einem Versicherer durchgearbeitet.
+faq3a: Pilotprojekte laufen mit Eigentümern in Europa und den USA. Der nächste Schritt ist ein Bestand, gemeinsam mit einem Versicherer durchgearbeitet.
 ---
 ## Zwei Werte in einem Datensatz
 
@@ -52,4 +52,4 @@ Mit Zustimmung des Eigentümers kann AquaShield aggregierte Durchflussabweichung
 
 ## Der nächste Schritt
 
-Pilotprojekte laufen mit Eigentümern in Deutschland und den USA. Für einen Versicherer ist der nächste Schritt ein Bestand, gemeinsam durchgearbeitet: welche Gebäude, welche Daten, welches der fünf Modelle. Mehr auf der [Seite für Versicherungen](/de/versicherungen/), oder [buchen Sie ein 30-minütiges Gespräch](/de/gespraech-buchen/?for=insurance).
+Pilotprojekte laufen mit Eigentümern in Europa und den USA. Für einen Versicherer ist der nächste Schritt ein Bestand, gemeinsam durchgearbeitet: welche Gebäude, welche Daten, welches der fünf Modelle. Mehr auf der [Seite für Versicherungen](/de/versicherungen/), oder [buchen Sie ein 30-minütiges Gespräch](/de/gespraech-buchen/?for=insurance).

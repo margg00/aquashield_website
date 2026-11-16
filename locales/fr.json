@@ -37,6 +37,12 @@
       "realEstate": "Détectez la prochaine fuite à temps.",
       "insurance": "Réduisez le prochain sinistre.",
       "dataCenters": "Détectez la prochaine fuite avant la panne."
+    },
+    "closing": {
+      "home": "Trente minutes avec un fondateur, sur vos bâtiments.",
+      "realEstate": "Trente minutes avec un fondateur, sur votre parc.",
+      "insurance": "Trente minutes avec un fondateur, sur votre portefeuille.",
+      "dataCenters": "Trente minutes avec un fondateur, sur votre boucle de refroidissement."
     }
   },
   "common": {
@@ -182,7 +188,6 @@
       "eyebrow": "Détection de fuites par IA pour bâtiments",
       "h1": "La première détection de fuites pour les grands parcs immobiliers.",
       "visualAlt": "À l'intérieur d'une canalisation, un capteur à pince envoie des ondes sonores à travers l'écoulement. La vue recule vers un bâtiment de verre où la colonne B s'allume au 3e étage, puis vers un îlot de bâtiments surveillés.",
-      "live": "En service en Europe et aux États-Unis.",
       "sub": "Localisez les fuites avant les dégâts."
     },
     "problem": {
@@ -210,12 +215,11 @@
       "line": "L'occupation, l'énergie et la CVC ont des tableaux de bord. L'eau attend l'appel d'un locataire, une tache au plafond ou une flaque au sol."
     },
     "how": {
-      "eyebrow": "Comment ça marche",
       "h2": "De la canalisation à l'alerte en trois étapes.",
       "steps": [
         {
           "name": "Fixer",
-          "text": "Les capteurs se fixent sur vos canalisations en quelques secondes. Rien n'est coupé.",
+          "text": "Les capteurs se fixent sur vos canalisations en quelques secondes.",
           "alt": "Un capteur se fixe sur une canalisation et envoie des ondes à travers l'eau."
         },
         {
@@ -225,24 +229,23 @@
         },
         {
           "name": "Localiser",
-          "text": "Un écart devient un lieu : la colonne et les étages à vérifier.",
+          "text": "Un écart devient une colonne et un étage à examiner.",
           "alt": "Le contour d'un bâtiment. Un tronçon de colonne s'allume et un repère tombe dessus."
         }
       ]
     },
     "who": {
-      "eyebrow": "Pour qui",
       "h2": "Conçu pour ceux qui reçoivent l'appel.",
       "cards": [
         {
           "name": "Immobilier",
-          "text": "Chaque colonne cartographiée, chaque fuite localisée avant l'appel du locataire.",
+          "text": "Les fuites localisées avant l'appel du locataire.",
           "link": "Pour l'immobilier",
           "key": "real-estate"
         },
         {
           "name": "Assurance",
-          "text": "Durée du sinistre plus courte, gravité des sinistres plus faible, données de bâtiment en direct pour le risque.",
+          "text": "Des sinistres plus courts et des données de risque en direct.",
           "link": "Pour les assureurs",
           "key": "insurance"
         },
@@ -255,27 +258,29 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "Parc immobilier",
       "h2": "Une seule vue de tout votre parc.",
-      "line": "Chaque bâtiment, chaque colonne, un seul écran. Commencez par un site, étendez à tout le parc.",
+      "line": "Commencez par un site et ajoutez des bâtiments au fur et à mesure.",
       "building": "Bâtiment 14",
       "detail": "Colonne B · vérifier les étages 3 à 5",
       "done": "Détectée à temps",
       "alt": "Un îlot de bâtiments surveillés. Un bâtiment signale une fuite, une carte d'alerte indique la colonne B et les étages 3 à 5, puis le signal devient une coche."
     },
     "proof": {
-      "eyebrow": "Preuve",
       "h2": "À quoi ressemble une vraie alerte.",
-      "line": "En service en Europe et aux États-Unis. Recherche avec les services techniques du MIT et de l'EPFL."
+      "line": "Recherche avec les services techniques du MIT et de l'EPFL."
     },
     "final": {
       "h2": "Détectez la prochaine fuite à temps.",
-      "line": "Trente minutes avec un fondateur. Dites-nous où l'eau vous préoccupe aujourd'hui. Nous vous montrons comment fonctionne AquaShield et explorons ensemble où il a sa place."
+      "line": "Trente minutes avec un fondateur sur ce qui vous préoccupe aujourd'hui côté eau."
+    },
+    "video": {
+      "h2": "En deux minutes",
+      "label": "Vidéo de lancement AquaShield"
     }
   },
   "product": {
     "h1": "Comment AquaShield fonctionne",
-    "lead": "Des capteurs à pince, nos propres modèles d'apprentissage automatique et un jumeau numérique de votre plomberie. Installés en quelques secondes, déployés sur tout votre parc.",
+    "lead": "Les capteurs se fixent sur vos canalisations et nos modèles apprennent comment l'eau circule dans chaque bâtiment. Quand quelque chose change, votre équipe reçoit une colonne et un étage.",
     "hero": {
       "visual": {
         "sensor": "Capteur clamp-on",
@@ -290,70 +295,43 @@
     },
     "install": {
       "h2": "À quoi ressemble une installation ?",
-      "text": "Nos capteurs propriétaires se fixent sur les canalisations existantes en 30 secondes chacun, sans découpe ni coupure d'eau. Votre propre équipe peut les poser.",
-      "visualAlt": "Schéma : des capteurs de débit ultrasoniques à pince sur une colonne montante et sur la conduite d'alimentation qui la dessert.",
+      "text": "Chaque capteur se fixe sur une canalisation existante en environ 30 secondes, l'eau reste ouverte. Votre propre équipe peut s'en charger.",
+      "visualAlt": "Schéma : des capteurs à pince sur une colonne montante et sur la conduite d'alimentation qui la dessert.",
       "labels": {
         "riser": "Colonne montante",
-        "ultrasonic": "Capteur de débit ultrasonique à pince",
-        "supply": "Conduite d'alimentation",
-        "time": "30 secondes par capteur",
-        "cut": "Sans découpe de tuyau"
+        "ultrasonic": "Capteur à pince",
+        "supply": "Conduite d'alimentation"
       }
     },
     "data": {
       "h2": "Quelles données vais-je obtenir ?",
-      "text": "Un tableau de bord avec le débit en direct de chaque point de mesure et les alertes classées par gravité. Chaque alerte indique le bâtiment, la colonne montante et ce qu'il faut vérifier en premier.",
-      "confirm": "",
-      "visualAlt": "Exemple de graphique : un point de mesure sur sept jours, la bande du profil normal appris et un écart sur les deux derniers jours.",
+      "text": "Un tableau de bord avec le débit en direct de chaque point de mesure. Nos modèles apprennent le débit normal de chaque bâtiment et signalent ce qu'il n'explique pas. Chaque alerte indique le bâtiment et la colonne.",
       "chart": {
-        "title": "Point de mesure, colonne montante B, sept jours",
         "baseline": "Profil normal",
-        "actual": "Débit en direct",
-        "deviation": "Écart",
-        "days": [
-          "Lun",
-          "Mar",
-          "Mer",
-          "Jeu",
-          "Ven",
-          "Sam",
-          "Dim"
-        ]
+        "actual": "Débit en direct"
       }
     },
     "precision": {
       "h2": "Quelle est la précision de la localisation ?",
-      "text": "À la colonne montante ou à la section du bâtiment. La recherche commence aux bons étages, pas derrière le premier mur humide.",
-      "confirm": ""
+      "text": "À la colonne montante ou à la section du bâtiment, pour que la recherche commence aux bons étages."
     },
     "ml": {
-      "h2": "L'apprentissage automatique",
-      "text": "Notre apprentissage automatique propriétaire, conçu pour les réseaux hydrauliques, apprend le débit normal de chaque bâtiment et signale ce que le normal n'explique pas. Les retours de votre équipe l'affinent à chaque bâtiment.",
+      "h2": "Points de mesure",
       "visualAlt": "Des points de mesure, chacun avec son profil normal appris et son débit en direct. Une colonne s'écarte de son profil et est signalée."
     },
     "sensors": {
-      "h2": "Les capteurs",
-      "intro": "Des capteurs à pince propriétaires, sur la tuyauterie existante. Rien n'est coupé.",
-      "specs": [
-        "Capteurs de débit à ultrasons à pince, propriétaires",
-        "30 secondes par capteur",
-        "Sans découpe, sans coupure d'eau",
-        "Tuyaux anciens ou récents"
-      ],
+      "h2": "Le capteur",
+      "intro": "Il mesure le débit à travers la paroi, la canalisation n'est jamais ouverte.",
       "visual": {
-        "pipe": "Conduite existante",
-        "transducerA": "Transducteur A",
-        "transducerB": "Transducteur B",
-        "path": "Trajet ultrasonore",
-        "transit": "Temps de transit",
+        "sensor": "Capteur à pince",
+        "signal": "Signal à travers la paroi",
         "flow": "Débit",
-        "clamp": "Fixé par collier, sans découpe",
-        "alt": "Jumeau numérique d'un capteur de débit à ultrasons clamp-on : deux transducteurs fixés à l'extérieur d'une conduite, le trajet ultrasonore à travers l'eau et le sens du débit."
+        "alt": "Un capteur à pince à l'extérieur d'une canalisation. Son signal traverse l'eau qui y circule."
       }
     },
     "twin": {
       "h2": "Le jumeau numérique",
-      "text": "Un modèle de la plomberie du bâtiment qui transforme un écart en endroit à vérifier en premier."
+      "text": "Le jumeau numérique : un modèle de la plomberie qui transforme un écart en un endroit précis."
     },
     "faqTitle": "Les questions qu'on nous pose toujours",
     "faq": [
@@ -363,15 +341,7 @@
       },
       {
         "q": "Combien de temps prend un déploiement ?",
-        "a": "Vite, et à grande échelle. Chaque capteur se fixe en 30 secondes, votre propre équipe peut donc mettre de nombreux bâtiments en service en parallèle."
-      },
-      {
-        "q": "Est-ce que ça fonctionne avec de vieilles canalisations ?",
-        "a": "Oui. Les capteurs se fixent sur toute canalisation accessible, ancienne ou récente."
-      },
-      {
-        "q": "Comment les alertes restent-elles pertinentes ?",
-        "a": "Les alertes sont classées par gravité et vérifiées avec votre équipe. Vos retours affinent les modèles à chaque bâtiment."
+        "a": "Un bâtiment est en service en une journée. Chaque capteur se fixe en environ 30 secondes sans coupure d'eau, et votre propre équipe peut les poser. Ainsi, de nombreux bâtiments démarrent en parallèle."
       },
       {
         "q": "Qui voit les données ?",
@@ -381,50 +351,25 @@
         "q": "Combien ça coûte ?",
         "a": "Tarif par bâtiment et par point de mesure, une fraction d'un seul sinistre. Nous chiffrons à partir de votre plan de plomberie."
       }
-    ]
+    ],
+    "twinModel": {
+      "h2": "Un vrai bâtiment dans notre jumeau numérique",
+      "caption": "Conduites, dérivations et capteurs d'un site, tels que notre modèle les voit.",
+      "alt": "Vue 3D de la plomberie d'un bâtiment dans le jumeau numérique AquaShield : colonnes et dérivations en conduites, capteurs en repères bleus."
+    }
   },
   "realEstate": {
     "eyebrow": "Immobilier",
     "h1": "Trouvez la fuite avant votre locataire.",
-    "lead": "Pour les parcs immobiliers avec maintenance interne, de quelques centaines à plusieurs centaines de milliers de logements.",
+    "lead": "Pour les équipes de parc avec maintenance interne, de quelques centaines à des centaines de milliers de logements.",
     "visual": {
       "alt": "Six bâtiments d'un parc, chacun surveillé par un capteur de colonne montante. Un bâtiment montre un écart sur la colonne B et une alerte indique les étages à vérifier en premier.",
       "legendOk": "Surveillé",
-      "legendAlert": "Alerte, endroit à vérifier en premier"
+      "legendAlert": "Alerte"
     },
     "story": {
-      "h2": "Les fuites sont découvertes, pas détectées.",
-      "text": "La plupart des fuites sont découvertes par l'appel d'un locataire ou une tache au plafond, des jours ou des semaines après leur début. AquaShield surveille chaque colonne montante et indique à votre équipe où vérifier en premier."
-    },
-    "customers": {
-      "h2": "Où le système tourne aujourd'hui",
-      "confirm": "",
-      "groups": [
-        {
-          "label": "En service",
-          "items": [
-            "Un grand parc résidentiel en Allemagne.",
-            "Deux sites résidentiels en Californie.",
-            "Un immeuble résidentiel neuf de sept étages en Californie."
-          ]
-        },
-        {
-          "label": "Pilotes R&D",
-          "items": [
-            "MIT Facilities, bâtiment NW23, là où le système a commencé.",
-            "EPFL Facilities, sur le campus."
-          ]
-        },
-        {
-          "label": "En planification",
-          "items": [
-            "Un exploitant de clubs de fitness en Californie, T1 2027.",
-            "Des tours de bureaux à Detroit. Lettre d'intention signée.",
-            "Des bâtiments à Berlin. Visite de site effectuée.",
-            "Un campus universitaire en Belgique."
-          ]
-        }
-      ]
+      "h2": "La plupart des fuites sont trouvées par un locataire.",
+      "text": "Souvent par un appel ou une tache au plafond, des jours ou des semaines après le début. AquaShield surveille chaque colonne montante et envoie à votre équipe une alerte comme celle-ci."
     },
     "anchor": {
       "h2": "Un seul sinistre paie la surveillance.",
@@ -448,19 +393,19 @@
       "steps": [
         {
           "name": "Cartographier",
-          "text": "Envoyez-nous le plan de plomberie ou faites-nous visiter une fois. Nous plaçons les capteurs et construisons le jumeau numérique."
+          "text": "Envoyez-nous le plan de plomberie. Nous plaçons les capteurs et construisons le jumeau."
         },
         {
           "name": "Installer",
-          "text": "30 secondes par capteur. Sans découpe, l'eau reste ouverte."
+          "text": "Environ 30 secondes par capteur, l'eau reste ouverte."
         },
         {
           "name": "Apprendre",
-          "text": "Notre modèle apprend le débit normal du bâtiment."
+          "text": "Le modèle apprend le débit normal du bâtiment."
         },
         {
           "name": "Détecter",
-          "text": "Les écarts sont classés par gravité et localisés à la colonne montante. Votre équipe reçoit l'endroit à vérifier en premier."
+          "text": "Les alertes sont classées par gravité et indiquent la colonne."
         }
       ]
     },
@@ -472,33 +417,26 @@
       },
       {
         "q": "Devons-nous ouvrir des murs ?",
-        "a": "Non. Les capteurs se fixent à pince sur les canalisations accessibles dans les colonnes montantes, les sous-sols et les gaines."
+        "a": "Non. Les capteurs se fixent sur les canalisations accessibles des colonnes et des sous-sols."
       },
       {
         "q": "Que doit faire notre équipe de maintenance ?",
-        "a": "Poser les capteurs, ou nous laisser le faire. Puis agir sur les alertes : chacune indique la colonne et les étages à vérifier en premier."
-      },
-      {
-        "q": "Est-ce que ça fonctionne dans les vieux bâtiments ?",
-        "a": "Oui. Les capteurs se fixent sur toute canalisation accessible, ancienne ou récente."
+        "a": "Poser les capteurs, ou nous laisser le faire. Puis agir sur les alertes, chacune indique une colonne et les étages."
       },
       {
         "q": "Combien de bâtiments pour commencer ?",
         "a": "Un seul. Déployez quand vous l'avez vu fonctionner."
-      },
-      {
-        "q": "Notre assureur peut-il voir les données ?",
-        "a": "Seulement si vous le décidez. Certains propriétaires les partagent pour négocier de meilleures conditions."
       }
-    ]
+    ],
+    "live": "En service dans plus de 25 bâtiments en Europe et aux États-Unis. Recherche avec les services techniques du MIT et de l'EPFL."
   },
   "insurance": {
     "eyebrow": "Assurance",
     "h1": "Durée du sinistre plus courte. Gravité des sinistres plus faible.",
-    "lead": "Pour les souscripteurs dommages et les responsables sinistres et innovation.",
+    "lead": "Pour les souscripteurs dommages et les équipes sinistres qui veulent des sinistres plus courts et de meilleures données de risque.",
     "story": {
       "h2": "La gravité dépend du temps.",
-      "lead": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque. Chaque jour de plus ajoute des dommages secondaires : sous-planchers, cloisons, logements voisins, interruption d'activité.",
+      "lead": "Une fuite cachée coule jusqu'à ce que quelqu'un la remarque, et chaque jour de plus ajoute des dommages secondaires.",
       "timeline": {
         "alt": "Frise chronologique. Sans surveillance, une fuite cachée coule pendant des semaines. Elle atteint le sous-plancher, les cloisons, le logement voisin et l'activité avant qu'un locataire ne la découvre. Avec AquaShield, un écart de débit est signalé tôt, la colonne est localisée et le reste du sinistre est évité.",
         "ticks": [
@@ -515,11 +453,11 @@
       "levers": [
         {
           "name": "Levier 1 : une durée de sinistre plus courte",
-          "text": "Une détection plus précoce raccourcit le sinistre. Moins de jours d'eau, c'est moins de dommages secondaires et un sinistre plus petit."
+          "text": "Moins de jours d'eau, c'est moins de dommages secondaires et un sinistre plus petit."
         },
         {
           "name": "Levier 2 : un signal de risque en direct",
-          "text": "Les données de débit par colonne sont un signal de risque dont la souscription ne dispose pas aujourd'hui. Elles viennent de bâtiments déjà équipés."
+          "text": "Les données de débit par colonne donnent à la souscription un signal qui lui manque aujourd'hui."
         }
       ]
     },
@@ -546,23 +484,22 @@
           "name": "Réponse sinistre",
           "text": "Une alerte déclenche le processus de sinistre avant l'appel du locataire."
         }
-      ],
-      "line": "Laquelle convient dépend de votre portefeuille. Nous la définissons avec vous lors du premier appel."
+      ]
     },
     "book": {
       "h2": "Commencez par un portefeuille.",
       "steps": [
         {
           "name": "Choisir le portefeuille",
-          "text": "Un portefeuille, un assureur. Nous sélectionnons les bâtiments ensemble."
+          "text": "Nous sélectionnons les bâtiments avec vous."
         },
         {
           "name": "Choisir le modèle",
-          "text": "Subvention, remise, avenant, données de risque ou réponse sinistre. Nous choisissons ce qui convient à votre portefeuille."
+          "text": "Nous choisissons ensemble l'un des cinq modèles."
         },
         {
           "name": "Démarrer",
-          "text": "Les capteurs se fixent sur les conduites, les données circulent, les alertes parviennent à votre équipe sinistres."
+          "text": "Les capteurs sont posés et les alertes parviennent à votre équipe sinistres."
         }
       ],
       "line": "En service aujourd'hui chez des propriétaires en Europe et aux États-Unis.",
@@ -631,15 +568,15 @@
       "steps": [
         {
           "name": "Fixer",
-          "text": "Des capteurs de débit à ultrasons se fixent à pince sur chaque dérivation de rack. Aucune découpe de la boucle, aucune interruption."
+          "text": "Les capteurs se fixent sur chaque dérivation de rack, la boucle continue de tourner."
         },
         {
           "name": "Apprendre la boucle",
-          "text": "Le modèle apprend le débit normal de chaque dérivation et la façon dont les dérivations évoluent ensemble."
+          "text": "Le modèle apprend le débit de chaque dérivation, seule et à côté de ses voisines."
         },
         {
           "name": "Signaler la dérivation",
-          "text": "Une dérivation s'écarte de ses voisines. L'alerte indique le rack avant que l'eau n'atteigne le sol."
+          "text": "Quand une dérivation s'écarte, l'alerte indique son rack."
         }
       ],
       "visual": {
@@ -648,7 +585,7 @@
     },
     "status": {
       "h2": "De la colonne montante au refroidissement liquide.",
-      "text": "Les capteurs et le modèle qui surveillent aujourd'hui les colonnes montantes résidentielles passent sur votre boucle de refroidissement. Premiers sites en Suisse.",
+      "text": "Les capteurs et modèles qui surveillent aujourd'hui des colonnes résidentielles passent sur votre boucle de refroidissement. Premiers sites en Suisse.",
       "live": "En service dans plus de 25 bâtiments en Europe et aux États-Unis.",
       "visual": {
         "alt": "Schéma : un bâtiment résidentiel avec des capteurs de débit sur ses colonnes montantes et une rangée de racks sur une boucle de refroidissement, reliés à un seul modèle.",
@@ -656,23 +593,6 @@
         "loop": "Boucle de refroidissement",
         "model": "Un seul modèle"
       }
-    },
-    "together": {
-      "h2": "Essayons ensemble sur votre site.",
-      "steps": [
-        {
-          "name": "Une boucle, une rangée de racks",
-          "text": "Nous choisissons avec vous une boucle de refroidissement et une rangée de racks."
-        },
-        {
-          "name": "Capteurs posés, jumeau construit",
-          "text": "Les capteurs se fixent, le jumeau cartographie la boucle, le modèle apprend sa normale."
-        },
-        {
-          "name": "Premières alertes",
-          "text": "Vous voyez les premières alertes sur vos propres racks."
-        }
-      ]
     }
   },
   "team": {
@@ -681,7 +601,7 @@
     "lead": "Nous appliquons la recherche en robotique et en apprentissage automatique au système le plus négligé de chaque bâtiment, depuis Zurich et San Francisco.",
     "join": {
       "title": "Rejoignez-nous",
-      "line": "Ingénieurs, chercheurs et profils opérationnels : écrivez aux fondateurs.",
+      "line": "Ingénieurs et chercheurs : écrivez aux fondateurs.",
       "button": "Présentez-vous"
     },
     "story": {
@@ -741,18 +661,18 @@
       "items": [
         {
           "name": "Du matériel sur le terrain",
-          "text": "Capteurs à ultrasons, firmware et connectivité qui résistent aux vrais locaux techniques."
+          "text": "Des capteurs et un firmware qui tiennent dans de vrais locaux techniques."
         },
         {
           "name": "Apprentissage automatique sur signaux physiques",
-          "text": "Des modèles qui apprennent à quoi ressemble la normale pour chaque bâtiment et repèrent ce que la normale n'explique pas."
+          "text": "Des modèles qui apprennent le débit normal de chaque bâtiment."
         },
         {
           "name": "Jumeaux numériques de vrais bâtiments",
-          "text": "Un modèle vivant de la plomberie qui transforme un écart en un endroit à vérifier en premier."
+          "text": "Un modèle vivant de la plomberie qui transforme un écart en un endroit précis."
         }
       ],
-      "line": "Pas de tickets, pas de passations. Vous en êtes responsable, du premier commit aux données en direct d'un vrai bâtiment."
+      "line": "Vous êtes responsable de votre travail, du premier commit aux données en direct d'un vrai bâtiment."
     },
     "peopleTitle": "L'équipe",
     "people": [
@@ -832,7 +752,7 @@
     },
     "final": {
       "h2": "Construisez-le avec nous.",
-      "line": "Si vous préférez livrer pour de vrais bâtiments plutôt que peaufiner des présentations, écrivez-nous.",
+      "line": "Écrivez-nous si vous voulez que votre travail tourne dans de vrais bâtiments.",
       "button": "Présentez-vous"
     },
     "offices": [
@@ -844,11 +764,14 @@
         "city": "Zurich",
         "line": "Technoparkstrasse 1, 8005 Zurich, Suisse"
       }
-    ]
+    ],
+    "field": {
+      "h2": "Au labo et sur le terrain"
+    }
   },
   "blog": {
     "h1": "Blog",
-    "lead": "Détection de fuites, dégâts des eaux et données de bâtiment. Un article toutes les deux semaines, par les personnes qui construisent AquaShield.",
+    "lead": "Des notes pour trouver les fuites plus tôt, par l'équipe qui construit AquaShield. Un article toutes les deux semaines.",
     "empty": "Le premier article est en cours de rédaction.",
     "segments": {
       "real-estate": "Immobilier",
@@ -862,7 +785,7 @@
   },
   "book": {
     "h1": "Réserver un appel découverte de 30 min",
-    "lead": "Trente minutes avec un fondateur. Dites-nous où l'eau vous préoccupe aujourd'hui. Nous vous montrons comment fonctionne AquaShield et explorons ensemble où il a sa place.",
+    "lead": "Dites-nous où l'eau vous préoccupe aujourd'hui.",
     "outcomesIntro": "Vous repartez avec",
     "outcomes": [
       "Un aperçu en direct du fonctionnement d'AquaShield",
@@ -885,7 +808,12 @@
       "error": "Une erreur s'est produite. Écrivez à founders@aquashieldai.com et nous réglons cela.",
       "invalid": "Veuillez indiquer votre nom et un e-mail professionnel."
     },
-    "confirm": ""
+    "confirm": "",
+    "founders": {
+      "line": "Vous parlez avec Paul ou Marguerite, les fondateurs. Trente minutes, sans diapositives.",
+      "paulAlt": "Paul Beckers, cofondateur et CEO",
+      "margueriteAlt": "Marguerite Benoist, cofondatrice et CTO"
+    }
   },
   "imprint": {
     "h1": "Mentions légales",

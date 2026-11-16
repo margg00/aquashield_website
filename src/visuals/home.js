@@ -66,25 +66,27 @@ function homeClampSvg(t) {
   s += `<path class="hm-pipe-edge" d="${seg(side(A, 1), side(B, 1))}${seg(side(A, -1), side(B, -1))}"/>`;
   s += `<ellipse class="hm-pipe-end" cx="${n2(B[0])}" cy="${n2(B[1])}" rx="${n2(ER * r)}" ry="${n2(EB * r)}" transform="rotate(-60 ${n2(B[0])} ${n2(B[1])})"/>`;
   s += `<ellipse class="hm-water-end" cx="${n2(B[0])}" cy="${n2(B[1])}" rx="${n2(ER * (r - 5))}" ry="${n2(EB * (r - 5))}" transform="rotate(-60 ${n2(B[0])} ${n2(B[1])})"/>`;
-  // waves: rings travelling along the pipe from the sensor, both ways
+  // waves: the shared wave style (arcs that spread from the wall under the sensor and fade, as on the home
+  // hero), clipped to the pipe body
   const along = [COS, 0.5];
+  const C = P(-50, r, 0);
+  const ang = Math.atan2(along[1], along[0]) * 180 / Math.PI;
+  const arc = (k) => `M${n2(C[0] - along[0] * k * 1.3)} ${n2(C[1] - along[1] * k * 1.3)}A${n2(k * 1.3)} ${n2(k)} ${n2(ang)} 0 0 ${n2(C[0] + along[0] * k * 1.3)} ${n2(C[1] + along[1] * k * 1.3)}`;
+  s += `<defs><clipPath id="hm-body"><path d="${poly([side(A, 1), side(B, 1), side(B, -1), side(A, -1)])}"/></clipPath></defs>`;
   let waves = "";
-  [-1, 1].forEach((dir) => {
-    for (let i = 0; i < 3; i++) {
-      waves += `<path class="hm-wave" d="${ringFront(P, [-50, 0, 0], r + 1, "x")}" style="--dx:${n2(along[0] * 120 * dir)}px;--dy:${n2(along[1] * 120 * dir)}px;animation-delay:${n2(1 + i * 0.75)}s, ${n2(1 + i * 0.75)}s"/>`;
-    }
-  });
-  s += `<g class="hm-waves">${waves}</g>`;
-  s += `<path class="hm-wave-still" d="${ringFront(P, [-10, 0, 0], r + 1, "x")}${ringFront(P, [-90, 0, 0], r + 1, "x")}"/>`;
-  // sensor: two steel bands around the pipe and a housing on top
+  for (let i = 0; i < 3; i++) waves += `<path class="sk-wave" d="${arc(2 * w)}" style="stroke-width:2;transform-origin:${n2(C[0])}px ${n2(C[1])}px;animation-delay:${n2(1 + i * 0.6)}s"/>`;
+  s += `<g clip-path="url(#hm-body)">${waves}<path class="sk-wave-still" style="stroke-width:2" d="${arc(0.7 * w)}${arc(1.3 * w)}"/></g>`;
+  // sensor: the shared housing (4.1 r long, 0.76 r deep, lighter lip, hairlines, LED) and two steel bands
+  // at its ends, as on the home hero
   let sensor = "";
-  [-82, -18].forEach((x) => {
+  [-106, 6].forEach((x) => {
     sensor += `<path class="hm-strap" d="${ringFront(P, [x, 0, 0], r + 2, "x")}"/>`;
   });
-  const bx = box(P, -96, -4, r - 4, r + 22, -16, 16);
+  const bx = box(P, -112, 12, r - 2, r + 21, -14, 14);
   sensor += `<path class="hm-house-l" d="${bx.left}"/><path class="hm-house-r" d="${bx.right}"/><path class="hm-house-t" d="${bx.top}"/><path class="hm-house-e" d="${bx.edges}"/>`;
-  const led = P(-80, r + 22, 0);
-  sensor += `<ellipse class="hm-led" cx="${n2(led[0])}" cy="${n2(led[1])}" rx="${n2(ER * 4)}" ry="${n2(EB * 4)}"/>`;
+  sensor += `<path class="hm-house-line" d="${seg(P(-96, r + 13, 14), P(-66, r + 13, 14))}${seg(P(-96, r + 8, 14), P(-78, r + 8, 14))}"/>`;
+  const led = P(-2, r + 9, 14);
+  sensor += `<circle class="hm-led" cx="${n2(led[0])}" cy="${n2(led[1])}" r="2.6"/>`;
   s += `<g class="hm-sensor">${sensor}</g>`;
   return svgOpen("hm-clamp", "0 0 400 300", t.home.how.steps[0].alt) + s + `</svg>`;
 }

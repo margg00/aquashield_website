@@ -55,12 +55,22 @@ Drawn visuals (sharp at any size, animated, every label from the locale file) li
 
 | Visual | File | Used on |
 | --- | --- | --- |
-| Hero building, the 16-second story loop | `src/hero.js` | Home hero. Same drawing in a still "twin" variant on Product (localisation) and Home step 4. |
-| Clamp-on sensor on a riser, pressure sensor on a tap | `src/visuals.js`, `installSvg` | Home step 1, Product install. |
-| Rack row on a cooling loop | `src/visuals.js`, `rackSvg` | Data centres. |
+| Hero building, the 18-second story loop | `src/hero.js` | Home hero. Same drawing in a still "twin" variant on Product (localization) and Team. |
+| The clamp-on sensor (one look everywhere) | `src/sensor-kit.js` | Used by the Product drawings below and drawn the same way in Home step 1 (`src/visuals/home.js`). |
+| Clamp-on sensors on a riser and its supply line | `src/visuals.js`, `installSvg` | Product install, Team. |
+| Sensor close-up | `src/visuals.js`, `sensorSvg` | Product, "The sensor". |
+| Rack row on a cooling loop | `src/visuals.js`, `rackSvg` | Data centers. |
 | Baseline and deviation charts | inline in `src/pages/home.html` and `product.html` | Home steps 2 and 3, Product data section. |
 
-To change a label inside a drawing, edit the `building`, `product.install.labels` or `dataCenters.visual` block in the locale files.
+To change a label inside a drawing, edit the `building`, `product.install.labels`, `product.sensors.visual` or `dataCenters.visual` block in the locale files.
+
+## Add the launch video
+
+Save the video as `assets/video/launch.mp4` and a still frame as `assets/video/launch-poster.webp` (16:9, about 1600 by 900, under 200 KB), then run the build. The home page then shows a section "See it in two minutes" right under the row of four figures, with a player that loads nothing until the visitor presses play. Without `launch.mp4` the section is simply not on the page. The heading is `home.video.h2` in the locale files.
+
+## Add photos from the lab and the field
+
+Save each photo as a WebP in `assets/img/field/`, named with a number and a short caption, for example `01-test-bench.webp` or `02-riser-in-basement.webp` (about 1200px wide, under 200 KB), then run the build. They appear in that number order in a section "From the lab and the field" on the Team page, above the people cards, and the caption is made from the file name ("Riser in basement"). The caption is the same in all three languages. With no photos in the folder the section is not on the page.
 
 ## Change colours or type
 

@@ -11,8 +11,8 @@ segment: real-estate
 segmentLabel: Immobilien
 coverAlt: Eine dunkle, stille Wasseroberfläche, auf der sich von einem Punkt aus eine einzelne Welle ausbreitet.
 answer: Weil ein verstecktes Leck kein Geräusch, keinen Fleck und keine Rechnung erzeugt, bis es eine Weile gelaufen ist. Es beginnt in einem Schacht oder einer Decke, im gemeinsamen Teil des Netzes, und sein kleiner zusätzlicher Durchfluss verschwindet in den normalen Schwankungen des Gebäudeverbrauchs. Niemand beobachtet das Wasser, also sieht es niemand.
-statValue: 91 bis 100 %
-statLabel: Datenabdeckung pro Standort im ersten AquaShield-Portfolio, 22 Gebäude, seit März 2026.
+statValue: 25+ Gebäude
+statLabel: live mit AquaShield in Europa und den USA.
 statSource: AquaShield-Standorte
 statDate: 2026
 definition: Der nächtliche Normalverlauf ist der Durchfluss, auf den sich eine Steigleitung einpendelt, wenn jeder Wasserhahn im Gebäude geschlossen ist. Eine intakte Steigleitung kehrt jede Nacht dorthin zurück. Eine undichte nicht.
@@ -39,7 +39,7 @@ Bis ein Leck entdeckt wird, hat es sich meist dreimal angekündigt. Zuerst als F
 
 Ein Clamp-on-Sensor an der Steigleitung misst den Durchfluss alle 10 Minuten. Ein Modell lernt den Normalverlauf dieser Steigleitung: den nächtlichen Normalverlauf, die Morgenspitze, den Wochenrhythmus. Der nächtliche Normalverlauf verrät das Leck. Wenn jeder Hahn geschlossen ist und der Durchfluss trotzdem nicht auf sein übliches Niveau zurückgeht, fliesst Wasser dorthin, wo es nicht hingehört. Das Modell markiert es, und der digitale Zwilling nennt die Steigleitung und die zuerst zu prüfenden Stockwerke.
 
-Im ersten Portfolio, in dem AquaShield live ist, melden 22 Gebäude und 32 Messstellen seit März 2026 Daten, mit 91 bis 100 Prozent Datenabdeckung pro Standort. Drei dort gemeldete Schäden passten zu einer klaren Durchflusssignatur in den Daten.
+AquaShield ist in über 25 Gebäuden in Europa und den USA live, und jedes davon meldet rund um die Uhr Daten.
 
 ## Der Unterschied in der Praxis
 

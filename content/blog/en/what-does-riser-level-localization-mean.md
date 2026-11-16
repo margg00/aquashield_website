@@ -1,8 +1,8 @@
 ---
 id: riser-level
-slug: what-does-riser-level-localisation-mean
+slug: what-does-riser-level-localization-mean
 title: What does riser-level leak localization mean?
-description: Detection says that something is wrong. Localization says where. How AquaShield narrows a deviation to the riser and the floors to check first.
+description: Detection says that something is wrong. Localization says where. How AquaShield narrows a deviation to the riser and the floors to look at.
 date: 2026-10-08
 updated: 2026-10-08
 author: Marguerite Benoist
@@ -11,8 +11,8 @@ segment: product
 segmentLabel: Product
 coverAlt: Vertical water risers receding in depth, with one segment between two floors lit up.
 answer: Riser-level localization means the alert names the riser, and the floors on it, where the deviation sits. Detection says that water is going where it should not. Localization says which vertical pipe and which part of the building, so the search starts there instead of behind the first wet wall.
-statValue: 32 measuring points
-statLabel: across 22 buildings at the first AquaShield portfolio, live since March 2026.
+statValue: 25+ buildings
+statLabel: live with AquaShield in Europe and the US, each one localized to the riser.
 statSource: AquaShield sites
 statDate: 2026
 definition: A riser is the vertical pipe that carries water up through a building and feeds the branches on each floor. Most buildings have several. Riser-level means the alert identifies which one.
@@ -41,7 +41,7 @@ Every element has a job. The building and riser say where. The percentage and du
 
 ## Why riser-level is the right level
 
-A riser serves a column of flats. Narrowing a leak to a riser and three floors turns a building-wide search into a visit to one shaft. The team opens the right access panel instead of the wrong wall. The repair itself is the same as it ever was, a plumber and a part. What changes is how long it takes to get the plumber to the right spot.
+A riser serves a column of apartments. Narrowing a leak to a riser and three floors turns a building-wide search into a visit to one shaft. The team opens the right access panel instead of the wrong wall. The repair itself is the same as it ever was, a plumber and a part. What changes is how long it takes to get the plumber to the right spot.
 
 ## Where precision comes from
 
@@ -52,7 +52,7 @@ Two things sharpen localization over time. More measuring points split the netwo
 Without localization, an alert that says "the building is using too much water" starts a process the maintenance team knows well: walk the basement, check the obvious joints, wait for a stain. With riser-level localization, the first hour looks different.
 
 1. The alert names riser B and floors 3 to 5. The team opens the shaft access on floor 3, not the ceiling under the first stain.
-2. The check-first line names the shut-off valve on floor 3. If the joint is found, the riser section is isolated in minutes and the flats above are on reduced service for an afternoon instead of a week.
+2. The check-first line names the shut-off valve on floor 3. If the joint is found, the riser section is isolated in minutes and the apartments above are on reduced service for an afternoon instead of a week.
 3. The outcome goes back into the system. If the source was on floor 4, the model learns what a floor-4 deviation looks like on that riser.
 
 The repair is the same as it ever was. The search is what shrinks.

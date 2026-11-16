@@ -517,7 +517,9 @@ body.nav-open { overflow: hidden; }
 .proof-label { margin: 0; color: var(--text-muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
 .proof-value { margin-top: 14px; color: #fff; font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.6rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .proof-value.is-counting { color: var(--accent-light); }
-.proof-pair { display: flex; flex-wrap: wrap; align-items: center; gap: 0.12em 0.2em; font-size: 0.78em; line-height: 1.1; }
+.proof-cell:last-child { container-type: inline-size; }
+.proof-pair { --pair-em: 6.8; display: flex; flex-wrap: nowrap; align-items: center; gap: 0.2em; font-size: min(0.78em, calc(100cqi / var(--pair-em))); line-height: 1.1; white-space: nowrap; }
+:lang(de) .proof-pair, :lang(fr) .proof-pair { --pair-em: 9.6; }
 .proof-from { color: rgba(255, 255, 255, 0.5); }
 .proof-arrow { display: inline-flex; color: var(--accent); }
 .proof-arrow svg { display: block; width: 0.8em; height: 0.8em; }
@@ -1132,7 +1134,8 @@ body.nav-open { overflow: hidden; }
 .vi-tile-dot { fill: var(--ok); }
 .vi-tile-bad .vi-tile-dot { fill: var(--anomaly); }
 .vi-tile-live { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
-.vis-ml .vi-text { font-size: 13px; }
+.vis-ml .vi-text, .vis-ml .vi-text-muted { font-size: 14.5px; }
+.step-visual .vis-ml .vi-text { display: none; }
 @media (max-width: 639px) { .media-vis .vi-text { display: none; } }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1160,7 +1163,9 @@ body.nav-open { overflow: hidden; }
 
 /* ---------- One-claim band (real estate) ---------- */
 .anchor-band { position: relative; overflow: hidden; border-top: 1px solid rgba(255, 255, 255, 0.06); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-.anchor-bg { position: absolute; inset: 0; z-index: 0; background:
+/* bands get a plain, slightly lighter ground. Only the home pinned band keeps the grid and the two glows. */
+.anchor-bg { position: absolute; inset: 0; z-index: 0; background: #111214; pointer-events: none; }
+.problem-band .anchor-bg { position: absolute; inset: 0; z-index: 0; background:
   radial-gradient(60% 80% at 15% 50%, rgb(var(--accent-rgb) / 0.12), transparent 70%),
   radial-gradient(50% 70% at 85% 40%, rgb(var(--anomaly-rgb) / 0.08), transparent 70%),
   linear-gradient(rgb(var(--accent-rgb) / 0.05) 1px, transparent 1px),
@@ -1214,7 +1219,7 @@ body.nav-open { overflow: hidden; }
 .pb-glow { fill: rgb(var(--anomaly-rgb) / 0.18); }
 .pb-drop { fill: var(--anomaly); transform-box: fill-box; transform-origin: 50% 0; }
 .pb-ripple { fill: none; stroke: var(--anomaly); stroke-width: 1; opacity: 0.45; transform-box: fill-box; transform-origin: center; }
-.pb-nums text { fill: var(--text-muted); font-size: 11px; font-weight: 600; text-anchor: middle; font-variant-numeric: tabular-nums; }
+.pb-nums text { fill: var(--text-muted); font-size: 12px; font-weight: 600; text-anchor: middle; font-variant-numeric: tabular-nums; }
 .pb-nums .pb-num-hit { fill: var(--anomaly); }
 /* bars are 12px strokes drawn bottom up (stroke-dashoffset), so growing them repaints without an SVG layout */
 .pb-bar { fill: none; stroke: rgba(255, 255, 255, 0.22); stroke-width: 12; stroke-dasharray: 1; stroke-dashoffset: 0; }
@@ -1305,7 +1310,7 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
 .sv-lbl-good { fill: #bfe9ff; }
 .sv-lbl-bad { fill: #ffb199; }
 .vis-severity .vi-text { font-size: 13px; }
-.vis-severity .sv-ms { font-size: 12px; }
+.vis-severity .sv-ms { font-size: 13px; }
 @media (prefers-reduced-motion: no-preference) {
   .sv-curve { animation: sv-draw 9s cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
   .sv-area { animation: sv-fade 9s linear infinite; }
@@ -1339,8 +1344,8 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
 .pf-ok-only { opacity: 0; }
 .pf-callout-bg { fill: #131313; stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }
 .pf-sev-dot { fill: var(--anomaly); }
-.vis-portfolio .pf-l1 { font-size: 12px; }
-.vis-portfolio .pf-l2, .vis-portfolio .pf-l3 { font-size: 11px; }
+.vis-portfolio .pf-l1 { font-size: 13.5px; }
+.vis-portfolio .pf-l2, .vis-portfolio .pf-l3 { font-size: 13px; }
 @media (max-width: 639px) { .vis-portfolio .pf-callout { display: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .pf-scene { animation: pf-scene 12s linear infinite; }
@@ -1383,7 +1388,8 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
 .ph-data { fill: none; stroke: rgb(var(--accent-rgb) / 0.35); stroke-width: 1.5; stroke-dasharray: 4 5; stroke-linecap: round; }
 .ph-pulse { fill: var(--accent-bright); offset-distance: 100%; offset-rotate: 0deg; }
 .ph-pulse-glow { fill: rgb(var(--accent-rgb) / 0.25); offset-distance: 100%; offset-rotate: 0deg; }
-.vis-product-hero .ph-chip-text { font-size: 12px; }
+.vis-product-hero .vi-text, .vis-product-hero .vi-text-muted { font-size: 13.5px; }
+.vis-product-hero .ph-chip-text { font-size: 13.5px; }
 @media (max-width: 639px) { .vis-product-hero .vi-labels { display: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .ph-pulse, .ph-pulse-glow { animation: ph-travel 6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
@@ -1395,7 +1401,6 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
 @keyframes ph-alert { 0%, 72% { opacity: 0.7; } 80%, 92% { opacity: 1; } 100% { opacity: 0.7; } }
 
 /* ---------- Sensor close-up (see sensorSvg in src/visuals.js) ---------- */
-.media-sensor { aspect-ratio: 640 / 420; }
 .ss-water { fill: rgb(var(--accent-rgb) / 0.06); }
 .ss-ring { fill: none; stroke: rgba(255, 255, 255, 0.12); stroke-width: 1; }
 .ss-inner { fill: none; stroke: rgba(255, 255, 255, 0.16); stroke-width: 1; }
@@ -1433,3 +1438,61 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
   .site-header, .site-footer, .cta-band, .nav-toggle { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- Sensor kit (src/sensor-kit.js): the one clamp-on sensor, drawn as on the home hero ---------- */
+.sk-pipe { stroke: none; }
+.sk-cut { fill: #4d6779; }
+.sk-edge { fill: none; stroke: rgba(255, 255, 255, 0.24); stroke-width: 1.2; }
+.sk-shine { fill: none; stroke: rgba(255, 255, 255, 0.1); }
+.sk-band { stroke: rgba(0, 0, 0, 0.35); stroke-width: 0.6; }
+.sk-house { fill: #1d2328; stroke: rgba(255, 255, 255, 0.3); stroke-width: 1; }
+.sk-lip { fill: #333c43; }
+.sk-line { fill: rgba(255, 255, 255, 0.18); }
+.sk-led { fill: var(--ok); }
+.sk-wave { fill: none; stroke: #8fd8ff; opacity: 0; transform-box: view-box; display: none; }
+.sk-wave-still { fill: none; stroke: rgb(var(--accent-rgb) / 0.55); }
+.sk-streak { fill: none; stroke: rgba(191, 233, 255, 0.5); stroke-linecap: round; }
+.sk-flow-arrow { fill: none; stroke: #bfe9ff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .sk-wave { display: block; animation: sk-wave 1.8s ease-out infinite; }
+  .sk-wave-still { display: none; }
+  .sk-led { animation: sk-led 2.4s ease-in-out infinite; }
+  .sk-stream { animation: sk-stream 2.2s linear infinite; }
+  @keyframes sk-wave { 0% { transform: scale(0.12); opacity: 0; } 12% { opacity: 0.95; } 100% { transform: scale(1); opacity: 0; } }
+  @keyframes sk-led { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @keyframes sk-stream { from { transform: translate(0, 0); } to { transform: translate(var(--sx), var(--sy)); } }
+}
+.sk-label { fill: rgba(255, 255, 255, 0.78); font: 500 16px Inter, system-ui, sans-serif; }
+.sk-label-strong { fill: #fff; font-weight: 700; }
+.media-sensor { aspect-ratio: 640 / 330; }
+
+/* ---------- Product: the sensor close-up and the real twin model ---------- */
+.sensor-head { max-width: 640px; margin-inline: auto; text-align: center; }
+.sensor-section .media-sensor { max-width: 960px; margin-inline: auto; }
+.twin-model-title { max-width: 720px; margin-bottom: clamp(24px, 4vw, 40px); }
+.twin-model-figure { max-width: 1000px; }
+.twin-model-figure img { display: block; width: 100%; height: auto; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; background: #0f1113; }
+.twin-model-figure figcaption { margin-top: 14px; color: var(--text-muted); font-size: var(--fs-small); }
+
+/* ---------- Real estate: the live line under the sample alert, the four steps as a timeline ---------- */
+.live-line { display: flex; align-items: baseline; margin-top: 18px; color: var(--text-secondary); font-size: var(--fs-small); }
+.timeline { display: grid; gap: 0; list-style: none; counter-reset: tl; }
+.timeline li { position: relative; padding: 0 0 28px 40px; counter-increment: tl; }
+.timeline li::before { content: counter(tl, decimal-leading-zero); position: absolute; left: 0; top: 0.1em; color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; }
+.timeline li::after { content: ""; position: absolute; left: 9px; top: 1.9em; bottom: 8px; width: 1px; background: rgba(255, 255, 255, 0.12); }
+.timeline li:last-child::after { display: none; }
+.timeline h3 { font-size: 1.2rem; }
+.timeline p { margin-top: 6px; color: var(--text-secondary); }
+@media (min-width: 900px) {
+  .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+  .timeline li { padding: 28px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.14); }
+  .timeline li::before { top: -0.75em; padding-right: 10px; background: var(--bg-primary, #0a0a0a); }
+  .timeline li::after { display: none; }
+}
+
+/* ---------- Booking: who the visitor talks to ---------- */
+.book-founders { display: flex; align-items: center; gap: 16px; margin-top: 28px; }
+.book-faces { display: inline-flex; flex: none; }
+.book-faces img { display: block; width: 56px; height: 56px; border: 2px solid var(--bg-primary); border-radius: 999px; object-fit: cover; }
+.book-faces img + img { margin-left: -14px; }
+.book-founders p { color: var(--text-primary, #fff); font-size: 1.05rem; font-weight: 500; line-height: 1.45; }

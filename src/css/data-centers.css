@@ -236,3 +236,7 @@
 
 /* hero rack drawing: the leader has no label on phones */
 @media (max-width: 639px) { .vis-rack .vi-labels { display: none; } }
+
+/* drawing labels stay at least 12px on screen */
+.dc-vis .chart-text, .dc-vis .chart-text-strong { font-size: 13.5px; }
+.vis-bridge .vi-text, .vis-bridge .vi-text-muted { font-size: 14px; }

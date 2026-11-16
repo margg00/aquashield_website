@@ -1,6 +1,6 @@
 ---
 id: liquid-cooling
-slug: liquid-cooling-leak-detection-in-data-centres
+slug: liquid-cooling-leak-detection-in-data-centers
 title: How do you detect a leak in a liquid-cooled data center before the outage?
 description: Floor leak cables fire after the water is on the floor. Clamp-on flow sensing per rack sees the deviation in the loop itself. How the same model that watches risers watches a cooling loop.
 date: 2026-10-29
@@ -21,7 +21,7 @@ faq1a: No. They clamp onto the outside of the loop's pipes and read through the 
 faq2q: Does it work with the loop's own monitoring?
 faq2a: Yes. The loop's controller watches temperatures and pump state. AquaShield watches flow per branch and learns what normal looks like for each one, which is a different signal.
 faq3q: Where is this running?
-faq3a: The sensors and the model watch residential risers today, in Germany and the US. First data-center sites in Switzerland.
+faq3a: The sensors and the model watch residential risers today, in Europe and the US. First data-center sites in Switzerland.
 ---
 ## The problem with the floor
 
@@ -41,7 +41,7 @@ A leak cable tells you that the room has a leak. Per-branch sensing tells you wh
 
 ## From residential risers to liquid cooling
 
-The sensors and the model are the ones that watch residential risers today, at a portfolio of 22 buildings in Germany and at sites in California. The topology is different in a data center, the method is the same. First sites in Switzerland.
+The sensors and the model are the ones that watch residential risers today, in 25+ buildings in Europe and the US. The topology is different in a data center, the method is the same. First sites in Switzerland.
 
 ## What a first site looks like
 

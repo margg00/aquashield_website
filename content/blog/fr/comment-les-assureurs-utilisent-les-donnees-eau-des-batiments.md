@@ -21,7 +21,7 @@ faq1a: Non. Ce qui peut être partagé, avec l'accord du propriétaire, est agr�
 faq2q: Lequel des cinq modèles est le plus courant ?
 faq2a: Cela dépend du portefeuille. La remise sur la prime est la plus simple à expliquer à un assuré. Le déclenchement de la réponse sinistre a l'effet le plus direct sur la gravité. C'est lors de l'appel de 30 minutes que cela se décide.
 faq3q: AquaShield travaille-t-il aujourd'hui avec des assureurs ?
-faq3a: Des pilotes sont en cours avec des propriétaires en Allemagne et aux États-Unis. La prochaine étape est un portefeuille, travaillé avec un assureur.
+faq3a: Des pilotes sont en cours avec des propriétaires en Europe et aux États-Unis. La prochaine étape est un portefeuille, travaillé avec un assureur.
 ---
 ## Deux valeurs dans un même jeu de données
 
@@ -52,4 +52,4 @@ Avec l'accord du propriétaire, AquaShield peut partager les écarts de débit a
 
 ## La prochaine étape
 
-Des pilotes sont en cours avec des propriétaires en Allemagne et aux États-Unis. Pour un assureur, la prochaine étape est un portefeuille, travaillé ensemble : quels bâtiments, quelles données, lequel des cinq modèles. Consultez la [page Assurance](/fr/assurance/), ou [réservez un appel de 30 minutes](/fr/reserver-un-appel/?for=insurance).
+Des pilotes sont en cours avec des propriétaires en Europe et aux États-Unis. Pour un assureur, la prochaine étape est un portefeuille, travaillé ensemble : quels bâtiments, quelles données, lequel des cinq modèles. Consultez la [page Assurance](/fr/assurance/), ou [réservez un appel de 30 minutes](/fr/reserver-un-appel/?for=insurance).

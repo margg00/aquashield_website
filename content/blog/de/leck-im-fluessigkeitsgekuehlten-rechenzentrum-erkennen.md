@@ -21,7 +21,7 @@ faq1a: Nein. Sie werden aussen an die Rohre des Kreislaufs geklemmt und messen d
 faq2q: Funktioniert das zusammen mit der Überwachung des Kreislaufs selbst?
 faq2a: Ja. Die Steuerung des Kreislaufs überwacht Temperaturen und Pumpenzustand. AquaShield überwacht den Durchfluss pro Abzweig und lernt, wie normal für jeden einzelnen aussieht. Das ist ein anderes Signal.
 faq3q: Wo läuft das heute?
-faq3a: Die Sensoren und das Modell überwachen heute Steigleitungen in Wohngebäuden, in Deutschland und den USA. Erste Rechenzentrumsstandorte in der Schweiz.
+faq3a: Die Sensoren und das Modell überwachen heute Steigleitungen in Wohngebäuden, in Europa und den USA. Erste Rechenzentrumsstandorte in der Schweiz.
 ---
 ## Das Problem mit dem Boden
 
@@ -41,7 +41,7 @@ Ein Leckagekabel sagt Ihnen, dass der Raum ein Leck hat. Die Messung pro Abzweig
 
 ## Von der Steigleitung zur Flüssigkeitskühlung
 
-Die Sensoren und das Modell sind dieselben, die heute Steigleitungen in Wohngebäuden überwachen, in einem Portfolio mit 22 Gebäuden in Deutschland und an Standorten in Kalifornien. Die Topologie in einem Rechenzentrum ist eine andere, die Methode ist dieselbe. Erste Standorte in der Schweiz.
+Die Sensoren und das Modell sind dieselben, die heute Steigleitungen in Wohngebäuden überwachen, in über 25 Gebäuden in Europa und den USA. Die Topologie in einem Rechenzentrum ist eine andere, die Methode ist dieselbe. Erste Standorte in der Schweiz.
 
 ## So sieht ein erster Standort aus
 

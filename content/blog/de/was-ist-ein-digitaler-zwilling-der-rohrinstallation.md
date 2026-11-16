@@ -11,8 +11,8 @@ segment: product
 segmentLabel: Produkt
 coverAlt: Isometrisches Drahtgittermodell eines mehrstöckigen Gebäudes mit drei leuchtenden Steigleitungen und einer hervorgehobenen Messstelle.
 answer: Ein digitaler Zwilling der Rohrinstallation eines Gebäudes ist ein Modell der Steigleitungen, Abzweige und Messstellen, und davon, welcher Sensor welches Wasser sieht. AquaShield baut ihn aus den Sensorpositionen und dem Leitungsplan. Seine Aufgabe ist, aus einer Abweichung an einem Sensor die Steigleitung und die zuerst zu prüfenden Stockwerke zu machen.
-statValue: 23 Sensoren an 10 Steigleitungen
-statLabel: in einem neuen siebenstöckigen Wohngebäude in Kalifornien, live mit AquaShield.
+statValue: 25+ Gebäude
+statLabel: live mit AquaShield in Europa und den USA, jedes mit eigenem digitalem Zwilling.
 statSource: AquaShield-Standorte
 statDate: 2026
 definition: Ein digitaler Zwilling ist ein Softwaremodell eines physischen Systems, das mit diesem im Gleichschritt gehalten wird. Bei der Rohrinstallation enthält das Modell die Netztopologie (welches Rohr welches versorgt) und die Live-Messwerte der Sensoren darauf.
@@ -39,7 +39,7 @@ Der Zwilling ist keine 3D-Darstellung, auch wenn er sich als solche zeichnen lä
 
 ## Wie AquaShield den Zwilling baut
 
-Der Zwilling entsteht aus zwei Eingaben: dem Leitungsplan und den Sensorpositionen. Ein Portfolio sendet den Plan oder führt uns einmal entlang der Steigleitungen, und AquaShield platziert die Sensoren dort, wo sie am meisten sehen. Danach wird der Zwilling erzeugt, und die Modelle beginnen, den Normalverlauf zu lernen. In einem neuen siebenstöckigen Wohngebäude in Kalifornien reichten 23 Sensoren an 10 Steigleitungen, um das Gebäude abzudecken.
+Der Zwilling entsteht aus zwei Eingaben: dem Leitungsplan und den Sensorpositionen. Ein Portfolio sendet den Plan oder führt uns einmal entlang der Steigleitungen, und AquaShield platziert die Sensoren dort, wo sie am meisten sehen. Danach wird der Zwilling erzeugt, und die Modelle beginnen, den Normalverlauf zu lernen. Ein Gebäude braucht weit weniger Sensoren, als es Wohnungen hat.
 
 ## Wofür der Zwilling da ist
 
@@ -55,7 +55,7 @@ Drei Begriffe tauchen zusammen auf und werden leicht verwechselt.
 - Den **Zwilling** gibt es pro Gebäude. Er kennt die Form: welche Steigleitung welche Stockwerke versorgt, welcher Sensor welches Wasser sieht. Er nimmt die Abweichungen des Modells und verortet sie.
 - Das **Dashboard** ist das, was die Haustechnik sieht: jede Messstelle gegenüber ihrem Normalverlauf, die Alarmliste nach Schweregrad sortiert und zu jedem Alarm die Steigleitung und die Stockwerke aus dem Zwilling.
 
-Das Modell findet, der Zwilling verortet, das Dashboard meldet. Ein Portfolio mit 22 Gebäuden hat 22 Zwillinge, 32 Modelle und ein Dashboard.
+Das Modell findet, der Zwilling verortet, das Dashboard meldet. Ein Portfolio hat einen Zwilling pro Gebäude, ein Modell pro Messstelle und ein Dashboard.
 
 ## Wie es weitergeht
 

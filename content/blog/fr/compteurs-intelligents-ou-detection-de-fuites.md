@@ -37,7 +37,7 @@ C'est le schéma derrière la plupart des dégâts pour lesquels les assureurs a
 
 ## Ce que la détection de fuites fait autrement
 
-Les capteurs AquaShield se fixent à pince sur la colonne montante et les conduites d'alimentation, en moins de 15 minutes chacun, sans découpe de tuyau. Ils mesurent le débit toutes les 10 minutes. Un modèle par point de mesure apprend à quoi ressemble le normal pour cette colonne montante : le profil normal de nuit, le pic du matin, le rythme de la semaine. Un raccord qui suinte modifie le débit de nuit, parce que l'eau continue de circuler quand tous les robinets sont fermés. Le modèle voit le schéma qu'aucun compteur ne peut voir.
+Les capteurs AquaShield se fixent à pince sur la colonne montante et les conduites d'alimentation, en environ 30 secondes chacun, sans découpe de tuyau. Ils mesurent le débit toutes les 10 minutes. Un modèle par point de mesure apprend à quoi ressemble le normal pour cette colonne montante : le profil normal de nuit, le pic du matin, le rythme de la semaine. Un raccord qui suinte modifie le débit de nuit, parce que l'eau continue de circuler quand tous les robinets sont fermés. Le modèle voit le schéma qu'aucun compteur ne peut voir.
 
 Ensuite, le jumeau numérique le place. Comme le jumeau sait quel capteur voit quelle eau, un écart sur la colonne montante sans écart sur les dérivations désigne la colonne montante elle-même. L'alerte nomme la colonne montante et les étages à vérifier.
 

@@ -31,13 +31,13 @@ The confusion is understandable. Both involve water, sensors and a dashboard. Bu
 
 ## Why a leak hides from meters
 
-Picture a riser feeding ten flats. A joint on the riser between floors 3 and 4 starts weeping. The water runs down inside the shaft. It passes no meter, because it never reaches a flat. The building's main meter sees a small increase, but the main meter sees everything, and everything swings by far more from day to day than a weeping joint adds. The leak is inside the noise.
+Picture a riser feeding ten apartments. A joint on the riser between floors 3 and 4 starts weeping. The water runs down inside the shaft. It passes no meter, because it never reaches an apartment. The building's main meter sees a small increase, but the main meter sees everything, and everything swings by far more from day to day than a weeping joint adds. The leak is inside the noise.
 
-This is the pattern behind most of the damage that German insurers paid €4.91bn for in 2024: not a burst pipe that floods a flat in an hour, but a slow leak that ran for weeks before anyone saw a stain.
+This is the pattern behind most of the damage that German insurers paid €4.91bn for in 2024: not a burst pipe that floods an apartment in an hour, but a slow leak that ran for weeks before anyone saw a stain.
 
 ## What leak detection does differently
 
-AquaShield's sensors clamp onto the riser and the supply lines, in under 15 minutes each, with no pipe cutting. They read flow every 10 minutes. A model per measuring point learns what normal looks like for that riser: the night baseline, the morning peak, the weekly rhythm. A weeping joint changes the night baseline, because water keeps moving when every tap is closed. The model sees the pattern that no meter can.
+AquaShield's sensors clamp onto the riser and the supply lines, in about 30 seconds each, with no pipe cutting. They read flow every 10 minutes. A model per measuring point learns what normal looks like for that riser: the night baseline, the morning peak, the weekly rhythm. A weeping joint changes the night baseline, because water keeps moving when every tap is closed. The model sees the pattern that no meter can.
 
 Then the digital twin places it. Because the twin knows which sensor sees which water, a deviation on the riser with no deviation on the branches points at the riser itself. The alert names the riser and the floors to check.
 

@@ -21,7 +21,7 @@ faq1a: No. What can be shared, with the owner's consent, is aggregated: flow dev
 faq2q: Which of the five models is most common?
 faq2a: It depends on the book. A premium discount is the simplest to explain to an insured. A claims-response trigger is the most direct effect on severity. The 30-minute call is where this gets decided.
 faq3q: Does AquaShield work with insurers today?
-faq3a: Pilots are running with owners in Germany and the US. The next step is one book of business, worked through with one carrier.
+faq3a: Pilots are running with owners in Europe and the US. The next step is one book of business, worked through with one carrier.
 ---
 ## Two values in one dataset
 
@@ -52,4 +52,4 @@ With the owner's consent, AquaShield can share aggregated flow deviations per bu
 
 ## The next step
 
-Pilots are running with owners in Germany and the US. For a carrier, the next step is one book of business, worked through together: which buildings, which data, which of the five models. See the [insurance page](/insurance/), or [book a 30-minute call](/book-a-call/?for=insurance).
+Pilots are running with owners in Europe and the US. For a carrier, the next step is one book of business, worked through together: which buildings, which data, which of the five models. See the [insurance page](/insurance/), or [book a 30-minute call](/book-a-call/?for=insurance).

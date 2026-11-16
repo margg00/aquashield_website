@@ -11,8 +11,8 @@ segment: product
 segmentLabel: Produit
 coverAlt: Bâtiment de plusieurs étages en fil de fer isométrique, avec trois colonnes montantes lumineuses et un point de mesure mis en évidence.
 answer: Le jumeau numérique de la plomberie d'un bâtiment est un modèle des colonnes montantes, des dérivations et des points de mesure, qui sait quel capteur voit quelle eau. AquaShield le construit à partir des positions des capteurs et du plan de plomberie. Son rôle est de transformer un écart sur un capteur en une colonne montante et des étages à vérifier en premier.
-statValue: 23 capteurs sur 10 colonnes montantes
-statLabel: dans un immeuble résidentiel neuf de sept étages en Californie, en service avec AquaShield.
+statValue: 25+ bâtiments
+statLabel: en service avec AquaShield en Europe et aux États-Unis, chacun avec son jumeau numérique.
 statSource: Sites AquaShield
 statDate: 2026
 definition: Un jumeau numérique est un modèle logiciel d'un système physique, tenu en phase avec lui. Pour la plomberie, le modèle contient la topologie du réseau (quel tuyau alimente lequel) et les mesures en direct des capteurs qui y sont posés.
@@ -39,7 +39,7 @@ Le jumeau n'est pas un rendu 3D, même s'il peut être dessiné ainsi. C'est un 
 
 ## Comment AquaShield le construit
 
-Le jumeau est construit à partir de deux sources : le plan de plomberie et les positions des capteurs. Un parc envoie le plan, ou nous fait visiter les colonnes montantes une fois, et AquaShield place les capteurs là où ils voient le plus. À partir de là, le jumeau est généré et les modèles commencent à apprendre le normal. Dans un immeuble résidentiel neuf de sept étages en Californie, 23 capteurs sur 10 colonnes montantes ont suffi pour couvrir le bâtiment.
+Le jumeau est construit à partir de deux sources : le plan de plomberie et les positions des capteurs. Un parc envoie le plan, ou nous fait visiter les colonnes montantes une fois, et AquaShield place les capteurs là où ils voient le plus. À partir de là, le jumeau est généré et les modèles commencent à apprendre le normal. Un bâtiment a besoin de bien moins de capteurs que de logements.
 
 ## À quoi sert-il ?
 
@@ -55,7 +55,7 @@ Trois mots reviennent ensemble et se confondent facilement.
 - Le **jumeau** est propre à chaque bâtiment. Il connaît la forme : quelle colonne montante alimente quels étages, quel capteur voit quelle eau. Il prend les écarts du modèle et les place.
 - Le **tableau de bord** est ce que voit l'équipe : chaque point de mesure face à son profil normal, la liste des alertes classées par gravité, et pour chaque alerte la colonne montante et les étages fournis par le jumeau.
 
-Le modèle trouve, le jumeau place, le tableau de bord informe. Un parc de 22 bâtiments a 22 jumeaux, 32 modèles et un seul tableau de bord.
+Le modèle trouve, le jumeau place, le tableau de bord informe. Un parc a un jumeau par bâtiment, un modèle par point de mesure et un seul tableau de bord.
 
 ## Et ensuite ?
 

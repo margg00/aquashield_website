@@ -37,6 +37,12 @@
       "realEstate": "Catch the next leak early.",
       "insurance": "Cut the next claim short.",
       "dataCenters": "Catch the next leak before the outage."
+    },
+    "closing": {
+      "home": "Thirty minutes with a founder, about your buildings.",
+      "realEstate": "Thirty minutes with a founder, about your portfolio.",
+      "insurance": "Thirty minutes with a founder, about your book of business.",
+      "dataCenters": "Thirty minutes with a founder, about your cooling loop."
     }
   },
   "common": {
@@ -150,7 +156,7 @@
     },
     "real-estate": {
       "title": "Leak detection for real estate portfolios | AquaShield",
-      "description": "AI leak detection for apartment and office portfolios. Clamp-on sensors, no pipe cutting, riser-level localization. Live in Europe and the US."
+      "description": "AI leak detection for apartment and office portfolios. Clamp-on sensors and riser-level localization. Live in Europe and the US."
     },
     "insurance": {
       "title": "Water claim severity and risk data | AquaShield",
@@ -182,7 +188,6 @@
       "eyebrow": "AI leak detection for buildings",
       "h1": "The first leak detection for large portfolios.",
       "visualAlt": "Inside a water pipe, a clamp-on sensor sends sound waves across the flow. The view pulls back to a glass building where riser B lights up at floor 3, then to a city block of monitored buildings.",
-      "live": "Live in Europe and the US.",
       "sub": "Localize leaks before damage happens."
     },
     "problem": {
@@ -210,12 +215,11 @@
       "line": "Occupancy, energy and HVAC have dashboards. Water waits for a tenant call, a ceiling stain or a puddle on the floor."
     },
     "how": {
-      "eyebrow": "How it works",
       "h2": "From pipe to alert in three steps.",
       "steps": [
         {
           "name": "Clamp on",
-          "text": "Sensors clamp onto your pipes in seconds. Nothing is cut.",
+          "text": "Sensors clamp onto your pipes in seconds.",
           "alt": "A sensor clamps onto a pipe and starts sending waves through the water."
         },
         {
@@ -225,24 +229,23 @@
         },
         {
           "name": "Locate",
-          "text": "A deviation becomes a place: the riser and the floors to check.",
+          "text": "A deviation becomes a riser and a floor to look at.",
           "alt": "A building outline. One riser segment lights up and a pin drops on it."
         }
       ]
     },
     "who": {
-      "eyebrow": "Who it is for",
       "h2": "Built for the people who get the call.",
       "cards": [
         {
           "name": "Real estate",
-          "text": "Every riser mapped, every leak located before the tenant calls.",
+          "text": "Leaks located before the tenant calls.",
           "link": "For real estate",
           "key": "real-estate"
         },
         {
           "name": "Insurance",
-          "text": "Shorter loss duration, lower claim severity, live building data for risk.",
+          "text": "Shorter losses and live risk data from insured buildings.",
           "link": "For insurers",
           "key": "insurance"
         },
@@ -255,27 +258,29 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "Portfolio",
       "h2": "One view of your whole portfolio.",
-      "line": "Every building, every riser, one screen. Start with one site, scale to the full portfolio.",
+      "line": "Start with one site and add buildings as you go.",
       "building": "Building 14",
       "detail": "Riser B · check floors 3 to 5",
       "done": "Caught early",
       "alt": "A city block of monitored buildings. One building flags a leak, an alert card names riser B and floors 3 to 5, then the flag turns into a check mark."
     },
     "proof": {
-      "eyebrow": "Proof",
       "h2": "What a real alert looks like.",
-      "line": "Live in Europe and the US. Research with MIT and EPFL facilities."
+      "line": "Research with MIT and EPFL facilities."
     },
     "final": {
       "h2": "Catch the next leak early.",
-      "line": "Thirty minutes with a founder. Tell us where water worries you today. We show you how AquaShield works and explore together where it fits."
+      "line": "Thirty minutes with a founder about where water worries you today."
+    },
+    "video": {
+      "h2": "See it in two minutes",
+      "label": "AquaShield launch video"
     }
   },
   "product": {
     "h1": "How AquaShield works",
-    "lead": "Clamp-on sensors, our own machine learning models and a digital twin of your plumbing. Installed in seconds, scaled across your whole portfolio.",
+    "lead": "Sensors clamp onto your pipes and our models learn how water moves through each building. When something changes, your team gets a riser and a floor.",
     "hero": {
       "visual": {
         "sensor": "Clamp-on sensor",
@@ -290,70 +295,43 @@
     },
     "install": {
       "h2": "What does an install look like?",
-      "text": "Our proprietary sensors clamp onto existing pipes in 30 seconds each, with no pipe cutting and no shutdown. Your own team can install them.",
-      "visualAlt": "Diagram: clamp-on ultrasonic flow sensors on a riser and on the supply line that feeds it.",
+      "text": "Each sensor clamps onto an existing pipe in about 30 seconds while the water stays on. Your own team can do it.",
+      "visualAlt": "Diagram: clamp-on sensors on a riser and on the supply line that feeds it.",
       "labels": {
         "riser": "Riser",
-        "ultrasonic": "Clamp-on ultrasonic flow sensor",
-        "supply": "Supply line",
-        "time": "30 seconds per sensor",
-        "cut": "No pipe cutting"
+        "ultrasonic": "Clamp-on sensor",
+        "supply": "Supply line"
       }
     },
     "data": {
       "h2": "What data do I get?",
-      "text": "One dashboard with live flow per measuring point and every alert ranked by severity. Each alert names the building, the riser and what to check first.",
-      "confirm": "",
-      "visualAlt": "Sample chart: one measuring point over seven days, the learned baseline band and a deviation on the last two days.",
+      "text": "One dashboard with live flow for every measuring point. Our models learn each building's normal flow and flag what it does not explain. Each alert names the building and the riser.",
       "chart": {
-        "title": "Measuring point, riser B, seven days",
         "baseline": "Learned baseline",
-        "actual": "Live flow",
-        "deviation": "Deviation",
-        "days": [
-          "Mon",
-          "Tue",
-          "Wed",
-          "Thu",
-          "Fri",
-          "Sat",
-          "Sun"
-        ]
+        "actual": "Live flow"
       }
     },
     "precision": {
       "h2": "How precise is the localization?",
-      "text": "To the riser or the building section. The search starts at the right floors, not behind the first wet wall.",
-      "confirm": ""
+      "text": "To the riser or the building section, so the search starts on the right floors."
     },
     "ml": {
-      "h2": "The machine learning",
-      "text": "Our proprietary machine learning, built for hydraulic systems, learns each building's normal flow and flags what normal does not explain. Your team's feedback makes it sharper with every building.",
+      "h2": "Measuring points",
       "visualAlt": "Measuring points, each with its learned baseline band and live flow. One riser departs from its baseline and is flagged."
     },
     "sensors": {
-      "h2": "The sensors",
-      "intro": "Proprietary clamp-on sensors on existing pipework. Nothing is cut.",
-      "specs": [
-        "Proprietary clamp-on ultrasonic flow sensors",
-        "30 seconds per sensor",
-        "No pipe cutting, no shutdown",
-        "Old or new pipes"
-      ],
+      "h2": "The sensor",
+      "intro": "It reads the flow through the pipe wall, so the pipe is never opened.",
       "visual": {
-        "pipe": "Existing pipe",
-        "transducerA": "Transducer A",
-        "transducerB": "Transducer B",
-        "path": "Ultrasonic path",
-        "transit": "Transit time",
+        "sensor": "Clamp-on sensor",
+        "signal": "Signal through the pipe wall",
         "flow": "Flow",
-        "clamp": "Clamped on, no cutting",
-        "alt": "Digital twin of a clamp-on ultrasonic flow sensor: two transducers strapped to the outside of a pipe, the ultrasonic path through the water, and the flow direction."
+        "alt": "A clamp-on sensor on the outside of a pipe. Its signal crosses the water flowing inside."
       }
     },
     "twin": {
       "h2": "The digital twin",
-      "text": "A model of the building's plumbing that turns a deviation into a place to check first."
+      "text": "The digital twin: a model of the building's plumbing that turns a deviation into a place to look."
     },
     "faqTitle": "Questions we always get",
     "faq": [
@@ -363,15 +341,7 @@
       },
       {
         "q": "How long does a rollout take?",
-        "a": "Fast, and it scales. Each sensor clamps on in 30 seconds, so your own team can bring many buildings live in parallel."
-      },
-      {
-        "q": "Does it work with old pipes?",
-        "a": "Yes. The sensors clamp onto any accessible pipe, old or new."
-      },
-      {
-        "q": "How do alerts stay relevant?",
-        "a": "Alerts are ranked by severity and reviewed with your team. Your feedback makes the models sharper with every building."
+        "a": "A building is live in a day. Each sensor clamps on in about 30 seconds with no shutdown, and your own team can install them, so many buildings go live in parallel."
       },
       {
         "q": "Who sees the data?",
@@ -381,50 +351,25 @@
         "q": "What does it cost?",
         "a": "Priced per building and measuring point, a fraction of one claim. We quote from your plumbing plan."
       }
-    ]
+    ],
+    "twinModel": {
+      "h2": "A real building in our digital twin",
+      "caption": "Pipes, branches and sensors of one site, as our model sees them.",
+      "alt": "3D view of one building's plumbing in the AquaShield digital twin: risers and branches as pipes, sensors as blue markers."
+    }
   },
   "realEstate": {
     "eyebrow": "Real estate",
     "h1": "Find the leak before your tenant does.",
-    "lead": "For portfolios with in-house maintenance, from hundreds to hundreds of thousands of units.",
+    "lead": "For portfolio teams with in-house maintenance, from a few hundred units to hundreds of thousands.",
     "visual": {
-      "alt": "Six buildings of a portfolio, each watched by a riser sensor. One building shows a deviation on riser B and an alert names the floors to check first.",
+      "alt": "Six buildings of a portfolio, each watched by a riser sensor. One building shows a deviation on riser B and an alert names the floors to look at.",
       "legendOk": "Watched",
-      "legendAlert": "Alert, place to check first"
+      "legendAlert": "Alert"
     },
     "story": {
-      "h2": "Leaks are discovered, not detected.",
-      "text": "Most leaks are found by a tenant call or a stained ceiling, days or weeks after they start. AquaShield watches every riser and tells your team where to check first."
-    },
-    "customers": {
-      "h2": "Where it runs today",
-      "confirm": "",
-      "groups": [
-        {
-          "label": "Live",
-          "items": [
-            "A large residential portfolio in Germany.",
-            "Two residential sites in California.",
-            "A new seven-story residential building in California."
-          ]
-        },
-        {
-          "label": "R&D pilots",
-          "items": [
-            "MIT Facilities, building NW23, where the system started.",
-            "EPFL Facilities, on campus."
-          ]
-        },
-        {
-          "label": "In planning",
-          "items": [
-            "A fitness club operator in California, Q1 2027.",
-            "Office high-rises in Detroit. LOI signed.",
-            "Buildings in Berlin. Site visit done.",
-            "A university campus in Belgium."
-          ]
-        }
-      ]
+      "h2": "Most leaks are found by a tenant.",
+      "text": "Usually through a call or a stained ceiling, days or weeks after the leak started. AquaShield watches every riser and sends your team an alert like this one."
     },
     "anchor": {
       "h2": "One claim pays for the monitoring.",
@@ -448,19 +393,19 @@
       "steps": [
         {
           "name": "Map",
-          "text": "Send us the plumbing plan or walk us through once. We place the sensors and build the digital twin."
+          "text": "Send us the plumbing plan. We place the sensors and build the twin."
         },
         {
           "name": "Install",
-          "text": "30 seconds per sensor. No pipe cutting, the water stays on."
+          "text": "About 30 seconds per sensor while the water stays on."
         },
         {
           "name": "Learn",
-          "text": "Our model learns the building's normal flow."
+          "text": "The model learns the building's normal flow."
         },
         {
           "name": "Detect",
-          "text": "Deviations are ranked by severity and localized to the riser. Your team gets the place to check first."
+          "text": "Alerts are ranked by severity and name the riser."
         }
       ]
     },
@@ -472,33 +417,26 @@
       },
       {
         "q": "Do we need to open walls?",
-        "a": "No. Sensors clamp onto accessible pipe in risers, basements and shafts."
+        "a": "No. Sensors clamp onto accessible pipe in risers and basements."
       },
       {
         "q": "What does our maintenance team have to do?",
-        "a": "Clamp on the sensors, or let us do it. Then act on the alerts: each one names the riser and the floors to check first."
-      },
-      {
-        "q": "Does it work in old buildings?",
-        "a": "Yes. The sensors clamp onto any accessible pipe, old or new."
+        "a": "Clamp on the sensors, or let us do it. Then act on the alerts, each one names a riser and the floors."
       },
       {
         "q": "How many buildings to start?",
         "a": "One. Roll out when you have seen it work."
-      },
-      {
-        "q": "Can our insurer see the data?",
-        "a": "Only if you decide so. Some portfolios share it to negotiate better terms."
       }
-    ]
+    ],
+    "live": "Live in 25+ buildings in Europe and the US. Research with MIT and EPFL facilities."
   },
   "insurance": {
     "eyebrow": "Insurance",
     "h1": "Shorter loss duration. Lower claim severity.",
-    "lead": "For property underwriters, claims and innovation leads.",
+    "lead": "For property underwriters and claims teams who want shorter losses and better risk data.",
     "story": {
       "h2": "Severity is driven by time.",
-      "lead": "A hidden leak runs until someone notices. Every extra day adds secondary damage: subfloors, drywall, neighboring units, business interruption.",
+      "lead": "A hidden leak runs until someone notices, and every extra day adds secondary damage.",
       "timeline": {
         "alt": "Timeline. Without monitoring, a hidden leak runs for weeks. It reaches the subfloor, the drywall, the neighboring unit and business interruption before a tenant discovers it. With AquaShield, a flow deviation is flagged early, the riser is located and the rest of the loss is avoided.",
         "ticks": [
@@ -515,11 +453,11 @@
       "levers": [
         {
           "name": "Lever 1: shorter loss duration",
-          "text": "Earlier detection shortens the loss. Fewer days of water means less secondary damage and a smaller claim."
+          "text": "Fewer days of water mean less secondary damage and a smaller claim."
         },
         {
           "name": "Lever 2: a live risk signal",
-          "text": "Flow data per riser is a risk signal that underwriting does not have today, from buildings that are already instrumented."
+          "text": "Flow data per riser gives underwriting a signal it does not have today."
         }
       ]
     },
@@ -546,23 +484,22 @@
           "name": "Claims response",
           "text": "An alert triggers the claims process before the tenant calls."
         }
-      ],
-      "line": "Which one fits depends on your book. We work it out with you in the first call."
+      ]
     },
     "book": {
       "h2": "Start with one book of business.",
       "steps": [
         {
           "name": "Pick the book",
-          "text": "One book of business, one carrier. We select the buildings together."
+          "text": "We select the buildings with you."
         },
         {
           "name": "Pick the model",
-          "text": "Subsidy, discount, rider, risk data or claims response. We choose what fits your book."
+          "text": "We agree on one of the five models together."
         },
         {
           "name": "Go live",
-          "text": "Sensors clamp on, the data flows, alerts reach your claims team."
+          "text": "Sensors go on and alerts reach your claims team."
         }
       ],
       "line": "Live with owners in Europe and the US today.",
@@ -631,15 +568,15 @@
       "steps": [
         {
           "name": "Clamp on",
-          "text": "Ultrasonic flow sensors clamp onto every rack branch. No cutting into the cooling loop, no downtime."
+          "text": "Sensors clamp onto every rack branch while the loop keeps running."
         },
         {
           "name": "Learn the loop",
-          "text": "The model learns the normal flow of every branch and how the branches move together."
+          "text": "The model learns how each branch flows, alone and next to its neighbors."
         },
         {
           "name": "Flag the branch",
-          "text": "One branch drifts from its neighbors. The alert names the rack before water reaches the floor."
+          "text": "When one branch drifts, the alert names its rack."
         }
       ],
       "visual": {
@@ -648,7 +585,7 @@
     },
     "status": {
       "h2": "From residential risers to liquid cooling.",
-      "text": "The sensors and the model that watch residential risers today go onto your cooling loop. First sites in Switzerland.",
+      "text": "The sensors and models that watch residential risers today go onto your cooling loop. First sites in Switzerland.",
       "live": "Live in 25+ buildings in Europe and the US.",
       "visual": {
         "alt": "Diagram: a residential building with flow sensors on its risers and a rack row on a cooling loop, both feeding one model.",
@@ -656,23 +593,6 @@
         "loop": "Cooling loop",
         "model": "One model"
       }
-    },
-    "together": {
-      "h2": "Let us try it together at your site.",
-      "steps": [
-        {
-          "name": "One loop, one rack row",
-          "text": "We pick a cooling loop and a rack row with you."
-        },
-        {
-          "name": "Sensors on, twin built",
-          "text": "Sensors clamp on, the twin maps the loop, the model learns its normal."
-        },
-        {
-          "name": "First alerts",
-          "text": "You see the first alerts on your own racks."
-        }
-      ]
     }
   },
   "team": {
@@ -681,7 +601,7 @@
     "lead": "We bring robotics and machine learning research to the most neglected system in every building, from Zurich and San Francisco.",
     "join": {
       "title": "Join us",
-      "line": "Engineers, researchers and operators: write to the founders.",
+      "line": "Engineers and researchers: write to the founders.",
       "button": "Introduce yourself"
     },
     "story": {
@@ -741,18 +661,18 @@
       "items": [
         {
           "name": "Hardware in the field",
-          "text": "Ultrasonic sensors, firmware and connectivity that survive real plant rooms."
+          "text": "Sensors and firmware that survive real plant rooms."
         },
         {
           "name": "Machine learning on physical signals",
-          "text": "Models that learn what normal looks like for each building and catch what normal does not explain."
+          "text": "Models that learn each building's normal flow."
         },
         {
           "name": "Digital twins of real buildings",
-          "text": "A live model of the plumbing that turns a deviation into a place to check first."
+          "text": "A live model of the plumbing that turns a deviation into a place to look."
         }
       ],
-      "line": "No tickets, no handoffs. You own it from the first commit to live data from a real building."
+      "line": "You own your work from the first commit to live data from a real building."
     },
     "peopleTitle": "The team",
     "people": [
@@ -832,7 +752,7 @@
     },
     "final": {
       "h2": "Build it with us.",
-      "line": "If you would rather ship to real buildings than polish slide decks, write to us.",
+      "line": "Write to us if you want your work running in real buildings.",
       "button": "Introduce yourself"
     },
     "offices": [
@@ -844,11 +764,14 @@
         "city": "Zurich",
         "line": "Technoparkstrasse 1, 8005 Zurich, Switzerland"
       }
-    ]
+    ],
+    "field": {
+      "h2": "From the lab and the field"
+    }
   },
   "blog": {
     "h1": "Blog",
-    "lead": "Leak detection, water damage and building data. One post every two weeks, from the people building AquaShield.",
+    "lead": "Notes on finding leaks early, from the people building AquaShield. One post every two weeks.",
     "empty": "The first post is being written.",
     "segments": {
       "real-estate": "Real estate",
@@ -862,7 +785,7 @@
   },
   "book": {
     "h1": "Book a 30-min discovery call",
-    "lead": "Thirty minutes with a founder. Tell us where water worries you today. We show you how AquaShield works and explore together where it fits.",
+    "lead": "Tell us where water worries you today.",
     "outcomesIntro": "You leave with",
     "outcomes": [
       "A live look at how AquaShield works",
@@ -885,7 +808,12 @@
       "error": "Something went wrong. Email founders@aquashieldai.com and we will sort it out.",
       "invalid": "Please fill in your name and a work email."
     },
-    "confirm": ""
+    "confirm": "",
+    "founders": {
+      "line": "You talk to Paul or Marguerite, the founders. Thirty minutes, no slides.",
+      "paulAlt": "Paul Beckers, co-founder and CEO",
+      "margueriteAlt": "Marguerite Benoist, co-founder and CTO"
+    }
   },
   "imprint": {
     "h1": "Imprint",

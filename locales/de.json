@@ -37,6 +37,12 @@
       "realEstate": "Das nächste Leck früh erkennen.",
       "insurance": "Den nächsten Schaden klein halten.",
       "dataCenters": "Das nächste Leck vor dem Ausfall erkennen."
+    },
+    "closing": {
+      "home": "Dreissig Minuten mit einem Gründer, über Ihre Gebäude.",
+      "realEstate": "Dreissig Minuten mit einem Gründer, über Ihr Portfolio.",
+      "insurance": "Dreissig Minuten mit einem Gründer, über Ihren Bestand.",
+      "dataCenters": "Dreissig Minuten mit einem Gründer, über Ihren Kühlkreislauf."
     }
   },
   "common": {
@@ -182,7 +188,6 @@
       "eyebrow": "KI-Leckageerkennung für Gebäude",
       "h1": "Die erste Leckageerkennung für grosse Portfolios.",
       "visualAlt": "Im Inneren eines Wasserrohrs sendet ein Clamp-on-Sensor Schallwellen durch die Strömung. Die Ansicht zoomt auf ein Glasgebäude, in dem Steigleitung B im 3. OG aufleuchtet, und dann auf einen Häuserblock mit überwachten Gebäuden.",
-      "live": "Live in Europa und den USA.",
       "sub": "Lecks orten, bevor Schaden entsteht."
     },
     "problem": {
@@ -210,12 +215,11 @@
       "line": "Belegung, Energie und HLK haben Dashboards. Wasser wartet auf den Anruf eines Mieters, einen Fleck an der Decke oder eine Pfütze auf dem Boden."
     },
     "how": {
-      "eyebrow": "So funktioniert es",
       "h2": "Vom Rohr zum Alarm in drei Schritten.",
       "steps": [
         {
           "name": "Anklemmen",
-          "text": "Sensoren werden in Sekunden an Ihre Rohre geklemmt. Nichts wird aufgeschnitten.",
+          "text": "Sensoren werden in Sekunden an Ihre Rohre geklemmt.",
           "alt": "Ein Sensor wird an ein Rohr geklemmt und sendet Wellen durch das Wasser."
         },
         {
@@ -225,24 +229,23 @@
         },
         {
           "name": "Orten",
-          "text": "Aus einer Abweichung wird ein Ort: die Steigleitung und die zu prüfenden Stockwerke.",
+          "text": "Aus einer Abweichung werden eine Steigleitung und ein Stockwerk.",
           "alt": "Ein Gebäudeumriss. Ein Abschnitt einer Steigleitung leuchtet auf und eine Markierung fällt darauf."
         }
       ]
     },
     "who": {
-      "eyebrow": "Für wen",
       "h2": "Gebaut für die Menschen, die den Anruf bekommen.",
       "cards": [
         {
           "name": "Immobilien",
-          "text": "Jeder Strang kartiert, jedes Leck geortet, bevor der Mieter anruft.",
+          "text": "Lecks geortet, bevor der Mieter anruft.",
           "link": "Für Immobilien",
           "key": "real-estate"
         },
         {
           "name": "Versicherungen",
-          "text": "Kürzere Schadendauer, geringere Schadenhöhe, Live-Gebäudedaten für die Risikobewertung.",
+          "text": "Kürzere Schäden und Live-Risikodaten aus versicherten Gebäuden.",
           "link": "Für Versicherer",
           "key": "insurance"
         },
@@ -255,27 +258,29 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "Portfolio",
       "h2": "Eine Ansicht für Ihr ganzes Portfolio.",
-      "line": "Jedes Gebäude, jede Steigleitung, ein Bildschirm. Starten Sie mit einem Standort und wachsen Sie bis zum ganzen Portfolio.",
+      "line": "Starten Sie mit einem Standort und nehmen Sie Gebäude nach und nach dazu.",
       "building": "Gebäude 14",
       "detail": "Steigleitung B · 3. bis 5. OG prüfen",
       "done": "Früh erkannt",
       "alt": "Ein Häuserblock mit überwachten Gebäuden. Ein Gebäude meldet ein Leck, eine Alarmkarte nennt Steigleitung B und das 3. bis 5. OG, dann wird die Markierung zu einem Häkchen."
     },
     "proof": {
-      "eyebrow": "Nachweis",
       "h2": "So sieht ein echter Alarm aus.",
-      "line": "Live in Europa und den USA. Forschung mit den Facility-Teams von MIT und EPFL."
+      "line": "Forschung mit den Facility-Teams von MIT und EPFL."
     },
     "final": {
       "h2": "Das nächste Leck früh erkennen.",
-      "line": "Dreissig Minuten mit einem Gründer. Erzählen Sie uns, wo Wasser Ihnen heute Sorgen macht. Wir zeigen Ihnen, wie AquaShield funktioniert, und loten gemeinsam aus, wo es passt."
+      "line": "Dreissig Minuten mit einem Gründer darüber, wo Wasser Ihnen heute Sorgen macht."
+    },
+    "video": {
+      "h2": "In zwei Minuten erklärt",
+      "label": "AquaShield Launch-Video"
     }
   },
   "product": {
     "h1": "So funktioniert AquaShield",
-    "lead": "Clamp-on-Sensoren, unsere eigenen Machine-Learning-Modelle und ein digitaler Zwilling Ihrer Rohrinstallation. In Sekunden installiert, skaliert über Ihr ganzes Portfolio.",
+    "lead": "Sensoren werden an Ihre Rohre geklemmt, und unsere Modelle lernen, wie sich Wasser durch jedes Gebäude bewegt. Ändert sich etwas, bekommt Ihr Team eine Steigleitung und ein Stockwerk.",
     "hero": {
       "visual": {
         "sensor": "Clamp-on-Sensor",
@@ -290,70 +295,43 @@
     },
     "install": {
       "h2": "Wie läuft eine Installation ab?",
-      "text": "Unsere eigenen Sensoren werden in 30 Sekunden pro Stück aussen an bestehende Rohre geklemmt, ohne Rohrschnitt und ohne Abschaltung. Ihr eigenes Team kann sie montieren.",
-      "visualAlt": "Diagramm: Clamp-on-Ultraschall-Durchflusssensoren an einer Steigleitung und an der Versorgungsleitung, die sie speist.",
+      "text": "Jeder Sensor wird in etwa 30 Sekunden an ein bestehendes Rohr geklemmt, das Wasser bleibt an. Ihr eigenes Team kann das übernehmen.",
+      "visualAlt": "Diagramm: Clamp-on-Sensoren an einer Steigleitung und an der Versorgungsleitung, die sie speist.",
       "labels": {
         "riser": "Steigleitung",
-        "ultrasonic": "Clamp-on-Ultraschall-Durchflusssensor",
-        "supply": "Versorgungsleitung",
-        "time": "30 Sekunden pro Sensor",
-        "cut": "Kein Rohrschnitt"
+        "ultrasonic": "Clamp-on-Sensor",
+        "supply": "Versorgungsleitung"
       }
     },
     "data": {
       "h2": "Welche Daten bekomme ich?",
-      "text": "Ein Dashboard mit dem Live-Durchfluss jeder Messstelle und allen Alarmen nach Schweregrad. Jeder Alarm nennt Gebäude, Steigleitung und was zuerst zu prüfen ist.",
-      "confirm": "",
-      "visualAlt": "Beispieldiagramm: eine Messstelle über sieben Tage, das gelernte Baseline-Band und eine Abweichung an den letzten zwei Tagen.",
+      "text": "Ein Dashboard mit dem Live-Durchfluss jeder Messstelle. Unsere Modelle lernen den normalen Durchfluss jedes Gebäudes und melden, was er nicht erklärt. Jeder Alarm nennt Gebäude und Steigleitung.",
       "chart": {
-        "title": "Messstelle, Steigleitung B, sieben Tage",
         "baseline": "Gelernte Baseline",
-        "actual": "Live-Durchfluss",
-        "deviation": "Abweichung",
-        "days": [
-          "Mo",
-          "Di",
-          "Mi",
-          "Do",
-          "Fr",
-          "Sa",
-          "So"
-        ]
+        "actual": "Live-Durchfluss"
       }
     },
     "precision": {
       "h2": "Wie genau ist die Ortung?",
-      "text": "Bis zur Steigleitung oder zum Gebäudeabschnitt. Die Suche beginnt auf den richtigen Stockwerken, nicht hinter der ersten nassen Wand.",
-      "confirm": ""
+      "text": "Bis zur Steigleitung oder zum Gebäudeabschnitt, damit die Suche auf den richtigen Stockwerken beginnt."
     },
     "ml": {
-      "h2": "Das maschinelle Lernen",
-      "text": "Unser eigenes maschinelles Lernen für hydraulische Systeme lernt den normalen Durchfluss jedes Gebäudes und meldet, was der Normalverlauf nicht erklärt. Das Feedback Ihres Teams macht es mit jedem Gebäude schärfer.",
+      "h2": "Messstellen",
       "visualAlt": "Messstellen, jede mit ihrem gelernten Normalverlauf und dem Live-Durchfluss. Eine Steigleitung weicht ab und wird markiert."
     },
     "sensors": {
-      "h2": "Die Sensoren",
-      "intro": "Eigene Clamp-on-Sensoren auf bestehenden Leitungen. Nichts wird geschnitten.",
-      "specs": [
-        "Eigene Clamp-on-Ultraschall-Durchflusssensoren",
-        "30 Sekunden pro Sensor",
-        "Kein Rohrschnitt, keine Abschaltung",
-        "Alte oder neue Rohre"
-      ],
+      "h2": "Der Sensor",
+      "intro": "Er misst den Durchfluss durch die Rohrwand, das Rohr wird nie geöffnet.",
       "visual": {
-        "pipe": "Bestehendes Rohr",
-        "transducerA": "Wandler A",
-        "transducerB": "Wandler B",
-        "path": "Ultraschallpfad",
-        "transit": "Laufzeit",
+        "sensor": "Clamp-on-Sensor",
+        "signal": "Signal durch die Rohrwand",
         "flow": "Durchfluss",
-        "clamp": "Aufgeklemmt, kein Schneiden",
-        "alt": "Digitaler Zwilling eines Clamp-on-Ultraschall-Durchflusssensors: zwei Wandler aussen am Rohr, der Ultraschallpfad durch das Wasser und die Flussrichtung."
+        "alt": "Ein Clamp-on-Sensor aussen an einem Rohr. Sein Signal durchquert das Wasser, das darin fliesst."
       }
     },
     "twin": {
       "h2": "Der digitale Zwilling",
-      "text": "Ein Modell der Rohrinstallation, das aus einer Abweichung einen Ort macht, den man zuerst prüft."
+      "text": "Der digitale Zwilling: ein Modell der Rohrinstallation, das aus einer Abweichung einen Ort macht."
     },
     "faqTitle": "Fragen, die wir immer bekommen",
     "faq": [
@@ -363,15 +341,7 @@
       },
       {
         "q": "Wie lange dauert ein Rollout?",
-        "a": "Schnell, und es skaliert. Jeder Sensor ist in 30 Sekunden aufgeklemmt, so bringt Ihr eigenes Team viele Gebäude parallel live."
-      },
-      {
-        "q": "Funktioniert es mit alten Rohren?",
-        "a": "Ja. Die Sensoren werden an jedes zugängliche Rohr geklemmt, alt oder neu."
-      },
-      {
-        "q": "Wie bleiben die Alarme relevant?",
-        "a": "Alarme werden nach Schwere geordnet und mit Ihrem Team geprüft. Ihr Feedback macht die Modelle mit jedem Gebäude schärfer."
+        "a": "Ein Gebäude ist an einem Tag live. Jeder Sensor ist in etwa 30 Sekunden ohne Abschaltung angeklemmt, und Ihr eigenes Team kann ihn montieren. So gehen viele Gebäude parallel live."
       },
       {
         "q": "Wer sieht die Daten?",
@@ -381,50 +351,25 @@
         "q": "Was kostet es?",
         "a": "Preis pro Gebäude und Messstelle, ein Bruchteil eines Schadenfalls. Wir machen ein Angebot anhand Ihres Leitungsplans."
       }
-    ]
+    ],
+    "twinModel": {
+      "h2": "Ein echtes Gebäude in unserem digitalen Zwilling",
+      "caption": "Leitungen, Abzweige und Sensoren eines Standorts, so wie unser Modell sie sieht.",
+      "alt": "3D-Ansicht der Rohrinstallation eines Gebäudes im digitalen Zwilling von AquaShield: Steigleitungen und Abzweige als Rohre, Sensoren als blaue Markierungen."
+    }
   },
   "realEstate": {
     "eyebrow": "Immobilien",
     "h1": "Das Leck finden, bevor Ihr Mieter es findet.",
-    "lead": "Für Portfolios mit eigener Haustechnik, von Hunderten bis zu Hunderttausenden Einheiten.",
+    "lead": "Für Portfolio-Teams mit eigener Haustechnik, von einigen hundert bis zu Hunderttausenden Einheiten.",
     "visual": {
       "alt": "Sechs Gebäude eines Portfolios, jedes über einen Steigleitungssensor überwacht. Ein Gebäude zeigt eine Abweichung an Steigleitung B, ein Alarm nennt die zuerst zu prüfenden Stockwerke.",
       "legendOk": "Überwacht",
-      "legendAlert": "Alarm, Ort zuerst prüfen"
+      "legendAlert": "Alarm"
     },
     "story": {
-      "h2": "Lecks werden entdeckt, nicht erkannt.",
-      "text": "Die meisten Lecks fallen erst auf, wenn ein Mieter anruft oder die Decke fleckig wird, Tage oder Wochen nach Beginn. AquaShield überwacht jede Steigleitung und zeigt Ihrer Haustechnik, wo sie zuerst prüfen muss."
-    },
-    "customers": {
-      "h2": "Wo es heute läuft",
-      "confirm": "",
-      "groups": [
-        {
-          "label": "Live",
-          "items": [
-            "Ein grosses Wohnungsportfolio in Deutschland.",
-            "Zwei Wohnstandorte in Kalifornien.",
-            "Ein neues siebenstöckiges Wohngebäude in Kalifornien."
-          ]
-        },
-        {
-          "label": "F&E-Pilotprojekte",
-          "items": [
-            "MIT Facilities, Gebäude NW23, wo das System begann.",
-            "EPFL Facilities, auf dem Campus."
-          ]
-        },
-        {
-          "label": "In Planung",
-          "items": [
-            "Ein Fitnessclub-Betreiber in Kalifornien, Q1 2027.",
-            "Bürohochhäuser in Detroit. LOI unterzeichnet.",
-            "Gebäude in Berlin. Besichtigung erfolgt.",
-            "Ein Universitätscampus in Belgien."
-          ]
-        }
-      ]
+      "h2": "Die meisten Lecks findet ein Mieter.",
+      "text": "Meist durch einen Anruf oder eine fleckige Decke, Tage oder Wochen nach Beginn. AquaShield überwacht jede Steigleitung und schickt Ihrem Team einen Alarm wie diesen."
     },
     "anchor": {
       "h2": "Ein Schadenfall bezahlt die Überwachung.",
@@ -448,19 +393,19 @@
       "steps": [
         {
           "name": "Kartieren",
-          "text": "Senden Sie uns den Leitungsplan oder führen Sie uns einmal durch. Wir platzieren die Sensoren und bauen den digitalen Zwilling."
+          "text": "Senden Sie uns den Leitungsplan. Wir platzieren die Sensoren und bauen den Zwilling."
         },
         {
           "name": "Installieren",
-          "text": "30 Sekunden pro Sensor. Kein Rohrschnitt, das Wasser bleibt an."
+          "text": "Etwa 30 Sekunden pro Sensor, das Wasser bleibt an."
         },
         {
           "name": "Lernen",
-          "text": "Unser Modell lernt den normalen Durchfluss des Gebäudes."
+          "text": "Das Modell lernt den normalen Durchfluss des Gebäudes."
         },
         {
           "name": "Erkennen",
-          "text": "Abweichungen werden nach Schwere geordnet und bis zur Steigleitung geortet. Ihr Team bekommt den Ort, der zuerst geprüft wird."
+          "text": "Alarme werden nach Schwere geordnet und nennen die Steigleitung."
         }
       ]
     },
@@ -472,33 +417,26 @@
       },
       {
         "q": "Müssen wir Wände öffnen?",
-        "a": "Nein. Die Sensoren werden auf zugängliche Rohre in Steigleitungen, Kellern und Schächten geklemmt."
+        "a": "Nein. Die Sensoren werden auf zugängliche Rohre in Steigleitungen und Kellern geklemmt."
       },
       {
         "q": "Was muss unsere Haustechnik tun?",
-        "a": "Die Sensoren anklemmen, oder wir übernehmen das. Dann auf die Alarme reagieren: Jeder nennt die Steigleitung und die Stockwerke, die zuerst geprüft werden."
-      },
-      {
-        "q": "Funktioniert es in alten Gebäuden?",
-        "a": "Ja. Die Sensoren werden an jedes zugängliche Rohr geklemmt, alt oder neu."
+        "a": "Die Sensoren anklemmen, oder wir übernehmen das. Dann auf die Alarme reagieren, jeder nennt eine Steigleitung und die Stockwerke."
       },
       {
         "q": "Mit wie vielen Gebäuden beginnen wir?",
         "a": "Mit einem. Ausrollen, wenn Sie gesehen haben, dass es funktioniert."
-      },
-      {
-        "q": "Kann unser Versicherer die Daten sehen?",
-        "a": "Nur wenn Sie das entscheiden. Manche Portfolios teilen sie, um bessere Konditionen zu verhandeln."
       }
-    ]
+    ],
+    "live": "Live in über 25 Gebäuden in Europa und den USA. Forschung mit den Facility-Teams von MIT und EPFL."
   },
   "insurance": {
     "eyebrow": "Versicherungen",
     "h1": "Kürzere Schadendauer. Geringere Schadenhöhe.",
-    "lead": "Für Underwriter, Schaden- und Innovationsverantwortliche in der Sachversicherung.",
+    "lead": "Für Underwriter und Schadenteams in der Sachversicherung, die kürzere Schäden und bessere Risikodaten wollen.",
     "story": {
       "h2": "Die Schadenhöhe hängt von der Zeit ab.",
-      "lead": "Ein verdecktes Leck läuft, bis es jemand bemerkt. Jeder weitere Tag bringt Folgeschäden: Unterböden, Trockenbau, Nachbarwohnungen, Betriebsunterbrechung.",
+      "lead": "Ein verdecktes Leck läuft, bis es jemand bemerkt, und jeder weitere Tag bringt Folgeschäden.",
       "timeline": {
         "alt": "Zeitachse. Ohne Überwachung läuft ein verdecktes Leck wochenlang. Es erreicht Unterboden, Trockenbau, die Nachbarwohnung und den Betrieb, bevor ein Mieter es entdeckt. Mit AquaShield wird eine Durchflussabweichung früh gemeldet, die Steigleitung lokalisiert und der restliche Schaden vermieden.",
         "ticks": [
@@ -515,11 +453,11 @@
       "levers": [
         {
           "name": "Hebel 1: kürzere Schadendauer",
-          "text": "Frühere Erkennung verkürzt den Schaden. Weniger Tage mit Wasser bedeuten weniger Folgeschäden und einen kleineren Schadenfall."
+          "text": "Weniger Tage mit Wasser bedeuten weniger Folgeschäden und einen kleineren Schadenfall."
         },
         {
           "name": "Hebel 2: ein Live-Risikosignal",
-          "text": "Durchflussdaten pro Steigleitung sind ein Risikosignal, das dem Underwriting heute fehlt. Sie stammen aus Gebäuden, die bereits ausgestattet sind."
+          "text": "Durchflussdaten pro Steigleitung geben dem Underwriting ein Signal, das ihm heute fehlt."
         }
       ]
     },
@@ -546,23 +484,22 @@
           "name": "Schadenreaktion",
           "text": "Ein Alarm startet den Schadenprozess, bevor der Mieter anruft."
         }
-      ],
-      "line": "Welcher passt, hängt von Ihrem Bestand ab. Wir klären das mit Ihnen im ersten Gespräch."
+      ]
     },
     "book": {
       "h2": "Beginnen Sie mit einem Bestand.",
       "steps": [
         {
           "name": "Bestand wählen",
-          "text": "Ein Bestand, ein Versicherer. Wir wählen die Gebäude gemeinsam aus."
+          "text": "Wir wählen die Gebäude mit Ihnen aus."
         },
         {
           "name": "Modell wählen",
-          "text": "Subvention, Rabatt, Zusatzbaustein, Risikodaten oder Schadenreaktion. Wir wählen, was zu Ihrem Bestand passt."
+          "text": "Wir einigen uns gemeinsam auf eines der fünf Modelle."
         },
         {
           "name": "Live gehen",
-          "text": "Die Sensoren werden aufgeklemmt, die Daten fliessen, Alarme erreichen Ihr Schadenteam."
+          "text": "Die Sensoren kommen an die Rohre, und Alarme erreichen Ihr Schadenteam."
         }
       ],
       "line": "Heute live bei Eigentümern in Europa und den USA.",
@@ -631,15 +568,15 @@
       "steps": [
         {
           "name": "Anklemmen",
-          "text": "Ultraschall-Durchflusssensoren werden an jeden Rack-Abzweig geklemmt. Kein Eingriff in den Kühlkreislauf, keine Ausfallzeit."
+          "text": "Sensoren werden an jeden Rack-Abzweig geklemmt, der Kreislauf läuft weiter."
         },
         {
           "name": "Den Kreislauf lernen",
-          "text": "Das Modell lernt den normalen Durchfluss jedes Abzweigs und wie sich die Abzweige gemeinsam verhalten."
+          "text": "Das Modell lernt, wie jeder Abzweig fliesst, für sich und neben seinen Nachbarn."
         },
         {
           "name": "Den Abzweig melden",
-          "text": "Ein Abzweig weicht von seinen Nachbarn ab. Der Alarm nennt das Rack, bevor Wasser den Boden erreicht."
+          "text": "Weicht ein Abzweig ab, nennt der Alarm sein Rack."
         }
       ],
       "visual": {
@@ -648,7 +585,7 @@
     },
     "status": {
       "h2": "Von der Steigleitung zur Flüssigkühlung.",
-      "text": "Die Sensoren und das Modell, die heute Steigleitungen in Wohngebäuden überwachen, kommen auf Ihren Kühlkreislauf. Erste Standorte in der Schweiz.",
+      "text": "Die Sensoren und Modelle, die heute Steigleitungen in Wohngebäuden überwachen, kommen auf Ihren Kühlkreislauf. Erste Standorte in der Schweiz.",
       "live": "Live in über 25 Gebäuden in Europa und den USA.",
       "visual": {
         "alt": "Diagramm: ein Wohngebäude mit Durchflusssensoren an den Steigleitungen und eine Rack-Reihe an einem Kühlkreislauf, beide speisen ein gemeinsames Modell.",
@@ -656,23 +593,6 @@
         "loop": "Kühlkreislauf",
         "model": "Ein Modell"
       }
-    },
-    "together": {
-      "h2": "Probieren wir es gemeinsam an Ihrem Standort.",
-      "steps": [
-        {
-          "name": "Ein Kreislauf, eine Rack-Reihe",
-          "text": "Wir wählen mit Ihnen einen Kühlkreislauf und eine Rack-Reihe aus."
-        },
-        {
-          "name": "Sensoren montiert, Zwilling erstellt",
-          "text": "Sensoren werden angeklemmt, der Zwilling kartiert den Kreislauf, das Modell lernt seinen Normalzustand."
-        },
-        {
-          "name": "Erste Alarme",
-          "text": "Sie sehen die ersten Alarme auf Ihren eigenen Racks."
-        }
-      ]
     }
   },
   "team": {
@@ -681,7 +601,7 @@
     "lead": "Wir bringen Forschung in Robotik und maschinellem Lernen zum am meisten vernachlässigten System jedes Gebäudes, von Zürich und San Francisco aus.",
     "join": {
       "title": "Kommen Sie zu uns",
-      "line": "Ingenieure, Forschende und Operations-Profis: Schreiben Sie den Gründern.",
+      "line": "Ingenieure und Forschende: Schreiben Sie den Gründern.",
       "button": "Stellen Sie sich vor"
     },
     "story": {
@@ -741,18 +661,18 @@
       "items": [
         {
           "name": "Hardware im Feld",
-          "text": "Ultraschallsensoren, Firmware und Konnektivität, die echte Technikräume überstehen."
+          "text": "Sensoren und Firmware, die echte Technikräume überstehen."
         },
         {
           "name": "Maschinelles Lernen auf physikalischen Signalen",
-          "text": "Modelle, die für jedes Gebäude lernen, wie normal aussieht, und erkennen, was der Normalverlauf nicht erklärt."
+          "text": "Modelle, die den normalen Durchfluss jedes Gebäudes lernen."
         },
         {
           "name": "Digitale Zwillinge echter Gebäude",
-          "text": "Ein lebendes Modell der Leitungen, das aus einer Abweichung einen Ort macht, den man zuerst prüft."
+          "text": "Ein lebendes Modell der Leitungen, das aus einer Abweichung einen Ort macht."
         }
       ],
-      "line": "Keine Tickets, keine Übergaben. Sie verantworten es vom ersten Commit bis zu den Live-Daten aus einem echten Gebäude."
+      "line": "Sie verantworten Ihre Arbeit vom ersten Commit bis zu Live-Daten aus einem echten Gebäude."
     },
     "peopleTitle": "Das Team",
     "people": [
@@ -832,7 +752,7 @@
     },
     "final": {
       "h2": "Bauen Sie es mit uns.",
-      "line": "Wenn Sie lieber für echte Gebäude ausliefern, als Folien zu polieren, schreiben Sie uns.",
+      "line": "Schreiben Sie uns, wenn Ihre Arbeit in echten Gebäuden laufen soll.",
       "button": "Stellen Sie sich vor"
     },
     "offices": [
@@ -844,11 +764,14 @@
         "city": "Zürich",
         "line": "Technoparkstrasse 1, 8005 Zürich, Schweiz"
       }
-    ]
+    ],
+    "field": {
+      "h2": "Aus dem Labor und vom Einsatz"
+    }
   },
   "blog": {
     "h1": "Blog",
-    "lead": "Leckageerkennung, Wasserschäden und Gebäudedaten. Ein Beitrag alle zwei Wochen, von den Menschen, die AquaShield bauen.",
+    "lead": "Notizen dazu, wie man Lecks früh findet, von den Menschen hinter AquaShield. Alle zwei Wochen ein Beitrag.",
     "empty": "Der erste Beitrag wird gerade geschrieben.",
     "segments": {
       "real-estate": "Immobilien",
@@ -862,7 +785,7 @@
   },
   "book": {
     "h1": "30-min Erstgespräch buchen",
-    "lead": "Dreissig Minuten mit einem Gründer. Erzählen Sie uns, wo Wasser Ihnen heute Sorgen macht. Wir zeigen Ihnen, wie AquaShield funktioniert, und loten gemeinsam aus, wo es passt.",
+    "lead": "Erzählen Sie uns, wo Wasser Ihnen heute Sorgen macht.",
     "outcomesIntro": "Das nehmen Sie mit",
     "outcomes": [
       "Ein Live-Einblick, wie AquaShield funktioniert",
@@ -885,7 +808,12 @@
       "error": "Etwas ist schiefgelaufen. Schreiben Sie an founders@aquashieldai.com und wir kümmern uns darum.",
       "invalid": "Bitte geben Sie Ihren Namen und eine geschäftliche E-Mail an."
     },
-    "confirm": ""
+    "confirm": "",
+    "founders": {
+      "line": "Sie sprechen mit Paul oder Marguerite, den Gründern. Dreissig Minuten, ohne Folien.",
+      "paulAlt": "Paul Beckers, Mitgründer und CEO",
+      "margueriteAlt": "Marguerite Benoist, Mitgründerin und CTO"
+    }
   },
   "imprint": {
     "h1": "Impressum",

@@ -10,16 +10,16 @@ authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
 coverAlt: Isometric skyline of building blocks with connected nodes lighting up across the portfolio.
-answer: In four steps per building. Map: send the plumbing plan, AquaShield places the sensors and builds the digital twin. Install: under 15 minutes per sensor, no pipe cutting. Learn: the model learns the building's normal flow over the first weeks. Detect: deviations are ranked and localized to the riser. Start with one building and roll out at your pace.
-statValue: 22 buildings
-statLabel: at the first AquaShield portfolio in Germany, 32 measuring points, live since March 2026.
+answer: In four steps per building. Map: send the plumbing plan, AquaShield places the sensors and builds the digital twin. Install: about 30 seconds per sensor, no pipe cutting. Learn: the model learns the building's normal flow over the first weeks. Detect: deviations are ranked and localized to the riser. Start with one building and roll out at your pace.
+statValue: 25+ buildings
+statLabel: live with AquaShield in Europe and the US.
 statSource: AquaShield sites
 statDate: 2026
-definition: A measuring point is a sensor position on the shared plumbing, usually a riser or a supply line, chosen so that it sees as much of the network as possible. A building needs far fewer measuring points than it has flats.
+definition: A measuring point is a sensor position on the shared plumbing, usually a riser or a supply line, chosen so that it sees as much of the network as possible. A building needs far fewer measuring points than it has apartments.
 faq1q: Which building first?
 faq1a: The one that has cost you the most in water damage, or the one with the most units on the fewest risers. Both give the fastest proof.
 faq2q: How many measuring points does a building need?
-faq2a: It depends on the number of risers and supply lines, not the number of flats. The first portfolio covers 22 buildings with 32 measuring points.
+faq2a: It depends on the number of risers and supply lines, not the number of apartments.
 faq3q: What does our team have to do during rollout?
 faq3a: Send the plan, give access to the risers, and act on the alerts. After the first building, the team can clamp on the sensors itself.
 ---
@@ -29,11 +29,11 @@ Portfolio rollouts fail when they start with a portfolio-wide plan. Procurement,
 
 ## Step 1: Map
 
-Send the plumbing plan, or walk us through the risers once. From the plan, AquaShield places the measuring points where they see the most water and builds the digital twin: which riser feeds which floors, which sensor sees which water. A building needs far fewer measuring points than it has flats. The first portfolio in Germany covers 22 buildings with 32.
+Send the plumbing plan, or walk us through the risers once. From the plan, AquaShield places the measuring points where they see the most water and builds the digital twin: which riser feeds which floors, which sensor sees which water. A building needs far fewer measuring points than it has apartments.
 
 ## Step 2: Install
 
-Under 15 minutes per sensor. The sensors clamp onto the outside of existing pipes and read through the wall, so there is no pipe cutting and no shutdown. A building is a day. Tenants do not notice.
+About 30 seconds per sensor. The sensors clamp onto the outside of existing pipes and read through the wall, so there is no pipe cutting and no shutdown. A building is a day. Tenants do not notice.
 
 ## Step 3: Learn
 
@@ -63,4 +63,4 @@ After the first alert:
 
 Nothing on the list needs procurement to finish before the first building starts. That is the point of starting with one.
 
-Two residential sites in California went live with 59 sensors in September 2026. The first German portfolio has been live since March. See the [real estate page](/real-estate/), or [book a 30-minute call](/book-a-call/?for=real-estate).
+AquaShield is live in 25+ buildings in Europe and the US. See the [real estate page](/real-estate/), or [book a 30-minute call](/book-a-call/?for=real-estate).

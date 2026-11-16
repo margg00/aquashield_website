@@ -17,7 +17,7 @@ statSource: AquaShield
 statDate: 2026
 definition: A baseline is not a single number. It is the expected flow for every time of day and day of week, with the normal spread around it. Flow inside that spread is normal. Flow outside it, for long enough, is a deviation.
 faq1q: Why one model per measuring point?
-faq1a: Because every riser has its own rhythm. A riser serving family flats peaks at different times from one serving offices. One model for the whole building would blur them together and miss the small, slow deviations that matter.
+faq1a: Because every riser has its own rhythm. A riser serving family apartments peaks at different times from one serving offices. One model for the whole building would blur them together and miss the small, slow deviations that matter.
 faq2q: What makes it specific to hydraulic systems?
 faq2a: Water in pipes follows physical rules: flow and topology are linked, and the water entering a riser has to leave through its branches. The model and the digital twin use those links, which a generic anomaly detector does not know about.
 faq3q: Does the model keep learning?
@@ -31,7 +31,7 @@ Stand next to a residential riser at 3 a.m. and the water is nearly still. At 7 
 
 Every measuring point reports a reading every 10 minutes, 144 a day. From those readings, a model per measuring point builds the expected flow for each time of day and day of week, together with the normal spread around it. This takes the first weeks after installation. During that time the system learns and does not alert, because an alert before normal is known would be a guess.
 
-The model is specific to its measuring point. A riser serving family flats and a riser serving offices in the same building have different baselines, and a single model for the building would blur them. The slow, small deviations that matter most, a night baseline that no longer returns to its usual level, are only visible against the right rhythm.
+The model is specific to its measuring point. A riser serving family apartments and a riser serving offices in the same building have different baselines, and a single model for the building would blur them. The slow, small deviations that matter most, a night baseline that no longer returns to its usual level, are only visible against the right rhythm.
 
 ## What a deviation is
 

@@ -2,7 +2,7 @@
 id: digital-twin
 slug: what-is-a-digital-twin-of-a-buildings-plumbing
 title: What is a digital twin of a building's plumbing?
-description: A model of the risers, branches and sensors that turns a flow deviation into a place to check first. What it contains, how it is built, and what it is for.
+description: A model of the risers, branches and sensors that turns a flow deviation into a place to look. What it contains, how it is built, and what it is for.
 date: 2026-09-10
 updated: 2026-09-10
 author: Marguerite Benoist
@@ -11,8 +11,8 @@ segment: product
 segmentLabel: Product
 coverAlt: Isometric wireframe of a multi-story building with three glowing water risers and one highlighted measuring point.
 answer: A digital twin of a building's plumbing is a model of the risers, branches and measuring points, and of which sensor sees which water. AquaShield builds it from the sensor positions and the plumbing plan. Its job is to turn a deviation at a sensor into the riser and the floors to check first.
-statValue: 23 sensors on 10 risers
-statLabel: at one new seven-story residential building live with AquaShield in California.
+statValue: 25+ buildings
+statLabel: live with AquaShield in Europe and the US, each with its own digital twin.
 statSource: AquaShield sites
 statDate: 2026
 definition: A digital twin is a software model of a physical system that is kept in step with it. For plumbing, the model holds the network topology (which pipe feeds which) and the live readings from the sensors on it.
@@ -39,7 +39,7 @@ The twin is not a 3D rendering, though it can be drawn as one. It is a graph wit
 
 ## How AquaShield builds it
 
-The twin is built from two inputs: the plumbing plan and the sensor positions. A portfolio sends the plan, or walks us through the risers once, and AquaShield places the sensors where they see the most. From there the twin is generated and the models start learning normal. At a new seven-story residential building in California, 23 sensors on 10 risers were enough to cover the building.
+The twin is built from two inputs: the plumbing plan and the sensor positions. A portfolio sends the plan, or walks us through the risers once, and AquaShield places the sensors where they see the most. From there the twin is generated and the models start learning normal. A building needs far fewer sensors than it has apartments.
 
 ## What it is for
 
@@ -55,7 +55,7 @@ Three words come up together and are easy to mix.
 - The **twin** is per building. It knows the shape: which riser feeds which floors, which sensor sees which water. It takes the model's deviations and places them.
 - The **dashboard** is what the team sees: every measuring point against its baseline, the alert list ranked by severity, and for each alert the riser and floors from the twin.
 
-The model finds, the twin places, the dashboard tells. A portfolio with 22 buildings has 22 twins, 32 models and one dashboard.
+The model finds, the twin places, the dashboard tells. A portfolio has one twin per building, one model per measuring point and one dashboard.
 
 ## Where this goes next
 

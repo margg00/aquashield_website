@@ -83,7 +83,8 @@
 .hx-wave { fill: none; stroke: #8fd8ff; stroke-width: 2.2; opacity: 0; transform-box: view-box; }
 .hx-wave-static { fill: none; stroke: rgb(var(--accent-rgb) / 0.55); stroke-width: 1.8; }
 
-/* Status line under the scene (styles.css positions .hs) */
+/* Status line under the scene (styles.css positions .hs). Each line changes as its act arrives:
+   act 1 the pipe (0 to 28 %), act 2 the building (from 33 %), act 3 the portfolio (from 70 %). */
 .hx-status .hs { opacity: 0; }
 .hx-status .hx-s2 { opacity: 1; }
 .hx-status .hx-s2 i { background: var(--anomaly); box-shadow: 0 0 0 3px rgb(var(--anomaly-rgb) / 0.2); }
@@ -123,9 +124,9 @@
 @keyframes hx-flow { 0% { offset-distance: 0%; opacity: 0; } 10%, 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
 @keyframes hx-stream { from { transform: translateY(0); } to { transform: translateY(-312px); } }
 @keyframes hx-wave { 0% { transform: scale(0.12); opacity: 0; } 12% { opacity: 0.95; } 100% { transform: scale(1); opacity: 0; } }
-@keyframes hx-s1 { 0%, 45% { opacity: 1; } 47%, 98% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes hx-s2 { 0%, 50% { opacity: 0; } 52%, 70% { opacity: 1; } 72%, 100% { opacity: 0; } }
-@keyframes hx-s3 { 0%, 73% { opacity: 0; } 75%, 96% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes hx-s1 { 0%, 26% { opacity: 1; } 28%, 98% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes hx-s2 { 0%, 31% { opacity: 0; } 33%, 64% { opacity: 1; } 66%, 100% { opacity: 0; } }
+@keyframes hx-s3 { 0%, 68% { opacity: 0; } 70%, 96% { opacity: 1; } 98%, 100% { opacity: 0; } }
 
 /* ---------- How it works: three steps ---------- */
 @media (min-width: 640px) { .steps.hm-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -137,14 +138,13 @@
 .hm-pipe-edge { fill: none; stroke: rgba(255, 255, 255, 0.22); stroke-width: 1.2; }
 .hm-pipe-end { fill: #4d6779; stroke: rgba(255, 255, 255, 0.3); }
 .hm-water-end { fill: rgb(var(--accent-rgb) / 0.6); }
-.hm-strap { fill: none; stroke: #b7c2ca; stroke-width: 7; stroke-linecap: butt; }
-.hm-house-l { fill: #20272d; }
+.hm-strap { fill: none; stroke: #a3aeb7; stroke-width: 7; stroke-linecap: butt; }
+.hm-house-l { fill: #1d2328; }
 .hm-house-r { fill: #161b20; }
-.hm-house-t { fill: #2f383f; }
+.hm-house-t { fill: #333c43; }
+.hm-house-line { fill: none; stroke: rgba(255, 255, 255, 0.18); stroke-width: 1.6; stroke-linecap: round; }
 .hm-house-e { fill: none; stroke: rgba(255, 255, 255, 0.28); stroke-width: 1; stroke-linejoin: round; }
 .hm-led { fill: var(--ok); }
-.hm-wave { fill: none; stroke: #8fd8ff; stroke-width: 2.2; stroke-linecap: round; opacity: 0; }
-.hm-wave-still { fill: none; stroke: rgb(var(--accent-rgb) / 0.6); stroke-width: 2; stroke-linecap: round; }
 
 /* 2 learn */
 .hm-band { fill: rgb(var(--accent-rgb) / 0.13); }
@@ -167,7 +167,6 @@
 .hm-ping-ring { fill: none; stroke: var(--anomaly); stroke-width: 1.6; opacity: 0; transform-box: fill-box; transform-origin: center; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hm-wave-still { display: none; }
   body.has-reveal .hm-play:not(.is-playing) .hm-sensor,
   body.has-reveal .hm-play:not(.is-playing) .hm-learn-in,
   body.has-reveal .hm-play:not(.is-playing) .hm-hot,
@@ -178,7 +177,7 @@
 
   .hm-play.is-playing .hm-sensor { animation: hm-drop 0.75s cubic-bezier(0.3, 1.45, 0.5, 1) 0.15s both; }
   .hm-play.is-playing .hm-led { animation: hm-led 2.4s ease-in-out 0.9s infinite; }
-  .hm-play.is-playing .hm-wave { animation: hm-wave 2.25s ease-out infinite; }
+  body.has-reveal .hm-play:not(.is-playing) .sk-wave { animation: none; }
 
   .hm-play.is-playing .hm-learn-in { animation: hm-fade 0.9s ease-out both; }
   .hm-play.is-playing .hm-live { animation: hm-draw 2.2s cubic-bezier(0.3, 0, 0.2, 1) 0.2s both; }
@@ -192,7 +191,6 @@
 }
 @keyframes hm-drop { from { opacity: 0; transform: translateY(-44px); } 60% { opacity: 1; } to { opacity: 1; transform: translateY(0); } }
 @keyframes hm-led { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-@keyframes hm-wave { 0% { opacity: 0; transform: translate(0, 0); } 14% { opacity: 0.95; } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
 @keyframes hm-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes hm-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes hm-drift { from { transform: translateX(0); } to { transform: translateX(-170px); } }
@@ -257,3 +255,19 @@
 @keyframes pf-flag { 0% { opacity: 0; } 6%, 90% { opacity: 1; } 100% { opacity: 0; } }
 @keyframes pf-alarm { 0% { opacity: 0.9; transform: scale(0.5); } 100% { opacity: 0; transform: scale(2); } }
 @keyframes pf-card { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: translateX(0); } }
+
+/* ---------- Who it is for: three large text links, hairlines instead of cards ---------- */
+.sector-links { list-style: none; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.sector-links li { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.sector-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 24px; padding: 26px 0; color: inherit; text-decoration: none; }
+.sector-name { grid-column: 1; font-size: clamp(1.7rem, 1.1rem + 2.2vw, 3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; transition: color 200ms ease; }
+.sector-line { grid-column: 1; color: var(--text-secondary); font-size: 1.05rem; }
+.sector-arrow { grid-column: 2; grid-row: 1 / span 2; color: var(--accent); font-size: clamp(1.6rem, 1rem + 1.6vw, 2.4rem); line-height: 1; transition: transform 200ms ease; }
+.sector-link:hover .sector-name, .sector-link:focus-visible .sector-name { color: var(--accent-light); }
+.sector-link:hover .sector-arrow { transform: translateX(6px); }
+@media (min-width: 900px) { .sector-link { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) auto; padding: 34px 0; } .sector-line { grid-column: 2; grid-row: 1; } .sector-arrow { grid-column: 3; grid-row: 1; } }
+
+/* ---------- Launch video (renders only when assets/video/launch.mp4 exists) ---------- */
+.video-title { margin-bottom: 24px; font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.2rem); }
+.video-frame { overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; background: #0f1113; }
+.video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }

@@ -11,7 +11,7 @@ segment: product
 segmentLabel: Produit
 coverAlt: Deux capteurs à pince sur l'extérieur d'un tuyau, avec un trajet ultrasonore en V qui se réfléchit sur la paroi opposée.
 answer: La détection de fuites non invasive lit l'eau depuis l'extérieur du tuyau. Un capteur de débit ultrasonique à pince se pose sur l'extérieur de la colonne montante et mesure le débit à travers la paroi, et un modèle par point de mesure apprend le débit normal du bâtiment. Une fuite apparaît comme un schéma que le normal n'explique pas.
-statValue: Moins de 15 min
+statValue: Environ 30 s
 statLabel: par capteur, à pince, sans découpe de tuyau, l'eau reste ouverte, sur les sites AquaShield en service aujourd'hui.
 statSource: Installations AquaShield
 statDate: 2026
@@ -27,7 +27,7 @@ faq3a: Les capteurs se fixent sur toute canalisation accessible, ancienne ou ré
 
 La méthode la plus ancienne pour mesurer un débit consiste à couper le tuyau et à y insérer un compteur. Cela demande un plombier, une coupure d'eau et un raccord qui peut lui-même fuir un jour. La mesure de débit par ultrasons évite tout cela. Deux transducteurs se posent sur l'extérieur du tuyau, légèrement décalés l'un par rapport à l'autre. L'un envoie une impulsion à travers la paroi et l'eau, l'autre la reçoit. L'eau qui va dans le sens de l'impulsion l'accélère, l'eau qui va en sens inverse la ralentit. La différence de temps de transit donne le débit.
 
-Le capteur est fixé au tuyau par un collier. L'installation prend moins de 15 minutes. L'eau reste ouverte tout le temps, et les locataires ne remarquent rien.
+Le capteur est fixé au tuyau par un collier. Chaque capteur se fixe en environ 30 secondes. L'eau reste ouverte tout le temps, et les locataires ne remarquent rien.
 
 ## Un capteur, deux vues
 
@@ -36,7 +36,7 @@ AquaShield utilise une seule mesure, le débit, et la lit de deux façons compl�
 - **Le débit par colonne montante**, mesuré par des capteurs ultrasoniques à pince sur les colonnes montantes et les conduites d'alimentation. Le débit indique combien d'eau circule et quand.
 - **Le débit à l'échelle du réseau**, en comparant les points de mesure. Le débit d'une colonne montante doit correspondre à celui des dérivations qu'elle alimente, donc le réseau dans son ensemble montre des changements qu'un capteur de débit seul ne voit pas toujours.
 
-Chaque capteur envoie une mesure toutes les 10 minutes. Avec 32 points de mesure sur un parc, cela fait 4 608 mesures par jour pour un seul client.
+Chaque capteur envoie une mesure toutes les 10 minutes, de jour comme de nuit, depuis chaque point de mesure du parc.
 
 ## Le modèle apprend d'abord le normal
 

@@ -11,8 +11,8 @@ segment: product
 segmentLabel: Produkt
 coverAlt: Senkrechte Steigleitungen, die in die Tiefe führen, ein Abschnitt zwischen zwei Stockwerken leuchtet auf.
 answer: Ortung bis zur Steigleitung heisst, dass der Alarm die Steigleitung und die Stockwerke nennt, an denen die Abweichung liegt. Die Erkennung sagt, dass Wasser dorthin fliesst, wo es nicht hingehört. Die Ortung sagt, welches senkrechte Rohr und welcher Teil des Gebäudes betroffen sind, damit die Suche dort beginnt statt hinter der ersten nassen Wand.
-statValue: 32 Messstellen
-statLabel: in 22 Gebäuden im ersten AquaShield-Portfolio, live seit März 2026.
+statValue: 25+ Gebäude
+statLabel: live mit AquaShield in Europa und den USA, jedes bis zur Steigleitung geortet.
 statSource: AquaShield-Standorte
 statDate: 2026
 definition: Eine Steigleitung ist das senkrechte Rohr, das Wasser durch ein Gebäude nach oben führt und auf jedem Stockwerk die Abzweige versorgt. Die meisten Gebäude haben mehrere. Ortung bis zur Steigleitung heisst, dass der Alarm angibt, welche.

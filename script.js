@@ -144,7 +144,8 @@
     var step = function (ts) {
       if (!start) start = ts;
       var p = Math.min(1, (ts - start) / dur);
-      el.textContent = parsed.at(parsed.num * ease(p));
+      // counts up from 60 percent of the value, so no reading near zero is ever on screen
+      el.textContent = parsed.at(parsed.num * (0.6 + 0.4 * ease(p)));
       if (p < 1) requestAnimationFrame(step);
       else { el.textContent = parsed.text; el.classList.remove("is-counting"); el.removeAttribute("data-counting"); }
     };
@@ -286,7 +287,6 @@
     [".ins-timeline", "svg"],
     [".ins-book-visual", ".media"],
     [".chapter", ".chapter-line, .chapter-node"],
-    [".spirit-tile", ".spirit-icon"],
     [".proof-strip", ".proof-cells"]
   ];
   var LOOPS = ".hero-visual, .media-vis, .media-twin, .step-visual, .alert-card";
@@ -484,7 +484,7 @@
       // pinned mode writes inline styles, the scrub without pinning uses --p: start each mode clean
       clearPut();
       parts = null;
-      scrubs.forEach(function (it) { it.p = -1; it.done = null; it.el.style.removeProperty("--p"); });
+      scrubs.forEach(function (it) { it.p = -1; it.done = null; it.el.style.removeProperty("--p"); it.nums.forEach(function (n) { n.op = null; n.el.style.opacity = ""; }); });
       pinS = -1;
     };
 
@@ -514,9 +514,12 @@
       it.el.style.setProperty("--p", String(p));
       var done = p >= 1;
       if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
+      // the number stays invisible at the start, fades in as it counts, and counts from 60 percent of its value
       it.nums.forEach(function (n) {
-        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * ease(p));
+        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * (0.6 + 0.4 * ease(p)));
         if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
+        var o = done ? "" : String(r2(smooth(0.05, 0.35, p)));
+        if (o !== n.op) { n.op = o; n.el.style.opacity = o; }
       });
     };
     // ---- Pinned choreography ----
@@ -588,9 +591,11 @@
       for (i = 0; i < t.bars.length; i++) { r = smooth(i * 0.055, i * 0.055 + 0.4, q); put(t.bars[i], "strokeDashoffset", String(r4(1 - r))); }
       var done = q >= 1, it = t.it;
       if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
+      // the tile's number is invisible until the tile comes into focus, then fades in while it counts from 60 percent
       it.nums.forEach(function (n) {
-        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * smooth(0, 1, q));
+        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * (0.6 + 0.4 * smooth(0, 1, q)));
         if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
+        put(n.el, "opacity", String(r2(smooth(0.04, 0.3, q))));
       });
     };
     var render = function (S) {

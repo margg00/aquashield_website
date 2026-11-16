@@ -3,7 +3,7 @@
         <div class="hero-copy">
           <p class="eyebrow">{{insurance.eyebrow}}</p>
           <h1>{{insurance.h1}}</h1>
-          <p class="lead">{{canonical}} {{insurance.lead}}</p>
+          <p class="lead">{{insurance.lead}}</p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg" href="{{urls.book-a-call}}{{page.ctaQuery}}">{{cta.label}}</a>
             <p class="cta-line">{{cta.insurance}}</p>
@@ -30,11 +30,11 @@
           <div class="ins-timeline-narrow">{{{lossTimelineSvgMobile}}}</div>
         </div>
         <div class="ins-levers">
-          <div class="ins-glass ins-lever" data-reveal>
+          <div class="ins-lever" data-reveal>
             <h3>{{insurance.story.levers.0.name}}</h3>
             <p>{{insurance.story.levers.0.text}}</p>
           </div>
-          <div class="ins-glass ins-lever" data-reveal>
+          <div class="ins-lever" data-reveal>
             <h3>{{insurance.story.levers.1.name}}</h3>
             <p>{{insurance.story.levers.1.text}}</p>
           </div>
@@ -47,34 +47,33 @@
         <div class="section-head">
           <h2 id="ways-title">{{insurance.ways.h2}}</h2>
         </div>
-        <ol class="ways ins-ways">
-          <li data-reveal>
-            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M9 2v20M15 2v20"/><rect x="5" y="8" width="14" height="8" rx="2"/><circle cx="12" cy="12" r="1.4"/></svg>
+        <ol class="ways-list">
+          <li class="ways-row" data-reveal>
+            <span class="ways-num">01</span>
             <h3>{{insurance.ways.items.0.name}}</h3>
             <p>{{insurance.ways.items.0.text}}</p>
           </li>
-          <li data-reveal>
-            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 12.5V4a1 1 0 0 1 1-1h8.5L21 11.5 12.5 20z"/><path d="M9 14l6-6"/><circle cx="9" cy="8.5" r="1.2"/><circle cx="14.5" cy="14" r="1.2"/></svg>
+          <li class="ways-row" data-reveal>
+            <span class="ways-num">02</span>
             <h3>{{insurance.ways.items.1.name}}</h3>
             <p>{{insurance.ways.items.1.text}}</p>
           </li>
-          <li data-reveal>
-            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9 14h6"/></svg>
+          <li class="ways-row" data-reveal>
+            <span class="ways-num">03</span>
             <h3>{{insurance.ways.items.2.name}}</h3>
             <p>{{insurance.ways.items.2.text}}</p>
           </li>
-          <li data-reveal>
-            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M3 21h18"/><rect x="5" y="12" width="3" height="6" rx="0.5"/><rect x="10.5" y="7" width="3" height="11" rx="0.5"/><rect x="16" y="3" width="3" height="15" rx="0.5"/></svg>
+          <li class="ways-row" data-reveal>
+            <span class="ways-num">04</span>
             <h3>{{insurance.ways.items.3.name}}</h3>
             <p>{{insurance.ways.items.3.text}}</p>
           </li>
-          <li data-reveal>
-            <svg class="ins-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>
+          <li class="ways-row" data-reveal>
+            <span class="ways-num">05</span>
             <h3>{{insurance.ways.items.4.name}}</h3>
             <p>{{insurance.ways.items.4.text}}</p>
           </li>
         </ol>
-        <p class="section-line ins-ways-line">{{insurance.ways.line}}</p>
       </div>
     </section>
 

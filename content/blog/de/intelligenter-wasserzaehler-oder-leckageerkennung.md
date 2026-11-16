@@ -37,7 +37,7 @@ Dieses Muster steht hinter dem Grossteil der Schäden, für die deutsche Versich
 
 ## Was Leckageerkennung anders macht
 
-Die Sensoren von AquaShield werden an die Steigleitung und die Versorgungsleitungen geklemmt, in unter 15 Minuten pro Stück, ohne Rohrschnitt. Sie messen den Durchfluss alle 10 Minuten. Ein Modell pro Messstelle lernt, wie normal für diese Steigleitung aussieht: den nächtlichen Normalverlauf, die Morgenspitze, den Wochenrhythmus. Eine undichte Verbindung verändert den nächtlichen Durchfluss, weil Wasser weiterfliesst, wenn jeder Hahn geschlossen ist. Das Modell sieht das Muster, das kein Zähler sehen kann.
+Die Sensoren von AquaShield werden an die Steigleitung und die Versorgungsleitungen geklemmt, in etwa 30 Sekunden pro Stück, ohne Rohrschnitt. Sie messen den Durchfluss alle 10 Minuten. Ein Modell pro Messstelle lernt, wie normal für diese Steigleitung aussieht: den nächtlichen Normalverlauf, die Morgenspitze, den Wochenrhythmus. Eine undichte Verbindung verändert den nächtlichen Durchfluss, weil Wasser weiterfliesst, wenn jeder Hahn geschlossen ist. Das Modell sieht das Muster, das kein Zähler sehen kann.
 
 Dann verortet der digitale Zwilling die Abweichung. Weil der Zwilling weiss, welcher Sensor welches Wasser sieht, zeigt eine Abweichung an der Steigleitung ohne Abweichung an den Abzweigen auf die Steigleitung selbst. Der Alarm nennt die Steigleitung und die zu prüfenden Stockwerke.
 

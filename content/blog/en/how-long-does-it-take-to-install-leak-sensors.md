@@ -2,17 +2,17 @@
 id: install-time
 slug: how-long-does-it-take-to-install-leak-sensors
 title: How long does it take to install leak detection in a building?
-description: Under 15 minutes per sensor, no pipe cutting, the water stays on. A day for a building, the digital twin the same day, and a model that learns normal over the first weeks.
+description: About 30 seconds per sensor, no pipe cutting, the water stays on. A day for a building, the digital twin the same day, and a model that learns normal over the first weeks.
 date: 2026-08-27
 updated: 2026-08-27
 author: Tim Baumeister
 authorId: tim-baumeister
 segment: real-estate
 segmentLabel: Real estate
-coverAlt: A water pipe with a clamp-on sensor, framed by a stopwatch arc that sweeps a quarter of an hour.
-answer: Under 15 minutes per sensor. The sensors clamp onto the outside of existing pipes, so there is no pipe cutting and no shutdown of the water supply. A typical building is done in a day, the digital twin is built the same day, and the model learns the building's normal flow over the first weeks.
-statValue: 59 sensors
-statLabel: across two residential sites in California, live with AquaShield since September 2026.
+coverAlt: A water pipe with a clamp-on sensor, framed by a stopwatch arc.
+answer: About 30 seconds per sensor. The sensors clamp onto the outside of existing pipes, so there is no pipe cutting and no shutdown of the water supply. A typical building is done in a day, the digital twin is built the same day, and the model learns the building's normal flow over the first weeks.
+statValue: 25+ buildings
+statLabel: live with AquaShield in Europe and the US.
 statSource: AquaShield sites
 statDate: 2026
 definition: Clamp-on means the sensor is strapped to the outside of the pipe with a bracket and reads the flow through the pipe wall. The pipe is never opened, so there is no plumber, no joint and no downtime per sensor.
@@ -25,7 +25,7 @@ faq3a: After the model has learned normal, which takes the first weeks. Alerts b
 ---
 ## The short answer
 
-Under 15 minutes per sensor. That number is the reason non-invasive monitoring works at portfolio scale. A flow sensor that needed a plumber, a shutdown and a cut pipe would cost a building a day of disruption per riser. A clamp-on sensor costs a bracket and a quarter of an hour.
+About 30 seconds per sensor. That number is the reason non-invasive monitoring works at portfolio scale. A flow sensor that needed a plumber, a shutdown and a cut pipe would cost a building a day of disruption per riser. A clamp-on sensor costs a bracket and half a minute.
 
 ## What a day looks like
 
@@ -39,7 +39,7 @@ Under 15 minutes per sensor. That number is the reason non-invasive monitoring w
 
 ## Scaling to a portfolio
 
-Across two residential sites in California, 59 sensors went live in September 2026. The first portfolio in Germany covers 22 buildings with 32 measuring points. Neither needed a plumber per sensor, and neither shut off the water.
+AquaShield is live in 25+ buildings in Europe and the US. None of them needed a plumber per sensor, and none shut off the water.
 
 After the first building, a portfolio's own team can clamp on the sensors. The positions come from the plan, the sensors come in a box, and the twin updates as they come online.
 
@@ -49,7 +49,7 @@ In practice three things add time, and three things people expect to add time do
 
 **What adds time:** a riser with no access panel (one has to be cut into the shaft wall, a one-off), a plant room with no connectivity (a repeater is placed), and a plan that does not match the building (the twin is corrected on site).
 
-**What does not:** the age of the pipes, the number of flats, and the tenants. The sensors clamp onto any accessible pipe, the number of measuring points follows the risers rather than the units, and the water never goes off, so nobody has to be told.
+**What does not:** the age of the pipes, the number of apartments, and the tenants. The sensors clamp onto any accessible pipe, the number of measuring points follows the risers rather than the units, and the water never goes off, so nobody has to be told.
 
 Plan for a day per building, and for the first weeks of learning before the first alert.
 

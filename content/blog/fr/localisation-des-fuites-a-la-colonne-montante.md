@@ -11,8 +11,8 @@ segment: product
 segmentLabel: Produit
 coverAlt: Des colonnes montantes verticales qui s'éloignent en profondeur, avec un tronçon allumé entre deux étages.
 answer: La localisation à la colonne montante signifie que l'alerte nomme la colonne montante, et les étages de cette colonne, où se trouve l'écart. La détection dit que l'eau va là où elle ne devrait pas. La localisation dit quel tuyau vertical et quelle partie du bâtiment, pour que la recherche commence là plutôt que derrière le premier mur humide.
-statValue: 32 points de mesure
-statLabel: sur 22 bâtiments dans le premier parc AquaShield, en service depuis mars 2026.
+statValue: 25+ bâtiments
+statLabel: en service avec AquaShield en Europe et aux États-Unis, chacun localisé à la colonne montante.
 statSource: Sites AquaShield
 statDate: 2026
 definition: Une colonne montante est le tuyau vertical qui monte l'eau à travers un bâtiment et alimente les dérivations de chaque étage. La plupart des bâtiments en ont plusieurs. Localiser à la colonne montante signifie que l'alerte indique laquelle.

@@ -234,6 +234,33 @@ function addExtraVisuals(ctx, t) {
   return ctx;
 }
 
+// --- Photo and video slots ---------------------------------------------
+// Width and height of a WebP file, read from its header (VP8, VP8L or VP8X). null if unreadable.
+function webpSize(file) {
+  try {
+    const b = fs.readFileSync(file);
+    if (b.toString("ascii", 0, 4) !== "RIFF" || b.toString("ascii", 8, 12) !== "WEBP") return null;
+    const kind = b.toString("ascii", 12, 16);
+    if (kind === "VP8X") return { width: 1 + b.readUIntLE(24, 3), height: 1 + b.readUIntLE(27, 3) };
+    if (kind === "VP8 ") return { width: b.readUInt16LE(26) & 0x3fff, height: b.readUInt16LE(28) & 0x3fff };
+    if (kind === "VP8L") { const v = b.readUInt32LE(21); return { width: 1 + (v & 0x3fff), height: 1 + ((v >> 14) & 0x3fff) }; }
+  } catch (err) { /* unreadable file: no size */ }
+  return null;
+}
+
+// Field photos: every assets/img/field/NN-short-caption.webp, in file-name order. The caption comes from the
+// file name: "01-test-bench.webp" becomes "Test bench". An empty or missing folder gives an empty list.
+function fieldPhotos() {
+  const dir = "assets/img/field";
+  if (!exists(dir)) return [];
+  return fs.readdirSync(path.join(ROOT, dir)).filter((f) => /^\d+-[a-z0-9-]+\.webp$/i.test(f)).sort().map((f) => {
+    const words = f.replace(/\.webp$/i, "").replace(/^\d+-/, "").replace(/-/g, " ");
+    const caption = words.charAt(0).toUpperCase() + words.slice(1);
+    const size = webpSize(path.join(ROOT, dir, f)) || { width: 1200, height: 900 };
+    return { src: `/${dir}/${f}`, caption, width: size.width, height: size.height };
+  });
+}
+
 // --- JSON-LD -----------------------------------------------------------
 function organizationLd(t) {
   return {
@@ -458,6 +485,8 @@ function build() {
   attachCovers(posts);
 
   const pageFiles = fs.readdirSync(path.join(ROOT, "src", "pages")).filter((f) => f.endsWith(".html"));
+  // The launch video section renders only when assets/video/launch.mp4 exists. Field photos likewise.
+  const media = { video: exists("assets/video/launch.mp4"), field: fieldPhotos() };
 
   langsBuilt.forEach((lang) => {
     const t = locales[lang];
@@ -481,7 +510,8 @@ function build() {
       sensorSvg: visuals.sensorSvg(t),
       posts: posts[lang].map((p, i) => ({ ...p, url: urlFor("blog", lang) + p.slug + "/", date: formatDate(p.date, lang), dateIso: p.date, updated: p.updated && p.updated !== p.date ? formatDate(p.updated, lang) : "", updatedIso: p.updated || p.date, displayTitle: displayTitle(p.title, lang), minutes: readingMinutes(p.words), featured: i === 0 })),
       logoGroups: partners.map((g) => ({ key: g.key, label: t.logos[g.key], items: g.items.map((it) => ({ ...it, name: t.logos[it.key] || it.name })) })),
-      team: { ...t.team, people: t.team.people.map(withAvatar), advisors: (t.team.advisors || []).map(withAvatar) }
+      team: { ...t.team, people: t.team.people.map(withAvatar), advisors: (t.team.advisors || []).map(withAvatar) },
+      media
     };
     addExtraVisuals(base, t);
 
@@ -504,7 +534,7 @@ function build() {
           key: pageKey,
           url,
           ...pageMeta,
-          ctaLine: t.cta[ctaKey],
+          ctaLine: (t.cta.closing && t.cta.closing[ctaKey]) || t.cta[ctaKey],
           ctaTitle: t.cta.titles[ctaKey],
           ctaQuery: ctaKey === "home" ? "" : `?for=${pageKey}`,
           faqTitle: section.faqTitle || "",
