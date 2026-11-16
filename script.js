@@ -280,6 +280,8 @@
     [".dc-seq", ".dc-steps"],
     [".step", ".dc-vis"],
     [".dc-path", ""],
+    [".hm-play", ""],
+    [".pf-stage", ""],
     [".anchor-stat", ".anchor-bar"],
     [".ins-timeline", "svg"],
     [".ins-book-visual", ".media"],
