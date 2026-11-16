@@ -17,9 +17,13 @@
 .hero .hero-copy .hero-sub + .hero-actions { margin-top: 32px; }
 
 /* ---------- Hero scene ---------- */
-.hero-visual { --hx-cycle: 18s; }
+/* One 11.2 s sequence, played once, then it rests on act 3 (timeline in src/hero.js).
+   The still frame (reduced motion) is that resting view: the block, the flagged building outlined. */
+.hero-visual { --hx-seq: 11.2s; }
 .hx-world, .hx-close, .hx-water, .hx-callout { transform-box: view-box; transform-origin: 0 0; }
 .hx-close, .hx-city, .hx-flag { opacity: 0; }
+.hero-visual .hx-city, .hero-visual .hx-flag { opacity: 1; }
+.hero-visual .hx-callout { opacity: 0; }
 
 .hx-city-ground { fill: rgb(var(--accent-rgb) / 0.03); stroke: rgba(255, 255, 255, 0.07); stroke-width: 1.5; }
 .hx-street { fill: none; stroke: rgba(255, 255, 255, 0.06); stroke-width: 2; }
@@ -84,49 +88,54 @@
 .hx-wave-static { fill: none; stroke: rgb(var(--accent-rgb) / 0.55); stroke-width: 1.8; }
 
 /* Status line under the scene (styles.css positions .hs). Each line changes as its act arrives:
-   act 1 the pipe (0 to 28 %), act 2 the building (from 33 %), act 3 the portfolio (from 70 %). */
+   act 1 the pipe (0 to 2.8 s), act 2 the building (3.6 to 8.6 s), act 3 the portfolio (from 9.3 s, stays). */
 .hx-status .hs { opacity: 0; }
-.hx-status .hx-s2 { opacity: 1; }
+.hx-status .hx-s3 { opacity: 1; }
 .hx-status .hx-s2 i { background: var(--anomaly); box-shadow: 0 0 0 3px rgb(var(--anomaly-rgb) / 0.2); }
 
 /* The static twin on the Product and Team pages */
 .hx-static .hx-pulse-2 { opacity: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero-visual .hx-world { animation: hx-cam var(--hx-cycle) linear infinite, hx-world-o var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-close { animation: hx-close var(--hx-cycle) linear infinite, hx-close-o var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-water { animation: hx-water var(--hx-cycle) cubic-bezier(0.45, 0, 0.3, 1) infinite; }
-  .hero-visual .hx-alert { animation: hx-alert var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-pulse { animation: hx-pulse 2.4s ease-out infinite; }
-  .hero-visual .hx-pulse-2 { animation-delay: -1.2s; }
-  .hero-visual .hx-callout { animation: hx-callout var(--hx-cycle) cubic-bezier(0.2, 0.8, 0.2, 1) infinite; }
-  .hero-visual .hx-city { animation: hx-city var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-node-ring { animation: hx-pulse 3s ease-out infinite; }
-  .hero-visual .hx-flag { animation: hx-flag var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-flag-ring { animation: hx-pulse 2.2s ease-out infinite; }
-  .hero-visual .hx-flow { display: block; animation: hx-flow 3.9s linear infinite; }
-  .hero-visual .hx-streaks { animation: hx-stream 1.7s linear infinite; }
-  .hero-visual .hx-wave { animation: hx-wave 1.8s ease-out infinite; }
+  /* The act sequence: once, holding its last frame. */
+  .hero-visual .hx-world { animation: hx-cam var(--hx-seq) linear 1 both, hx-world-o var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-close { animation: hx-close var(--hx-seq) linear 1 both, hx-close-o var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-water { animation: hx-water var(--hx-seq) cubic-bezier(0.45, 0, 0.3, 1) 1 both; }
+  .hero-visual .hx-alert { animation: hx-alert var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-callout { animation: hx-callout var(--hx-seq) cubic-bezier(0.2, 0.8, 0.2, 1) 1 both; }
+  .hero-visual .hx-city { animation: hx-city var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-flag { animation: hx-flag var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-flows { animation: hx-flows var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-s1 { animation: hx-s1 var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-s2 { animation: hx-s2 var(--hx-seq) linear 1 both; }
+  .hero-visual .hx-s3 { animation: hx-s3 var(--hx-seq) linear 1 both; }
+  /* Act 1 and 2 motion stops once its act is out of view (each ends invisible, so nothing snaps). */
+  .hero-visual .hx-streaks { animation: hx-stream 1.7s linear 3; }
+  .hero-visual .hx-wave { animation: hx-wave 1.8s ease-out 3; }
   .hero-visual .hx-wave-static { display: none; }
-  .hero-visual .hx-s1 { animation: hx-s1 var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-s2 { animation: hx-s2 var(--hx-cycle) linear infinite; }
-  .hero-visual .hx-s3 { animation: hx-s3 var(--hx-cycle) linear infinite; }
+  .hero-visual .hx-flow { display: block; animation: hx-flow 3.9s linear 3; }
+  .hero-visual .hx-pulse { animation: hx-pulse 2.4s ease-out 4 forwards; }
+  .hero-visual .hx-pulse-2 { animation-delay: -1.2s; }
+  /* Ambient, forever, in the resting view: the monitored buildings and the flagged one. */
+  .hero-visual .hx-node-ring { animation: hx-pulse 3s ease-out infinite; }
+  .hero-visual .hx-flag-ring { animation: hx-pulse 2.8s ease-out infinite; }
 }
-/* hx-cam and hx-close are generated next to the drawing by src/hero.js */
-@keyframes hx-world-o { 0%, 27% { opacity: 0; } 32%, 96% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes hx-close-o { 0%, 28.5% { opacity: 1; } 33.5%, 96% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes hx-water { 0%, 33% { transform: translateY(220px); } 50%, 100% { transform: translateY(0); } }
-@keyframes hx-alert { 0%, 49% { opacity: 0; } 51%, 100% { opacity: 1; } }
-@keyframes hx-callout { 0%, 52% { opacity: 0; transform: translateY(6px); } 55%, 62% { opacity: 1; transform: translateY(0); } 65%, 100% { opacity: 0; transform: translateY(0); } }
-@keyframes hx-city { 0%, 65% { opacity: 0; } 73%, 100% { opacity: 1; } }
-@keyframes hx-flag { 0%, 75% { opacity: 0; } 79%, 100% { opacity: 1; } }
+/* hx-cam and hx-close are generated next to the drawing by src/hero.js. Percentages are of 11.2 s. */
+@keyframes hx-world-o { 0%, 26.79% { opacity: 0; } 33.93%, 100% { opacity: 1; } }
+@keyframes hx-close-o { 0%, 28.57% { opacity: 1; } 35.71%, 100% { opacity: 0; } }
+@keyframes hx-water { 0%, 34.82% { transform: translateY(220px); } 53.57%, 100% { transform: translateY(0); } }
+@keyframes hx-alert { 0%, 52.68% { opacity: 0; } 55.36%, 100% { opacity: 1; } }
+@keyframes hx-callout { 0%, 56.25% { opacity: 0; transform: translateY(6px); } 60.71%, 74.11% { opacity: 1; transform: translateY(0); } 77.68%, 100% { opacity: 0; transform: translateY(0); } }
+@keyframes hx-city { 0%, 78.13% { opacity: 0; } 90.18%, 100% { opacity: 1; } }
+@keyframes hx-flag { 0%, 92.86% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes hx-flows { 0%, 76.79% { opacity: 1; } 80.36%, 100% { opacity: 0; } }
 @keyframes hx-pulse { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(2.6); opacity: 0; } }
 @keyframes hx-flow { 0% { offset-distance: 0%; opacity: 0; } 10%, 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
 @keyframes hx-stream { from { transform: translateY(0); } to { transform: translateY(-312px); } }
 @keyframes hx-wave { 0% { transform: scale(0.12); opacity: 0; } 12% { opacity: 0.95; } 100% { transform: scale(1); opacity: 0; } }
-@keyframes hx-s1 { 0%, 26% { opacity: 1; } 28%, 98% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes hx-s2 { 0%, 31% { opacity: 0; } 33%, 64% { opacity: 1; } 66%, 100% { opacity: 0; } }
-@keyframes hx-s3 { 0%, 68% { opacity: 0; } 70%, 96% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes hx-s1 { 0%, 49.1% { opacity: 1; } 51.8%, 100% { opacity: 0; } }
+@keyframes hx-s2 { 0%, 52.7% { opacity: 0; } 55.4%, 76.79% { opacity: 1; } 79.46%, 100% { opacity: 0; } }
+@keyframes hx-s3 { 0%, 83.04% { opacity: 0; } 86.61%, 100% { opacity: 1; } }
 
 /* ---------- How it works: three steps ---------- */
 @media (min-width: 640px) { .steps.hm-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

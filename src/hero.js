@@ -1,14 +1,16 @@
 /*
-  Home hero: the launch video as one 18 second CSS loop, in three acts.
+  Home hero: the launch video as one 11.2 second CSS sequence in three acts.
+  It plays once and rests on act 3 (no loop).
 
-    Act 1   0 to 24 %   inside the pipe: a cut-away riser in isometric 3D, water
-                        streaming up, a clamp-on sensor sending waves across it
-            24 to 36 %  the camera pulls back: the pipe becomes riser B
-    Act 2  36 to 64 %   the glass building: water rises through the floors,
-                        riser B lights up at floor 3, a callout names it
-            64 to 76 %  the camera pulls back again
-    Act 3  76 to 96 %   the portfolio: a city block, every building monitored
-            96 to 100 % cross-fade back to act 1
+    Act 1   0 to 2.5 s    inside the pipe: a cut-away riser in isometric 3D, water
+                          streaming up, a clamp-on sensor sending waves across it
+            2.5 to 4.4 s  the camera pulls back: the pipe becomes riser B
+    Act 2   4.4 to 8.6 s  the glass building: water rises through the floors,
+                          riser B lights up at floor 3, a callout names it
+            8.6 to 10.6 s the camera pulls back again
+    Act 3  from 10.6 s    the portfolio: a city block, every building monitored,
+                          the flagged building outlined (in by 11.2 s). It stays:
+                          only the blue node pulses and the flag ring keep moving.
 
   Everything is drawn in one isometric projection. Pipes are tubes: in this
   projection a tube of radius r along any of the three axes is 2.45 r wide on
@@ -20,7 +22,8 @@
   with keyframes computed here so both stay locked together during the zoom.
   They are emitted in a <style> next to the drawing, inside a
   prefers-reduced-motion: no-preference query. The default (static) state is
-  act 2 with the leak located. Styles live in src/css/home.css.
+  the resting act 3 view, so reduced motion shows where the sequence ends.
+  Styles live in src/css/home.css (its --hx-seq must equal SEQ below).
 
   heroBuildingSvg(t, { twin: true }) returns the static building alone (Product
   and Team pages).
@@ -305,28 +308,32 @@ module.exports = function heroBuildingSvg(t, opts) {
   };
   const tf = (st) => `transform:translate(${n2(st.t[0])}px,${n2(st.t[1])}px) scale(${Math.round(st.s * 10000) / 10000})`;
   const closeTf = (st) => tf({ s: st.s / K, t: [st.t[0] + st.s * bPt[0] - (st.s / K) * Cc[0], st.t[1] + st.s * bPt[1] - (st.s / K) * Cc[1]] });
+  // Timeline in seconds (keep in sync with --hx-seq and the act keyframes in src/css/home.css).
+  const SEQ = 11.2, PULL1 = [2.5, 4.4], PULL2 = [8.6, 10.6];
+  const pcs = (sec) => (sec / SEQ) * 100;
   const frames = [];
-  const push = (pct, st) => frames.push([pct, st]);
-  push(0, at(A1, A2, 0)); push(24, at(A1, A2, 0));
-  for (let i = 1; i <= 12; i++) push(24 + (12 * i) / 12, at(A1, A2, ease(i / 12)));
-  push(64, at(B2, A3, 0));
-  for (let i = 1; i <= 12; i++) push(64 + (12 * i) / 12, at(B2, A3, ease(i / 12)));
+  const push = (pct, st, close) => frames.push([pct, st, close]);
+  push(0, at(A1, A2, 0), true); push(pcs(PULL1[0]), at(A1, A2, 0), true);
+  for (let i = 1; i <= 12; i++) push(pcs(PULL1[0] + ((PULL1[1] - PULL1[0]) * i) / 12), at(A1, A2, ease(i / 12)), true);
+  push(pcs(PULL2[0]), at(B2, A3, 0));
+  for (let i = 1; i <= 12; i++) push(pcs(PULL2[0] + ((PULL2[1] - PULL2[0]) * i) / 12), at(B2, A3, ease(i / 12)));
   push(100, at(B2, A3, 1));
   const pc = (v) => `${Math.round(v * 100) / 100}%`;
   let camK = "", closeK = "";
-  frames.forEach(([pct, st]) => {
+  frames.forEach(([pct, st, close]) => {
     camK += `${pc(pct)}{${tf(st)}}`;
-    if (pct <= 36) closeK += `${pc(pct)}{${closeTf(st)}}`;
+    if (close) closeK += `${pc(pct)}{${closeTf(st)}}`;
   });
-  closeK += `95.9%{${closeTf(at(A1, A2, 1))}}96%,100%{transform:translate(0px,0px) scale(1)}`;
-  const style = `<style>@media (prefers-reduced-motion: no-preference){@keyframes hx-cam{${camK}}@keyframes hx-close{${closeK}}}</style>`;
+  closeK += `100%{${closeTf(at(A1, A2, 1))}}`;
+  // Outside the motion query: the resting act 3 framing, also the reduced-motion still.
+  const style = `<style>.hero-visual .hx-world{${tf(at(B2, A3, 1))}}@media (prefers-reduced-motion: no-preference){@keyframes hx-cam{${camK}}@keyframes hx-close{${closeK}}}</style>`;
 
   const svg = `<svg class="hero-building hx-scene" viewBox="0 0 560 480" role="img" aria-labelledby="hb-title" focusable="false"><title id="hb-title">${escapeHtml(t.home.hero.visualAlt)}</title>` +
     `<defs><linearGradient id="hx-fadeg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.16" stop-color="#fff"/><stop offset="0.84" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>` +
     `<mask id="hx-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="480"><rect width="560" height="480" fill="url(#hx-fadeg)"/></mask></defs>` +
     `<g class="hx-world">${world}</g><g mask="url(#hx-fade)"><g class="hx-close" aria-hidden="true">${c1}</g></g></svg>`;
 
-  // Status line in HTML so it stays legible on phones, on the same 18 s cycle.
+  // Status line in HTML so it stays legible on phones, on the same timeline as the scene.
   const status = `<p class="hero-status hx-status" aria-hidden="true">` +
     `<span class="hs hx-s1"><i></i>${escapeHtml(b.listening)}</span>` +
     `<span class="hs hx-s2"><i></i>${escapeHtml(b.located)}</span>` +
