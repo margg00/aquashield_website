@@ -236,7 +236,7 @@ function portfolioSvg(t) {
     if (i === bad) {
       s += `<g class="pf-ok-only"><circle class="pf-ring" cx="${f1(dx)}" cy="${f1(dy)}" r="4" style="${delay}"/></g>`;
       s += `<circle class="pf-dot" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/>`;
-      s += `<g class="pf-bad"><circle class="pf-ring pf-ring-bad" cx="${f1(dx)}" cy="${f1(dy)}" r="4" style="${delay}"/><circle class="pf-dot-bad" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/></g>`;
+      s += `<g class="pf-bad"><circle class="pf-ring pf-ring-bad" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/><circle class="pf-dot-bad" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/></g>`;
     } else {
       s += `<circle class="pf-ring" cx="${f1(dx)}" cy="${f1(dy)}" r="4" style="${delay}"/>`;
       s += `<circle class="pf-dot" cx="${f1(dx)}" cy="${f1(dy)}" r="4"/>`;

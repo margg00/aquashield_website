@@ -278,7 +278,6 @@
   // (is-offscreen) until seen and pause again once fully out of view. A play-once item scrolled past unseen
   // (a jump to an anchor) is started as well, so nothing stays hidden.
   var PLAYS = [
-    [".dc-seq", ".dc-steps"],
     [".step", ".dc-vis"],
     [".dc-path", ""],
     [".hm-play", ""],
@@ -393,7 +392,7 @@
     window.addEventListener("resize", queue, { passive: true });
   }
 
-  // ---------- Scroll-scrubbed band (home: "Water is the one building system you cannot see") ----------
+  // ---------- Scroll-scrubbed and pinned sections (home band, data centers leak cable band) ----------
   // Every [data-scrub] element gets --p from 0 (its top at 88% of the viewport height) to 1 (its top at 38%),
   // or the range it names, e.g. data-scrub="85 45". Children of [data-scrub-row] that sit in one row share the
   // row's progress, staggered left to right. Its .stat-value numbers follow --p, [data-scrub-words] lights up
@@ -439,125 +438,49 @@
       scrubs.push(it);
     });
 
-    // Pinned mode: [data-pin] is a tall wrapper around the band, the band is sticky inside it, so the page holds
-    // while the visitor scrolls through the wrapper's extra height (native scroll, nothing is intercepted).
-    // One progress P (0 to 1) runs the tiles first, then the closing line, then a short hold before release.
-    // Desktop and tablet: tiles in one row, staggered. Phones: the tiles slide sideways, one in focus at a time.
-    // Used only when the pinned band fits the small viewport height (100svh, so the address bar never moves it),
-    // re-checked when the width or that height changes. Otherwise the per-element scrub above applies.
-    var pinEl = document.querySelector("[data-pin]");
-    var band = pinEl && pinEl.querySelector(".problem-band");
-    var grid = band && band.querySelector("[data-scrub-row]");
+    // Pinned sections: every [data-pin] is a tall wrapper around one section, the section is sticky inside it, so
+    // the page holds while the visitor scrolls through the wrapper's extra height (native scroll, nothing is
+    // intercepted). One progress P (0 to 1) per section runs its story, then a short hold before release.
+    // data-pin names the story ("band" by default, the home band). Used only when the pinned section fits the
+    // small viewport height (100svh, so the address bar never moves it), re-checked when the width or that height
+    // changes. Otherwise the per-element scrub above applies to its [data-scrub] elements.
     var headerEl = document.querySelector(".site-header");
-    var pin = null, pinW = -1, pinSvh = -1;
+    var pinW = -1, pinSvh = -1;
     var probe = document.createElement("div");
     probe.setAttribute("aria-hidden", "true");
     probe.style.cssText = "position:fixed;top:0;left:0;width:0;height:100vh;visibility:hidden;pointer-events:none";
     probe.style.height = "100svh";
     document.body.appendChild(probe);
     var phone = window.matchMedia("(max-width: 767px)");
-    var evaluatePin = function (force) {
-      if (!band || !grid) return;
-      var w = window.innerWidth, svh = probe.offsetHeight;
-      if (!force && w === pinW && svh === pinSvh) return;
-      pinW = w; pinSvh = svh;
-      var top = headerEl ? headerEl.offsetHeight : 0;
-      pinEl.style.setProperty("--pin-top", top + "px");
-      pinEl.style.height = "";
-      pinEl.classList.add("pin-on");
-      var cs = window.getComputedStyle(band);
-      var need = band.querySelector(".container").offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-      // Inside a frame that is as tall as its whole page (no scrolling of its own) the viewport is taller
-      // than the physical screen: pinning would have nothing to hold against, so stay unpinned there.
-      var tallEmbed = window.self !== window.top && window.screen && window.screen.height && svh > window.screen.height * 1.25;
-      var fits = need <= svh - top && !tallEmbed;
-      if (fits) {
-        var track = phone.matches;
-        var dist = Math.round(svh * (track ? 2 : 1.3));
-        pinEl.style.height = (band.offsetHeight + dist) + "px";
-        var tiles = grid.children;
-        pin = { top: top, dist: dist, track: track, docTop: 0, pitch: tiles.length > 1 ? tiles[1].offsetLeft - tiles[0].offsetLeft : 0 };
-      } else {
-        pinEl.classList.remove("pin-on");
-        pin = null;
-      }
-      // pinned mode writes inline styles, the scrub without pinning uses --p: start each mode clean
-      clearPut();
-      parts = null;
-      scrubs.forEach(function (it) { it.p = -1; it.done = null; it.el.style.removeProperty("--p"); it.nums.forEach(function (n) { n.op = null; n.el.style.opacity = ""; }); });
-      pinS = -1;
-    };
 
-    // Layout cache: page positions from the offset parent and offsets (so no transform counts), refreshed on
-    // resize, load, font swap and any change of the page height. A scroll frame then reads only scrollY.
-    var vh = window.innerHeight;
-    var measure = function () {
-      vh = window.innerHeight;
-      var y = window.pageYOffset;
-      if (pin) pin.docTop = pinEl.getBoundingClientRect().top + y;
-      scrubs.forEach(function (it) {
-        var op = it.el.offsetParent || document.documentElement;
-        var base = op.getBoundingClientRect().top + op.clientTop + y;
-        it.docTop = base + it.el.offsetTop;
-        if (it.row) {
-          var tops = it.mates.map(function (m) { return m.offsetTop; });
-          it.inRow = Math.max.apply(null, tops) - Math.min.apply(null, tops) < 2;
-          if (it.inRow) it.docTop = base + Math.min.apply(null, tops);
-        }
-      });
-    };
-    var clamp01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
-    var apply = function (it, p) {
-      p = Math.round(p * 10000) / 10000;
-      if (p === it.p) return;
-      it.p = p;
-      it.el.style.setProperty("--p", String(p));
-      var done = p >= 1;
-      if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
-      // the number stays invisible at the start, fades in as it counts, and counts from 60 percent of its value
-      it.nums.forEach(function (n) {
-        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * (0.6 + 0.4 * ease(p)));
-        if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
-        var o = done ? "" : String(r2(smooth(0.05, 0.35, p)));
-        if (o !== n.op) { n.op = o; n.el.style.opacity = o; }
-      });
-    };
-    // ---- Pinned choreography ----
-    // The scroll gives a target T. The value on screen S follows it with a time-based damping (a scrub with a
-    // smoothing time): S += (T - S) * (1 - exp(-dt / tau)). A wheel notch plays as a short glide, a direction
-    // change eases. The loop runs only while S still moves. Every frame writes transform, opacity or
-    // stroke-dashoffset straight onto the few elements that change, and only when the value changed.
-    // Story: a spotlight moves from tile 1 to tile 2 to tile 3, the tile in focus draws and counts across its
-    // whole share, then all three return to full strength while the closing line lights up word by word, a hold.
     var TAU = 0.16;
+    var clamp01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
     var smooth = function (a, b, v) { var t = (v - a) / (b - a); t = t < 0 ? 0 : t > 1 ? 1 : t; return t * t * (3 - 2 * t); };
     var r4 = function (v) { return Math.round(v * 10000) / 10000; };
     // opacities and scales in steps of 1/200, too fine to see, so a slow glide skips frames with no visible change
     var r2 = function (v) { return Math.round(v * 200) / 200; };
-    var written = [];
-    var put = function (el, prop, val) {
-      if (!el) return;
-      var s = el.__put || (el.__put = {});
-      if (s[prop] === val) return;
-      if (!(prop in s)) written.push([el, prop]);
-      s[prop] = val;
-      el.style[prop] = val;
+    // Each section writes transform, opacity or stroke-dashoffset straight onto the few elements that change, and
+    // only when the value changed. It keeps a list of what it wrote, so a change of mode starts clean.
+    var makePut = function (g) {
+      return function (el, prop, val) {
+        if (!el) return;
+        var s = el.__put || (el.__put = {});
+        if (s[prop] === val) return;
+        if (!(prop in s)) g.written.push([el, prop]);
+        s[prop] = val;
+        el.style[prop] = val;
+      };
     };
-    var clearPut = function () {
-      written.forEach(function (w) { w[0].style[w[1]] = ""; w[0].__put = null; });
-      written = [];
+    var clearPut = function (g) {
+      g.written.forEach(function (w) { w[0].style[w[1]] = ""; w[0].__put = null; });
+      g.written = [];
     };
-    var parts = null;
-    var collect = function () {
-      var q = function (root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
-      parts = { tiles: [], words: [], rail: pinEl.querySelector(".pin-rail span") };
-      scrubs.forEach(function (it) {
-        if (!it.row) { parts.line = it; parts.words = q(it.el, ".scrub-word"); return; }
-        var t = it.el;
-        parts.tiles[it.index] = { it: it, el: t, focus: t.querySelector(".pb-focus"), line: t.querySelector(".pb-line"), area: t.querySelector(".pb-area"), tip: t.querySelector(".pb-tip"), dot: t.querySelector(".pb-dot"), ring: t.querySelector(".pb-ring"), holes: q(t, ".pb-hole"), marks: q(t, ".pb-nums > g"), trails: q(t, ".pb-trail"), stain: t.querySelector(".pb-stain"), leaks: q(t, ".pb-leak"), bars: q(t, ".pb-bar") };
-      });
-    };
-    var drawTile = function (t, q) {
+
+    // ---- Home band: "Water is the one building system you cannot see" ----
+    // Desktop and tablet: tiles in one row, staggered. Phones: the tiles slide sideways, one in focus at a time.
+    // Story: a spotlight moves from tile 1 to tile 2 to tile 3, the tile in focus draws and counts across its
+    // whole share, then all three return to full strength while the closing line lights up word by word, a hold.
+    var bandTile = function (put, t, q) {
       q = r4(q);
       if (q === t.q) return;
       t.q = q;
@@ -598,72 +521,246 @@
         put(n.el, "opacity", String(r2(smooth(0.04, 0.3, q))));
       });
     };
-    var render = function (S) {
-      if (!parts) collect();
-      var track = pin.track;
-      var tilesEnd = track ? 0.76 : 0.7, share = tilesEnd / 3;
-      var lineFrom = track ? 0.8 : 0.74, lineTo = track ? 0.95 : 0.94;
-      var slide = 0, focusAt;
-      if (track) {
-        for (var k = 0; k < 2; k++) slide += smooth(0.74, 1, (S - k * share) / share);
-        focusAt = slide;
-        put(grid, "transform", "translate3d(" + r4(-slide * pin.pitch) + "px, 0, 0)");
-      } else {
-        focusAt = Math.min(2, Math.max(0, S / share - 0.5));
+    var bandKind = {
+      setup: function (g) {
+        g.grid = g.band.querySelector("[data-scrub-row]");
+        return Boolean(g.band.classList.contains("problem-band") && g.grid);
+      },
+      dist: function (g, svh) {
+        g.track = phone.matches;
+        return Math.round(svh * (g.track ? 2 : 1.3));
+      },
+      layout: function (g, pin) {
+        var tiles = g.grid.children;
+        pin.track = g.track;
+        pin.pitch = tiles.length > 1 ? tiles[1].offsetLeft - tiles[0].offsetLeft : 0;
+      },
+      collect: function (g) {
+        var q = function (root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
+        var parts = { tiles: [], words: [], rail: g.el.querySelector(".pin-rail span") };
+        g.scrubs.forEach(function (it) {
+          if (!it.row) { parts.line = it; parts.words = q(it.el, ".scrub-word"); return; }
+          var t = it.el;
+          parts.tiles[it.index] = { it: it, el: t, focus: t.querySelector(".pb-focus"), line: t.querySelector(".pb-line"), area: t.querySelector(".pb-area"), tip: t.querySelector(".pb-tip"), dot: t.querySelector(".pb-dot"), ring: t.querySelector(".pb-ring"), holes: q(t, ".pb-hole"), marks: q(t, ".pb-nums > g"), trails: q(t, ".pb-trail"), stain: t.querySelector(".pb-stain"), leaks: q(t, ".pb-leak"), bars: q(t, ".pb-bar") };
+        });
+        return parts;
+      },
+      render: function (g, S) {
+        var put = g.put, parts = g.parts, pin = g.pin, grid = g.grid;
+        var track = pin.track;
+        var tilesEnd = track ? 0.76 : 0.7, share = tilesEnd / 3;
+        var lineFrom = track ? 0.8 : 0.74, lineTo = track ? 0.95 : 0.94;
+        var slide = 0, focusAt;
+        if (track) {
+          for (var k = 0; k < 2; k++) slide += smooth(0.74, 1, (S - k * share) / share);
+          focusAt = slide;
+          put(grid, "transform", "translate3d(" + r4(-slide * pin.pitch) + "px, 0, 0)");
+        } else {
+          focusAt = Math.min(2, Math.max(0, S / share - 0.5));
+        }
+        var all = smooth(tilesEnd, tilesEnd + 0.06, S);
+        parts.tiles.forEach(function (t, i) {
+          var local = (S - i * share) / share;
+          bandTile(put, t, clamp01(track ? local / 0.78 : local));
+          var f = 1 - smooth(0.3, 0.7, Math.abs(focusAt - i));
+          var op = 0.55 + 0.45 * f;
+          op = op + (1 - op) * all;
+          var sc = 1 + 0.02 * f * (1 - all);
+          put(t.el, "opacity", String(r2(op)));
+          sc = Math.round(sc * 2000) / 2000;
+          put(t.el, "transform", sc === 1 ? "none" : "scale(" + sc + ")");
+          put(t.focus, "opacity", String(r2(f * (1 - all))));
+        });
+        // closing line: each word fades in over the span of about three words
+        var n = parts.words.length, W = Math.min(1, 3 / Math.max(1, n)), wp = clamp01((S - lineFrom) / (lineTo - lineFrom));
+        parts.words.forEach(function (w, i) {
+          var a = n > 1 ? i / (n - 1) * (1 - W) : 0;
+          put(w, "opacity", String(r2(0.28 + 0.72 * smooth(a, a + W, wp))));
+        });
+        if (parts.line) {
+          var lineDone = wp >= 1;
+          if (lineDone !== parts.line.done) { parts.line.done = lineDone; parts.line.el.classList.toggle("is-done", lineDone); }
+        }
+        put(parts.rail, "transform", "scaleX(" + r4(S) + ")");
       }
-      var all = smooth(tilesEnd, tilesEnd + 0.06, S);
-      parts.tiles.forEach(function (t, i) {
-        var local = (S - i * share) / share;
-        drawTile(t, clamp01(track ? local / 0.78 : local));
-        var f = 1 - smooth(0.3, 0.7, Math.abs(focusAt - i));
-        var op = 0.55 + 0.45 * f;
-        op = op + (1 - op) * all;
-        var sc = 1 + 0.02 * f * (1 - all);
-        put(t.el, "opacity", String(r2(op)));
-        sc = Math.round(sc * 2000) / 2000;
-        put(t.el, "transform", sc === 1 ? "none" : "scale(" + sc + ")");
-        put(t.focus, "opacity", String(r2(f * (1 - all))));
-      });
-      // closing line: each word fades in over the span of about three words
-      var n = parts.words.length, W = Math.min(1, 3 / Math.max(1, n)), wp = clamp01((S - lineFrom) / (lineTo - lineFrom));
-      parts.words.forEach(function (w, i) {
-        var a = n > 1 ? i / (n - 1) * (1 - W) : 0;
-        put(w, "opacity", String(r2(0.28 + 0.72 * smooth(a, a + W, wp))));
-      });
-      if (parts.line) {
-        var lineDone = wp >= 1;
-        if (lineDone !== parts.line.done) { parts.line.done = lineDone; parts.line.el.classList.toggle("is-done", lineDone); }
-      }
-      put(parts.rail, "transform", "scaleX(" + r4(S) + ")");
     };
-    var pinS = -1, pinT = 0, pinLast = 0, pinRunning = false;
-    var pinTick = function (now) {
-      if (!pin) { pinRunning = false; return; }
+
+    // ---- Data centers: "Floor leak cables tell you after the fact" ----
+    // Two cards of four steps. Pinned, both advance together row by row: step 1 lights up (0 to 0.2), step 2
+    // (0.2 to 0.42), step 3 (0.42 to 0.64), step 4 (0.64 to 0.88), where the cable card ends dark and red and the
+    // AquaShield card lit and calm, then a hold. Each rail fills continuously from node to node. Steps not yet
+    // reached rest at 35 percent, reached steps stay at full strength. Never pinned on phones (the stacked cards are
+    // taller than the screen): there each card runs the same story on its own scrub (data-scrub="85 30").
+    var DC_RAMPS = [[0.02, 0.18], [0.17, 0.38], [0.39, 0.6], [0.61, 0.84]];
+    var DC_MIDS = DC_RAMPS.map(function (r) { return (r[0] + r[1]) / 2; });
+    var dcCard = function (g, el) {
+      var q = function (sel) { return Array.prototype.slice.call(el.querySelectorAll(sel)); };
+      var end = el.querySelector(".dc-step-end");
+      return { steps: q(".dc-steps > li"), rings: q(".dc-ring"), segs: q(".dc-seg"), endBg: el.querySelector(".dc-end-bg"), endNode: end && end.querySelector(".dc-node"), glow: el.querySelector(".dc-seq-glow"), s: -1 };
+    };
+    var dcDraw = function (g, c, S) {
+      S = r4(S);
+      if (S === c.s) return;
+      c.s = S;
+      var put = g.put, i, lit;
+      for (i = 0; i < c.steps.length; i++) {
+        lit = smooth(DC_RAMPS[i][0], DC_RAMPS[i][1], S);
+        put(c.steps[i], "opacity", String(r2(0.35 + 0.65 * lit)));
+        put(c.rings[i], "opacity", String(r2(lit)));
+      }
+      for (i = 0; i < c.segs.length; i++) {
+        var f = r4(clamp01((S - DC_MIDS[i]) / (DC_MIDS[i + 1] - DC_MIDS[i])));
+        put(c.segs[i], "transform", f >= 1 ? "none" : "scaleY(" + f + ")");
+      }
+      lit = smooth(0.64, 0.86, S);
+      put(c.endBg, "opacity", String(r2(lit)));
+      var sc = Math.round((0.82 + 0.18 * lit) * 2000) / 2000;
+      put(c.endNode, "transform", sc === 1 ? "none" : "scale(" + sc + ")");
+      put(c.glow, "opacity", String(r2(smooth(0.68, 0.88, S))));
+    };
+    var dcKind = {
+      setup: function (g) {
+        g.cards = [];
+        g.scrubs.forEach(function (it) {
+          if (!it.el.classList.contains("dc-seq")) return;
+          var c = dcCard(g, it.el);
+          g.cards.push(c);
+          it.draw = function (p) { dcDraw(g, c, p); };
+        });
+        return g.cards.length > 0;
+      },
+      dist: function (g, svh) { return phone.matches ? 0 : Math.round(svh * 1.2); },
+      layout: function () {},
+      collect: function (g) {
+        g.cards.forEach(function (c) { c.s = -1; });
+        return { rail: g.el.querySelector(".pin-rail span") };
+      },
+      render: function (g, S) {
+        g.cards.forEach(function (c) { dcDraw(g, c, S); });
+        g.put(g.parts.rail, "transform", "scaleX(" + r4(S) + ")");
+      }
+    };
+
+    var KINDS = { band: bandKind, dc: dcKind };
+    var groups = [];
+    document.querySelectorAll("[data-pin]").forEach(function (el) {
+      var kind = KINDS[el.getAttribute("data-pin") || "band"];
+      var band = el.firstElementChild;
+      if (!kind || !band) return;
+      var g = { el: el, band: band, kind: kind, written: [], pin: null, parts: null, S: -1, T: 0, last: 0, running: false, near: 0 };
+      g.put = makePut(g);
+      g.scrubs = scrubs.filter(function (it) { return el.contains(it.el); });
+      if (!kind.setup(g)) return;
+      g.scrubs.forEach(function (it) { it.group = g; });
+      g.frame = function (now) { pinTick(g, now); };
+      groups.push(g);
+    });
+
+    var evaluateGroup = function (g, svh, top, tallEmbed) {
+      g.el.style.setProperty("--pin-top", top + "px");
+      g.el.style.height = "";
+      var dist = g.kind.dist(g, svh);
+      g.el.classList.add("pin-on");
+      var cs = window.getComputedStyle(g.band);
+      var need = g.band.querySelector(".container").offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+      var fits = dist > 0 && need <= svh - top && !tallEmbed;
+      if (fits) {
+        g.el.style.height = (g.band.offsetHeight + dist) + "px";
+        g.pin = { top: top, dist: dist, docTop: 0 };
+        g.kind.layout(g, g.pin);
+      } else {
+        g.el.classList.remove("pin-on");
+        g.pin = null;
+      }
+      // pinned mode writes inline styles, the scrub without pinning uses --p (or draws): start each mode clean
+      clearPut(g);
+      g.parts = null;
+      if (g.cards) g.cards.forEach(function (c) { c.s = -1; });
+      g.scrubs.forEach(function (it) { it.p = -1; it.done = null; it.el.style.removeProperty("--p"); it.nums.forEach(function (n) { n.op = null; n.el.style.opacity = ""; }); });
+      g.S = -1;
+    };
+    var evaluatePin = function (force) {
+      if (!groups.length) return;
+      var w = window.innerWidth, svh = probe.offsetHeight;
+      if (!force && w === pinW && svh === pinSvh) return;
+      pinW = w; pinSvh = svh;
+      var top = headerEl ? headerEl.offsetHeight : 0;
+      // Inside a frame that is as tall as its whole page (no scrolling of its own) the viewport is taller
+      // than the physical screen: pinning would have nothing to hold against, so stay unpinned there.
+      var tallEmbed = window.self !== window.top && window.screen && window.screen.height && svh > window.screen.height * 1.25;
+      groups.forEach(function (g) { evaluateGroup(g, svh, top, tallEmbed); });
+    };
+
+    // Layout cache: page positions from the offset parent and offsets (so no transform counts), refreshed on
+    // resize, load, font swap and any change of the page height. A scroll frame then reads only scrollY.
+    var vh = window.innerHeight;
+    var measure = function () {
+      vh = window.innerHeight;
+      var y = window.pageYOffset;
+      groups.forEach(function (g) { if (g.pin) g.pin.docTop = g.el.getBoundingClientRect().top + y; });
+      scrubs.forEach(function (it) {
+        var op = it.el.offsetParent || document.documentElement;
+        var base = op.getBoundingClientRect().top + op.clientTop + y;
+        it.docTop = base + it.el.offsetTop;
+        if (it.row) {
+          var tops = it.mates.map(function (m) { return m.offsetTop; });
+          it.inRow = Math.max.apply(null, tops) - Math.min.apply(null, tops) < 2;
+          if (it.inRow) it.docTop = base + Math.min.apply(null, tops);
+        }
+      });
+    };
+    var apply = function (it, p) {
+      p = Math.round(p * 10000) / 10000;
+      if (p === it.p) return;
+      it.p = p;
+      if (it.draw) { it.draw(p); return; }
+      it.el.style.setProperty("--p", String(p));
+      var done = p >= 1;
+      if (done !== it.done) { it.done = done; it.el.classList.toggle("is-done", done); }
+      // the number stays invisible at the start, fades in as it counts, and counts from 60 percent of its value
+      it.nums.forEach(function (n) {
+        var text = done ? n.parsed.text : n.parsed.at(n.parsed.num * (0.6 + 0.4 * ease(p)));
+        if (text !== n.shown) { n.shown = text; n.el.textContent = text; }
+        var o = done ? "" : String(r2(smooth(0.05, 0.35, p)));
+        if (o !== n.op) { n.op = o; n.el.style.opacity = o; }
+      });
+    };
+    // ---- Pinned choreography ----
+    // The scroll gives a target T. The value on screen S follows it with a time-based damping (a scrub with a
+    // smoothing time): S += (T - S) * (1 - exp(-dt / tau)). A wheel notch plays as a short glide, a direction
+    // change eases. The loop runs only while S still moves.
+    var render = function (g, S) {
+      if (!g.parts) g.parts = g.kind.collect(g);
+      g.kind.render(g, S);
+    };
+    var pinTick = function (g, now) {
+      if (!g.pin) { g.running = false; return; }
       // a slow frame counts as at most two: after a hiccup the glide resumes instead of jumping ahead
-      var dt = Math.min(0.034, Math.max(0, (now - pinLast) / 1000));
-      pinLast = now;
-      var d = pinT - pinS;
+      var dt = Math.min(0.034, Math.max(0, (now - g.last) / 1000));
+      g.last = now;
+      var d = g.T - g.S;
       // first frame: run the frame code once through a mid state (never painted) so its first real glide frame
       // does not pay for script compilation, then show the true state
-      if (pinS < 0) { render(0.5); render(0.9); }
-      if (pinS < 0 || Math.abs(d) < 0.0005) pinS = pinT;
-      else pinS += d * (1 - Math.exp(-dt / TAU));
-      render(pinS);
-      if (pinS !== pinT) requestAnimationFrame(pinTick);
-      else pinRunning = false;
+      if (g.S < 0) { render(g, 0.5); render(g, 0.9); }
+      if (g.S < 0 || Math.abs(d) < 0.0005) g.S = g.T;
+      else g.S += d * (1 - Math.exp(-dt / TAU));
+      render(g, g.S);
+      if (g.S !== g.T) requestAnimationFrame(g.frame);
+      else g.running = false;
     };
-    var pinKick = function () { if (!pinRunning) { pinRunning = true; pinLast = window.performance.now(); requestAnimationFrame(pinTick); } };
+    var pinKick = function (g) { if (!g.running) { g.running = true; g.last = window.performance.now(); requestAnimationFrame(g.frame); } };
 
     var scrollAt = null;
     var update = function () {
       var y = scrollAt === null ? window.pageYOffset : scrollAt;
       scrollAt = null;
-      if (pin) {
-        pinT = r4(clamp01((y - pin.docTop + pin.top) / pin.dist));
-        if (pinT !== pinS) pinKick();
-        return;
-      }
+      groups.forEach(function (g) {
+        if (!g.pin) return;
+        g.T = r4(clamp01((y - g.pin.docTop + g.pin.top) / g.pin.dist));
+        if (g.T !== g.S) pinKick(g);
+      });
       scrubs.forEach(function (it) {
+        if (it.group && it.group.pin) return;
         var top = it.docTop - y;
         var p = clamp01((it.from * vh - top) / ((it.from - it.to) * vh));
         if (it.inRow && it.mates.length > 1) {
@@ -685,20 +782,22 @@
       listening = on;
       var fn = on ? "addEventListener" : "removeEventListener";
       window[fn]("scroll", onScroll, { passive: true });
-      if (pinEl) pinEl.classList.toggle("pin-live", on);
     };
     var so = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (Boolean(en.target.__scrubNear) === en.isIntersecting) return;
         en.target.__scrubNear = en.isIntersecting;
         en.target.classList.toggle("is-near", en.isIntersecting);
-        nearCount += en.isIntersecting ? 1 : -1;
+        var d = en.isIntersecting ? 1 : -1;
+        nearCount += d;
+        var g = en.target.__scrubGroup;
+        if (g) { g.near += d; g.el.classList.toggle("pin-live", g.near > 0); }
       });
       listen(nearCount > 0);
       measure();
       onScroll();
     }, { rootMargin: "50% 0px" });
-    scrubEls.forEach(function (el) { so.observe(el); });
+    scrubs.forEach(function (it) { it.el.__scrubGroup = it.group || null; so.observe(it.el); });
     evaluatePin(true);
     measure();
     update();

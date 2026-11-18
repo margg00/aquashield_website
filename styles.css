@@ -1192,7 +1192,7 @@ body.nav-open { overflow: hidden; }
 .anchor-label { color: var(--text-secondary); font-size: 1.05rem; }
 .anchor-line { margin-top: clamp(28px, 4vw, 40px); max-width: none; font-size: clamp(1.4rem, 0.9rem + 1.75vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
 /* desktop: the line fills the full width of the two boxes in one line (100cqw = container width, divisor = line length in em per language) */
-@media (min-width: 1024px) { .anchor-band .container { container-type: inline-size; } .anchor-line { font-size: calc(100cqw / 26.9); } :lang(de) .anchor-line { font-size: calc(100cqw / 34.2); } :lang(fr) .anchor-line { font-size: calc(100cqw / 31.95); } }
+@media (min-width: 1024px) { .anchor-band .container { container-type: inline-size; } .anchor-line { font-size: calc(100cqw / 28); } :lang(de) .anchor-line { font-size: calc(100cqw / 39.85); } :lang(fr) .anchor-line { font-size: calc(100cqw / 38.1); } }
 @media (min-width: 768px) { .anchor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } .anchor-stat { padding: 36px 32px 30px; } }
 
 /* ---------- Problem band (home) ---------- */
@@ -1353,20 +1353,22 @@ body.has-reveal .pin-on .problem-band [data-reveal] { opacity: 1; transform: non
 .vis-portfolio .pf-l1 { font-size: 13.5px; }
 .vis-portfolio .pf-l2, .vis-portfolio .pf-l3 { font-size: 13px; }
 @media (max-width: 639px) { .vis-portfolio .pf-callout { display: none; } }
+/* plays once on load: a short quiet phase (about 1.2 s), the alert builds over about one second, then the drawing
+   rests in the alert state for good. The defaults above are that resting state, so reduced motion shows it too.
+   At rest only the quiet dots and the slow pulse on the flagged marker move. */
 @media (prefers-reduced-motion: no-preference) {
-  .pf-scene { animation: pf-scene 12s linear infinite; }
+  .pf-scene { animation: pf-show 0.5s ease-out 0s 1 both; }
   .pf-ring { animation: pf-ring 3.2s ease-out infinite; }
-  .pf-anomaly { animation: pf-anomaly 12s linear infinite; }
-  .pf-bad { animation: pf-bad 12s linear infinite; }
-  .pf-ok-only { animation: pf-ok-only 12s linear infinite; }
-  .pf-callout-in { animation: pf-callout 12s ease-out infinite; }
+  .pf-anomaly { animation: pf-show 0.45s ease-out 1.2s 1 both; }
+  .pf-bad { animation: pf-show 0.45s ease-out 1.35s 1 both; }
+  .pf-ok-only { animation: pf-hide 0.45s ease-out 1.35s 1 both; }
+  .pf-callout-in { animation: pf-callout 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 1.6s 1 both; }
+  .pf-bad .pf-ring-bad { animation: pf-ring 3s ease-out 1.8s infinite both; }
 }
-@keyframes pf-scene { 0% { opacity: 0; } 8%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes pf-show { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pf-hide { from { opacity: 1; } to { opacity: 0; } }
 @keyframes pf-ring { 0% { transform: scale(0.5); opacity: 0.9; } 70%, 100% { transform: scale(2.4); opacity: 0; } }
-@keyframes pf-anomaly { 0%, 40% { opacity: 0; } 44%, 100% { opacity: 1; } }
-@keyframes pf-bad { 0%, 44% { opacity: 0; } 48%, 100% { opacity: 1; } }
-@keyframes pf-ok-only { 0%, 44% { opacity: 1; } 48%, 100% { opacity: 0; } }
-@keyframes pf-callout { 0%, 50% { opacity: 0; transform: translateY(8px); } 54%, 94% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(0); } }
+@keyframes pf-callout { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ---------- Product hero signal chain (see productHeroSvg in src/visuals.js) ---------- */
 .ph-pipe { fill: rgba(255, 255, 255, 0.04); stroke: rgba(255, 255, 255, 0.35); stroke-width: 1; }

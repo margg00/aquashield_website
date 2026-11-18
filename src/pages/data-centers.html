@@ -18,41 +18,46 @@
       </div>
     </section>
 
+    <div class="pin-track dc-pin" data-pin="dc">
     <section class="section anchor-band dc-band-section" aria-labelledby="story-title">
       <div class="anchor-bg" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head dc-head-wide">
           <h2 id="story-title">{{dataCenters.story.h2}}</h2>
           <p class="lead">{{dataCenters.story.lead}}</p>
+          <div class="pin-rail" aria-hidden="true"><span></span></div>
         </div>
         <div class="dc-compare">
-          <article class="dc-seq dc-seq-bad" data-reveal>
+          <article class="dc-seq dc-seq-bad" data-reveal data-scrub="85 30">
+            <span class="dc-seq-glow" aria-hidden="true"></span>
             <header class="dc-seq-head">
               <h3>{{dataCenters.story.cable.title}}</h3>
               <span class="dc-tag">{{dataCenters.story.cable.tag}}</span>
             </header>
             <ol class="dc-steps">
-              <li><span class="dc-node">{{{dcIcons.leak}}}</span><p>{{dataCenters.story.cable.steps.0}}</p></li>
-              <li><span class="dc-node">{{{dcIcons.unseen}}}</span><p>{{dataCenters.story.cable.steps.1}}</p></li>
-              <li><span class="dc-node">{{{dcIcons.floor}}}</span><p>{{dataCenters.story.cable.steps.2}}</p></li>
-              <li class="dc-step-end"><span class="dc-node">{{{dcIcons.hot}}}</span><p>{{dataCenters.story.cable.steps.3}}</p></li>
+              <li><span class="dc-node">{{{dcIcons.leak}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.cable.steps.0}}</p><span class="dc-seg" aria-hidden="true"></span></li>
+              <li><span class="dc-node">{{{dcIcons.unseen}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.cable.steps.1}}</p><span class="dc-seg" aria-hidden="true"></span></li>
+              <li><span class="dc-node">{{{dcIcons.floor}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.cable.steps.2}}</p><span class="dc-seg" aria-hidden="true"></span></li>
+              <li class="dc-step-end"><span class="dc-end-bg" aria-hidden="true"></span><span class="dc-node">{{{dcIcons.hot}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.cable.steps.3}}</p></li>
             </ol>
           </article>
-          <article class="dc-seq dc-seq-good" data-reveal>
+          <article class="dc-seq dc-seq-good" data-reveal data-scrub="85 30">
+            <span class="dc-seq-glow" aria-hidden="true"></span>
             <header class="dc-seq-head">
               <h3>{{dataCenters.story.aqua.title}}</h3>
               <span class="dc-tag">{{dataCenters.story.aqua.tag}}</span>
             </header>
             <ol class="dc-steps">
-              <li><span class="dc-node">{{{dcIcons.leak}}}</span><p>{{dataCenters.story.aqua.steps.0}}</p></li>
-              <li><span class="dc-node">{{{dcIcons.drift}}}</span><p>{{dataCenters.story.aqua.steps.1}}</p></li>
-              <li><span class="dc-node">{{{dcIcons.pin}}}</span><p>{{dataCenters.story.aqua.steps.2}}</p></li>
-              <li class="dc-step-end"><span class="dc-node">{{{dcIcons.shield}}}</span><p>{{dataCenters.story.aqua.steps.3}}</p></li>
+              <li><span class="dc-node">{{{dcIcons.leak}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.aqua.steps.0}}</p><span class="dc-seg" aria-hidden="true"></span></li>
+              <li><span class="dc-node">{{{dcIcons.drift}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.aqua.steps.1}}</p><span class="dc-seg" aria-hidden="true"></span></li>
+              <li><span class="dc-node">{{{dcIcons.pin}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.aqua.steps.2}}</p><span class="dc-seg" aria-hidden="true"></span></li>
+              <li class="dc-step-end"><span class="dc-end-bg" aria-hidden="true"></span><span class="dc-node">{{{dcIcons.shield}}}<span class="dc-ring" aria-hidden="true"></span></span><p>{{dataCenters.story.aqua.steps.3}}</p></li>
             </ol>
           </article>
         </div>
       </div>
     </section>
+    </div>
 
     <section class="section section-alt" aria-labelledby="how-title">
       <div class="container">
